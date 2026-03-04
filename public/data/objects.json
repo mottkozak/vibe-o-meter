@@ -1,0 +1,110 @@
+{
+  "primaryObjectPools": {
+    "VH": [
+      "Cast-Iron Skillet",
+      "Flashlight",
+      "Toolbox",
+      "Backpack",
+      "Multi-tool",
+      "Work Gloves",
+      "Thermos",
+      "Fire Extinguisher"
+    ],
+    "WH": [
+      "Notebook",
+      "Desk Lamp",
+      "Tea Kettle",
+      "Planner",
+      "Bookshelf",
+      "Index Cards",
+      "Magnifying Glass",
+      "Whiteboard Marker"
+    ],
+    "VG": [
+      "Skateboard Helmet",
+      "Pocket Knife",
+      "Portable Speaker",
+      "Energy Drink Can",
+      "Duct Tape",
+      "Bike Lock",
+      "Carabiner",
+      "Bungee Cord"
+    ],
+    "WG": [
+      "Sticky Notes",
+      "Soldering Iron",
+      "Adapter Pack",
+      "Puzzle Cube",
+      "Cable Organizer",
+      "Label Maker",
+      "Mini Screwdriver Set",
+      "Portable Battery"
+    ]
+  },
+  "axisObjectPools": {
+    "KP": [
+      "Clip Board",
+      "Measuring Tape",
+      "Receipt Folder",
+      "Door Wedge",
+      "Wall Calendar",
+      "Label Roll"
+    ],
+    "PJ": [
+      "Lockpick Set",
+      "Skate Wax",
+      "Zip Ties",
+      "Pocket Compass",
+      "Paracord",
+      "Travel Mug"
+    ],
+    "RJ": [
+      "Alarm Clock",
+      "Checklist Pad",
+      "Binder Clips",
+      "Desk Organizer",
+      "Kitchen Timer",
+      "File Crate"
+    ],
+    "JJ": [
+      "Confetti Cannon",
+      "Party Whistle",
+      "Novelty Sunglasses",
+      "Sticker Pack",
+      "Rubber Chicken",
+      "Disco Ball Keychain"
+    ],
+    "SC": [
+      "Sharpening Stone",
+      "Yoga Mat",
+      "Chef Knife",
+      "Resistance Band",
+      "Fountain Pen",
+      "Water Bottle"
+    ],
+    "CC": [
+      "Pocket Notebook",
+      "Travel Hammock",
+      "Bandana",
+      "Camp Stool",
+      "Road Atlas",
+      "Beanie"
+    ],
+    "MA": [
+      "Meditation Cushion",
+      "Tea Strainer",
+      "Journal",
+      "Noise-Canceling Earplugs",
+      "Reading Lamp",
+      "Clay Mug"
+    ],
+    "AA": [
+      "Scratch-Off Ticket",
+      "Dice Set",
+      "Soda Can",
+      "Neon Lighter",
+      "Drone",
+      "Arcade Token"
+    ]
+  }
+}

@@ -1,0 +1,95 @@
+{
+    "families": {
+      "VH": {
+        "familyName": "Warrior Hero",
+        "titles16": [
+          "The Noble Commander",
+          "The Fearless Guardian",
+          "The Battle Strategist",
+          "The Iron Protector",
+          "The Wandering Champion",
+          "The Reluctant Hero",
+          "The Adventuring Knight",
+          "The Laughing Warrior",
+          "The Warrior Monk",
+          "The Rebel Defender",
+          "The Frontier Marshal",
+          "The Courageous Pathfinder",
+          "The People’s Champion",
+          "The Storm Vanguard",
+          "The Unbreakable Sentinel",
+          "The Heroic Outlaw"
+        ]
+      },
+      "WH": {
+        "familyName": "Sage Hero",
+        "titles16": [
+          "The Enlightened Mentor",
+          "The Scholar King",
+          "The Strategic Visionary",
+          "The Philosopher Leader",
+          "The Wandering Sage",
+          "The Curious Explorer",
+          "The Maverick Thinker",
+          "The Inventive Scholar",
+          "The Diplomatic Oracle",
+          "The Quiet Architect",
+          "The Renaissance Mind",
+          "The Knowledge Seeker",
+          "The Cosmic Questioner",
+          "The Thoughtful Rebel",
+          "The Guiding Lantern",
+          "The Philosopher Adventurer"
+        ]
+      },
+      "VG": {
+        "familyName": "Goblin Raider",
+        "titles16": [
+          "The Wild Berserker",
+          "The Storm Raider",
+          "The Reckless Gladiator",
+          "The Fearless Daredevil",
+          "The Charming Rogue",
+          "The Laughing Outlaw",
+          "The Trickster Warrior",
+          "The Chaos Adventurer",
+          "The Street Champion",
+          "The Rowdy Pathfinder",
+          "The Frontier Bandit",
+          "The Gremlin Fighter",
+          "The Thunder Brawler",
+          "The Unpredictable Maverick",
+          "The Bold Instigator",
+          "The Riot Starter"
+        ]
+      },
+      "WG": {
+        "familyName": "Goblin Scholar",
+        "titles16": [
+          "The Mad Inventor",
+          "The Trickster Genius",
+          "The Chaos Scientist",
+          "The Cunning Strategist",
+          "The Shadow Architect",
+          "The Rogue Philosopher",
+          "The Clever Manipulator",
+          "The Experimental Visionary",
+          "The Mischief Maker",
+          "The Puzzle Breaker",
+          "The Curious Disruptor",
+          "The Idea Alchemist",
+          "The Abstract Wanderer",
+          "The Cosmic Tinkerer",
+          "The Wild Theorist",
+          "The Unorthodox Genius"
+        ]
+      }
+    },
+    "bitOrder": ["KP", "RJ", "SC", "MA"],
+    "bitMeaning": {
+      "KP": { "0": "K", "1": "P" },
+      "RJ": { "0": "R", "1": "J" },
+      "SC": { "0": "S", "1": "C" },
+      "MA": { "0": "M", "1": "A" }
+    }
+  }

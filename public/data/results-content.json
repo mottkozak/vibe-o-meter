@@ -1,0 +1,34 @@
+{
+    "disclaimer": "This is entertainment. Not science. Not therapy. Not a reason to email your boss 'sorry, I'm a Goblin.'",
+    "quadrantWriteups": {
+      "power.warriorHero": {
+        "headline": "You solve problems with brave action — for the right reasons.",
+        "strengths": ["Shows up under pressure", "Protective instincts", "Courageous momentum"],
+        "pitfalls": ["Can rush in too fast", "May carry too much responsibility", "Can mistake intensity for certainty"],
+        "oneLiner": "A human shield with a plan (sometimes).",
+        "celebs": ["TBD", "TBD", "TBD"]
+      }
+    },
+    "typeWriteupTemplate": {
+      "sections": [
+        {
+          "id": "intro",
+          "format": "You are **{TITLE}** ({TYPE_CODE}). In the grand tradition of Totally Serious Personality Science™, this means you tend to be **{POWER_LABEL}** with a strong streak of **{ORDER_LABEL}**."
+        },
+        {
+          "id": "strengths",
+          "format": "Your main strengths: {STRENGTHS_BULLETS}"
+        },
+        {
+          "id": "watchouts",
+          "format": "Your classic pitfalls: {PITFALLS_BULLETS}"
+        },
+        {
+          "id": "vibes",
+          "format": "Famous vibe matches (non-scientific): {CELEBS_LIST}"
+        }
+      ]
+    }
+  }
+
+# You’ll eventually fill quadrantWriteups for all 20 quadrants

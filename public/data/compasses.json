@@ -1,0 +1,77 @@
+{
+    "axes": {
+      "VW": { "posLabel": "Viking", "negLabel": "Wizard" },
+      "HG": { "posLabel": "Hero", "negLabel": "Goblin" },
+      "KP": { "posLabel": "Knight", "negLabel": "Pirate" },
+      "RJ": { "posLabel": "General", "negLabel": "Jester" },
+      "SC": { "posLabel": "Samurai", "negLabel": "Cowboy" },
+      "ST": { "posLabel": "Sensei", "negLabel": "Trickster" },
+      "PT": { "posLabel": "Princess", "negLabel": "Tomboy" },
+      "QR": { "posLabel": "Queen", "negLabel": "Rogue" },
+      "GP": { "posLabel": "Gladiator", "negLabel": "Philosopher" },
+      "MA": { "posLabel": "Monk", "negLabel": "Gambler" }
+    },
+    "compasses": [
+      {
+        "id": "power",
+        "name": "Power Compass",
+        "xAxis": "VW",
+        "yAxis": "HG",
+        "quadrants": [
+          { "id": "warriorHero", "when": "x>0&&y>0", "label": "Warrior Hero" },
+          { "id": "sageHero", "when": "x<0&&y>0", "label": "Sage Hero" },
+          { "id": "goblinRaider", "when": "x>0&&y<0", "label": "Goblin Raider" },
+          { "id": "goblinScholar", "when": "x<0&&y<0", "label": "Goblin Scholar" }
+        ]
+      },
+      {
+        "id": "order",
+        "name": "Order Compass",
+        "xAxis": "KP",
+        "yAxis": "RJ",
+        "quadrants": [
+          { "id": "knightCommander", "when": "x>0&&y>0", "label": "Knight Commander" },
+          { "id": "pirateCaptain", "when": "x<0&&y>0", "label": "Pirate Captain" },
+          { "id": "knightJester", "when": "x>0&&y<0", "label": "Knight Jester" },
+          { "id": "pirateTrickster", "when": "x<0&&y<0", "label": "Pirate Trickster" }
+        ]
+      },
+      {
+        "id": "discipline",
+        "name": "Discipline Compass",
+        "xAxis": "SC",
+        "yAxis": "ST",
+        "quadrants": [
+          { "id": "samuraiMaster", "when": "x>0&&y>0", "label": "Samurai Master" },
+          { "id": "cowboySage", "when": "x<0&&y>0", "label": "Cowboy Sage" },
+          { "id": "samuraiTrickster", "when": "x>0&&y<0", "label": "Samurai Trickster" },
+          { "id": "cowboyTrickster", "when": "x<0&&y<0", "label": "Cowboy Trickster" }
+        ]
+      },
+      {
+        "id": "social",
+        "name": "Social Style Compass",
+        "xAxis": "PT",
+        "yAxis": "QR",
+        "quadrants": [
+          { "id": "royalDiplomat", "when": "x>0&&y>0", "label": "Royal Diplomat" },
+          { "id": "warriorQueen", "when": "x<0&&y>0", "label": "Warrior Queen" },
+          { "id": "roguePrincess", "when": "x>0&&y<0", "label": "Rogue Princess" },
+          { "id": "rogueAdventurer", "when": "x<0&&y<0", "label": "Rogue Adventurer" }
+        ]
+      },
+      {
+        "id": "risk",
+        "name": "Risk Compass",
+        "xAxis": "GP",
+        "yAxis": "MA",
+        "quadrants": [
+          { "id": "warriorMonk", "when": "x>0&&y>0", "label": "Warrior Monk" },
+          { "id": "philosopherMonk", "when": "x<0&&y>0", "label": "Philosopher Monk" },
+          { "id": "recklessFighter", "when": "x>0&&y<0", "label": "Reckless Fighter" },
+          { "id": "chaoticThinker", "when": "x<0&&y<0", "label": "Chaotic Thinker" }
+        ]
+      }
+    ],
+    "typeCodeAxes": ["VW", "HG", "KP", "RJ", "SC", "MA"]
+  }
