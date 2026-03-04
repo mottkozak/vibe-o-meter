@@ -1,5 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CompassMiniChart } from "../components/CompassMiniChart";
+import { resolveCompassResult } from "../lib/scoring";
 import { useQuiz } from "../state/QuizContext";
 import type { CompassDefinition, LoadedAppData, Question } from "../types";
 
@@ -20,9 +22,11 @@ function findCurrentCompass(
 
 export function QuizPage({ data }: QuizPageProps): JSX.Element {
   const navigate = useNavigate();
+  const [reviewCompassId, setReviewCompassId] = useState<string | null>(null);
   const {
     questions,
     answers,
+    axisScores,
     answeredCount,
     currentQuestionIndex,
     goToQuestion,
@@ -75,8 +79,22 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     (question) => question.id === activeQuestion.id
   );
   const selectedAnswerId = answers[activeQuestion.id];
+  const sectionComplete = sectionQuestions.every((question) => Boolean(answers[question.id]));
+  const isLastQuestionInSection = sectionQuestionIndex === sectionQuestions.length - 1;
+  const shouldOfferSectionReview = isLastQuestionInSection && sectionComplete;
+  const shouldShowSectionReview = reviewCompassId === activeCompass.id && sectionComplete;
 
   const unansweredIndex = questions.findIndex((question) => !answers[question.id]);
+  const sectionResult = useMemo(() => {
+    if (!shouldShowSectionReview) {
+      return null;
+    }
+    return resolveCompassResult(activeCompass, axisScores);
+  }, [activeCompass, axisScores, shouldShowSectionReview]);
+
+  useEffect(() => {
+    setReviewCompassId(null);
+  }, [currentQuestionIndex]);
 
   return (
     <main className="screen-shell">
@@ -93,6 +111,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             type="button"
             onClick={() => {
               restartQuiz();
+              setReviewCompassId(null);
               navigate("/");
             }}
           >
@@ -134,21 +153,71 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
               className="primary-button"
               type="button"
               disabled={!selectedAnswerId}
-              onClick={() => goToQuestion(currentQuestionIndex + 1)}
+              onClick={() => {
+                if (shouldOfferSectionReview && !shouldShowSectionReview) {
+                  setReviewCompassId(activeCompass.id);
+                  return;
+                }
+                goToQuestion(currentQuestionIndex + 1);
+              }}
             >
-              Next
+              {shouldOfferSectionReview && !shouldShowSectionReview
+                ? "View Section Grid"
+                : "Next"}
             </button>
           ) : (
             <button
               className="primary-button"
               type="button"
               disabled={!isComplete}
-              onClick={() => navigate("/results")}
+              onClick={() => {
+                if (shouldOfferSectionReview && !shouldShowSectionReview) {
+                  setReviewCompassId(activeCompass.id);
+                  return;
+                }
+                navigate("/results");
+              }}
             >
-              See Results
+              {shouldOfferSectionReview && !shouldShowSectionReview
+                ? "View Section Grid"
+                : "See Results"}
             </button>
           )}
         </div>
+
+        {shouldShowSectionReview && sectionResult ? (
+          <section className="household-section">
+            <h2>{activeCompass.name} Complete</h2>
+            <p className="muted">Here is where your answers place you on this section grid.</p>
+            <CompassMiniChart
+              title={activeCompass.name}
+              quadrantLabel={sectionResult.quadrant.label}
+              x={sectionResult.x}
+              y={sectionResult.y}
+              confidence={Math.max(
+                0,
+                Math.min(100, Math.round(((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / 24) * 100))
+              )}
+              xAxis={data.compasses.axes[activeCompass.xAxis]}
+              yAxis={data.compasses.axes[activeCompass.yAxis]}
+            />
+            <div className="button-row">
+              {currentQuestionIndex < totalQuestions - 1 ? (
+                <button
+                  className="primary-button"
+                  type="button"
+                  onClick={() => goToQuestion(currentQuestionIndex + 1)}
+                >
+                  Continue to Next Section
+                </button>
+              ) : (
+                <button className="primary-button" type="button" onClick={() => navigate("/results")}>
+                  Continue to Results
+                </button>
+              )}
+            </div>
+          </section>
+        ) : null}
 
         {!isComplete && unansweredIndex >= 0 && currentQuestionIndex === totalQuestions - 1 ? (
           <p className="muted">
