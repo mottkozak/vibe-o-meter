@@ -9,6 +9,132 @@ interface ResultsPageProps {
   data: LoadedAppData;
 }
 
+const COMPASS_GRID_INFO: Record<
+  string,
+  {
+    descriptor: string;
+    axisLineX: string;
+    axisLineY: string;
+    bullets: Array<{ label: string; text: string }>;
+  }
+> = {
+  power: {
+    descriptor: "Physical vs Mental | Honorable vs Chaotic",
+    axisLineX: "Viking <-> Wizard",
+    axisLineY: "Hero <-> Goblin",
+    bullets: [
+      {
+        label: "Viking (Physical Force)",
+        text: "action, courage, instinct, adventure, boldness, kinetic energy"
+      },
+      {
+        label: "Wizard (Mental Power)",
+        text: "knowledge, foresight, strategy, patience, intellect, planning"
+      },
+      {
+        label: "Hero (Honor / Responsibility)",
+        text: "duty, bravery, reliability, moral backbone, protector energy"
+      },
+      {
+        label: "Goblin (Chaotic Instinct)",
+        text: "mischief, opportunism, cleverness, impulse, rule-bending survival"
+      }
+    ]
+  },
+  order: {
+    descriptor: "Order vs Freedom | Serious vs Playful",
+    axisLineX: "Knight <-> Pirate",
+    axisLineY: "General <-> Jester",
+    bullets: [
+      {
+        label: "Knight (Order / Duty)",
+        text: "honor, rules, structure, loyalty, institution-minded"
+      },
+      {
+        label: "Pirate (Freedom / Rebellion)",
+        text: "independence, improvisation, defiance, adventure, anti-authority"
+      },
+      {
+        label: "General (Strategic Seriousness)",
+        text: "discipline, planning, leadership, responsibility, control"
+      },
+      {
+        label: "Jester (Playful Chaos)",
+        text: "humor, disruption, irreverence, provocation, creativity"
+      }
+    ]
+  },
+  discipline: {
+    descriptor: "Discipline vs Independence | Wisdom vs Mischief",
+    axisLineX: "Samurai <-> Cowboy",
+    axisLineY: "Sensei <-> Trickster",
+    bullets: [
+      {
+        label: "Samurai (Discipline)",
+        text: "precision, honor, mastery, ritual, self-control"
+      },
+      {
+        label: "Cowboy (Independence)",
+        text: "freedom, rugged improvisation, lone wolf energy"
+      },
+      {
+        label: "Sensei (Wisdom)",
+        text: "teacher, composed authority, reflective calm"
+      },
+      {
+        label: "Trickster (Chaos Intelligence)",
+        text: "clever disruption, playful deception, rule-breaking creativity"
+      }
+    ]
+  },
+  social: {
+    descriptor: "Polished vs Rugged | Authority vs Mischief",
+    axisLineX: "Princess <-> Tomboy",
+    axisLineY: "Queen <-> Rogue",
+    bullets: [
+      {
+        label: "Princess (Refined)",
+        text: "elegance, polish, aesthetics, diplomacy, social grace"
+      },
+      {
+        label: "Tomboy (Rugged Competence)",
+        text: "practical, athletic, adventurous, hands-on capability"
+      },
+      {
+        label: "Queen (Authority / Command)",
+        text: "leadership, presence, responsibility, strategic power"
+      },
+      {
+        label: "Rogue (Playful Subversion)",
+        text: "mischief, clever rebellion, rule-bending charm"
+      }
+    ]
+  },
+  risk: {
+    descriptor: "Action vs Reflection | Stability vs Impulse",
+    axisLineX: "Gladiator <-> Philosopher",
+    axisLineY: "Monk <-> Gambler",
+    bullets: [
+      {
+        label: "Gladiator (Direct Action)",
+        text: "boldness, grit, confrontation, momentum, competitive edge"
+      },
+      {
+        label: "Philosopher (Reflective Analysis)",
+        text: "thoughtfulness, long-view strategy, nuance, contemplation"
+      },
+      {
+        label: "Monk (Steady Restraint)",
+        text: "patience, control, composure, discipline, emotional stability"
+      },
+      {
+        label: "Gambler (Risk Instinct)",
+        text: "experimentation, daring moves, spontaneity, appetite for uncertainty"
+      }
+    ]
+  }
+};
+
 function toErrorMessage(error: unknown): string {
   if (error instanceof Error && error.message) {
     return error.message;
@@ -167,6 +293,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               confidence={item.confidence}
               xAxis={data.compasses.axes[item.compass.xAxis]}
               yAxis={data.compasses.axes[item.compass.yAxis]}
+              infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
             />
           ))}
         </div>

@@ -7,25 +7,15 @@ interface LandingPageProps {
 }
 
 const LANDING_BODY_PARAGRAPHS = [
-  "Greetings, most curious, seeker of vibes.",
+  "What is up dude.",
   "You are about to embark on a most excellent journey of self-discovery.",
-  "Using advanced techniques developed by the most knowledgeable ancient philosopher dudes - and absolutely zero peer-reviewed science - this totally righteous quiz will reveal the hidden alignment of your soul.",
+  "Using advanced techniques developed by most knowledgeable philosopher dudes - and no peer-reviewed science - this quiz will reveal the hidden alignment of your soul.",
   "I know what you're thinking.",
-  "\"Whoa. That is pretty sweet, dude.\"",
-  "And honestly... I totally agree, dude.",
-  "Through a series of most intelectual questions, we will map your personality across the great forces of human nature.",
-  "As you answer each question, your choices will slowly align your personality across these cosmic compasses, until your true archetype emerges from the swirling chaos of the universe.",
-  "Double whoa.",
-  "Heavy stuff, dude.",
-  "So answer honestly.",
-  "Trust your instincts.",
-  "And the universe will reveal your Most Magnanimous Archetype.",
-  "Technically this isn't science.",
-  "But it feels pretty scientific, and honestly that's close enough, dude.",
-  "You got this, dude.",
-  "And remember the ancient wisdom:",
-  "Be excellent to each other.",
-  "Now... let's do this."
+  "\"Woah.\"",
+  "And honestly... I agree dude.",
+  "Through a series of most intellectual questions, it will map your personality across the great forces of human nature. As you answer, your choices will slowly align across the cosmic compasses of destiny, until your true self emerges from the swirling chaos of the universe.",
+  "Double woah. Heavy stuff. I don't even know what that means. Just answer honestly and trust your instincts.",
+  "Technically this isn't science. But it feels pretty scientific, and honestly that's close enough, dude."
 ] as const;
 
 export function LandingPage({ data }: LandingPageProps): JSX.Element {
@@ -52,7 +42,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
 
         <div className="button-row">
           <button className="primary-button" type="button" onClick={() => navigate("/quiz")}> 
-            {hasInProgressAnswers ? "Continue Quiz" : data.resultsContent.startButtonLabel}
+            {hasInProgressAnswers ? "Continue Quiz" : "Let's do this"}
           </button>
           {answeredCount > 0 ? (
             <button

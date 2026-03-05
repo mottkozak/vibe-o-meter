@@ -1,5 +1,15 @@
 import type { AxisDefinition } from "../types";
 
+interface CompassInfoBlurb {
+  descriptor: string;
+  axisLineX: string;
+  axisLineY: string;
+  bullets: Array<{
+    label: string;
+    text: string;
+  }>;
+}
+
 interface CompassMiniChartProps {
   title: string;
   quadrantLabel: string;
@@ -8,6 +18,7 @@ interface CompassMiniChartProps {
   confidence: number;
   xAxis: AxisDefinition;
   yAxis: AxisDefinition;
+  infoBlurb?: CompassInfoBlurb;
 }
 
 function clamp(value: number, min: number, max: number): number {
@@ -21,7 +32,8 @@ export function CompassMiniChart({
   y,
   confidence,
   xAxis,
-  yAxis
+  yAxis,
+  infoBlurb
 }: CompassMiniChartProps): JSX.Element {
   const boundedX = clamp(x, -12, 12);
   const boundedY = clamp(y, -12, 12);
@@ -43,6 +55,21 @@ export function CompassMiniChart({
         <div className="position-dot" style={{ left: `${dotLeft}%`, top: `${dotTop}%` }} />
       </div>
       <p className="mini-chart-confidence">Confidence: {confidence}%</p>
+      {infoBlurb ? (
+        <section className="grid-blurb">
+          <p className="grid-blurb-line">{infoBlurb.descriptor}</p>
+          <p className="grid-blurb-line">{infoBlurb.axisLineX}</p>
+          <p className="grid-blurb-line">{infoBlurb.axisLineY}</p>
+          <ul className="grid-blurb-list">
+            {infoBlurb.bullets.map((bullet) => (
+              <li key={bullet.label}>
+                <strong>{bullet.label}</strong>
+                <span> {bullet.text}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
     </article>
   );
 }

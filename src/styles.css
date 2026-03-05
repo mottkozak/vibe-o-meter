@@ -79,7 +79,7 @@ li {
 }
 
 .card::before {
-  content: "VIBE-O-METER 2000";
+  content: "THE TRANSDIMENSIONAL MULTIAXIAL PSYCHO-ARCHETYPAL RESONANCE ALIGNMENT CALIBRATION APPARATUS";
   position: absolute;
   top: 2px;
   left: 2px;
@@ -306,6 +306,31 @@ li {
 .mini-chart-confidence {
   color: #314763;
   font-size: 0.78rem;
+}
+
+.grid-blurb {
+  margin-top: 0.55rem;
+  padding: 0.45rem;
+  border: 1px solid #8a8a8a;
+  background: #f0f0f0;
+  box-shadow: inset 1px 1px 0 #fff;
+}
+
+.grid-blurb-line {
+  margin: 0 0 0.22rem;
+  font-size: 0.73rem;
+  color: #243b57;
+}
+
+.grid-blurb-list {
+  margin: 0.3rem 0 0;
+  padding-left: 1rem;
+}
+
+.grid-blurb-list li {
+  margin-bottom: 0.26rem;
+  font-size: 0.72rem;
+  line-height: 1.25;
 }
 
 .mini-chart-grid {

@@ -191,7 +191,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             >
               {shouldOfferSectionReview && !shouldShowSectionReview
                 ? "View Most Excellent Grid"
-                : "Totally Next"}
+                : "Next"}
             </button>
           ) : (
             <button

@@ -188,11 +188,11 @@ export interface GeneratedResult {
 export const DEFAULT_RESULTS_CONTENT: ResultsContentData = {
   disclaimer:
     "Dude, this is totally for fun and vibes only, not science or life advice.",
-  landingTitle: "Vibe-o-meter, Dude",
+  landingTitle: "The Transdimensional Multiaxial Psycho-Archetypal Resonance Alignment Calibration Apparatus",
   landingSubtitle:
     "A most excellent nonsense-powered personality quest with absolutely questionable certainty.",
   startButtonLabel: "Start This Totally Gnarly Quiz",
-  restartButtonLabel: "Restart the Vibe Ride",
+  restartButtonLabel: "Restart",
   resultsHeading: "Your Most Excellent Vibe Results"
 };
 
