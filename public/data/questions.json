@@ -4,333 +4,1950 @@
       "compassId": "power",
       "prompt": "A crisis breaks out. Your instinct is to…",
       "answers": [
-        { "id": "A", "text": "Jump in immediately and protect people.", "delta": { "VW": 2, "HG": 2 } },
-        { "id": "B", "text": "Step back and plan the smartest approach.", "delta": { "VW": -2, "HG": 2 } },
-        { "id": "C", "text": "Improvise something bold and slightly unhinged.", "delta": { "VW": 2, "HG": -2 } },
-        { "id": "D", "text": "Find a clever loophole nobody else noticed.", "delta": { "VW": -2, "HG": -2 } }
+        {
+          "id": "A",
+          "text": "Jump in immediately and protect people.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Step back, assess, and coordinate the smartest response.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Improvise something bold and slightly unhinged.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Spot the loophole and flip the situation in your favor.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q02",
       "compassId": "power",
-      "prompt": "When a plan goes wrong, you usually…",
+      "prompt": "Someone drops their wallet in public. You…",
       "answers": [
-        { "id": "A", "text": "Push through with sheer effort.", "delta": { "VW": 2, "HG": 1 } },
-        { "id": "B", "text": "Rework the strategy with calm logic.", "delta": { "VW": -2, "HG": 1 } },
-        { "id": "C", "text": "Double down and do something riskier.", "delta": { "VW": 2, "HG": -1 } },
-        { "id": "D", "text": "Outsmart the situation with a sneaky pivot.", "delta": { "VW": -2, "HG": -1 } }
+        {
+          "id": "A",
+          "text": "Grab it and chase them down like it’s your quest.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Secure it, figure out the best way to return it, then execute.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Yell ‘FREE MONEY’ as a joke, then do something chaotic-but-helpful.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Use detective skills to locate them… while enjoying the drama.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q03",
       "compassId": "power",
-      "prompt": "Your friends rely on you most for…",
+      "prompt": "You walk into an escape room. The timer starts. You…",
       "answers": [
-        { "id": "A", "text": "Bravery and showing up.", "delta": { "VW": 2, "HG": 2 } },
-        { "id": "B", "text": "Insight and good advice.", "delta": { "VW": -2, "HG": 2 } },
-        { "id": "C", "text": "Spontaneity and chaos-powered momentum.", "delta": { "VW": 2, "HG": -2 } },
-        { "id": "D", "text": "Clever solutions and mischief engineering.", "delta": { "VW": -2, "HG": -2 } }
+        {
+          "id": "A",
+          "text": "Start pulling levers and moving furniture. Momentum matters.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Scan for patterns, delegate roles, and build a plan in 30 seconds.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Try the weirdest thing first because it might be genius.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Look for the rule they forgot to write down.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q04",
       "compassId": "power",
-      "prompt": "In a conflict, your default approach is…",
+      "prompt": "A friend calls at 2am with a problem. You…",
       "answers": [
-        { "id": "A", "text": "Direct confrontation, clean and simple.", "delta": { "VW": 2, "HG": 1 } },
-        { "id": "B", "text": "Win by thinking three moves ahead.", "delta": { "VW": -2, "HG": 1 } },
-        { "id": "C", "text": "Create chaos so the opponent can’t keep up.", "delta": { "VW": 2, "HG": -1 } },
-        { "id": "D", "text": "Use wit, leverage, and a well-timed twist.", "delta": { "VW": -2, "HG": -1 } }
+        {
+          "id": "A",
+          "text": "Show up. No notes. Let’s fix it.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Talk them through options and map a plan for the morning.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Say ‘we ride’ and drag them into a chaotic reset.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Ask three questions, identify the real issue, and exploit it politely.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q05",
       "compassId": "power",
-      "prompt": "A ‘good day’ feels like…",
+      "prompt": "Your group chat has 200 unread messages. You…",
       "answers": [
-        { "id": "A", "text": "Doing something bold that helped someone.", "delta": { "VW": 2, "HG": 2 } },
-        { "id": "B", "text": "Learning something useful and applying it.", "delta": { "VW": -2, "HG": 2 } },
-        { "id": "C", "text": "Wild fun with zero predictable outcomes.", "delta": { "VW": 2, "HG": -2 } },
-        { "id": "D", "text": "A clever win that feels like a heist.", "delta": { "VW": -2, "HG": -2 } }
+        {
+          "id": "A",
+          "text": "Jump in, take charge, and get everyone back on track.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Read everything, summarize the situation, and propose a clean plan.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Send one chaotic message that somehow moves the plot forward.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Drop a perfectly-timed comment that changes the whole conversation.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q06",
       "compassId": "power",
-      "prompt": "If you were in a fantasy party, you’d want to be…",
+      "prompt": "You’re learning a new skill. Your default mode is…",
       "answers": [
-        { "id": "A", "text": "The protector with a battle cry.", "delta": { "VW": 2, "HG": 2 } },
-        { "id": "B", "text": "The strategist with a scroll collection.", "delta": { "VW": -2, "HG": 2 } },
-        { "id": "C", "text": "The chaos engine with a questionable plan.", "delta": { "VW": 2, "HG": -2 } },
-        { "id": "D", "text": "The mastermind with three backup schemes.", "delta": { "VW": -2, "HG": -2 } }
+        {
+          "id": "A",
+          "text": "Try it immediately. Learn by doing and failing loudly.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Research first, then practice with a strategy.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Make up your own technique mid-way and commit to it.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Find a clever shortcut nobody told you about.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
-  
     {
       "id": "q07",
-      "compassId": "order",
-      "prompt": "Your relationship with rules is…",
+      "compassId": "power",
+      "prompt": "You hear a suspicious noise downstairs at night. You…",
       "answers": [
-        { "id": "A", "text": "Rules keep things fair and predictable.", "delta": { "KP": 2, "RJ": 1 } },
-        { "id": "B", "text": "Rules are negotiable if they’re stupid.", "delta": { "KP": -2, "RJ": 1 } },
-        { "id": "C", "text": "Rules are useful targets for comedy.", "delta": { "KP": 2, "RJ": -1 } },
-        { "id": "D", "text": "Rules are suggestions I politely ignore.", "delta": { "KP": -2, "RJ": -1 } }
+        {
+          "id": "A",
+          "text": "Go check. If it’s a monster, it’s catching hands.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Turn on lights, grab a plan, and proceed like a tactician.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Sneak down dramatically with maximum chaos energy.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Set a clever trap and let the situation reveal itself.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q08",
-      "compassId": "order",
-      "prompt": "In a group project, you tend to become…",
+      "compassId": "power",
+      "prompt": "At a party, a debate starts getting heated. You…",
       "answers": [
-        { "id": "A", "text": "The organizer who makes it work.", "delta": { "KP": 2, "RJ": 2 } },
-        { "id": "B", "text": "The independent problem-solver who does it fast.", "delta": { "KP": -2, "RJ": 2 } },
-        { "id": "C", "text": "The morale booster / chaos comedian.", "delta": { "KP": 2, "RJ": -2 } },
-        { "id": "D", "text": "The wildcard who improvises solutions.", "delta": { "KP": -2, "RJ": -2 } }
+        {
+          "id": "A",
+          "text": "Step in directly and protect whoever’s getting dogpiled.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "De-escalate by reframing the argument and steering toward facts.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Throw in a wild point that resets the room (for better or worse).",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Use humor and logic to expose the weak spot in the loudest argument.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q09",
-      "compassId": "order",
-      "prompt": "When authority is clearly wrong, you…",
+      "compassId": "power",
+      "prompt": "You find a big red button labeled ‘DO NOT PRESS.’ You…",
       "answers": [
-        { "id": "A", "text": "Escalate properly and fix it.", "delta": { "KP": 2, "RJ": 2 } },
-        { "id": "B", "text": "Go around it and get results anyway.", "delta": { "KP": -2, "RJ": 2 } },
-        { "id": "C", "text": "Undermine it with sarcasm and pressure.", "delta": { "KP": 2, "RJ": -2 } },
-        { "id": "D", "text": "Ignore it completely and do your thing.", "delta": { "KP": -2, "RJ": -2 } }
+        {
+          "id": "A",
+          "text": "Guard it. Someone is going to get hurt and you can feel it.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Investigate what it does, who put it there, and why it exists.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Press it. Then deal with consequences heroically-ish.",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Press it… but only after setting up a loophole and plausible deniability.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q10",
-      "compassId": "order",
-      "prompt": "Your ideal leader is someone who…",
+      "compassId": "power",
+      "prompt": "Five minutes before a demo, something breaks. You…",
       "answers": [
-        { "id": "A", "text": "Protects structure and responsibility.", "delta": { "KP": 2, "RJ": 2 } },
-        { "id": "B", "text": "Gives freedom and trusts initiative.", "delta": { "KP": -2, "RJ": 2 } },
-        { "id": "C", "text": "Keeps things light and human.", "delta": { "KP": 1, "RJ": -2 } },
-        { "id": "D", "text": "Breaks rules creatively to move fast.", "delta": { "KP": -2, "RJ": -1 } }
+        {
+          "id": "A",
+          "text": "Jump in and brute-force a fix so the team doesn’t panic.",
+          "delta": {
+            "VW": 2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Diagnose calmly, choose the smartest fix, and delegate fast.",
+          "delta": {
+            "VW": -2,
+            "HG": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Ship a chaotic workaround and call it ‘version one.’",
+          "delta": {
+            "VW": 2,
+            "HG": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Find the one change that makes it work and pretend it was planned.",
+          "delta": {
+            "VW": -2,
+            "HG": -2
+          }
+        }
       ]
     },
     {
       "id": "q11",
       "compassId": "order",
-      "prompt": "You’re most annoyed by…",
+      "prompt": "Your relationship with rules is best described as…",
       "answers": [
-        { "id": "A", "text": "People ignoring responsibilities.", "delta": { "KP": 2, "RJ": 1 } },
-        { "id": "B", "text": "Pointless bureaucracy.", "delta": { "KP": -2, "RJ": 1 } },
-        { "id": "C", "text": "People who can’t take a joke.", "delta": { "KP": 1, "RJ": -2 } },
-        { "id": "D", "text": "People who worship rules over outcomes.", "delta": { "KP": -2, "RJ": -1 } }
+        {
+          "id": "A",
+          "text": "Rules keep things fair. I respect the system (and the system respects me).",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Rules are negotiable if they’re dumb. Results matter more than rituals.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Rules are important… and also extremely funny when taken too seriously.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Rules are suggestions I ignore with a smile and a getaway plan.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q12",
       "compassId": "order",
-      "prompt": "In a rebellion, you’d be…",
+      "prompt": "You’re running a group project. You naturally become…",
       "answers": [
-        { "id": "A", "text": "The honorable coordinator.", "delta": { "KP": 2, "RJ": 2 } },
-        { "id": "B", "text": "The daring captain who plans the escape route.", "delta": { "KP": -2, "RJ": 2 } },
-        { "id": "C", "text": "The meme-lord who keeps everyone sane.", "delta": { "KP": 2, "RJ": -2 } },
-        { "id": "D", "text": "The chaos gremlin who makes it legendary.", "delta": { "KP": -2, "RJ": -2 } }
+        {
+          "id": "A",
+          "text": "The organizer who assigns roles and keeps things accountable.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "The independent fixer who disappears, returns, and solves a big chunk.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "The morale officer who keeps everyone sane (and mildly distracted).",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "The wildcard who improvises solutions and refuses to be micromanaged.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
-  
     {
       "id": "q13",
-      "compassId": "discipline",
-      "prompt": "If you want to get good at something, you…",
+      "compassId": "order",
+      "prompt": "Someone introduces a brand-new policy that makes everything worse. You…",
       "answers": [
-        { "id": "A", "text": "Train with structure and consistency.", "delta": { "SC": 2, "ST": 2 } },
-        { "id": "B", "text": "Learn by doing it in the real world.", "delta": { "SC": -2, "ST": 2 } },
-        { "id": "C", "text": "Master rules so you can bend them artfully.", "delta": { "SC": 2, "ST": -2 } },
-        { "id": "D", "text": "Wing it until you invent a new method.", "delta": { "SC": -2, "ST": -2 } }
+        {
+          "id": "A",
+          "text": "Document the issue and push for a proper correction.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Work around it immediately and keep moving.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Follow it *exactly* in a way that makes it look ridiculous.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Ignore it, start a parallel system, and invite others to join.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q14",
-      "compassId": "discipline",
-      "prompt": "Your ideal learning environment is…",
+      "compassId": "order",
+      "prompt": "Game night. Someone is bending the rules. You…",
       "answers": [
-        { "id": "A", "text": "A clear system and a coach.", "delta": { "SC": 2, "ST": 1 } },
-        { "id": "B", "text": "A wide open sandbox.", "delta": { "SC": -2, "ST": 1 } },
-        { "id": "C", "text": "A tradition you can master deeply.", "delta": { "SC": 2, "ST": -1 } },
-        { "id": "D", "text": "A messy place where experiments happen.", "delta": { "SC": -2, "ST": -1 } }
+        {
+          "id": "A",
+          "text": "Pause the game, clarify the rules, and restore order.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Let it slide if it keeps the game moving and fun.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Turn it into a running joke while still keeping things fair-ish.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Invent a new rule on the spot and declare it canon.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q15",
-      "compassId": "discipline",
-      "prompt": "Your strongest vibe is…",
+      "compassId": "order",
+      "prompt": "A meeting is running long and drifting. You…",
       "answers": [
-        { "id": "A", "text": "Precision and ritual.", "delta": { "SC": 2, "ST": 2 } },
-        { "id": "B", "text": "Freedom and improvisation.", "delta": { "SC": -2, "ST": 2 } },
-        { "id": "C", "text": "Strategic mischief.", "delta": { "SC": 2, "ST": -2 } },
-        { "id": "D", "text": "Playful rule-breaking.", "delta": { "SC": -2, "ST": -2 } }
+        {
+          "id": "A",
+          "text": "Bring it back to agenda and decisions.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Cut through the noise and propose a bold shortcut to resolution.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Drop a joke to reset the room, then refocus.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Start a side mission in the chat and somehow solve it faster.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q16",
-      "compassId": "discipline",
-      "prompt": "When someone gives you a strict process, you…",
+      "compassId": "order",
+      "prompt": "Your ideal leader is someone who…",
       "answers": [
-        { "id": "A", "text": "Follow it and perfect it.", "delta": { "SC": 2, "ST": 1 } },
-        { "id": "B", "text": "Use it as a loose guideline.", "delta": { "SC": -2, "ST": 1 } },
-        { "id": "C", "text": "Learn it… then exploit it.", "delta": { "SC": 2, "ST": -1 } },
-        { "id": "D", "text": "Ignore it and discover your own way.", "delta": { "SC": -2, "ST": -1 } }
+        {
+          "id": "A",
+          "text": "Protects structure, sets clear expectations, and owns outcomes.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Gives freedom, trusts initiative, and doesn’t micromanage.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Keeps things human, light, and not weirdly intense.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Breaks rules creatively to move fast and stay interesting.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q17",
-      "compassId": "discipline",
-      "prompt": "People come to you for…",
+      "compassId": "order",
+      "prompt": "Someone says: ‘We need a process for this.’ You…",
       "answers": [
-        { "id": "A", "text": "Structure and consistency.", "delta": { "SC": 2, "ST": 2 } },
-        { "id": "B", "text": "Street-smart practical advice.", "delta": { "SC": -2, "ST": 2 } },
-        { "id": "C", "text": "Creative hacks and shortcuts.", "delta": { "SC": 2, "ST": -2 } },
-        { "id": "D", "text": "Unpredictable brilliant ideas.", "delta": { "SC": -2, "ST": -2 } }
+        {
+          "id": "A",
+          "text": "Agree and volunteer to write it down properly.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Agree, but only if the process is lightweight and optional.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Agree and immediately name it something silly to keep it from getting sacred.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Disagree and start doing the thing your way right now.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q18",
-      "compassId": "discipline",
-      "prompt": "Your personal growth is mostly…",
+      "compassId": "order",
+      "prompt": "You’re planning a road trip with friends. You…",
       "answers": [
-        { "id": "A", "text": "Intentional and disciplined.", "delta": { "SC": 2, "ST": 2 } },
-        { "id": "B", "text": "Experiential and self-directed.", "delta": { "SC": -2, "ST": 2 } },
-        { "id": "C", "text": "A refined craft with clever twists.", "delta": { "SC": 2, "ST": -2 } },
-        { "id": "D", "text": "A chaotic evolution.", "delta": { "SC": -2, "ST": -2 } }
+        {
+          "id": "A",
+          "text": "Make an itinerary with times, stops, and backups.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Pick a direction and trust the adventure to fill in the rest.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Make a plan *and* pack a playlist that becomes the main character.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Refuse planning, choose chaos, and somehow find the best diner anyway.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
-  
     {
       "id": "q19",
-      "compassId": "social",
-      "prompt": "In social situations, you’re usually…",
+      "compassId": "order",
+      "prompt": "When authority is clearly wrong, you…",
       "answers": [
-        { "id": "A", "text": "Polished and diplomatic.", "delta": { "PT": 2, "QR": 2 } },
-        { "id": "B", "text": "Practical and low-maintenance.", "delta": { "PT": -2, "QR": 2 } },
-        { "id": "C", "text": "Charming and mischievous.", "delta": { "PT": 2, "QR": -2 } },
-        { "id": "D", "text": "Casual and a little feral.", "delta": { "PT": -2, "QR": -2 } }
+        {
+          "id": "A",
+          "text": "Escalate properly and fix it the ‘right’ way.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Go around it and get results anyway.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Apply pressure with humor, sarcasm, and a public vibe shift.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Ignore it completely and do your thing.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q20",
-      "compassId": "social",
-      "prompt": "Your confidence tends to show up as…",
+      "compassId": "order",
+      "prompt": "If you joined a rebellion, you’d be…",
       "answers": [
-        { "id": "A", "text": "Grace and composure.", "delta": { "PT": 2, "QR": 1 } },
-        { "id": "B", "text": "Competence and capability.", "delta": { "PT": -2, "QR": 1 } },
-        { "id": "C", "text": "Charm and social finesse.", "delta": { "PT": 2, "QR": -1 } },
-        { "id": "D", "text": "Boldness and irreverence.", "delta": { "PT": -2, "QR": -1 } }
+        {
+          "id": "A",
+          "text": "The coordinator who keeps it organized and ethical.",
+          "delta": {
+            "KP": 2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "The captain who plans the raid and the escape route.",
+          "delta": {
+            "KP": -2,
+            "RJ": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "The court jester keeping spirits up with jokes and chaos memes.",
+          "delta": {
+            "KP": 2,
+            "RJ": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "The gremlin who makes it legendary and untraceable.",
+          "delta": {
+            "KP": -2,
+            "RJ": -2
+          }
+        }
       ]
     },
     {
       "id": "q21",
-      "compassId": "social",
-      "prompt": "If you had to lead a group, you’d…",
+      "compassId": "discipline",
+      "prompt": "If you want to get good at something, you…",
       "answers": [
-        { "id": "A", "text": "Lead with diplomacy and polish.", "delta": { "PT": 2, "QR": 2 } },
-        { "id": "B", "text": "Lead by doing and solving problems.", "delta": { "PT": -2, "QR": 2 } },
-        { "id": "C", "text": "Influence with charm and timing.", "delta": { "PT": 2, "QR": -2 } },
-        { "id": "D", "text": "Lead by shaking things up.", "delta": { "PT": -2, "QR": -2 } }
+        {
+          "id": "A",
+          "text": "Train with structure until it’s muscle memory.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Learn by doing it in real situations and collecting stories.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Master the rules so you can bend them beautifully.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Wing it until you accidentally invent a new method.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q22",
-      "compassId": "social",
-      "prompt": "Your aesthetic preference is…",
+      "compassId": "discipline",
+      "prompt": "Someone asks you to teach them a skill. You…",
       "answers": [
-        { "id": "A", "text": "Curated and intentional.", "delta": { "PT": 2, "QR": 1 } },
-        { "id": "B", "text": "Functional and durable.", "delta": { "PT": -2, "QR": 1 } },
-        { "id": "C", "text": "Stylish with a wink.", "delta": { "PT": 2, "QR": -1 } },
-        { "id": "D", "text": "Whatever works. Probably boots.", "delta": { "PT": -2, "QR": -1 } }
+        {
+          "id": "A",
+          "text": "Start with fundamentals and a practice plan.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Throw them into the real thing and coach them through it.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Teach the basics, then show the sneaky hacks.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Teach by pranking them gently until they learn.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q23",
-      "compassId": "social",
-      "prompt": "People describe you as…",
+      "compassId": "discipline",
+      "prompt": "You’re given a strict checklist for a task. You…",
       "answers": [
-        { "id": "A", "text": "Refined.", "delta": { "PT": 2, "QR": 2 } },
-        { "id": "B", "text": "Capable.", "delta": { "PT": -2, "QR": 2 } },
-        { "id": "C", "text": "Charming.", "delta": { "PT": 2, "QR": -2 } },
-        { "id": "D", "text": "Unpredictable.", "delta": { "PT": -2, "QR": -2 } }
+        {
+          "id": "A",
+          "text": "Follow it and improve it as you go.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Use it as a loose guide and rely on judgment.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Follow it… then exploit it to save time.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Ignore it and do it your way.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q24",
-      "compassId": "social",
-      "prompt": "If you ruled a tiny kingdom, you’d be…",
+      "compassId": "discipline",
+      "prompt": "Your routine gets disrupted for a week. You…",
       "answers": [
-        { "id": "A", "text": "A diplomatic monarch with immaculate vibes.", "delta": { "PT": 2, "QR": 2 } },
-        { "id": "B", "text": "A hands-on leader who fixes things personally.", "delta": { "PT": -2, "QR": 2 } },
-        { "id": "C", "text": "A charming ruler who wins with wit.", "delta": { "PT": 2, "QR": -2 } },
-        { "id": "D", "text": "A rogue ruler who refuses boring traditions.", "delta": { "PT": -2, "QR": -2 } }
+        {
+          "id": "A",
+          "text": "Rebuild the routine immediately. Order must be restored.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Adapt and roll with it; life is the classroom.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Turn the disruption into a clever new training challenge.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Celebrate the chaos and see what evolves.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
-  
     {
       "id": "q25",
-      "compassId": "risk",
-      "prompt": "A risky opportunity appears. You…",
+      "compassId": "discipline",
+      "prompt": "You’re cooking without a recipe. You…",
       "answers": [
-        { "id": "A", "text": "Charge in with confidence.", "delta": { "GP": 2, "MA": -1 } },
-        { "id": "B", "text": "Think it through deeply first.", "delta": { "GP": -2, "MA": 1 } },
-        { "id": "C", "text": "Move carefully and methodically.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "Roll the dice and enjoy the chaos.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Measure carefully and stick to proven techniques.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Cook by taste and adjust as you go.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Follow the rules… but add one sneaky twist.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Throw things in, trust vibes, and call it ‘experimental cuisine.’",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q26",
-      "compassId": "risk",
-      "prompt": "Your decision style is…",
+      "compassId": "discipline",
+      "prompt": "When you hit a hard problem, you usually…",
       "answers": [
-        { "id": "A", "text": "Decisive and bold.", "delta": { "GP": 2, "MA": -1 } },
-        { "id": "B", "text": "Analytical and cautious.", "delta": { "GP": -2, "MA": 2 } },
-        { "id": "C", "text": "Patient and disciplined.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "Spontaneous and experimental.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Practice the fundamentals until the solution appears.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Try something practical and learn from what happens.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Look for the clever angle that makes it easier.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Try three weird approaches in a row and keep the one that works.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q27",
-      "compassId": "risk",
-      "prompt": "When things go wrong, you…",
+      "compassId": "discipline",
+      "prompt": "Your relationship with tradition is…",
       "answers": [
-        { "id": "A", "text": "Fight through it.", "delta": { "GP": 2, "MA": 1 } },
-        { "id": "B", "text": "Rethink the whole approach.", "delta": { "GP": -2, "MA": 1 } },
-        { "id": "C", "text": "Stay calm and stick to fundamentals.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "Try something wild and see what happens.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Respect it. Master it. Earn the right to change it.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Tradition is optional; experience matters more.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Tradition is a toolbox for clever rule-bending.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Tradition is a suggestion I remix immediately.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q28",
-      "compassId": "risk",
-      "prompt": "The best discoveries come from…",
+      "compassId": "discipline",
+      "prompt": "Someone tells you ‘there’s only one right way’ to do something. You…",
       "answers": [
-        { "id": "A", "text": "Action and pressure.", "delta": { "GP": 2, "MA": -1 } },
-        { "id": "B", "text": "Reflection and theory.", "delta": { "GP": -2, "MA": 1 } },
-        { "id": "C", "text": "Discipline and consistency.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "Experimentation and risk.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Ask them to demonstrate it, then practice it seriously.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Nod, then do it your own way in the field.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Learn it perfectly… and then break it elegantly.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Laugh and do something that absolutely should not work (but does).",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q29",
-      "compassId": "risk",
-      "prompt": "Your relationship with uncertainty is…",
+      "compassId": "discipline",
+      "prompt": "You’re building a new habit. Your style is…",
       "answers": [
-        { "id": "A", "text": "Challenge accepted.", "delta": { "GP": 2, "MA": -1 } },
-        { "id": "B", "text": "A puzzle to solve.", "delta": { "GP": -2, "MA": 1 } },
-        { "id": "C", "text": "Something to manage carefully.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "An exciting gamble.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Small steps, consistent schedule, no drama.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Tie it to real life so it sticks naturally.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Gamify it with clever tricks and constraints.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Make it chaotic enough that it stays interesting.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
       ]
     },
     {
       "id": "q30",
+      "compassId": "discipline",
+      "prompt": "An alien hands you a perfect instruction manual. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Study it, practice it, and become terrifyingly good.",
+          "delta": {
+            "SC": 2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Skim it, then learn the rest through experience.",
+          "delta": {
+            "SC": -2,
+            "ST": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Use it to find the exploit they didn’t intend.",
+          "delta": {
+            "SC": 2,
+            "ST": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Use it as a coaster and improvise the whole thing.",
+          "delta": {
+            "SC": -2,
+            "ST": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q31",
+      "compassId": "social",
+      "prompt": "You walk into a room full of strangers. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Smile, mingle, and find the social ‘center of gravity.’",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Find a useful task, help out, and let competence do the talking.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Charm someone immediately and collect allies like it’s a side quest.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Find the weirdest corner conversation and become its leader.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q32",
+      "compassId": "social",
+      "prompt": "You have to dress for an event. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Curate the look. The outfit is part of the message.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Wear something practical and comfortable. You’ve got things to do.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Go polished… with one mischievous detail.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Wear whatever works and somehow pull it off.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q33",
+      "compassId": "social",
+      "prompt": "Someone is being rude to your friend. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Step in diplomatically and shut it down cleanly.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Step in directly and handle it with authority.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Defuse it with charm and a perfectly aimed comment.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Call it out bluntly and make it awkward on purpose.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q34",
+      "compassId": "social",
+      "prompt": "People usually notice your confidence through…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Composure and social grace.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Competence and capability.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Charm and timing.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Boldness and irreverence.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q35",
+      "compassId": "social",
+      "prompt": "If you had to lead a group, you’d…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Lead with diplomacy, roles, and clean communication.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Lead by doing, solving, and setting the pace.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Lead by influence, humor, and social finesse.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Lead by shaking things up until it works.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q36",
+      "compassId": "social",
+      "prompt": "Your default vibe in a group is…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Polished and intentional.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Low-maintenance and ready for action.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Playful and a little dangerous.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Casual and mildly feral.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q37",
+      "compassId": "social",
+      "prompt": "A friend wants advice on a tough social situation. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Help them choose the best words and smooth the landing.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Tell them what to do, plainly, and back them up.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Script the message with maximum charm and minimum damage.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Encourage them to be real and let the chips fall.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q38",
+      "compassId": "social",
+      "prompt": "Someone gives you a compliment. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Accept it gracefully and return one.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Nod and move on. The work speaks for itself.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Turn it into playful banter.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Make it weird on purpose, but in a fun way.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q39",
+      "compassId": "social",
+      "prompt": "You’re decorating a space. Your approach is…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Curated, cohesive, and aesthetically intentional.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Functional, durable, and built to survive reality.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Stylish with a little twist that makes people grin.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Whatever’s around… plus a bold move nobody asked for.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q40",
+      "compassId": "social",
+      "prompt": "If you ruled a tiny kingdom, you’d be…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "A diplomatic monarch with immaculate vibes.",
+          "delta": {
+            "PT": 2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "A hands-on leader who fixes things personally.",
+          "delta": {
+            "PT": -2,
+            "QR": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "A charming ruler who wins with wit and timing.",
+          "delta": {
+            "PT": 2,
+            "QR": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "A rogue ruler who refuses boring traditions.",
+          "delta": {
+            "PT": -2,
+            "QR": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q41",
+      "compassId": "risk",
+      "prompt": "A risky opportunity appears. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Take a steady breath, then commit and execute with control.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Think it through, run the scenarios, and choose carefully.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Jump in fast. You’ll adapt midair.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Treat it like an experiment and see what happens.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q42",
+      "compassId": "risk",
+      "prompt": "When you’re unsure what to do next, you…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Do one disciplined action step to regain momentum.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Step back and reflect until the decision feels coherent.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Pick a direction and charge. Motion creates answers.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Try something weird and learn from the result.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q43",
+      "compassId": "risk",
+      "prompt": "A conflict shows up unexpectedly. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Stay calm and handle it directly without losing control.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Pause, analyze motives, and choose the smartest response.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Meet it head-on and raise the intensity if needed.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Flip the situation with a risky move nobody saw coming.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q44",
+      "compassId": "risk",
+      "prompt": "You’re offered two paths: a safe one and a spicy one. You pick…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "The safe one, then push yourself within it.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "The safe one, because long-term outcomes matter.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "The spicy one, because life is short and you trust yourself.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "The spicy one, because curiosity is a powerful drug.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q45",
+      "compassId": "risk",
+      "prompt": "Your decision-making style is closest to…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Disciplined action: do the work, stay steady.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Careful reasoning: understand first, move second.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Bold instinct: commit fast and figure it out.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Curious risk: test, learn, iterate.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q46",
+      "compassId": "risk",
+      "prompt": "When things go wrong, your first move is…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Stabilize. Breathe. Fix fundamentals.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Rethink the whole approach from first principles.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Push harder and fight through it.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Try a wild pivot and see if it works.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q47",
+      "compassId": "risk",
+      "prompt": "The best discoveries usually come from…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Consistency and practice over time.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Reflection and deep questions.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Pressure, action, and real stakes.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Experimentation and rolling the dice.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q48",
+      "compassId": "risk",
+      "prompt": "You’re given a puzzle with no obvious solution. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Work it step-by-step until it clicks.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Stare at it, think deeply, then solve it elegantly.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Try brute force first and see what breaks.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Try three strange approaches and keep the weirdest successful one.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q49",
+      "compassId": "risk",
+      "prompt": "Someone invites you on a spontaneous trip tomorrow. You…",
+      "answers": [
+        {
+          "id": "A",
+          "text": "Go if you can prepare enough to stay grounded.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "Consider logistics and long-term impact before deciding.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "Say yes immediately. Details later.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "Say yes, but only if you can make it a slightly chaotic experiment.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
+      ]
+    },
+    {
+      "id": "q50",
       "compassId": "risk",
       "prompt": "Life should be approached like…",
       "answers": [
-        { "id": "A", "text": "A battle worth winning.", "delta": { "GP": 2, "MA": 1 } },
-        { "id": "B", "text": "A question worth exploring.", "delta": { "GP": -2, "MA": 2 } },
-        { "id": "C", "text": "A practice worth refining.", "delta": { "GP": 1, "MA": 2 } },
-        { "id": "D", "text": "A casino with better snacks.", "delta": { "GP": -1, "MA": -2 } }
+        {
+          "id": "A",
+          "text": "Training: steady reps, steady growth.",
+          "delta": {
+            "GP": 2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "B",
+          "text": "A question worth exploring.",
+          "delta": {
+            "GP": -2,
+            "MA": 2
+          }
+        },
+        {
+          "id": "C",
+          "text": "An arena worth entering.",
+          "delta": {
+            "GP": 2,
+            "MA": -2
+          }
+        },
+        {
+          "id": "D",
+          "text": "A game worth testing.",
+          "delta": {
+            "GP": -2,
+            "MA": -2
+          }
+        }
       ]
     }
   ]
+  

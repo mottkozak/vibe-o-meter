@@ -18,7 +18,7 @@ function toErrorMessage(error: unknown): string {
   if (error instanceof Error && error.message) {
     return error.message;
   }
-  return "Unexpected error while loading quiz data.";
+  return "Dude, the quiz engine totally wiped out for a second.";
 }
 
 export function App(): JSX.Element {
@@ -43,8 +43,8 @@ export function App(): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card">
-          <h1>Loading Vibe-o-meter</h1>
-          <p>Fetching quiz data and calibrating your highly unscientific destiny.</p>
+          <h1>Loading the Most Excellent Vibe Machine</h1>
+          <p>Dude, we are totally duct-taping your destiny together right now.</p>
         </section>
       </main>
     );
@@ -53,7 +53,7 @@ export function App(): JSX.Element {
   if (loadState.status === "error") {
     return (
       <ErrorScreen
-        title="Could Not Load Quiz Data"
+        title="Most Unexcellent Data Glitch"
         message={loadState.message}
         onRetry={() => {
           void load(true);

@@ -14,6 +14,7 @@ import {
   type QuadrantWriteupsData,
   type ResultsContentData,
   type TemplateSection,
+  type TypeWriteupEntry,
   type TypeFamilyKey,
   type TypeTitlesData,
   type TypeCodeAxis,
@@ -59,6 +60,9 @@ const OBJECT_AXIS_POOL_KEYS: ObjectAxisPoolKey[] = [
   "MA",
   "AA"
 ];
+
+const EXPECTED_COMPASS_COUNT = 5;
+const EXPECTED_QUESTIONS_PER_COMPASS = 10;
 
 function isRecord(value: unknown): value is JsonRecord {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -375,7 +379,10 @@ function parseObjectsData(raw: unknown): ObjectsData {
     root.primaryObjectPools,
     "objects.json primaryObjectPools"
   );
-  const axisObjectPoolsRaw = ensureRecord(root.axisObjectPools, "objects.json axisObjectPools");
+
+  const backupObjectPoolsRaw = isRecord(root.backupObjectPools)
+    ? root.backupObjectPools
+    : ensureRecord(root.axisObjectPools, "objects.json axisObjectPools");
 
   const primaryObjectPools = {} as ObjectsData["primaryObjectPools"];
   for (const key of OBJECT_FAMILY_KEYS) {
@@ -385,18 +392,60 @@ function parseObjectsData(raw: unknown): ObjectsData {
     );
   }
 
-  const axisObjectPools = {} as ObjectsData["axisObjectPools"];
+  const backupObjectPools = {} as ObjectsData["backupObjectPools"];
   for (const key of OBJECT_AXIS_POOL_KEYS) {
-    axisObjectPools[key] = parseNonEmptyStringArray(
-      axisObjectPoolsRaw[key],
-      `objects.json axisObjectPools.${key}`
+    backupObjectPools[key] = parseNonEmptyStringArray(
+      backupObjectPoolsRaw[key],
+      `objects.json backupObjectPools.${key}`
     );
+  }
+
+  let objectsByTypeCode: ObjectsData["objectsByTypeCode"] = undefined;
+  if (isRecord(root.objectsByTypeCode)) {
+    const objectsByTypeCodeRaw = root.objectsByTypeCode;
+    objectsByTypeCode = {};
+    for (const [typeCode, pairRaw] of Object.entries(objectsByTypeCodeRaw)) {
+      const pair = ensureRecord(pairRaw, `objectsByTypeCode.${typeCode}`);
+      objectsByTypeCode[typeCode] = {
+        primary: ensureString(pair.primary, `objectsByTypeCode.${typeCode}.primary`),
+        backup: ensureString(pair.backup, `objectsByTypeCode.${typeCode}.backup`)
+      };
+    }
   }
 
   return {
     primaryObjectPools,
-    axisObjectPools
+    backupObjectPools,
+    objectsByTypeCode
   };
+}
+
+function parseTypeWriteupEntry(raw: unknown, label: string): TypeWriteupEntry {
+  const writeupObj = ensureRecord(raw, label);
+
+  const readStringArray = (value: unknown, fieldLabel: string): string[] => {
+    const arr = ensureArray(value, fieldLabel);
+    return arr.map((item, index) => ensureString(item, `${fieldLabel}[${index}]`));
+  };
+
+  const entry: TypeWriteupEntry = {
+    title: ensureString(writeupObj.title, `${label}.title`),
+    headline: ensureString(writeupObj.headline, `${label}.headline`),
+    strengths: readStringArray(writeupObj.strengths, `${label}.strengths`),
+    pitfalls: readStringArray(writeupObj.pitfalls, `${label}.pitfalls`),
+    oneLiner: ensureString(writeupObj.oneLiner, `${label}.oneLiner`),
+    celebs: readStringArray(writeupObj.celebs, `${label}.celebs`)
+  };
+
+  if (typeof writeupObj.primaryObject === "string" && writeupObj.primaryObject.trim()) {
+    entry.primaryObject = writeupObj.primaryObject;
+  }
+
+  if (typeof writeupObj.backupObject === "string" && writeupObj.backupObject.trim()) {
+    entry.backupObject = writeupObj.backupObject;
+  }
+
+  return entry;
 }
 
 function parseResultsContent(raw: unknown): ResultsContentData {
@@ -435,6 +484,18 @@ function parseResultsContent(raw: unknown): ResultsContentData {
       : DEFAULT_RESULTS_CONTENT.resultsHeading;
 
   const templateSections = parseTemplateSections(raw.typeWriteupTemplate);
+  const celebsNote =
+    typeof raw.celebsNote === "string" && raw.celebsNote.trim().length > 0
+      ? raw.celebsNote
+      : undefined;
+
+  let typeWriteups: ResultsContentData["typeWriteups"] = undefined;
+  if (isRecord(raw.typeWriteups)) {
+    typeWriteups = {};
+    for (const [typeCode, entryRaw] of Object.entries(raw.typeWriteups)) {
+      typeWriteups[typeCode] = parseTypeWriteupEntry(entryRaw, `typeWriteups.${typeCode}`);
+    }
+  }
 
   return {
     disclaimer,
@@ -443,6 +504,8 @@ function parseResultsContent(raw: unknown): ResultsContentData {
     startButtonLabel,
     restartButtonLabel,
     resultsHeading,
+    celebsNote,
+    typeWriteups,
     typeWriteupTemplate: templateSections ? { sections: templateSections } : undefined
   };
 }
@@ -453,8 +516,8 @@ function validateDataRelationships(
   typeTitles: TypeTitlesData,
   quadrantWriteups: QuadrantWriteupsData
 ): void {
-  if (compasses.compasses.length !== 5) {
-    throw new DataLoadError("Expected exactly 5 compasses.");
+  if (compasses.compasses.length !== EXPECTED_COMPASS_COUNT) {
+    throw new DataLoadError(`Expected exactly ${EXPECTED_COMPASS_COUNT} compasses.`);
   }
 
   const compassIds = new Set(compasses.compasses.map((compass) => compass.id));
@@ -464,15 +527,18 @@ function validateDataRelationships(
     }
   }
 
-  if (questions.length !== 30) {
-    throw new DataLoadError(`Expected 30 questions, found ${questions.length}.`);
+  const expectedTotalQuestions = compasses.compasses.length * EXPECTED_QUESTIONS_PER_COMPASS;
+  if (questions.length !== expectedTotalQuestions) {
+    throw new DataLoadError(
+      `Expected ${expectedTotalQuestions} questions (${EXPECTED_QUESTIONS_PER_COMPASS} per compass), found ${questions.length}.`
+    );
   }
 
   for (const compass of compasses.compasses) {
     const questionCount = questions.filter((question) => question.compassId === compass.id).length;
-    if (questionCount !== 6) {
+    if (questionCount !== EXPECTED_QUESTIONS_PER_COMPASS) {
       throw new DataLoadError(
-        `Compass '${compass.id}' must have exactly 6 questions (found ${questionCount}).`
+        `Compass '${compass.id}' must have exactly ${EXPECTED_QUESTIONS_PER_COMPASS} questions (found ${questionCount}).`
       );
     }
 
@@ -521,10 +587,12 @@ async function loadAndValidateData(): Promise<LoadedAppData> {
     if (optionalObjectsRaw) {
       objectsData = parseObjectsData(optionalObjectsRaw);
     } else {
-      objectsDataWarning = "Everyday object archetype data is unavailable right now.";
+      objectsDataWarning =
+        "Dude, the everyday object vault is totally missing right now, so no object match this run.";
     }
   } catch {
-    objectsDataWarning = "Everyday object archetype data is invalid, so object results are hidden.";
+    objectsDataWarning =
+      "Most unexcellent news: the object data is scrambled, so we hid object results to keep the vibes stable.";
     objectsData = null;
   }
 

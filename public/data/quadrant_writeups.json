@@ -1,148 +1,425 @@
 {
     "quadrantWriteups": {
-      "power.warriorHero": {
-        "headline": "You solve problems with bold action — and you do it for the right reasons.",
-        "strengths": ["Shows up under pressure", "Protective and loyal", "Creates momentum when others freeze"],
-        "pitfalls": ["Can rush in too fast", "May take on too much responsibility", "Sometimes mistakes intensity for certainty"],
-        "oneLiner": "A human shield with excellent intentions.",
-        "celebs": ["Wonder Woman (fiction)", "Captain America (fiction)", "Joan of Arc", "Harriet Tubman", "Dwayne Johnson (The Rock)"]
+      "power.vikingHero": {
+        "headline": "Official classification: **Viking Hero**. You lead with action and protect people like it’s a full-time job (with overtime).",
+        "strengths": [
+          "Acts fast when stakes are real",
+          "Protective, loyal, and dependable under pressure",
+          "Creates momentum when everyone else freezes"
+        ],
+        "pitfalls": [
+          "Can rush in before the facts arrive",
+          "May carry more responsibility than is healthy",
+          "Sometimes treats ‘intense’ as a substitute for ‘certain’"
+        ],
+        "oneLiner": "A shield with legs.",
+        "celebs": [
+          "Wonder Woman (fiction)",
+          "Captain America (fiction)",
+          "Joan of Arc",
+          "Harriet Tubman",
+          "Dwayne Johnson"
+        ]
       },
-      "power.sageHero": {
-        "headline": "You protect people with foresight: strategy first, heroism always.",
-        "strengths": ["Sees patterns and plans ahead", "Calm in chaos", "Guides others with clarity"],
-        "pitfalls": ["Can overthink before acting", "May carry ‘advisor fatigue’", "Can seem distant when focused"],
-        "oneLiner": "The lighthouse, not the lifeboat.",
-        "celebs": ["Gandalf (fiction)", "Obi-Wan Kenobi (fiction)", "Marcus Aurelius", "Eleanor Roosevelt", "Ruth Bader Ginsburg"]
+      "power.wizardHero": {
+        "headline": "Official classification: **Wizard Hero**. You save people with foresight, strategy, and the rare superpower of not panicking.",
+        "strengths": [
+          "Sees patterns early and plans ahead",
+          "Calm, steady decision-maker in chaos",
+          "Guides others with clarity and good sense"
+        ],
+        "pitfalls": [
+          "Can overthink before acting",
+          "May accumulate ‘advisor fatigue’ from fixing everyone’s plans",
+          "Can seem distant while mentally running simulations"
+        ],
+        "oneLiner": "A lifeboat made of spreadsheets.",
+        "celebs": [
+          "Gandalf (fiction)",
+          "Obi‑Wan Kenobi (fiction)",
+          "Eleanor Roosevelt",
+          "Marcus Aurelius",
+          "Ruth Bader Ginsburg"
+        ]
       },
-      "power.goblinRaider": {
-        "headline": "You tackle problems like a flying chair: fast, fearless, and slightly chaotic.",
-        "strengths": ["Brave improviser", "Energizes any room", "Surprisingly effective in emergencies"],
-        "pitfalls": ["Risk-prone under stress", "Can escalate conflicts", "Sometimes confuses impulse with instinct"],
+      "power.vikingGoblin": {
+        "headline": "Official classification: **Viking Goblin**. You tackle problems with bold instinct, questionable volume, and a suspiciously effective amount of chaos.",
+        "strengths": [
+          "Fearless improviser in messy situations",
+          "Brings energy that jump-starts stagnant rooms",
+          "Surprisingly effective in emergencies (even when the plan is vibes)"
+        ],
+        "pitfalls": [
+          "Risk-prone when stressed or bored",
+          "Can escalate conflicts by accident (or… on purpose)",
+          "Sometimes confuses impulse with insight"
+        ],
         "oneLiner": "If chaos is a ladder, you’re doing parkour on it.",
-        "celebs": ["Deadpool (fiction)", "Jack Sparrow (fiction)", "Errol Flynn", "Conor McGregor", "Boudica"]
+        "celebs": [
+          "Deadpool (fiction)",
+          "Jack Sparrow (fiction)",
+          "Boudica",
+          "Conor McGregor",
+          "Wreck‑It Ralph (fiction)"
+        ]
       },
-      "power.goblinScholar": {
-        "headline": "You win by outthinking the problem — and sometimes by moving the goalposts.",
-        "strengths": ["Clever and inventive", "Adapts fast with new angles", "Finds loopholes and hidden levers"],
-        "pitfalls": ["Can be overly opportunistic", "May rationalize bad choices", "Sometimes treats people like chess pieces"],
-        "oneLiner": "A brilliant mind with a mischievous grin.",
-        "celebs": ["Loki (fiction)", "Sherlock Holmes (fiction)", "Niccolò Machiavelli", "Salvador Dalí", "Nikola Tesla"]
+      "power.wizardGoblin": {
+        "headline": "Official classification: **Wizard Goblin**. You win by outthinking the problem — and occasionally by moving the goalposts when no one’s looking.",
+        "strengths": [
+          "Clever, inventive, and fast at finding hidden angles",
+          "Adapts quickly with new information",
+          "Finds loopholes, shortcuts, and ‘totally legal’ workarounds"
+        ],
+        "pitfalls": [
+          "Can rationalize choices that were… ambitious",
+          "May treat people like chess pieces when focused",
+          "Sometimes over-optimizes for ‘winning’ instead of ‘nice’"
+        ],
+        "oneLiner": "A brainstorm with a lockpick.",
+        "celebs": [
+          "Loki (fiction)",
+          "Sherlock Holmes (fiction)",
+          "Niccolò Machiavelli",
+          "Salvador Dalí",
+          "Nikola Tesla"
+        ]
       },
-  
       "order.knightCommander": {
-        "headline": "You believe structure is how people stay safe — and you’re willing to lead it.",
-        "strengths": ["Reliable organizer", "High integrity", "Strong responsibility reflex"],
-        "pitfalls": ["Can be rigid about process", "May struggle with ambiguity", "Can take rule-breaking personally"],
-        "oneLiner": "The spreadsheet is your sword and your shield.",
-        "celebs": ["George Washington", "Angela Merkel", "T’Challa / Black Panther (fiction)", "Athena (myth)", "Jean-Luc Picard (fiction)"]
+        "headline": "Official classification: **Knight Commander**. You believe structure is how teams survive — and you’re willing to carry the clipboard into battle.",
+        "strengths": [
+          "Reliable organizer and coordinator",
+          "High integrity: you do what you said you’d do",
+          "Creates safety through clear expectations"
+        ],
+        "pitfalls": [
+          "Can get rigid about process",
+          "May struggle with ambiguity or ‘vibes-based’ planning",
+          "Can take rule-breaking personally"
+        ],
+        "oneLiner": "The agenda has an agenda.",
+        "celebs": [
+          "Jean‑Luc Picard (fiction)",
+          "Angela Merkel",
+          "George Washington",
+          "Athena (myth)",
+          "T’Challa / Black Panther (fiction)"
+        ]
       },
       "order.pirateCaptain": {
-        "headline": "You reject bad systems and build better ones — with a map, a plan, and a getaway route.",
-        "strengths": ["Independent leader", "Pragmatic reformer", "Confident under uncertainty"],
-        "pitfalls": ["Can burn bridges fast", "May ignore helpful constraints", "Sometimes over-relies on self"],
+        "headline": "Official classification: **Pirate Captain**. You reject bad systems and build better ones — with a plan, a map, and a getaway route.",
+        "strengths": [
+          "Independent leader who stays calm under uncertainty",
+          "Pragmatic reformer: fixes what’s broken, not what’s loud",
+          "Improvises without losing the plot"
+        ],
+        "pitfalls": [
+          "Can burn bridges quickly",
+          "May ignore helpful constraints out of principle",
+          "Sometimes over-relies on self"
+        ],
         "oneLiner": "Rules are tools. You brought your own toolbox.",
-        "celebs": ["Malcolm X", "Richard Branson", "Han Solo (fiction)", "Amelia Earhart", "Tony Stark (fiction)"]
+        "celebs": [
+          "Amelia Earhart",
+          "Han Solo (fiction)",
+          "Malcolm X",
+          "Tony Stark (fiction)",
+          "Richard Branson"
+        ]
       },
       "order.knightJester": {
-        "headline": "You respect the mission — but you refuse to let it become humorless.",
-        "strengths": ["Keeps teams human", "Loyal and morale-boosting", "Defuses tension with wit"],
-        "pitfalls": ["Can joke at the wrong time", "May soften conflict too much", "Sometimes avoids seriousness with humor"],
-        "oneLiner": "Lawful… but with glitter glue.",
-        "celebs": ["Robin Williams", "Leslie Knope (fiction)", "Ted Lasso (fiction)", "Will Rogers", "Keanu Reeves"]
+        "headline": "Official classification: **Knight Jester**. You respect the mission — but you refuse to let it become humorless.",
+        "strengths": [
+          "Boosts morale without abandoning responsibility",
+          "Loyal teammate who keeps groups human",
+          "Defuses tension with well-timed humor"
+        ],
+        "pitfalls": [
+          "Can joke at the wrong moment",
+          "May soften conflict too much",
+          "Sometimes uses humor to avoid seriousness"
+        ],
+        "oneLiner": "Lawful… but with stickers.",
+        "celebs": [
+          "Ted Lasso (fiction)",
+          "Leslie Knope (fiction)",
+          "Robin Williams",
+          "Keanu Reeves",
+          "Will Rogers"
+        ]
       },
-      "order.pirateTrickster": {
-        "headline": "You dodge bureaucracy like it’s a slow-moving dragon and you’ve got a skateboard.",
-        "strengths": ["Fast improviser", "Anti-bureaucracy genius", "Creative, disruptive problem-solver"],
-        "pitfalls": ["Can be inconsistent", "May resist accountability", "Sometimes confuses freedom with avoidance"],
-        "oneLiner": "Chaos with a purpose… or at least a vibe.",
-        "celebs": ["Jack Sparrow (fiction)", "Bugs Bunny (fiction)", "Sacha Baron Cohen", "Mark Twain", "Prince (musician)"]
+      "order.pirateJester": {
+        "headline": "Official classification: **Pirate Jester**. You dodge bureaucracy like it’s a slow-moving dragon and you’ve got a skateboard.",
+        "strengths": [
+          "Fast improviser and creative problem-solver",
+          "Disrupts stale systems in useful ways",
+          "Keeps things light while still moving forward"
+        ],
+        "pitfalls": [
+          "Can be inconsistent with follow-through",
+          "May resist accountability (sometimes accidentally)",
+          "Can confuse freedom with avoidance"
+        ],
+        "oneLiner": "Chaos with a purpose… or at least a very strong vibe.",
+        "celebs": [
+          "Bugs Bunny (fiction)",
+          "Jack Sparrow (fiction)",
+          "Mark Twain",
+          "Sacha Baron Cohen",
+          "Prince"
+        ]
       },
-  
       "discipline.samuraiMaster": {
-        "headline": "You chase mastery through discipline: steady practice, sharp standards, real craft.",
-        "strengths": ["Highly consistent", "Strong self-control", "Builds excellence over time"],
-        "pitfalls": ["Perfectionism spirals", "Can be harsh on self/others", "May undervalue spontaneity"],
+        "headline": "Official classification: **Samurai Master**. You chase mastery through discipline: steady practice, sharp standards, real craft.",
+        "strengths": [
+          "Highly consistent: you do the work even when it’s boring",
+          "Strong self-control and follow-through",
+          "Builds excellence over time"
+        ],
+        "pitfalls": [
+          "Perfectionism can spiral",
+          "Can be harsh on yourself (and occasionally others)",
+          "May undervalue spontaneity and play"
+        ],
         "oneLiner": "You don’t ‘try.’ You train.",
-        "celebs": ["Miyamoto Musashi", "Serena Williams", "Kobe Bryant", "Mr. Miyagi (fiction)", "Cristiano Ronaldo"]
+        "celebs": [
+          "Miyamoto Musashi",
+          "Serena Williams",
+          "Kobe Bryant",
+          "Mr. Miyagi (fiction)",
+          "Cristiano Ronaldo"
+        ]
       },
       "discipline.cowboySage": {
-        "headline": "You learn by living: experience is your teacher and freedom is your fuel.",
-        "strengths": ["Adaptable and grounded", "Street-smart wisdom", "Comfortable with uncertainty"],
-        "pitfalls": ["Can resist structure too much", "May reinvent wheels", "Sometimes avoids commitment"],
+        "headline": "Official classification: **Cowboy Sage**. You learn by living: experience is your teacher and freedom is your fuel.",
+        "strengths": [
+          "Adaptable and grounded in reality",
+          "Street-smart wisdom and practical judgement",
+          "Comfortable navigating uncertainty"
+        ],
+        "pitfalls": [
+          "Can resist structure even when it would help",
+          "May reinvent wheels out of independence",
+          "Sometimes avoids commitment to keep options open"
+        ],
         "oneLiner": "A philosopher with dusty boots.",
-        "celebs": ["Anthony Bourdain", "Teddy Roosevelt", "Geralt of Rivia (fiction)", "Jane Goodall", "Steve Irwin"]
+        "celebs": [
+          "Anthony Bourdain",
+          "Teddy Roosevelt",
+          "Jane Goodall",
+          "Steve Irwin",
+          "Geralt of Rivia (fiction)"
+        ]
       },
       "discipline.samuraiTrickster": {
-        "headline": "You master the rules so you can bend them elegantly — like a ninja with a whiteboard.",
-        "strengths": ["Strategic creativity", "Efficient, clever execution", "Turns constraints into advantages"],
-        "pitfalls": ["Can be overly tactical", "May enjoy ‘winning’ more than ‘meaning’", "Sometimes pushes buttons for sport"],
+        "headline": "Official classification: **Samurai Trickster**. You master the rules so you can bend them elegantly — like a ninja with a whiteboard.",
+        "strengths": [
+          "Strategic creativity under constraints",
+          "Efficient, clever execution",
+          "Turns ‘limitations’ into advantages"
+        ],
+        "pitfalls": [
+          "Can get overly tactical",
+          "May enjoy ‘winning’ more than ‘meaning’",
+          "Sometimes pushes buttons for sport"
+        ],
         "oneLiner": "Discipline… with a hidden trapdoor.",
-        "celebs": ["Sun Tzu (legendary)", "Oceans Eleven crew (fiction)", "Arya Stark (fiction)", "Houdini", "Shuri (fiction)"]
+        "celebs": [
+          "Sun Tzu (legendary vibe)",
+          "Arya Stark (fiction)",
+          "Houdini",
+          "Shuri (fiction)",
+          "Ocean’s Eleven crew (fiction)"
+        ]
       },
       "discipline.cowboyTrickster": {
-        "headline": "You’re the self-taught wildcard: intuitive, playful, and allergic to boring methods.",
-        "strengths": ["Inventive improviser", "Learns fast by doing", "Charming rule-breaker energy"],
-        "pitfalls": ["Can skip fundamentals", "May resist feedback", "Sometimes causes chaos unintentionally"],
+        "headline": "Official classification: **Cowboy Trickster**. You’re the self-taught wildcard: intuitive, playful, and allergic to boring methods.",
+        "strengths": [
+          "Inventive improviser who learns fast by doing",
+          "Charming, flexible approach to problems",
+          "Turns messes into momentum"
+        ],
+        "pitfalls": [
+          "Can skip fundamentals",
+          "May resist feedback or structure",
+          "Sometimes causes chaos unintentionally"
+        ],
         "oneLiner": "You don’t follow paths. You make shortcuts.",
-        "celebs": ["Willy Wonka (fiction)", "Huckleberry Finn (fiction)", "Richard Feynman", "Katy Perry", "Jackie Chan"]
+        "celebs": [
+          "Richard Feynman",
+          "Jackie Chan",
+          "Willy Wonka (fiction)",
+          "Huckleberry Finn (fiction)",
+          "Katy Perry"
+        ]
       },
-  
       "social.royalDiplomat": {
-        "headline": "You lead with grace: polished presence, careful words, and social intelligence.",
-        "strengths": ["Excellent at diplomacy", "Calms social tension", "Strategic relationship-builder"],
-        "pitfalls": ["Can avoid blunt truths", "May over-optimize for approval", "Sometimes hides needs behind polish"],
+        "headline": "Official classification: **Royal Diplomat**. You lead with grace: polished presence, careful words, and high social accuracy.",
+        "strengths": [
+          "Excellent at diplomacy and reading the room",
+          "Calms social tension without losing authority",
+          "Builds strong relationships strategically"
+        ],
+        "pitfalls": [
+          "Can avoid blunt truths",
+          "May over-optimize for approval",
+          "Sometimes hides needs behind polish"
+        ],
         "oneLiner": "A velvet glove with a firm handshake.",
-        "celebs": ["Princess Diana", "Jacinda Ardern", "Michelle Obama", "Queen Elizabeth II", "Cinderella (fiction)"]
+        "celebs": [
+          "Princess Diana",
+          "Michelle Obama",
+          "Jacinda Ardern",
+          "Queen Elizabeth II",
+          "Cinderella (fiction)"
+        ]
       },
       "social.warriorQueen": {
-        "headline": "You project competence like a force field: practical leadership with commanding calm.",
-        "strengths": ["Action-oriented leadership", "Earns respect through capability", "Protective and decisive"],
-        "pitfalls": ["Can seem intimidating", "May take on too much alone", "Sometimes undervalues softness"],
+        "headline": "Official classification: **Warrior Queen**. You project competence like a force field: practical leadership with commanding calm.",
+        "strengths": [
+          "Action-oriented leader who earns respect through capability",
+          "Decisive and protective",
+          "Keeps standards high without needing to shout"
+        ],
+        "pitfalls": [
+          "Can seem intimidating even when you’re being nice",
+          "May take on too much alone",
+          "Sometimes undervalues softness"
+        ],
         "oneLiner": "Kind, not soft. Strong, not loud.",
-        "celebs": ["Cleopatra", "Margaret Thatcher", "Leia Organa (fiction)", "Galadriel (fiction)", "Simone Biles"]
+        "celebs": [
+          "Leia Organa (fiction)",
+          "Galadriel (fiction)",
+          "Cleopatra",
+          "Simone Biles",
+          "Margaret Thatcher"
+        ]
       },
       "social.roguePrincess": {
-        "headline": "You win socially through charm and timing: playful, polished, and a little dangerous.",
-        "strengths": ["Magnetic charisma", "Reads rooms well", "Influences without brute force"],
-        "pitfalls": ["Can dodge vulnerability", "May manipulate accidentally", "Sometimes treats life like a game"],
+        "headline": "Official classification: **Rogue Princess**. You win socially through charm and timing: polished, playful, and a little dangerous.",
+        "strengths": [
+          "Magnetic charisma and strong social instincts",
+          "Influences without brute force",
+          "Knows when to sparkle and when to strike"
+        ],
+        "pitfalls": [
+          "Can dodge vulnerability",
+          "May manipulate accidentally (or ‘for the plot’)",
+          "Sometimes treats life like a game board"
+        ],
         "oneLiner": "Sparkle with a lockpick.",
-        "celebs": ["Marilyn Monroe", "Audrey Hepburn", "Catwoman (fiction)", "James Bond (fiction)", "Zendaya"]
+        "celebs": [
+          "Audrey Hepburn",
+          "Marilyn Monroe",
+          "Catwoman (fiction)",
+          "James Bond (fiction)",
+          "Zendaya"
+        ]
       },
       "social.rogueAdventurer": {
-        "headline": "You’re casual, bold, and unfiltered: you’d rather be real than refined.",
-        "strengths": ["Authentic and fearless", "Practical under pressure", "Adventure-ready mindset"],
-        "pitfalls": ["Can miss social nuance", "May seem inconsistent", "Sometimes rejects polish that would help"],
+        "headline": "Official classification: **Rogue Adventurer**. You’re casual, bold, and unfiltered: you’d rather be real than refined.",
+        "strengths": [
+          "Authentic, fearless, and practical under pressure",
+          "Adventure-ready mindset",
+          "Brings honesty that cuts through nonsense"
+        ],
+        "pitfalls": [
+          "Can miss social nuance",
+          "May seem inconsistent to more structured people",
+          "Sometimes rejects polish that would actually help"
+        ],
         "oneLiner": "The vibe is ‘let’s go’ — always.",
-        "celebs": ["Indiana Jones (fiction)", "Lara Croft (fiction)", "Ernest Hemingway", "Rihanna", "Bear Grylls"]
+        "celebs": [
+          "Indiana Jones (fiction)",
+          "Lara Croft (fiction)",
+          "Ernest Hemingway",
+          "Rihanna",
+          "Bear Grylls"
+        ]
       },
-  
-      "risk.warriorMonk": {
-        "headline": "You face risk with discipline: steady courage, controlled action, calm focus.",
-        "strengths": ["Resilient under pressure", "Grounded decision-maker", "Strong emotional self-control"],
-        "pitfalls": ["Can suppress emotions too much", "May resist change", "Sometimes over-prioritizes control"],
-        "oneLiner": "A sword in one hand, breathing exercises in the other.",
-        "celebs": ["Bruce Lee", "Mandela (historical vibe)", "Aang (fiction)", "Jocko Willink", "Korra (fiction)"]
+      "risk.gladiatorMonk": {
+        "headline": "Official classification: **Gladiator Monk**. You face risk with discipline: steady courage, controlled action, calm focus.",
+        "strengths": [
+          "Resilient under pressure",
+          "Grounded decision-maker",
+          "Strong emotional self-control"
+        ],
+        "pitfalls": [
+          "Can suppress emotions too much",
+          "May resist change or spontaneity",
+          "Sometimes over-prioritizes control"
+        ],
+        "oneLiner": "A battle plan and a breathing plan.",
+        "celebs": [
+          "Bruce Lee",
+          "Nelson Mandela (vibe)",
+          "Aang (fiction)",
+          "Jocko Willink",
+          "Korra (fiction)"
+        ]
       },
       "risk.philosopherMonk": {
-        "headline": "You manage uncertainty through reflection: careful thought, long horizons, minimal panic.",
-        "strengths": ["Deep thinker", "Patient planner", "Excellent at seeing trade-offs"],
-        "pitfalls": ["Can hesitate too long", "May overanalyze emotions", "Sometimes misses the moment to act"],
+        "headline": "Official classification: **Philosopher Monk**. You manage uncertainty through reflection: careful thought, long horizons, minimal panic.",
+        "strengths": [
+          "Deep thinker with strong patience",
+          "Excellent at seeing trade-offs and second-order effects",
+          "Stays calm when others spiral"
+        ],
+        "pitfalls": [
+          "Can hesitate too long",
+          "May overanalyze emotions",
+          "Sometimes misses the moment to act"
+        ],
         "oneLiner": "You don’t panic. You contemplate… intensely.",
-        "celebs": ["Socrates", "Marcus Aurelius", "Spock (fiction)", "Einstein", "Yoda (fiction)"]
+        "celebs": [
+          "Socrates",
+          "Marcus Aurelius",
+          "Spock (fiction)",
+          "Albert Einstein",
+          "Yoda (fiction)"
+        ]
       },
-      "risk.recklessFighter": {
-        "headline": "You treat uncertainty like a challenge: jump first, adapt midair, stick the landing (usually).",
-        "strengths": ["Fearless starter", "High energy and grit", "Thrives in high stakes"],
-        "pitfalls": ["Risk of burnout", "Can overlook consequences", "May turn life into constant adrenaline"],
+      "risk.gladiatorGambler": {
+        "headline": "Official classification: **Gladiator Gambler**. You bet on yourself, jump first, and figure out the landing midair.",
+        "strengths": [
+          "Fearless starter who creates momentum",
+          "Thrives in high stakes and fast timelines",
+          "High grit and competitive drive"
+        ],
+        "pitfalls": [
+          "Risk of burnout",
+          "Can overlook consequences",
+          "May turn life into a permanent adrenaline sport"
+        ],
         "oneLiner": "Your risk assessment is ‘we ball.’",
-        "celebs": ["Achilles (myth)", "Alexander the Great", "Top Gun Maverick (fiction vibe)", "Mike Tyson", "Evel Knievel"]
+        "celebs": [
+          "Achilles (myth)",
+          "Alexander the Great",
+          "Evel Knievel",
+          "Mike Tyson",
+          "Maverick (Top Gun, fiction vibe)"
+        ]
       },
-      "risk.chaoticThinker": {
-        "headline": "You approach uncertainty like a laboratory: experiment boldly and learn fast.",
-        "strengths": ["Innovative risk-taker", "Creative under constraints", "Comfortable with ambiguity"],
-        "pitfalls": ["Can be inconsistent", "May chase novelty too much", "Sometimes breaks things that didn’t need breaking"],
-        "oneLiner": "You don’t fail. You collect interesting data.",
-        "celebs": ["Leonardo da Vinci", "Richard Feynman", "Doc Brown (fiction)", "Elon Musk (vibe)", "Ada Lovelace"]
+      "risk.philosopherGambler": {
+        "headline": "Official classification: **Philosopher Gambler**. You treat uncertainty like a laboratory: run experiments, collect data, repeat.",
+        "strengths": [
+          "Innovative risk-taker with big ideas",
+          "Creative under constraints",
+          "Comfortable with ambiguity and weirdness"
+        ],
+        "pitfalls": [
+          "Can be inconsistent with follow-through",
+          "May chase novelty too hard",
+          "Sometimes breaks things that didn’t need breaking"
+        ],
+        "oneLiner": "A hypothesis with a jetpack.",
+        "celebs": [
+          "Leonardo da Vinci",
+          "Richard Feynman",
+          "Doc Brown (fiction)",
+          "Ada Lovelace",
+          "David Bowie"
+        ]
       }
     }
   }
+  

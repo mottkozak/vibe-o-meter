@@ -89,6 +89,17 @@ export interface TemplateSection {
   format: string;
 }
 
+export interface TypeWriteupEntry {
+  title: string;
+  headline: string;
+  strengths: string[];
+  pitfalls: string[];
+  oneLiner: string;
+  celebs: string[];
+  primaryObject?: string;
+  backupObject?: string;
+}
+
 export interface ResultsContentData {
   disclaimer: string;
   landingTitle: string;
@@ -96,6 +107,8 @@ export interface ResultsContentData {
   startButtonLabel: string;
   restartButtonLabel: string;
   resultsHeading: string;
+  celebsNote?: string;
+  typeWriteups?: Record<string, TypeWriteupEntry>;
   typeWriteupTemplate?: {
     sections: TemplateSection[];
   };
@@ -105,8 +118,15 @@ export type TypeFamilyKey = "VH" | "WH" | "VG" | "WG";
 export type ObjectAxisPoolKey = "KP" | "PJ" | "RJ" | "JJ" | "SC" | "CC" | "MA" | "AA";
 
 export interface ObjectsData {
+  objectsByTypeCode?: Record<
+    string,
+    {
+      primary: string;
+      backup: string;
+    }
+  >;
   primaryObjectPools: Record<TypeFamilyKey, string[]>;
-  axisObjectPools: Record<ObjectAxisPoolKey, string[]>;
+  backupObjectPools: Record<ObjectAxisPoolKey, string[]>;
 }
 
 export interface LoadedAppData {
@@ -150,6 +170,7 @@ export interface GeneratedResult {
   strengths: string[];
   watchouts: string[];
   celebs: string[];
+  celebsNote?: string;
   householdArchetype: HouseholdArchetype | null;
   householdArchetypeMessage: string | null;
   compassBreakdown: Array<
@@ -163,13 +184,13 @@ export interface GeneratedResult {
 
 export const DEFAULT_RESULTS_CONTENT: ResultsContentData = {
   disclaimer:
-    "This quiz is for entertainment only. It is not scientific, clinical, or diagnostic.",
-  landingTitle: "Vibe-o-meter",
+    "Dude, this is totally for fun and vibes only, not science or life advice.",
+  landingTitle: "Vibe-o-meter, Dude",
   landingSubtitle:
-    "A satire-forward personality quiz inspired by fantasy archetypes and a healthy disrespect for pseudoscience.",
-  startButtonLabel: "Start Quiz",
-  restartButtonLabel: "Restart",
-  resultsHeading: "Your Vibe Results"
+    "A most excellent nonsense-powered personality quest with absolutely questionable certainty.",
+  startButtonLabel: "Start This Totally Gnarly Quiz",
+  restartButtonLabel: "Restart the Vibe Ride",
+  resultsHeading: "Your Most Excellent Vibe Results"
 };
 
 export function isAxisKey(value: string): value is AxisKey {

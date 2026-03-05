@@ -68,6 +68,14 @@ export function getObjectsForType(
     throw new Error("Type code must contain 6 letters.");
   }
 
+  const directPair = objectsData.objectsByTypeCode?.[typeCode];
+  if (directPair) {
+    return {
+      primaryObject: directPair.primary,
+      backupObject: directPair.backup
+    };
+  }
+
   const familyKey = getFamilyKey(typeCode);
   const primaryPool = objectsData.primaryObjectPools[familyKey];
 
@@ -85,7 +93,9 @@ export function getObjectsForType(
     poolKeyFromLetter(6, typeCode[5])
   ];
 
-  const combinedBackupPool = axisPoolKeys.flatMap((poolKey) => objectsData.axisObjectPools[poolKey] ?? []);
+  const combinedBackupPool = axisPoolKeys.flatMap(
+    (poolKey) => objectsData.backupObjectPools[poolKey] ?? []
+  );
 
   if (combinedBackupPool.length === 0) {
     throw new Error("Combined backup object pool is empty.");

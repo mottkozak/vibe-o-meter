@@ -1,95 +1,113 @@
 {
     "families": {
       "VH": {
-        "familyName": "Warrior Hero",
+        "familyName": "Viking Hero",
         "titles16": [
-          "The Noble Commander",
-          "The Fearless Guardian",
-          "The Battle Strategist",
-          "The Iron Protector",
-          "The Wandering Champion",
-          "The Reluctant Hero",
-          "The Adventuring Knight",
-          "The Laughing Warrior",
-          "The Warrior Monk",
-          "The Rebel Defender",
-          "The Frontier Marshal",
-          "The Courageous Pathfinder",
-          "The People’s Champion",
-          "The Storm Vanguard",
-          "The Unbreakable Sentinel",
-          "The Heroic Outlaw"
+          "The Sir Shieldington",
+          "The Captain Ironbeard",
+          "The Sir Jokesalot",
+          "The Captain Chucklehelm",
+          "The Marshal Bootstomp",
+          "The Captain Trailmix",
+          "The Marshal Snickersteel",
+          "The Captain Banterbeard",
+          "The Sir Luckybuckler",
+          "The Captain Coincloak",
+          "The Sir Dicepaladin",
+          "The Captain Hazardheart",
+          "The Marshal Jackpotboots",
+          "The Captain Wagerwall",
+          "The Marshal WhoopsieKnight",
+          "The Captain Cannonheart"
         ]
       },
       "WH": {
-        "familyName": "Sage Hero",
+        "familyName": "Wizard Hero",
         "titles16": [
-          "The Enlightened Mentor",
-          "The Scholar King",
-          "The Strategic Visionary",
-          "The Philosopher Leader",
-          "The Wandering Sage",
-          "The Curious Explorer",
-          "The Maverick Thinker",
-          "The Inventive Scholar",
-          "The Diplomatic Oracle",
-          "The Quiet Architect",
-          "The Renaissance Mind",
-          "The Knowledge Seeker",
-          "The Cosmic Questioner",
-          "The Thoughtful Rebel",
-          "The Guiding Lantern",
-          "The Philosopher Adventurer"
+          "The Professor Lanternvale",
+          "The Doctor Scrollshield",
+          "The Professor Punstaff",
+          "The Doctor Chucklechart",
+          "The Professor Wayfinder",
+          "The Doctor Compassmind",
+          "The Professor QuipQuill",
+          "The Doctor JesterScholar",
+          "The Professor LuckyTheory",
+          "The Doctor PlotTwist",
+          "The Professor DiceSage",
+          "The Doctor RiskyReason",
+          "The Professor TrailLogic",
+          "The Doctor RebelArchive",
+          "The Professor OddOracle",
+          "The Doctor QuestEquation"
         ]
       },
       "VG": {
-        "familyName": "Goblin Raider",
+        "familyName": "Viking Goblin",
         "titles16": [
-          "The Wild Berserker",
-          "The Storm Raider",
-          "The Reckless Gladiator",
-          "The Fearless Daredevil",
-          "The Charming Rogue",
-          "The Laughing Outlaw",
-          "The Trickster Warrior",
-          "The Chaos Adventurer",
-          "The Street Champion",
-          "The Rowdy Pathfinder",
-          "The Frontier Bandit",
-          "The Gremlin Fighter",
-          "The Thunder Brawler",
-          "The Unpredictable Maverick",
-          "The Bold Instigator",
-          "The Riot Starter"
+          "The Brawler Ruckusbeard",
+          "The Captain Bonkbeard",
+          "The Gremlin BattleGiggles",
+          "The Buccaneer Whoopsbeard",
+          "The Rowdy Walloper",
+          "The Bandit Trailbonk",
+          "The Outlaw Snickerpunch",
+          "The Captain Chaosboots",
+          "The Bruiser LuckyBonk",
+          "The Raider CoinCrusher",
+          "The Gremlin DiceFists",
+          "The Daredevil OopsMcGee",
+          "The Bandit JackpotBrawl",
+          "The Raider WagerWrecker",
+          "The Gremlin WhoopeeWallop",
+          "The Captain RiotRagnar"
         ]
       },
       "WG": {
-        "familyName": "Goblin Scholar",
+        "familyName": "Wizard Goblin",
         "titles16": [
-          "The Mad Inventor",
-          "The Trickster Genius",
-          "The Chaos Scientist",
-          "The Cunning Strategist",
-          "The Shadow Architect",
-          "The Rogue Philosopher",
-          "The Clever Manipulator",
-          "The Experimental Visionary",
-          "The Mischief Maker",
-          "The Puzzle Breaker",
-          "The Curious Disruptor",
-          "The Idea Alchemist",
-          "The Abstract Wanderer",
-          "The Cosmic Tinkerer",
-          "The Wild Theorist",
-          "The Unorthodox Genius"
+          "The Doctor Loophole",
+          "The Professor SneakSpell",
+          "The Doctor PunMechanic",
+          "The Professor TrickDiagram",
+          "The Doctor SideQuest",
+          "The Professor BackdoorPlan",
+          "The Doctor QuirkTactician",
+          "The Professor WinkWizard",
+          "The Doctor LuckyScheme",
+          "The Professor CoinCaper",
+          "The Doctor DiceTheorem",
+          "The Professor ChaosProof",
+          "The Doctor HackMagician",
+          "The Professor RuleBender",
+          "The Doctor NoodleTheory",
+          "The Professor GoblinGenius"
         ]
       }
     },
-    "bitOrder": ["KP", "RJ", "SC", "MA"],
+    "bitOrder": [
+      "KP",
+      "RJ",
+      "SC",
+      "MA"
+    ],
     "bitMeaning": {
-      "KP": { "0": "K", "1": "P" },
-      "RJ": { "0": "R", "1": "J" },
-      "SC": { "0": "S", "1": "C" },
-      "MA": { "0": "M", "1": "A" }
+      "KP": {
+        "0": "K",
+        "1": "P"
+      },
+      "RJ": {
+        "0": "R",
+        "1": "J"
+      },
+      "SC": {
+        "0": "S",
+        "1": "C"
+      },
+      "MA": {
+        "0": "M",
+        "1": "A"
+      }
     }
   }
+  

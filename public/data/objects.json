@@ -1,110 +1,425 @@
 {
-  "primaryObjectPools": {
-    "VH": [
-      "Cast-Iron Skillet",
-      "Flashlight",
-      "Toolbox",
-      "Backpack",
-      "Multi-tool",
-      "Work Gloves",
-      "Thermos",
-      "Fire Extinguisher"
-    ],
-    "WH": [
-      "Notebook",
-      "Desk Lamp",
-      "Tea Kettle",
-      "Planner",
-      "Bookshelf",
-      "Index Cards",
-      "Magnifying Glass",
-      "Whiteboard Marker"
-    ],
-    "VG": [
-      "Skateboard Helmet",
-      "Pocket Knife",
-      "Portable Speaker",
-      "Energy Drink Can",
-      "Duct Tape",
-      "Bike Lock",
-      "Carabiner",
-      "Bungee Cord"
-    ],
-    "WG": [
-      "Sticky Notes",
-      "Soldering Iron",
-      "Adapter Pack",
-      "Puzzle Cube",
-      "Cable Organizer",
-      "Label Maker",
-      "Mini Screwdriver Set",
-      "Portable Battery"
-    ]
-  },
-  "axisObjectPools": {
-    "KP": [
-      "Clip Board",
-      "Measuring Tape",
-      "Receipt Folder",
-      "Door Wedge",
-      "Wall Calendar",
-      "Label Roll"
-    ],
-    "PJ": [
-      "Lockpick Set",
-      "Skate Wax",
-      "Zip Ties",
-      "Pocket Compass",
-      "Paracord",
-      "Travel Mug"
-    ],
-    "RJ": [
-      "Alarm Clock",
-      "Checklist Pad",
-      "Binder Clips",
-      "Desk Organizer",
-      "Kitchen Timer",
-      "File Crate"
-    ],
-    "JJ": [
-      "Confetti Cannon",
-      "Party Whistle",
-      "Novelty Sunglasses",
-      "Sticker Pack",
-      "Rubber Chicken",
-      "Disco Ball Keychain"
-    ],
-    "SC": [
-      "Sharpening Stone",
-      "Yoga Mat",
-      "Chef Knife",
-      "Resistance Band",
-      "Fountain Pen",
-      "Water Bottle"
-    ],
-    "CC": [
-      "Pocket Notebook",
-      "Travel Hammock",
-      "Bandana",
-      "Camp Stool",
-      "Road Atlas",
-      "Beanie"
-    ],
-    "MA": [
-      "Meditation Cushion",
-      "Tea Strainer",
-      "Journal",
-      "Noise-Canceling Earplugs",
-      "Reading Lamp",
-      "Clay Mug"
-    ],
-    "AA": [
-      "Scratch-Off Ticket",
-      "Dice Set",
-      "Soda Can",
-      "Neon Lighter",
-      "Drone",
-      "Arcade Token"
-    ]
-  }
+    "objectsByTypeCode": {
+      "VHKRSM": {
+        "primary": "Water Bottle",
+        "backup": "Mug"
+      },
+      "VHPRSM": {
+        "primary": "Flashlight",
+        "backup": "Timer"
+      },
+      "VHKJSM": {
+        "primary": "Umbrella",
+        "backup": "Kazoo"
+      },
+      "VHPJSM": {
+        "primary": "Backpack",
+        "backup": "Pillow"
+      },
+      "VHKRCM": {
+        "primary": "Bandage",
+        "backup": "Soap"
+      },
+      "VHPRCM": {
+        "primary": "Towel",
+        "backup": "Stapler"
+      },
+      "VHKJCM": {
+        "primary": "Blanket",
+        "backup": "Spork"
+      },
+      "VHPJCM": {
+        "primary": "Mug",
+        "backup": "Teapot"
+      },
+      "VHKRSA": {
+        "primary": "Key",
+        "backup": "Dice"
+      },
+      "VHPRSA": {
+        "primary": "Socks",
+        "backup": "Timer"
+      },
+      "VHKJSA": {
+        "primary": "Soap",
+        "backup": "Kazoo"
+      },
+      "VHPJSA": {
+        "primary": "Batteries",
+        "backup": "Bottle Cap"
+      },
+      "VHKRCA": {
+        "primary": "Notebook",
+        "backup": "Paperclip"
+      },
+      "VHPRCA": {
+        "primary": "Tape",
+        "backup": "Stapler"
+      },
+      "VHKJCA": {
+        "primary": "Scissors",
+        "backup": "Spork"
+      },
+      "VHPJCA": {
+        "primary": "Hat",
+        "backup": "Coin"
+      },
+      "WHKRSM": {
+        "primary": "Notebook",
+        "backup": "Stapler"
+      },
+      "WHPRSM": {
+        "primary": "Pencil",
+        "backup": "Eraser"
+      },
+      "WHKJSM": {
+        "primary": "Pen",
+        "backup": "Ruler"
+      },
+      "WHPJSM": {
+        "primary": "Eraser",
+        "backup": "Backpack"
+      },
+      "WHKRCM": {
+        "primary": "Ruler",
+        "backup": "Paperclip"
+      },
+      "WHPRCM": {
+        "primary": "Calculator",
+        "backup": "Coin"
+      },
+      "WHKJCM": {
+        "primary": "Glasses",
+        "backup": "Towel"
+      },
+      "WHPJCM": {
+        "primary": "Bookmark",
+        "backup": "Hat"
+      },
+      "WHKRSA": {
+        "primary": "Paperclip",
+        "backup": "Stapler"
+      },
+      "WHPRSA": {
+        "primary": "Binder Clip",
+        "backup": "Eraser"
+      },
+      "WHKJSA": {
+        "primary": "Stapler",
+        "backup": "Ruler"
+      },
+      "WHPJSA": {
+        "primary": "Timer",
+        "backup": "Backpack"
+      },
+      "WHKRCA": {
+        "primary": "Marker",
+        "backup": "Paperclip"
+      },
+      "WHPRCA": {
+        "primary": "Book",
+        "backup": "Coin"
+      },
+      "WHKJCA": {
+        "primary": "Envelope",
+        "backup": "Towel"
+      },
+      "WHPJCA": {
+        "primary": "Index Card",
+        "backup": "Hat"
+      },
+      "VGKRSM": {
+        "primary": "Duct Tape",
+        "backup": "Pencil"
+      },
+      "VGPRSM": {
+        "primary": "Spork",
+        "backup": "Duct Tape"
+      },
+      "VGKJSM": {
+        "primary": "Spoon",
+        "backup": "Clipboard"
+      },
+      "VGPJSM": {
+        "primary": "Fork",
+        "backup": "Notebook"
+      },
+      "VGKRCM": {
+        "primary": "Yo-yo",
+        "backup": "Key"
+      },
+      "VGPRCM": {
+        "primary": "Slinky",
+        "backup": "Bottle Cap"
+      },
+      "VGKJCM": {
+        "primary": "Rubber Band",
+        "backup": "Folder"
+      },
+      "VGPJCM": {
+        "primary": "Paperclip",
+        "backup": "Hat"
+      },
+      "VGKRSA": {
+        "primary": "Dice",
+        "backup": "Pencil"
+      },
+      "VGPRSA": {
+        "primary": "Coin",
+        "backup": "Duct Tape"
+      },
+      "VGKJSA": {
+        "primary": "Balloon",
+        "backup": "Clipboard"
+      },
+      "VGPJSA": {
+        "primary": "Kazoo",
+        "backup": "Notebook"
+      },
+      "VGKRCA": {
+        "primary": "Sticker",
+        "backup": "Key"
+      },
+      "VGPRCA": {
+        "primary": "Glitter",
+        "backup": "Bottle Cap"
+      },
+      "VGKJCA": {
+        "primary": "Bottle Cap",
+        "backup": "Folder"
+      },
+      "VGPJCA": {
+        "primary": "String",
+        "backup": "Hat"
+      },
+      "WGKRSM": {
+        "primary": "Stapler",
+        "backup": "Mug"
+      },
+      "WGPRSM": {
+        "primary": "Scissors",
+        "backup": "Timer"
+      },
+      "WGKJSM": {
+        "primary": "Tape",
+        "backup": "Kazoo"
+      },
+      "WGPJSM": {
+        "primary": "Glue Stick",
+        "backup": "Pillow"
+      },
+      "WGKRCM": {
+        "primary": "Screwdriver",
+        "backup": "Soap"
+      },
+      "WGPRCM": {
+        "primary": "Wrench",
+        "backup": "Stapler"
+      },
+      "WGKJCM": {
+        "primary": "Light Bulb",
+        "backup": "Spork"
+      },
+      "WGPJCM": {
+        "primary": "Remote",
+        "backup": "Teapot"
+      },
+      "WGKRSA": {
+        "primary": "Batteries",
+        "backup": "Dice"
+      },
+      "WGPRSA": {
+        "primary": "Paperclip",
+        "backup": "Timer"
+      },
+      "WGKJSA": {
+        "primary": "Rubber Band",
+        "backup": "Kazoo"
+      },
+      "WGPJSA": {
+        "primary": "Ruler",
+        "backup": "Bottle Cap"
+      },
+      "WGKRCA": {
+        "primary": "Calculator",
+        "backup": "Paperclip"
+      },
+      "WGPRCA": {
+        "primary": "Notebook",
+        "backup": "Stapler"
+      },
+      "WGKJCA": {
+        "primary": "Marker",
+        "backup": "Spork"
+      },
+      "WGPJCA": {
+        "primary": "Key",
+        "backup": "Coin"
+      }
+    },
+    "primaryObjectPools": {
+      "VH": [
+        "Water Bottle",
+        "Flashlight",
+        "Umbrella",
+        "Backpack",
+        "Bandage",
+        "Towel",
+        "Blanket",
+        "Mug",
+        "Key",
+        "Socks",
+        "Soap",
+        "Batteries",
+        "Notebook",
+        "Tape",
+        "Scissors",
+        "Hat"
+      ],
+      "WH": [
+        "Notebook",
+        "Pencil",
+        "Pen",
+        "Eraser",
+        "Ruler",
+        "Calculator",
+        "Glasses",
+        "Bookmark",
+        "Paperclip",
+        "Binder Clip",
+        "Stapler",
+        "Timer",
+        "Marker",
+        "Book",
+        "Envelope",
+        "Index Card"
+      ],
+      "VG": [
+        "Duct Tape",
+        "Spork",
+        "Spoon",
+        "Fork",
+        "Yo-yo",
+        "Slinky",
+        "Rubber Band",
+        "Paperclip",
+        "Dice",
+        "Coin",
+        "Balloon",
+        "Kazoo",
+        "Sticker",
+        "Glitter",
+        "Bottle Cap",
+        "String"
+      ],
+      "WG": [
+        "Stapler",
+        "Scissors",
+        "Tape",
+        "Glue Stick",
+        "Screwdriver",
+        "Wrench",
+        "Light Bulb",
+        "Remote",
+        "Batteries",
+        "Paperclip",
+        "Rubber Band",
+        "Ruler",
+        "Calculator",
+        "Notebook",
+        "Marker",
+        "Key"
+      ]
+    },
+    "backupObjectPools": {
+      "KP": [
+        "Stapler",
+        "Folder",
+        "Clipboard",
+        "Binder Clip",
+        "Paperclip",
+        "Notebook",
+        "Folder",
+        "Ruler"
+      ],
+      "PJ": [
+        "Key",
+        "Duct Tape",
+        "Coin",
+        "Backpack",
+        "Sunglasses",
+        "Bottle Cap",
+        "String",
+        "Hat"
+      ],
+      "RJ": [
+        "Clock",
+        "Timer",
+        "Clipboard",
+        "Notebook",
+        "Ruler",
+        "Stapler",
+        "Folder",
+        "Notebook"
+      ],
+      "JJ": [
+        "Yo-yo",
+        "Slinky",
+        "Kazoo",
+        "Balloon",
+        "Sticker",
+        "Glitter",
+        "Spork",
+        "Rubber Duck"
+      ],
+      "SC": [
+        "Pencil",
+        "Eraser",
+        "Ruler",
+        "Notebook",
+        "Timer",
+        "Tape",
+        "Scissors",
+        "Bandage"
+      ],
+      "CC": [
+        "Backpack",
+        "Water Bottle",
+        "Socks",
+        "Flashlight",
+        "Key",
+        "Coin",
+        "Towel",
+        "Hat"
+      ],
+      "MA": [
+        "Mug",
+        "Candle",
+        "Blanket",
+        "Pillow",
+        "Soap",
+        "Tissues",
+        "Lamp",
+        "Teapot"
+      ],
+      "AA": [
+        "Dice",
+        "Coin",
+        "Cards",
+        "Bottle Cap",
+        "Paperclip",
+        "Rubber Band",
+        "Eight Ball",
+        "Coin"
+      ]
+    },
+    "selectionRules": {
+      "preferred": "Use objectsByTypeCode[typeCode] for a hand-picked-feeling Primary/Backup object pair.",
+      "fallback": "If you want algorithmic selection instead, choose primary from primaryObjectPools[familyKey] using (titleIndex % poolLength). Then choose backup by selecting one candidate from each of the four backup pools (KP/PJ, RJ/JJ, SC/CC, MA/AA) using (titleIndex % poolLength) and picking one of those four candidates using a deterministic hash of the typeCode."
+    },
+    "notes": {
+      "designIntent": "Objects should be extremely common, recognizable, and memeable — the kind of thing that could star in its own tiny Pixar-style short film. Avoid niche gear, brand names, and overly specific items.",
+      "objectNameStyle": "Keep object names simple (usually 1–2 words). No fancy adjectives like ‘titanium’ or ‘artisan’."
+    }
 }
+  

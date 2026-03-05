@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { resolveCompassResult } from "../lib/scoring";
 import { useQuiz } from "../state/QuizContext";
-import type { CompassDefinition, LoadedAppData, Question } from "../types";
+import type { AxisKey, CompassDefinition, LoadedAppData, Question } from "../types";
 
 interface QuizPageProps {
   data: LoadedAppData;
@@ -18,6 +18,31 @@ function findCurrentCompass(
   compassId: string
 ): CompassDefinition | undefined {
   return compasses.find((compass) => compass.id === compassId);
+}
+
+function maxAxisContribution(question: Question, axis: AxisKey): number {
+  return question.answers.reduce((maxAbs, answer) => {
+    const delta = answer.delta[axis];
+    if (typeof delta !== "number") {
+      return maxAbs;
+    }
+    return Math.max(maxAbs, Math.abs(delta));
+  }, 0);
+}
+
+function getSectionMaxDistance(
+  sectionQuestions: Question[],
+  xAxis: AxisKey,
+  yAxis: AxisKey
+): number {
+  const maxX = sectionQuestions.reduce((sum, question) => {
+    return sum + maxAxisContribution(question, xAxis);
+  }, 0);
+  const maxY = sectionQuestions.reduce((sum, question) => {
+    return sum + maxAxisContribution(question, yAxis);
+  }, 0);
+  const maxDistance = maxX + maxY;
+  return maxDistance > 0 ? maxDistance : 24;
 }
 
 export function QuizPage({ data }: QuizPageProps): JSX.Element {
@@ -47,10 +72,10 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card error-card">
-          <h1>Quiz Content Missing</h1>
-          <p>No questions were loaded.</p>
+          <h1>Dude, the Questions Vanished</h1>
+          <p>Totally nothing loaded, which is most unexcellent.</p>
           <button className="primary-button" type="button" onClick={() => navigate("/")}> 
-            Back to Landing
+            Back to Home Base
           </button>
         </section>
       </main>
@@ -64,10 +89,10 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card error-card">
-          <h1>Quiz Configuration Error</h1>
-          <p>The current question references an unknown compass section.</p>
+          <h1>Compass Vibes Are Crossed</h1>
+          <p>Dude, this question points to a mystery section and we totally lost the map.</p>
           <button className="primary-button" type="button" onClick={() => navigate("/")}> 
-            Back to Landing
+            Back to Home Base
           </button>
         </section>
       </main>
@@ -91,6 +116,9 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     }
     return resolveCompassResult(activeCompass, axisScores);
   }, [activeCompass, axisScores, shouldShowSectionReview]);
+  const sectionMaxDistance = useMemo(() => {
+    return getSectionMaxDistance(sectionQuestions, activeCompass.xAxis, activeCompass.yAxis);
+  }, [activeCompass.xAxis, activeCompass.yAxis, sectionQuestions]);
 
   useEffect(() => {
     setReviewCompassId(null);
@@ -120,7 +148,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
         </div>
 
         <p className="progress-note">
-          Global progress: {currentQuestionIndex + 1} / {totalQuestions} · Answered: {answeredCount} / 
+          Totally global progress: {currentQuestionIndex + 1} / {totalQuestions} · Answered: {answeredCount} / 
           {totalQuestions}
         </p>
 
@@ -162,8 +190,8 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
               }}
             >
               {shouldOfferSectionReview && !shouldShowSectionReview
-                ? "View Section Grid"
-                : "Next"}
+                ? "View Most Excellent Grid"
+                : "Totally Next"}
             </button>
           ) : (
             <button
@@ -179,16 +207,16 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
               }}
             >
               {shouldOfferSectionReview && !shouldShowSectionReview
-                ? "View Section Grid"
-                : "See Results"}
+                ? "View Most Excellent Grid"
+                : "Reveal Results, Dude"}
             </button>
           )}
         </div>
 
         {shouldShowSectionReview && sectionResult ? (
           <section className="household-section">
-            <h2>{activeCompass.name} Complete</h2>
-            <p className="muted">Here is where your answers place you on this section grid.</p>
+            <h2>{activeCompass.name} Totally Complete</h2>
+            <p className="muted">Most excellent. Here is your spot on this gnarly section grid.</p>
             <CompassMiniChart
               title={activeCompass.name}
               quadrantLabel={sectionResult.quadrant.label}
@@ -196,7 +224,13 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
               y={sectionResult.y}
               confidence={Math.max(
                 0,
-                Math.min(100, Math.round(((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / 24) * 100))
+                Math.min(
+                  100,
+                  Math.round(
+                    ((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / sectionMaxDistance) *
+                      100
+                  )
+                )
               )}
               xAxis={data.compasses.axes[activeCompass.xAxis]}
               yAxis={data.compasses.axes[activeCompass.yAxis]}
@@ -208,11 +242,11 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
                   type="button"
                   onClick={() => goToQuestion(currentQuestionIndex + 1)}
                 >
-                  Continue to Next Section
+                  Continue to the Next Vibe Zone
                 </button>
               ) : (
                 <button className="primary-button" type="button" onClick={() => navigate("/results")}>
-                  Continue to Results
+                  Continue to Final Vibes
                 </button>
               )}
             </div>
@@ -221,7 +255,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
 
         {!isComplete && unansweredIndex >= 0 && currentQuestionIndex === totalQuestions - 1 ? (
           <p className="muted">
-            Complete all questions to view results. First unanswered question: {unansweredIndex + 1}.
+            Dude, answer every question to unlock results. First unfinished one: {unansweredIndex + 1}.
           </p>
         ) : null}
       </section>

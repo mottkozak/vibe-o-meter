@@ -9,6 +9,11 @@ interface LandingPageProps {
 export function LandingPage({ data }: LandingPageProps): JSX.Element {
   const navigate = useNavigate();
   const { answeredCount, isComplete, restartQuiz, questions } = useQuiz();
+  const compassCount = data.compasses.compasses.length;
+  const totalQuestions = questions.length;
+  const totalTypeOutcomes = Object.values(data.typeTitles.families).reduce((sum, family) => {
+    return sum + family.titles16.length;
+  }, 0);
 
   const hasInProgressAnswers = answeredCount > 0 && !isComplete;
 
@@ -39,9 +44,9 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
         </div>
 
         <p className="progress-note">
-          5 compasses · 30 questions · 64 type outcomes
+          {compassCount} compasses · {totalQuestions} questions · {totalTypeOutcomes} type outcomes
           {answeredCount > 0
-            ? ` · Saved answers: ${answeredCount}/${questions.length}`
+            ? ` · Saved answers: ${answeredCount}/${totalQuestions}`
             : ""}
         </p>
       </section>

@@ -13,12 +13,12 @@ function toErrorMessage(error: unknown): string {
   if (error instanceof Error && error.message) {
     return error.message;
   }
-  return "Unexpected error while generating results.";
+  return "Dude, the result wizard totally face-planted.";
 }
 
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
-  const { axisScores, isComplete, restartQuiz } = useQuiz();
+  const { axisScores, isComplete, restartQuiz, questions } = useQuiz();
 
   const resultState = useMemo<{ result: GeneratedResult | null; error: string | null }>(() => {
     if (!isComplete) {
@@ -45,11 +45,13 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card">
-          <h1>Results Locked</h1>
-          <p>Finish all 30 questions before opening your archetype results.</p>
+          <h1>Results Are Not Yet Most Excellent</h1>
+          <p>
+            Totally finish all {questions.length} questions before we unleash your archetype vibes.
+          </p>
           <div className="button-row">
             <button className="primary-button" type="button" onClick={() => navigate("/quiz")}> 
-              Return to Quiz
+              Back to the Quiz, Dude
             </button>
           </div>
         </section>
@@ -61,11 +63,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card error-card">
-          <h1>Could Not Generate Results</h1>
+          <h1>Most Unexcellent Results Glitch</h1>
           <p>{resultState.error ?? "No result data available."}</p>
           <div className="button-row">
             <button className="primary-button" type="button" onClick={() => navigate("/quiz")}> 
-              Back to Quiz
+              Cruise Back to Quiz
             </button>
           </div>
         </section>
@@ -97,7 +99,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         </div>
 
         <section className="household-section">
-          <h2>Your Household Archetype</h2>
+          <h2>Your Most Excellent Household Archetype</h2>
           {result.householdArchetype ? (
             <>
               <p>
@@ -113,7 +115,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           ) : (
             <p className="muted object-note">
               {result.householdArchetypeMessage ??
-                "Household archetype is unavailable for this result."}
+                "Dude, the object oracle is totally unavailable for this result."}
             </p>
           )}
         </section>
@@ -122,7 +124,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
         <p>{result.summary}</p>
 
-        <h2>Compass Quadrants</h2>
+        <h2>Compass Vibe Quadrants</h2>
         <ul className="inline-list">
           {result.compassBreakdown.map((item) => (
             <li key={item.compass.id}>
@@ -131,28 +133,29 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           ))}
         </ul>
 
-        <h2>Strengths</h2>
+        <h2>Most Excellent Strengths</h2>
         <ul>
           {result.strengths.map((strength) => (
             <li key={strength}>{strength}</li>
           ))}
         </ul>
 
-        <h2>Watchouts</h2>
+        <h2>Watchouts, Dude</h2>
         <ul>
           {result.watchouts.map((watchout) => (
             <li key={watchout}>{watchout}</li>
           ))}
         </ul>
 
-        <h2>Famous Vibe Matches</h2>
+        <h2>Famous Vibe Buddies</h2>
         <ul>
           {result.celebs.map((celeb) => (
             <li key={celeb}>{celeb}</li>
           ))}
         </ul>
+        {result.celebsNote ? <p className="muted">{result.celebsNote}</p> : null}
 
-        <h2>Compass Charts</h2>
+        <h2>Totally Scientific-ish Compass Charts</h2>
         <div className="chart-grid-layout">
           {result.compassBreakdown.map((item) => (
             <CompassMiniChart

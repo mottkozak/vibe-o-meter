@@ -12,7 +12,7 @@ export function ErrorScreen({ title, message, onRetry }: ErrorScreenProps): JSX.
         <p>{message}</p>
         {onRetry ? (
           <button className="primary-button" type="button" onClick={onRetry}>
-            Retry
+            Totally Try Again
           </button>
         ) : null}
       </section>
