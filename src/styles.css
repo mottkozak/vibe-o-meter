@@ -589,12 +589,12 @@ li {
   color: #274768;
 }
 
-.diagnostics-details[open] .diagnostics-summary-hint::before {
-  content: "Hide Details";
+.diagnostics-summary-hint::before {
+  content: "Expand Diagnostics";
 }
 
-.diagnostics-details[open] .diagnostics-summary-hint {
-  font-size: 0;
+.diagnostics-details[open] .diagnostics-summary-hint::before {
+  content: "Hide Diagnostics";
 }
 
 .diagnostics-content {
@@ -624,49 +624,69 @@ li {
 }
 
 .results-heading {
-  margin: 0 0 0.22rem;
-  font-size: 1.02rem;
+  margin: 0 0 0.2rem;
+  font-size: 1.03rem;
   color: #1f456f;
 }
 
 .results-hook {
-  max-width: 580px;
+  max-width: 620px;
+}
+
+.card-generated-label {
+  margin: 0.4rem 0 0.2rem;
+  text-align: center;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #204975;
 }
 
 .results-tier-title {
-  margin: 1.15rem 0 0.55rem;
+  margin: 0.15rem 0 0.55rem;
   text-align: center;
 }
 
 .trading-card {
-  max-width: 470px;
+  max-width: 620px;
   margin: 0 auto;
-  border-radius: 16px;
+  position: relative;
+  border-radius: 18px;
   overflow: hidden;
-  border: 4px solid #262626;
+  border: 5px solid #1f1f1f;
   box-shadow:
-    0 0 0 2px #f5f5f5,
-    0 10px 22px rgba(0, 0, 0, 0.34);
+    0 0 0 2px #f8f8f8,
+    0 0 0 5px #4d4d4d,
+    0 12px 25px rgba(0, 0, 0, 0.38);
+}
+
+.trading-card::after {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  pointer-events: none;
 }
 
 .card-theme-default {
-  background: linear-gradient(170deg, #f9f8f2 0%, #e2e1d8 55%, #d0cfc6 100%);
+  background: linear-gradient(170deg, #f8f6ec 0%, #ddd8c8 58%, #c9c4b4 100%);
 }
 
 .card-theme-viking {
-  background: linear-gradient(170deg, #ffe8d8 0%, #f2c29b 48%, #d5824f 100%);
+  background: linear-gradient(170deg, #ffe8d8 0%, #f0bb8b 48%, #cf7a44 100%);
 }
 
 .card-theme-wizard {
-  background: linear-gradient(170deg, #e7e7ff 0%, #b4baf2 50%, #7d80d3 100%);
+  background: linear-gradient(170deg, #e6e8ff 0%, #aeb6ef 50%, #737bcf 100%);
 }
 
 .card-theme-hero {
-  background: linear-gradient(170deg, #fff7d8 0%, #f1dd8b 50%, #d3b14f 100%);
+  background: linear-gradient(170deg, #fff7d8 0%, #efda82 50%, #cfa73f 100%);
 }
 
 .card-theme-goblin {
-  background: linear-gradient(170deg, #ddf1df 0%, #afd3a2 50%, #6f9d63 100%);
+  background: linear-gradient(170deg, #dff4e1 0%, #a6cd97 50%, #65965a 100%);
 }
 
 .trading-card .window-titlebar {
@@ -675,14 +695,14 @@ li {
 
 .trading-card-top {
   display: grid;
-  gap: 0.35rem;
-  margin-bottom: 0.6rem;
+  gap: 0.32rem;
+  margin-bottom: 0.68rem;
 }
 
 .trading-card-top h2 {
   margin: 0;
   font-family: "Trebuchet MS", Tahoma, Verdana, sans-serif;
-  font-size: 1.17rem;
+  font-size: 1.24rem;
   letter-spacing: 0.01em;
 }
 
@@ -691,20 +711,26 @@ li {
   width: fit-content;
 }
 
+.card-meta-line {
+  margin: 0.1rem 0 0;
+  font-size: 0.75rem;
+  color: #244465;
+}
+
 .trading-card-section {
   margin-top: 0.55rem;
-  border: 1px solid #5f5f5f;
-  border-radius: 10px;
-  background: rgba(245, 245, 245, 0.86);
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.9);
-  padding: 0.55rem 0.58rem;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: rgba(247, 247, 247, 0.9);
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.95);
+  padding: 0.64rem 0.68rem;
 }
 
 .trading-card-section h3 {
-  margin: 0 0 0.28rem;
+  margin: 0 0 0.38rem;
   font-family: "Trebuchet MS", Tahoma, Verdana, sans-serif;
   text-transform: uppercase;
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   color: #1d3c61;
 }
 
@@ -714,10 +740,15 @@ li {
 }
 
 .trading-art-frame {
-  border: 1px solid #676767;
-  border-radius: 10px;
-  background: rgba(236, 236, 236, 0.94);
-  min-height: 250px;
+  border: 1px solid #666;
+  border-radius: 14px;
+  background:
+    radial-gradient(circle at 30% 22%, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 52%),
+    linear-gradient(165deg, rgba(243, 248, 255, 0.95), rgba(219, 231, 246, 0.95));
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.9),
+    inset -1px -1px 0 rgba(80, 100, 126, 0.25);
+  min-height: 295px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -727,39 +758,50 @@ li {
 }
 
 .trading-art-frame .object-glyph {
-  font-size: 5.6rem;
+  font-size: 6.7rem;
   margin: 0 0 0.25rem;
 }
 
 .trading-art-frame .object-name {
-  font-size: 1rem;
+  font-size: 1.08rem;
 }
 
 .trading-flavor {
-  margin: 0;
-  font-size: 0.82rem;
-  line-height: 1.35;
-  color: #244466;
+  margin: 0.2rem 0 0.12rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: #1b3958;
   text-align: center;
   font-style: italic;
+  font-weight: 600;
 }
 
 .trading-card .shareable-trait-columns {
-  gap: 0.5rem;
+  gap: 0.62rem;
 }
 
 .trading-card .shareable-trait-columns > div {
   border-radius: 8px;
+  padding: 0.55rem 0.6rem;
+}
+
+.trading-card .shareable-trait-columns li {
+  margin-bottom: 0.45rem;
+}
+
+.trading-card .shareable-trait-columns li:last-child {
+  margin-bottom: 0;
 }
 
 .abilities-list {
   display: grid;
-  gap: 0.28rem;
+  gap: 0.4rem;
 }
 
 .abilities-list p {
   margin: 0;
-  font-size: 0.82rem;
+  font-size: 0.84rem;
+  line-height: 1.35;
 }
 
 .card-stats-list {
@@ -783,20 +825,12 @@ li {
   color: #1a3a61;
 }
 
-.card-stat-bar {
-  position: relative;
-  height: 0.72rem;
-  border: 1px solid #676767;
-  border-radius: 8px;
-  background: #ddd;
-  overflow: hidden;
-}
-
-.card-stat-bar > span {
-  position: absolute;
-  inset: 0 auto 0 0;
-  background: linear-gradient(90deg, #274f86, #5f8bc7);
-  border-right: 1px solid #173761;
+.card-stat-text {
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #18395e;
+  font-weight: 700;
 }
 
 .trading-card .famous-buddies-list {
@@ -807,19 +841,22 @@ li {
 
 .results-actions {
   justify-content: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
+  margin-top: 1.1rem;
+}
+
+.results-actions .primary-button,
+.results-actions .secondary-button {
+  padding: 0.52rem 0.94rem;
+  font-size: 0.88rem;
 }
 
 .diagnostics-section {
-  margin-top: 1.15rem;
-  border: 1px solid #8f8f8f;
-  box-shadow: inset 1px 1px 0 #fff;
-  background: #ebebeb;
-  padding: 0.68rem 0.72rem;
-}
-
-.diagnostics-section > h2 {
-  margin: 0 0 0.48rem;
+  margin-top: 0;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+  padding: 0.68rem 0.72rem 0.75rem;
 }
 
 .diagnostics-section .diagnostics-content {
@@ -838,7 +875,7 @@ li {
 }
 
 .diagnostics-chart-grid {
-  grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
 .household-section {
@@ -1070,8 +1107,7 @@ li {
   }
 
   .trading-card-top {
-    flex-direction: column;
-    align-items: flex-start;
+    justify-items: start;
   }
 
   .trading-card {
@@ -1079,11 +1115,11 @@ li {
   }
 
   .trading-art-frame {
-    min-height: 210px;
+    min-height: 230px;
   }
 
   .trading-art-frame .object-glyph {
-    font-size: 4.2rem;
+    font-size: 5rem;
   }
 
   .shareable-top-grid {
@@ -1149,9 +1185,11 @@ li {
   body.print-share-card .results-card::before,
   body.print-share-card .results-head,
   body.print-share-card .results-reveal,
+  body.print-share-card .card-generated-label,
   body.print-share-card .results-tier-title,
   body.print-share-card .results-actions,
   body.print-share-card .action-status,
+  body.print-share-card .diagnostics-details,
   body.print-share-card .diagnostics-section,
   body.print-share-card .diagnostics-note,
   body.print-share-card .disclaimer {

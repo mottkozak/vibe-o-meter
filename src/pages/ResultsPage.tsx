@@ -193,6 +193,45 @@ function getCardThemeClass(subtype: string): string {
   return "card-theme-default";
 }
 
+function getObjectClassLabel(subtype: string): string {
+  const value = subtype.toLowerCase();
+
+  if (value.includes("hero") || value.includes("knight") || value.includes("queen")) {
+    return "Guardian";
+  }
+  if (value.includes("wizard") || value.includes("philosopher") || value.includes("sensei")) {
+    return "Strategist";
+  }
+  if (value.includes("goblin") || value.includes("jester") || value.includes("trickster")) {
+    return "Wildcard";
+  }
+  if (value.includes("viking") || value.includes("gladiator") || value.includes("cowboy")) {
+    return "Trailblazer";
+  }
+
+  return "Balancer";
+}
+
+function getRarityTier(titleIndex: number): string {
+  const slot = ((titleIndex % 4) + 4) % 4;
+  if (slot === 0) {
+    return "Common";
+  }
+  if (slot === 1) {
+    return "Uncommon";
+  }
+  if (slot === 2) {
+    return "Rare";
+  }
+  return "Epic";
+}
+
+function getStatBlocks(confidence: number): string {
+  const normalized = Math.max(0, Math.min(100, confidence));
+  const filled = Math.max(0, Math.min(10, Math.round(normalized / 10)));
+  return `${"█".repeat(filled)}${"░".repeat(10 - filled)}`;
+}
+
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
   const { axisScores, isComplete, restartQuiz, questions, selectedQuizLength } = useQuiz();
@@ -305,6 +344,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const primaryAbility = getFirstSentence(primaryReason) || primaryReason;
   const backupAbility = getFirstSentence(backupReason) || backupReason;
   const cardThemeClass = getCardThemeClass(powerSubtype);
+  const objectClass = getObjectClassLabel(powerSubtype);
+  const rarityTier = getRarityTier(result.titleIndex);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -376,6 +417,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </div>
         </section>
 
+        <p className="card-generated-label">GENERATED PERSONALITY CARD</p>
         <h2 className="results-tier-title">Shareable Trading Card</h2>
         <section
           ref={shareCardRef}
@@ -391,6 +433,9 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               <h2>{result.archetypeTitle}</h2>
               <p className="subtype-pill">{powerSubtype}</p>
               <p className="code-pill">TYPE: {result.typeCode}</p>
+              <p className="card-meta-line">
+                Object Class: <strong>{objectClass}</strong> | Rarity: <strong>{rarityTier}</strong>
+              </p>
             </header>
 
             <section className="trading-card-section trading-art-panel">
@@ -448,8 +493,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 {result.compassBreakdown.map((item) => (
                   <li key={item.compass.id} className="card-stat-row">
                     <span className="card-stat-label">{item.compass.name}</span>
-                    <span className="card-stat-bar" aria-hidden="true">
-                      <span style={{ width: `${item.confidence}%` }} />
+                    <span className="card-stat-text" aria-label={`${item.confidence}%`}>
+                      {getStatBlocks(item.confidence)}
                     </span>
                   </li>
                 ))}
@@ -477,65 +522,71 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         </div>
         {actionStatus ? <p className="muted action-status">{actionStatus}</p> : null}
 
-        <section className="diagnostics-section">
-          <h2>Full Personality Diagnostics</h2>
-          <div className="diagnostics-content">
-            <h3>Compass Charts</h3>
-            <div className="chart-grid-layout diagnostics-chart-grid">
-              {result.compassBreakdown.map((item) => (
-                <CompassMiniChart
-                  key={item.compass.id}
-                  title={item.compass.name}
-                  quadrantLabel={item.quadrant.label}
-                  x={item.x}
-                  y={item.y}
-                  confidence={item.confidence}
-                  xAxis={data.compasses.axes[item.compass.xAxis]}
-                  yAxis={data.compasses.axes[item.compass.yAxis]}
-                  infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
-                />
-              ))}
-            </div>
+        <details className="diagnostics-details">
+          <summary>
+            <span>Full Personality Diagnostics</span>
+            <span className="diagnostics-summary-hint" aria-hidden="true" />
+          </summary>
+          <section className="diagnostics-section">
+            <div className="diagnostics-content">
+              <h3>Compass Charts</h3>
+              <div className="chart-grid-layout diagnostics-chart-grid">
+                {result.compassBreakdown.map((item) => (
+                  <CompassMiniChart
+                    key={item.compass.id}
+                    title={item.compass.name}
+                    quadrantLabel={item.quadrant.label}
+                    x={item.x}
+                    y={item.y}
+                    confidence={item.confidence}
+                    xAxis={data.compasses.axes[item.compass.xAxis]}
+                    yAxis={data.compasses.axes[item.compass.yAxis]}
+                    infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
+                  />
+                ))}
+              </div>
 
-            <h3>Expanded Strengths</h3>
-            <ul>
-              {result.strengths.map((strength) => (
-                <li key={strength}>{strength}</li>
-              ))}
-            </ul>
+              <h3>Expanded Strengths</h3>
+              <ul>
+                {result.strengths.map((strength) => (
+                  <li key={strength}>{strength}</li>
+                ))}
+              </ul>
 
-            <h3>Expanded Weaknesses</h3>
-            <ul>
-              {result.watchouts.map((watchout) => (
-                <li key={watchout}>{watchout}</li>
-              ))}
-            </ul>
+              <h3>Expanded Weaknesses</h3>
+              <ul>
+                {result.watchouts.map((watchout) => (
+                  <li key={watchout}>{watchout}</li>
+                ))}
+              </ul>
 
-            <h3>Field Dossier</h3>
-            <p>
-              Type code <strong>{result.typeCode}</strong> resolves to the pair <strong>{primaryObject}</strong>
-              {" / "}
-              <strong>{backupObject}</strong>, with subtype <strong>{powerSubtype}</strong>.
-            </p>
-
-            <h3>Object Lore</h3>
-            {result.householdArchetype ? (
-              <>
-                <p>
-                  <strong>{primaryObject}:</strong> {primaryReason}
-                </p>
-                <p>
-                  <strong>{backupObject}:</strong> {backupReason}
-                </p>
-              </>
-            ) : (
-              <p className="muted">
-                {result.householdArchetypeMessage ??
-                  "Object lore is unavailable for this run because the object data could not be loaded."}
+              <h3>Field Dossier</h3>
+              <p>
+                Type code <strong>{result.typeCode}</strong> resolves to the pair{" "}
+                <strong>{primaryObject}</strong>
+                {" / "}
+                <strong>{backupObject}</strong>, with subtype <strong>{powerSubtype}</strong>.
               </p>
-            )}
-          </div>
-        </section>
+
+              <h3>Object Lore</h3>
+              {result.householdArchetype ? (
+                <>
+                  <p>
+                    <strong>{primaryObject}:</strong> {primaryReason}
+                  </p>
+                  <p>
+                    <strong>{backupObject}:</strong> {backupReason}
+                  </p>
+                </>
+              ) : (
+                <p className="muted">
+                  {result.householdArchetypeMessage ??
+                    "Object lore is unavailable for this run because the object data could not be loaded."}
+                </p>
+              )}
+            </div>
+          </section>
+        </details>
 
         {result.celebsNote ? <p className="muted diagnostics-note">{result.celebsNote}</p> : null}
 
