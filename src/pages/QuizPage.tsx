@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { resolveCompassResult } from "../lib/scoring";
 import { useQuiz } from "../state/QuizContext";
-import type { AxisKey, CompassDefinition, LoadedAppData, Question } from "../types";
+import type { AxisKey, CompassDefinition, LoadedAppData, QuadrantWriteup, Question } from "../types";
 
 interface QuizPageProps {
   data: LoadedAppData;
@@ -45,6 +45,35 @@ function getSectionMaxDistance(
   return maxDistance > 0 ? maxDistance : 24;
 }
 
+function ensureSentence(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    return "";
+  }
+  if (/[.!?]$/.test(trimmed)) {
+    return trimmed;
+  }
+  return `${trimmed}.`;
+}
+
+function buildSubtypeExplanation(writeup: QuadrantWriteup | null): string {
+  if (!writeup) {
+    return "This subtype shows where your answers are clustering on this compass right now.";
+  }
+
+  const lead = ensureSentence(writeup.oneLiner);
+  const strengths = writeup.strengths
+    .map((item) => item.trim())
+    .filter((item) => item.length > 0)
+    .slice(0, 2);
+
+  if (strengths.length === 0) {
+    return lead;
+  }
+
+  return `${lead} Core vibe: ${strengths.join(" and ")}.`;
+}
+
 export function QuizPage({ data }: QuizPageProps): JSX.Element {
   const navigate = useNavigate();
   const [reviewCompassId, setReviewCompassId] = useState<string | null>(null);
@@ -53,7 +82,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     selectedQuizLength,
     answers,
     axisScores,
-    answeredCount,
     currentQuestionIndex,
     goToQuestion,
     isComplete,
@@ -134,6 +162,18 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
   const sectionMaxDistance = useMemo(() => {
     return getSectionMaxDistance(sectionQuestions, activeCompass.xAxis, activeCompass.yAxis);
   }, [activeCompass.xAxis, activeCompass.yAxis, sectionQuestions]);
+  const sectionWriteup = useMemo(() => {
+    if (!sectionResult) {
+      return null;
+    }
+
+    const writeupKey = `${activeCompass.id}.${sectionResult.quadrant.id}`;
+    return data.quadrantWriteups.quadrantWriteups[writeupKey] ?? null;
+  }, [activeCompass.id, data.quadrantWriteups, sectionResult]);
+  const sectionSubtypeExplanation = useMemo(
+    () => buildSubtypeExplanation(sectionWriteup),
+    [sectionWriteup]
+  );
 
   useEffect(() => {
     setReviewCompassId(null);
@@ -161,11 +201,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             Restart
           </button>
         </div>
-
-        <p className="progress-note">
-          Totally global progress: {currentQuestionIndex + 1} / {totalQuestions} · Answered: {answeredCount} / 
-          {totalQuestions} · Mode: {selectedQuizLength}
-        </p>
 
         <div className="answers-grid">
           {activeQuestion.answers.map((answer) => (
@@ -204,9 +239,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
                 goToQuestion(currentQuestionIndex + 1);
               }}
             >
-              {shouldOfferSectionReview && !shouldShowSectionReview
-                ? "View Most Excellent Grid"
-                : "Next"}
+              {shouldOfferSectionReview && !shouldShowSectionReview ? "View Grid" : "Next"}
             </button>
           ) : (
             <button
@@ -222,34 +255,41 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
               }}
             >
               {shouldOfferSectionReview && !shouldShowSectionReview
-                ? "View Most Excellent Grid"
+                ? "View Grid"
                 : "Reveal Results, Dude"}
             </button>
           )}
         </div>
 
         {shouldShowSectionReview && sectionResult ? (
-          <section className="household-section">
-            <h2>{activeCompass.name} Totally Complete</h2>
-            <p className="muted">Most excellent. Here is your spot on this gnarly section grid.</p>
-            <CompassMiniChart
-              title={activeCompass.name}
-              quadrantLabel={sectionResult.quadrant.label}
-              x={sectionResult.x}
-              y={sectionResult.y}
-              confidence={Math.max(
-                0,
-                Math.min(
-                  100,
-                  Math.round(
-                    ((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / sectionMaxDistance) *
-                      100
-                  )
-                )
-              )}
-              xAxis={data.compasses.axes[activeCompass.xAxis]}
-              yAxis={data.compasses.axes[activeCompass.yAxis]}
-            />
+          <section className="household-section quiz-section-review">
+            <div className="quiz-review-layout">
+              <div className="quiz-section-chart-wrap">
+                <CompassMiniChart
+                  title={activeCompass.name}
+                  quadrantLabel={sectionResult.quadrant.label}
+                  x={sectionResult.x}
+                  y={sectionResult.y}
+                  confidence={Math.max(
+                    0,
+                    Math.min(
+                      100,
+                      Math.round(
+                        ((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / sectionMaxDistance) *
+                          100
+                      )
+                    )
+                  )}
+                  xAxis={data.compasses.axes[activeCompass.xAxis]}
+                  yAxis={data.compasses.axes[activeCompass.yAxis]}
+                />
+              </div>
+              <section className="quiz-subtype-card" aria-label="Subtype explanation">
+                <p className="quiz-subtype-kicker">Subtype Classification</p>
+                <h3>{sectionResult.quadrant.label}</h3>
+                <p>{sectionSubtypeExplanation}</p>
+              </section>
+            </div>
             <div className="button-row">
               {currentQuestionIndex < totalQuestions - 1 ? (
                 <button
@@ -257,11 +297,11 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
                   type="button"
                   onClick={() => goToQuestion(currentQuestionIndex + 1)}
                 >
-                  Continue to the Next Vibe Zone
+                  Continue
                 </button>
               ) : (
                 <button className="primary-button" type="button" onClick={() => navigate("/results")}>
-                  Continue to Final Vibes
+                  Continue
                 </button>
               )}
             </div>

@@ -135,29 +135,6 @@ const COMPASS_GRID_INFO: Record<
   }
 };
 
-const COMPASS_PROFILE_BLURB: Record<string, string> = {
-  "power.vikingHero": "You lead with direct action and protective energy.",
-  "power.wizardHero": "You think fast and adapt even faster.",
-  "power.vikingGoblin": "Bold instincts and chaos momentum fuel your style.",
-  "power.wizardGoblin": "Clever pivots and tactical mischief are your edge.",
-  "order.knightCommander": "You build structure and keep missions coherent.",
-  "order.pirateCaptain": "You bend systems when freedom gets better outcomes.",
-  "order.knightJester": "You balance responsibility with morale and humor.",
-  "order.pirateJester": "You break rules and weaponize humor.",
-  "discipline.samuraiMaster": "Precision and consistency are your default power.",
-  "discipline.cowboySage": "Independent, practical, and grounded in real-world learning.",
-  "discipline.samuraiTrickster": "Disciplined creativity with strategic rule-bending.",
-  "discipline.cowboyTrickster": "Independent, creative, unpredictable.",
-  "social.royalDiplomat": "You navigate social systems with polish and tact.",
-  "social.warriorQueen": "Command presence with practical, grounded leadership.",
-  "social.roguePrincess": "Charismatic influence with playful strategic flair.",
-  "social.rogueAdventurer": "Charismatic chaos agent.",
-  "risk.gladiatorMonk": "Courage under pressure with calm emotional control.",
-  "risk.philosopherMonk": "Calculated reflection before decisive movement.",
-  "risk.gladiatorGambler": "Risk-forward action with relentless momentum.",
-  "risk.philosopherGambler": "Calculated risk with clever instincts."
-};
-
 function toErrorMessage(error: unknown): string {
   if (error instanceof Error && error.message) {
     return error.message;
@@ -185,6 +162,35 @@ function getObjectGlyph(objectName: string): string {
   }
 
   return "📦";
+}
+
+function getFirstSentence(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    return "";
+  }
+
+  const match = trimmed.match(/[^.!?]+[.!?]?/);
+  return (match?.[0] ?? trimmed).trim();
+}
+
+function getCardThemeClass(subtype: string): string {
+  const value = subtype.toLowerCase();
+
+  if (value.includes("viking") || value.includes("gladiator")) {
+    return "card-theme-viking";
+  }
+  if (value.includes("wizard") || value.includes("philosopher")) {
+    return "card-theme-wizard";
+  }
+  if (value.includes("hero") || value.includes("knight")) {
+    return "card-theme-hero";
+  }
+  if (value.includes("goblin") || value.includes("jester") || value.includes("rogue")) {
+    return "card-theme-goblin";
+  }
+
+  return "card-theme-default";
 }
 
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
@@ -280,10 +286,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
   const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 3);
   const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 3);
-  const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(
-    0,
-    5
-  );
+  const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 3);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
   const backupObject = result.householdArchetype?.backupObject ?? "Unknown";
@@ -291,6 +294,17 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     result.householdArchetype?.primaryReason ?? "Reliable utility with surprising personality.";
   const backupReason =
     result.householdArchetype?.backupReason ?? "Adaptive sidekick energy for fast pivots.";
+  const powerSubtype =
+    result.compassBreakdown.find((item) => item.compass.id === "power")?.quadrant.label ??
+    "Unknown subtype";
+  const revealHook =
+    getFirstSentence(result.powerOneLiner) ||
+    getFirstSentence(result.summary) ||
+    "The friend who shows up before the group chat finishes typing.";
+  const primaryFlavorLine = getFirstSentence(primaryReason) || "Builds order out of chaos.";
+  const primaryAbility = getFirstSentence(primaryReason) || primaryReason;
+  const backupAbility = getFirstSentence(backupReason) || backupReason;
+  const cardThemeClass = getCardThemeClass(powerSubtype);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -337,43 +351,58 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   return (
     <main className="screen-shell">
       <section className="card results-card">
-        <div className="results-head">
-          <div>
-            <p className="eyebrow">RESULTS_VIEWER.EXE</p>
-            <h1>{result.archetypeTitle}</h1>
-            <p className="code-pill">TYPE: {result.typeCode}</p>
+        <section className="results-reveal">
+          <div className="results-head">
+            <div>
+              <p className="eyebrow">RESULTS_VIEWER.EXE</p>
+              <h2 className="results-heading">{data.resultsContent.resultsHeading}</h2>
+              <h1>{result.archetypeTitle}</h1>
+              <div className="result-meta-row">
+                <p className="code-pill">TYPE: {result.typeCode}</p>
+                <p className="subtype-pill">{powerSubtype}</p>
+              </div>
+              <p className="results-hook">{revealHook}</p>
+            </div>
+            <button
+              className="secondary-button"
+              type="button"
+              onClick={() => {
+                restartQuiz();
+                navigate("/");
+              }}
+            >
+              {data.resultsContent.restartButtonLabel}
+            </button>
           </div>
-          <button
-            className="secondary-button"
-            type="button"
-            onClick={() => {
-              restartQuiz();
-              navigate("/");
-            }}
-          >
-            {data.resultsContent.restartButtonLabel}
-          </button>
-        </div>
+        </section>
 
         <h2 className="results-tier-title">Shareable Trading Card</h2>
-        <section ref={shareCardRef} className="shareable-card" aria-label="Shareable results card">
+        <section
+          ref={shareCardRef}
+          className={`shareable-card trading-card ${cardThemeClass}`}
+          aria-label="Shareable results card"
+        >
           <header className="shareable-card-header window-titlebar">
             <p className="shareable-titlebar-label">RESULTS_VIEWER.EXE</p>
           </header>
 
           <div className="shareable-card-content">
-            <header className="shareable-card-meta">
+            <header className="trading-card-top">
               <h2>{result.archetypeTitle}</h2>
+              <p className="subtype-pill">{powerSubtype}</p>
               <p className="code-pill">TYPE: {result.typeCode}</p>
             </header>
 
-            <div className="shareable-top-grid">
-              <div className="shareable-object-image" aria-label={`Primary object ${primaryObject}`}>
-                <p className="object-image-label">OBJECT_IMAGE.BMP</p>
+            <section className="trading-card-section trading-art-panel">
+              <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
                 <div className="object-glyph">{getObjectGlyph(primaryObject)}</div>
                 <p className="object-name">{primaryObject}</p>
                 <p className="muted object-caption">Primary Object</p>
               </div>
+              <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
+            </section>
+
+            <section className="trading-card-section">
               <div className="shareable-trait-columns">
                 <div>
                   <h3>Strengths</h3>
@@ -392,44 +421,18 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                   </ul>
                 </div>
               </div>
-            </div>
-
-            <section className="shareable-block">
-              <h3>Compass Profile</h3>
-              <ul className="inline-list">
-                {result.compassBreakdown.map((item) => {
-                  const key = `${item.compass.id}.${item.quadrant.id}`;
-                  const blurb = COMPASS_PROFILE_BLURB[key] ?? "Unique alignment pattern.";
-                  return (
-                    <li key={key}>
-                      <strong>
-                        {item.compass.name}: {item.quadrant.label}
-                      </strong>
-                      <span> - {blurb}</span>
-                    </li>
-                  );
-                })}
-              </ul>
             </section>
 
-            <section className="shareable-block">
-              <h3>Hidden Talents</h3>
+            <section className="trading-card-section">
+              <h3>Abilities</h3>
               {result.householdArchetype ? (
-                <div className="hidden-talents-grid">
-                  <div>
-                    <p className="talent-label">Primary Object Power</p>
-                    <p>
-                      <strong>{primaryObject}</strong>
-                    </p>
-                    <p>{primaryReason}</p>
-                  </div>
-                  <div>
-                    <p className="talent-label">Backup Object Power</p>
-                    <p>
-                      <strong>{backupObject}</strong>
-                    </p>
-                    <p>{backupReason}</p>
-                  </div>
+                <div className="abilities-list">
+                  <p>
+                    <strong>{primaryObject}</strong> - {primaryAbility}
+                  </p>
+                  <p>
+                    <strong>{backupObject}</strong> - {backupAbility}
+                  </p>
                 </div>
               ) : (
                 <p className="muted">
@@ -439,9 +442,23 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               )}
             </section>
 
-            <section className="shareable-block">
+            <section className="trading-card-section">
+              <h3>Stats</h3>
+              <ul className="card-stats-list">
+                {result.compassBreakdown.map((item) => (
+                  <li key={item.compass.id} className="card-stat-row">
+                    <span className="card-stat-label">{item.compass.name}</span>
+                    <span className="card-stat-bar" aria-hidden="true">
+                      <span style={{ width: `${item.confidence}%` }} />
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="trading-card-section">
               <h3>Famous Vibe Buddies</h3>
-              <ul>
+              <ul className="famous-buddies-list">
                 {cardCelebs.map((celeb) => (
                   <li key={celeb}>{celeb}</li>
                 ))}
@@ -454,87 +471,73 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           <button className="primary-button" type="button" onClick={handleDownloadCard}>
             Download Card
           </button>
-          <button className="secondary-button" type="button" onClick={() => void handleCopyLink()}>
-            Copy Result Link
-          </button>
           <button className="secondary-button" type="button" onClick={() => void handleShare()}>
             Share With Friends
           </button>
         </div>
         {actionStatus ? <p className="muted action-status">{actionStatus}</p> : null}
 
-        <hr className="results-divider" />
-
-        <section className="detailed-section">
+        <section className="diagnostics-section">
           <h2>Full Personality Diagnostics</h2>
+          <div className="diagnostics-content">
+            <h3>Compass Charts</h3>
+            <div className="chart-grid-layout diagnostics-chart-grid">
+              {result.compassBreakdown.map((item) => (
+                <CompassMiniChart
+                  key={item.compass.id}
+                  title={item.compass.name}
+                  quadrantLabel={item.quadrant.label}
+                  x={item.x}
+                  y={item.y}
+                  confidence={item.confidence}
+                  xAxis={data.compasses.axes[item.compass.xAxis]}
+                  yAxis={data.compasses.axes[item.compass.yAxis]}
+                  infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
+                />
+              ))}
+            </div>
 
-          <h3>Detailed Vibe Analysis</h3>
-          <p>{result.summary}</p>
-          <p className="one-liner">{result.powerOneLiner}</p>
+            <h3>Expanded Strengths</h3>
+            <ul>
+              {result.strengths.map((strength) => (
+                <li key={strength}>{strength}</li>
+              ))}
+            </ul>
 
-          <h3>Compass Charts</h3>
-          <div className="chart-grid-layout">
-            {result.compassBreakdown.map((item) => (
-              <CompassMiniChart
-                key={item.compass.id}
-                title={item.compass.name}
-                quadrantLabel={item.quadrant.label}
-                x={item.x}
-                y={item.y}
-                confidence={item.confidence}
-                xAxis={data.compasses.axes[item.compass.xAxis]}
-                yAxis={data.compasses.axes[item.compass.yAxis]}
-                infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
-              />
-            ))}
-          </div>
+            <h3>Expanded Weaknesses</h3>
+            <ul>
+              {result.watchouts.map((watchout) => (
+                <li key={watchout}>{watchout}</li>
+              ))}
+            </ul>
 
-          <h3>Strengths (Expanded)</h3>
-          <ul>
-            {result.strengths.map((strength) => (
-              <li key={strength}>{strength}</li>
-            ))}
-          </ul>
-
-          <h3>Weaknesses (Expanded)</h3>
-          <ul>
-            {result.watchouts.map((watchout) => (
-              <li key={watchout}>{watchout}</li>
-            ))}
-          </ul>
-
-          <h3>Field Dossier</h3>
-          <p>
-            Type code <strong>{result.typeCode}</strong> resolves to the object pair <strong>{primaryObject}</strong>
-            {" / "}
-            <strong>{backupObject}</strong>, with compass profile details above.
-          </p>
-
-          <h3>Object Lore</h3>
-          {result.householdArchetype ? (
-            <>
-              <p>
-                <strong>{primaryObject}:</strong> {primaryReason}
-              </p>
-              <p>
-                <strong>{backupObject}:</strong> {backupReason}
-              </p>
-            </>
-          ) : (
-            <p className="muted">
-              {result.householdArchetypeMessage ??
-                "Object lore is unavailable for this run because the object data could not be loaded."}
+            <h3>Field Dossier</h3>
+            <p>
+              Type code <strong>{result.typeCode}</strong> resolves to the pair <strong>{primaryObject}</strong>
+              {" / "}
+              <strong>{backupObject}</strong>, with subtype <strong>{powerSubtype}</strong>.
             </p>
-          )}
 
-          <h3>Famous Comparisons</h3>
-          <ul>
-            {result.celebs.map((celeb) => (
-              <li key={celeb}>{celeb}</li>
-            ))}
-          </ul>
-          {result.celebsNote ? <p className="muted">{result.celebsNote}</p> : null}
+            <h3>Object Lore</h3>
+            {result.householdArchetype ? (
+              <>
+                <p>
+                  <strong>{primaryObject}:</strong> {primaryReason}
+                </p>
+                <p>
+                  <strong>{backupObject}:</strong> {backupReason}
+                </p>
+              </>
+            ) : (
+              <p className="muted">
+                {result.householdArchetypeMessage ??
+                  "Object lore is unavailable for this run because the object data could not be loaded."}
+              </p>
+            )}
+          </div>
         </section>
+
+        {result.celebsNote ? <p className="muted diagnostics-note">{result.celebsNote}</p> : null}
 
         <p className="disclaimer">{result.disclaimer}</p>
       </section>
