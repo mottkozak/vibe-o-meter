@@ -174,6 +174,10 @@ function getFirstSentence(text: string): string {
   return (match?.[0] ?? trimmed).trim();
 }
 
+function toMatrixLabel(value: string): string {
+  return value.replace(/compass/gi, "Matrix");
+}
+
 function getCardThemeClass(subtype: string): string {
   const value = subtype.toLowerCase();
 
@@ -251,10 +255,16 @@ function getRarityTier(titleIndex: number): string {
   return "Epic";
 }
 
-function getStatBlocks(confidence: number): string {
-  const normalized = Math.max(0, Math.min(100, confidence));
-  const filled = Math.max(0, Math.min(10, Math.round(normalized / 10)));
-  return `${"█".repeat(filled)}${"░".repeat(10 - filled)}`;
+function getCardStatLabel(compassId: string, fallbackName: string): string {
+  const byId: Record<string, string> = {
+    power: "Power Compass",
+    order: "Order Compass",
+    discipline: "Discipline Compass",
+    social: "Social Style Compass",
+    risk: "Risk Compass"
+  };
+
+  return byId[compassId] ?? fallbackName;
 }
 
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
@@ -373,6 +383,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const objectClass = getObjectClassLabel(powerSubtype);
   const rarityTier = getRarityTier(result.titleIndex);
   const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
+  const cardSerial = `${result.typeCode}-${String(result.titleIndex).padStart(3, "0")}`;
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -453,16 +464,22 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         >
           <div className="shareable-card-content">
             <header className="trading-card-top">
-              <h2>{result.archetypeTitle}</h2>
-              <p className="subtype-pill">{powerSubtype}</p>
-              <p className="code-pill">TYPE: {result.typeCode}</p>
+              <div className="trading-identity-row">
+                <div>
+                  <h2>{result.archetypeTitle}</h2>
+                  <p className="trading-subtype-tag">{powerSubtype}</p>
+                </div>
+                <p className="code-pill">TYPE: {result.typeCode}</p>
+              </div>
               <p className="card-meta-line">
-                Object Class: <strong>{objectClass}</strong> | Rarity: <strong>{rarityTier}</strong>
+                Object Class: <strong>{objectClass}</strong> | Rarity <span className="rarity-star">★</span>:{" "}
+                <strong>{rarityTier}</strong>
               </p>
             </header>
 
             <section className="trading-card-section trading-art-panel">
               <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
+                <div className="art-vignette" aria-hidden="true" />
                 {!objectImageFailed ? (
                   <img
                     className="object-asset"
@@ -476,37 +493,43 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 <p className="object-name">{primaryObject}</p>
                 <p className="muted object-caption">Primary Object</p>
               </div>
+            </section>
+
+            <section className="trading-card-section">
               <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
             </section>
 
             <section className="trading-card-section">
-              <div className="shareable-trait-columns">
-                <div>
+              <div className="trading-traits-grid">
+                <article className="trait-card">
                   <h3>Strengths</h3>
                   <ul>
                     {cardStrengths.map((strength) => (
                       <li key={strength}>{strength}</li>
                     ))}
                   </ul>
-                </div>
-                <div>
+                </article>
+                <article className="trait-card">
                   <h3>Weaknesses</h3>
                   <ul>
                     {cardWeaknesses.map((watchout) => (
                       <li key={watchout}>{watchout}</li>
                     ))}
                   </ul>
-                </div>
+                </article>
               </div>
             </section>
 
             <section className="trading-card-section">
-              <h3>Ability</h3>
+              <h3>Abilities</h3>
               {result.householdArchetype ? (
                 <div className="abilities-list">
-                  <p>
-                    <strong>{primaryObject}</strong> - {primaryAbility}
-                  </p>
+                  <article className="ability-entry">
+                    <p className="ability-name">
+                      <strong>Ability:</strong> {primaryObject}
+                    </p>
+                    <p className="ability-text">{primaryAbility}</p>
+                  </article>
                 </div>
               ) : (
                 <p className="muted">
@@ -521,16 +544,21 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               <ul className="card-stats-list">
                 {result.compassBreakdown.map((item) => (
                   <li key={item.compass.id} className="card-stat-row">
-                    <span className="card-stat-label">{item.compass.name}</span>
-                    <span className="card-stat-text" aria-label={`${item.confidence}%`}>
-                      {getStatBlocks(item.confidence)}
+                    <span className="card-stat-label">{getCardStatLabel(item.compass.id, item.compass.name)}</span>
+                    <span className="card-stat-segments" role="img" aria-label={`${item.confidence}%`}>
+                      {Array.from({ length: 10 }, (_, index) => (
+                        <span
+                          key={`${item.compass.id}-seg-${index}`}
+                          className={index < Math.round(item.confidence / 10) ? "filled" : ""}
+                        />
+                      ))}
                     </span>
                   </li>
                 ))}
               </ul>
             </section>
 
-            <section className="trading-card-section">
+            <section className="trading-card-section trading-companion">
               <h3>Famous Vibe Buddies</h3>
               <ul className="famous-buddies-list">
                 {cardCelebs.map((celeb) => (
@@ -538,6 +566,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 ))}
               </ul>
             </section>
+
+            <p className="card-id-line">Card ID: {cardSerial}</p>
           </div>
         </section>
 
@@ -558,12 +588,12 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </summary>
           <section className="diagnostics-section">
             <div className="diagnostics-content">
-              <h3>Compass Charts</h3>
+              <h3>Matrix Charts</h3>
               <div className="chart-grid-layout diagnostics-chart-grid">
                 {result.compassBreakdown.map((item) => (
                   <CompassMiniChart
                     key={item.compass.id}
-                    title={item.compass.name}
+                    title={toMatrixLabel(item.compass.name)}
                     quadrantLabel={item.quadrant.label}
                     x={item.x}
                     y={item.y}

@@ -56,9 +56,13 @@ function ensureSentence(text: string): string {
   return `${trimmed}.`;
 }
 
+function toMatrixLabel(value: string): string {
+  return value.replace(/compass/gi, "Matrix");
+}
+
 function buildSubtypeExplanation(writeup: QuadrantWriteup | null): string {
   if (!writeup) {
-    return "This subtype shows where your answers are clustering on this compass right now.";
+    return "This subtype shows where your answers are clustering on this matrix right now.";
   }
 
   const lead = ensureSentence(writeup.oneLiner);
@@ -132,7 +136,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card error-card">
-          <h1>Compass Vibes Are Crossed</h1>
+          <h1>Matrix Vibes Are Crossed</h1>
           <p>Dude, this question points to a mystery section and we totally lost the map.</p>
           <button className="primary-button" type="button" onClick={() => navigate("/")}> 
             Back to Home Base
@@ -173,6 +177,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     () => buildSubtypeExplanation(sectionWriteup),
     [sectionWriteup]
   );
+  const activeMatrixName = toMatrixLabel(activeCompass.name);
 
   useEffect(() => {
     setReviewCompassId(null);
@@ -184,7 +189,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
         <div className="quiz-head">
           <div>
             <p className="eyebrow">
-              {activeCompass.name} — {sectionQuestionIndex + 1} of {sectionQuestions.length}
+              {activeMatrixName} — {sectionQuestionIndex + 1} of {sectionQuestions.length}
             </p>
             <h1>{activeQuestion.prompt}</h1>
           </div>
@@ -265,7 +270,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             <div className="quiz-review-layout">
               <div className="quiz-section-chart-wrap">
                 <CompassMiniChart
-                  title={activeCompass.name}
+                  title={activeMatrixName}
                   quadrantLabel={sectionResult.quadrant.label}
                   x={sectionResult.x}
                   y={sectionResult.y}

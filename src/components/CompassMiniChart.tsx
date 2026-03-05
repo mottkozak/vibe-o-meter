@@ -58,8 +58,6 @@ export function CompassMiniChart({
       {infoBlurb ? (
         <section className="grid-blurb">
           <p className="grid-blurb-line">{infoBlurb.descriptor}</p>
-          <p className="grid-blurb-line">{infoBlurb.axisLineX}</p>
-          <p className="grid-blurb-line">{infoBlurb.axisLineY}</p>
           <ul className="grid-blurb-list">
             {infoBlurb.bullets.map((bullet) => (
               <li key={bullet.label}>

@@ -13,7 +13,7 @@ const LANDING_BODY_PARAGRAPHS = [
   "I know what you're thinking.",
   "\"Woah.\"",
   "And honestly dude... I agree.",
-  "Through a series of most intellectual questions, it will map your personality across the great forces of human nature. As you answer, your choices will slowly align across the cosmic compasses of destiny, until your true self emerges from the swirling chaos of the universe.",
+  "Through a series of most intellectual questions, it will map your personality across the great forces of human nature. As you answer, your choices will slowly align across the cosmic matrices of destiny, until your true self emerges from the swirling chaos of the universe.",
   "Truthfully, dude, I don't even know what that means. But woah. Just answer honestly and trust your instincts.",
   "Technically this isn't science. But it feels pretty scientific, and honestly that's close enough."
 ] as const;
@@ -101,7 +101,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
         ) : null}
 
         <p className="progress-note">
-          {compassCount} compasses ·{" "}
+          {compassCount} matrices ·{" "}
           {selectedQuizLength ? `${totalQuestions} selected questions` : "choose 30, 40, or 50 questions"}{" "}
           · {totalTypeOutcomes} type outcomes
           {selectedQuizLength && answeredCount > 0
