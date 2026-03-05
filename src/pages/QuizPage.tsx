@@ -260,7 +260,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             >
               {shouldOfferSectionReview && !shouldShowSectionReview
                 ? "View Grid"
-                : "Reveal Results, Dude"}
+                : "Reveal Results"}
             </button>
           )}
         </div>

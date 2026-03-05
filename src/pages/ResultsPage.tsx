@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
+import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
 import { generateResult } from "../lib/resultGenerator";
 import { useQuiz } from "../state/QuizContext";
 import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
@@ -8,120 +9,6 @@ import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
 interface ResultsPageProps {
   data: LoadedAppData;
 }
-
-const COMPASS_GRID_INFO: Record<
-  string,
-  {
-    descriptor: string;
-    bullets: Array<{ label: string; text: string }>;
-  }
-> = {
-  power: {
-    descriptor: "Physical vs Mental | Honorable vs Chaotic",
-    bullets: [
-      {
-        label: "Viking (Physical Force)",
-        text: "action, courage, instinct, adventure, boldness, kinetic energy"
-      },
-      {
-        label: "Wizard (Mental Power)",
-        text: "knowledge, foresight, strategy, patience, intellect, planning"
-      },
-      {
-        label: "Hero (Honor / Responsibility)",
-        text: "duty, bravery, reliability, moral backbone, protector energy"
-      },
-      {
-        label: "Goblin (Chaotic Instinct)",
-        text: "mischief, opportunism, cleverness, impulse, rule-bending survival"
-      }
-    ]
-  },
-  order: {
-    descriptor: "Order vs Freedom | Serious vs Playful",
-    bullets: [
-      {
-        label: "Knight (Order / Duty)",
-        text: "honor, rules, structure, loyalty, institution-minded"
-      },
-      {
-        label: "Pirate (Freedom / Rebellion)",
-        text: "independence, improvisation, defiance, adventure, anti-authority"
-      },
-      {
-        label: "General (Strategic Seriousness)",
-        text: "discipline, planning, leadership, responsibility, control"
-      },
-      {
-        label: "Jester (Playful Chaos)",
-        text: "humor, disruption, irreverence, provocation, creativity"
-      }
-    ]
-  },
-  discipline: {
-    descriptor: "Discipline vs Independence | Wisdom vs Mischief",
-    bullets: [
-      {
-        label: "Samurai (Discipline)",
-        text: "precision, honor, mastery, ritual, self-control"
-      },
-      {
-        label: "Cowboy (Independence)",
-        text: "freedom, rugged improvisation, lone wolf energy"
-      },
-      {
-        label: "Sensei (Wisdom)",
-        text: "teacher, composed authority, reflective calm"
-      },
-      {
-        label: "Trickster (Chaos Intelligence)",
-        text: "clever disruption, playful deception, rule-breaking creativity"
-      }
-    ]
-  },
-  social: {
-    descriptor: "Polished vs Rugged | Authority vs Mischief",
-    bullets: [
-      {
-        label: "Princess (Refined)",
-        text: "elegance, polish, aesthetics, diplomacy, social grace"
-      },
-      {
-        label: "Tomboy (Rugged Competence)",
-        text: "practical, athletic, adventurous, hands-on capability"
-      },
-      {
-        label: "Queen (Authority / Command)",
-        text: "leadership, presence, responsibility, strategic power"
-      },
-      {
-        label: "Rogue (Playful Subversion)",
-        text: "mischief, clever rebellion, rule-bending charm"
-      }
-    ]
-  },
-  risk: {
-    descriptor: "Action vs Reflection | Stability vs Impulse",
-    bullets: [
-      {
-        label: "Gladiator (Direct Action)",
-        text: "boldness, grit, confrontation, momentum, competitive edge"
-      },
-      {
-        label: "Philosopher (Reflective Analysis)",
-        text: "thoughtfulness, long-view strategy, nuance, contemplation"
-      },
-      {
-        label: "Monk (Steady Restraint)",
-        text: "patience, control, composure, discipline, emotional stability"
-      },
-      {
-        label: "Gambler (Risk Instinct)",
-        text: "experimentation, daring moves, spontaneity, appetite for uncertainty"
-      }
-    ]
-  }
-};
 
 function toErrorMessage(error: unknown): string {
   if (error instanceof Error && error.message) {
@@ -325,6 +212,110 @@ function getCardStatLabel(compassId: string, fallbackName: string): string {
   return byId[compassId] ?? fallbackName;
 }
 
+function getObjectAbilitiesForCard(
+  abilitiesByObject: Record<string, ObjectAbility[]> | undefined,
+  objectName: string
+): ObjectAbility[] {
+  if (!abilitiesByObject) {
+    return [];
+  }
+
+  const exact = abilitiesByObject[objectName];
+  if (exact && exact.length > 0) {
+    return exact;
+  }
+
+  const trimmedName = objectName.trim();
+  const trimmed = abilitiesByObject[trimmedName];
+  if (trimmed && trimmed.length > 0) {
+    return trimmed;
+  }
+
+  const normalized = trimmedName.toLowerCase();
+  const matchedEntry = Object.entries(abilitiesByObject).find(
+    ([key]) => key.trim().toLowerCase() === normalized
+  );
+
+  return matchedEntry?.[1] ?? [];
+}
+
+function getMatrixSummaryLabel(compassId: string): string {
+  const labelById: Record<string, string> = {
+    power: "Power Style",
+    order: "Order Style",
+    discipline: "Discipline Style",
+    social: "Social Style",
+    risk: "Risk Style"
+  };
+
+  return labelById[compassId] ?? "Style";
+}
+
+function getAxisLeanStrength(score: number): "slightly" | "moderately" | "strongly" {
+  const absValue = Math.abs(score);
+  if (absValue >= 8) {
+    return "strongly";
+  }
+  if (absValue >= 4) {
+    return "moderately";
+  }
+  return "slightly";
+}
+
+function getPersonalityShape(
+  breakdown: GeneratedResult["compassBreakdown"]
+): { name: string; traits: string[] } {
+  const confidenceById: Record<string, number> = Object.fromEntries(
+    breakdown.map((item) => [item.compass.id, item.confidence])
+  );
+
+  const power = confidenceById.power ?? 0;
+  const order = confidenceById.order ?? 0;
+  const discipline = confidenceById.discipline ?? 0;
+  const social = confidenceById.social ?? 0;
+  const risk = confidenceById.risk ?? 0;
+
+  if (power >= 65 && risk >= 45) {
+    return {
+      name: "The Explorer",
+      traits: ["Strong action energy", "Learns by trying and adapting", "Comfortable with uncertainty"]
+    };
+  }
+
+  if (order >= 65 && discipline >= 65) {
+    return {
+      name: "The Architect",
+      traits: ["Builds structure quickly", "Reliable under pressure", "Prefers strategy over improvisation"]
+    };
+  }
+
+  if (social >= 65 && order >= 55) {
+    return {
+      name: "The Diplomat",
+      traits: ["Strong social calibration", "Balances systems and people", "Keeps groups moving together"]
+    };
+  }
+
+  if (risk >= 65 && power >= 50) {
+    return {
+      name: "The Maverick",
+      traits: ["Fast decisions in uncertain moments", "Thrives in momentum", "Turns friction into opportunity"]
+    };
+  }
+
+  if (discipline >= 65 && risk <= 40) {
+    return {
+      name: "The Sentinel",
+      traits: ["Steady execution", "High consistency", "Protects progress over spectacle"]
+    };
+  }
+
+  return {
+    name: "The Pathfinder",
+    traits: ["Balanced across multiple styles", "Adaptable in mixed situations", "Finds practical routes forward"]
+  };
+}
+
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
   const { axisScores, isComplete, restartQuiz, questions, selectedQuizLength } = useQuiz();
@@ -436,15 +427,17 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     getFirstSentence(result.summary) ||
     "The friend who shows up before the group chat finishes typing.";
   const primaryFlavorLine = getFirstSentence(primaryReason) || "Builds order out of chaos.";
-  const primaryAbility = getFirstSentence(primaryReason) || primaryReason;
-  const objectAbilitiesForPrimary = data.objectsData?.objectAbilities?.[primaryObject];
+  const objectAbilitiesForPrimary = getObjectAbilitiesForCard(
+    data.objectsData?.objectAbilities,
+    primaryObject
+  );
   const cardAbilities: ObjectAbility[] =
     objectAbilitiesForPrimary && objectAbilitiesForPrimary.length > 0
       ? objectAbilitiesForPrimary.slice(0, 2)
       : [
           {
-            name: primaryObject,
-            description: primaryAbility
+            name: "Fallback",
+            description: `Custom abilities are missing for ${primaryObject}.`
           }
         ];
   const cardThemeClass = getCardThemeClass(powerSubtype);
@@ -456,6 +449,49 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const typeOrdinal = familyRank * 16 + result.titleIndex + 1;
   const cardSerial = `${result.typeCode}-${String(typeOrdinal).padStart(3, "0")}`;
   const comparisonsLine = cardCelebs.join(", ");
+  const breakdownById = new Map(result.compassBreakdown.map((item) => [item.compass.id, item]));
+  const powerBreakdown = breakdownById.get("power") ?? result.compassBreakdown[0];
+  const orderBreakdown = breakdownById.get("order");
+  const disciplineBreakdown = breakdownById.get("discipline");
+  const socialBreakdown = breakdownById.get("social");
+  const riskBreakdown = breakdownById.get("risk");
+  const matrixSummaryRows = result.compassBreakdown.map((item) => ({
+    id: item.compass.id,
+    label: getMatrixSummaryLabel(item.compass.id),
+    value: item.quadrant.label
+  }));
+  const matrixBreakdownRows = result.compassBreakdown.map((item) => {
+    const xAxis = data.compasses.axes[item.compass.xAxis];
+    const leanLabel = item.x >= 0 ? xAxis.posLabel : xAxis.negLabel;
+    const leanStrength = getAxisLeanStrength(item.x);
+    return {
+      id: item.compass.id,
+      title: toMatrixLabel(item.compass.name),
+      axisPair: `${xAxis.negLabel} \u2194 ${xAxis.posLabel}`,
+      leanLine: `You lean ${leanStrength} ${leanLabel}`
+    };
+  });
+  const matrixIdentityLead = powerBreakdown
+    ? `You are a ${powerBreakdown.quadrant.label} in power style \u2014 you lead with direct action and fast adaptation.`
+    : "Your power style is still loading.";
+  const secondaryLabels = [
+    orderBreakdown?.quadrant.label,
+    disciplineBreakdown?.quadrant.label,
+    socialBreakdown?.quadrant.label,
+    riskBreakdown?.quadrant.label
+  ].filter((label): label is string => Boolean(label));
+  const matrixIdentitySecondary =
+    secondaryLabels.length > 0
+      ? `Your secondary tendencies blend ${secondaryLabels.join(", ")}.`
+      : "Secondary tendencies are still calibrating.";
+  const matrixIdentityClose =
+    "This creates a profile that moves quickly, improvises when needed, and learns through momentum.";
+  const personalityShape = getPersonalityShape(result.compassBreakdown);
+  const radarPoints = result.compassBreakdown.map((item) => ({
+    id: item.compass.id,
+    label: getMatrixSummaryLabel(item.compass.id).replace(" Style", ""),
+    value: item.confidence
+  }));
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -506,13 +542,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           <div className="results-head">
             <div>
               <p className="eyebrow">RESULTS_VIEWER.EXE</p>
-              <h2 className="results-heading">{data.resultsContent.resultsHeading}</h2>
-              <h1>{result.archetypeTitle}</h1>
-              <div className="result-meta-row">
-                <p className="code-pill">TYPE: {result.typeCode}</p>
-                <p className="subtype-pill">{powerSubtype}</p>
-              </div>
-              <p className="results-hook">{revealHook}</p>
+              <h2 className="results-heading">Your Results</h2>
             </div>
             <button
               className="secondary-button"
@@ -528,7 +558,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         </section>
 
         <p className="card-generated-label">GENERATED PERSONALITY CARD</p>
-        <h2 className="results-tier-title">Shareable Trading Card</h2>
         <section
           ref={shareCardRef}
           className={`shareable-card trading-card ${cardThemeClass}`}
@@ -595,16 +624,13 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
             <section className="trading-card-section">
               <h3>Abilities</h3>
               {result.householdArchetype ? (
-                <div className="abilities-list">
+                <ul className="abilities-bullet-list">
                   {cardAbilities.map((ability) => (
-                    <article className="ability-entry" key={`${primaryObject}-${ability.name}`}>
-                      <p className="ability-name">
-                        <strong>Ability:</strong> {ability.name}
-                      </p>
-                      <p className="ability-text">{ability.description}</p>
-                    </article>
+                    <li key={`${primaryObject}-${ability.name}`}>
+                      <strong>{ability.name}</strong> — {ability.description}
+                    </li>
                   ))}
-                </div>
+                </ul>
               ) : (
                 <p className="muted">
                   {result.householdArchetypeMessage ??
@@ -658,31 +684,52 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </summary>
           <section className="diagnostics-section">
             <div className="diagnostics-content">
-              <h3>Matrix Charts</h3>
-              <div className="chart-grid-layout diagnostics-chart-grid">
-                {result.compassBreakdown.map((item) => (
-                  <CompassMiniChart
-                    key={item.compass.id}
-                    title={toMatrixLabel(item.compass.name)}
-                    quadrantLabel={item.quadrant.label}
-                    x={item.x}
-                    y={item.y}
-                    confidence={item.confidence}
-                    xAxis={data.compasses.axes[item.compass.xAxis]}
-                    yAxis={data.compasses.axes[item.compass.yAxis]}
-                    infoBlurb={COMPASS_GRID_INFO[item.compass.id]}
-                  />
+              <h3>Personality Matrix Summary</h3>
+              <div className="matrix-summary-panel">
+                {matrixSummaryRows.map((row) => (
+                  <p key={row.id}>
+                    <strong>{row.label}:</strong> {row.value}
+                  </p>
                 ))}
               </div>
 
-              <h3>Expanded Strengths</h3>
+              <h3>Your Matrix Identity</h3>
+              <p>{matrixIdentityLead}</p>
+              <p>{matrixIdentitySecondary}</p>
+              <p>{matrixIdentityClose}</p>
+
+              <h3>Personality Matrix Breakdown</h3>
+              <div className="matrix-breakdown-list">
+                {matrixBreakdownRows.map((row) => (
+                  <article className="matrix-breakdown-row" key={row.id}>
+                    <p className="matrix-breakdown-title">{row.title}</p>
+                    <p className="matrix-breakdown-axis">{row.axisPair}</p>
+                    <p className="matrix-breakdown-lean">{row.leanLine}</p>
+                  </article>
+                ))}
+              </div>
+
+              <h3>Personality Shape</h3>
+              <div className="personality-shape-panel">
+                <p className="personality-shape-name">
+                  Your Personality Shape: <strong>{personalityShape.name}</strong>
+                </p>
+                <PersonalityRadarChart points={radarPoints} />
+                <ul className="personality-shape-traits">
+                  {personalityShape.traits.map((trait) => (
+                    <li key={trait}>{trait}</li>
+                  ))}
+                </ul>
+              </div>
+
+              <h3>Strengths</h3>
               <ul>
                 {result.strengths.map((strength) => (
                   <li key={strength}>{strength}</li>
                 ))}
               </ul>
 
-              <h3>Expanded Weaknesses</h3>
+              <h3>Weaknesses</h3>
               <ul>
                 {result.watchouts.map((watchout) => (
                   <li key={watchout}>{watchout}</li>
@@ -706,6 +753,24 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                     "Object lore is unavailable for this run because the object data could not be loaded."}
                 </p>
               )}
+
+              <details className="diagnostic-charts-toggle">
+                <summary>View Matrix Charts</summary>
+                <div className="chart-grid-layout diagnostics-chart-grid">
+                  {result.compassBreakdown.map((item) => (
+                    <CompassMiniChart
+                      key={item.compass.id}
+                      title={toMatrixLabel(item.compass.name)}
+                      quadrantLabel={item.quadrant.label}
+                      x={item.x}
+                      y={item.y}
+                      confidence={item.confidence}
+                      xAxis={data.compasses.axes[item.compass.xAxis]}
+                      yAxis={data.compasses.axes[item.compass.yAxis]}
+                    />
+                  ))}
+                </div>
+              </details>
             </div>
           </section>
         </details>
