@@ -2,7 +2,9 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
+import { getObjectsForType } from "../lib/objectGenerator";
 import { generateResult } from "../lib/resultGenerator";
+import { resolveTypeTitle } from "../lib/scoring";
 import { useQuiz } from "../state/QuizContext";
 import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
 
@@ -196,8 +198,85 @@ const RARITY_BY_TYPE_CODE: Record<string, RarityTier> = Object.fromEntries(
   )
 ) as Record<string, RarityTier>;
 
+const DEFAULT_BIT_LETTERS = {
+  KP: { 0: "K", 1: "P" },
+  RJ: { 0: "R", 1: "J" },
+  SC: { 0: "S", 1: "C" },
+  MA: { 0: "M", 1: "A" }
+} as const;
+
+interface CardCatalogEntry {
+  typeCode: string;
+  title: string;
+  primaryObject: string;
+  rarity: RarityTier;
+  imageSrc: string | null;
+}
+
 function getRarityTier(typeCode: string): RarityTier {
   return RARITY_BY_TYPE_CODE[typeCode.trim().toUpperCase()] ?? "Common";
+}
+
+function getLetterForBit(
+  data: LoadedAppData["typeTitles"],
+  axis: "KP" | "RJ" | "SC" | "MA",
+  bit: 0 | 1
+): string {
+  const key = String(bit) as "0" | "1";
+  const configured = data.bitMeaning[axis]?.[key];
+  if (typeof configured === "string" && configured.trim()) {
+    return configured.trim().charAt(0).toUpperCase();
+  }
+  return DEFAULT_BIT_LETTERS[axis][bit];
+}
+
+function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
+  const familyOrder = ["VH", "WH", "VG", "WG"].filter(
+    (familyKey) => Boolean(data.typeTitles.families[familyKey])
+  );
+  const bitAxes = data.typeTitles.bitOrder;
+  const entries: CardCatalogEntry[] = [];
+
+  for (const familyKey of familyOrder) {
+    for (let index = 0; index < 16; index += 1) {
+      const suffix = bitAxes
+        .map((axis, axisIndex) => {
+          const bit = ((index >> axisIndex) & 1) as 0 | 1;
+          return getLetterForBit(data.typeTitles, axis, bit);
+        })
+        .join("");
+      const typeCode = `${familyKey}${suffix}`;
+
+      let title = typeCode;
+      let resolvedIndex = index;
+      try {
+        const resolution = resolveTypeTitle(typeCode, data.typeTitles);
+        title = resolution.title;
+        resolvedIndex = resolution.index;
+      } catch {
+        // leave fallback title/index
+      }
+
+      let primaryObject = "Unknown Object";
+      if (data.objectsData) {
+        try {
+          primaryObject = getObjectsForType(typeCode, resolvedIndex, data.objectsData).primaryObject;
+        } catch {
+          // keep fallback
+        }
+      }
+
+      entries.push({
+        typeCode,
+        title,
+        primaryObject,
+        rarity: getRarityTier(typeCode),
+        imageSrc: primaryObject === "Unknown Object" ? null : getObjectImageSrc(primaryObject)
+      });
+    }
+  }
+
+  return entries;
 }
 
 function getCardStatLabel(compassId: string, fallbackName: string): string {
@@ -433,8 +512,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
   const result = resultState.result;
 
-  const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 3);
-  const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 3);
+  const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 2);
+  const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 2);
   const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 3);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
@@ -513,6 +592,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     label: getMatrixSummaryLabel(item.compass.id).replace(" Style", ""),
     value: item.confidence
   }));
+  const allCardEntries = useMemo(() => buildCatalogEntries(data), [data]);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -678,12 +758,10 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               </ul>
             </section>
 
-            <section className="trading-card-section trading-companion">
-              <h3>Comparisons</h3>
+            <footer className="card-footer-meta">
               <p className="comparisons-line">{comparisonsLine}</p>
-            </section>
-
-            <p className="card-id-line">{cardSerial}</p>
+              <p className="card-id-line">{cardSerial}</p>
+            </footer>
           </div>
         </section>
 
@@ -766,6 +844,42 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         {result.celebsNote ? <p className="muted diagnostics-note">{result.celebsNote}</p> : null}
 
         <p className="disclaimer">{result.disclaimer}</p>
+
+        <details className="all-cards-browser">
+          <summary>View All 64 Cards</summary>
+          <p className="muted all-cards-intro">
+            Browse every possible result card. Your current one is highlighted.
+          </p>
+          <div className="all-cards-grid">
+            {allCardEntries.map((entry) => (
+              <article
+                key={entry.typeCode}
+                className={`all-card-tile${entry.typeCode === result.typeCode ? " is-current" : ""}`}
+              >
+                <div className="all-card-top">
+                  <p className="all-card-code">{entry.typeCode}</p>
+                  <p className="all-card-rarity">{entry.rarity}</p>
+                </div>
+                <p className="all-card-title">{entry.title}</p>
+                <div className="all-card-art" aria-label={`${entry.primaryObject} preview`}>
+                  {entry.imageSrc ? (
+                    <img
+                      src={entry.imageSrc}
+                      alt={`${entry.primaryObject} illustration`}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <span>{getObjectGlyph(entry.primaryObject)}</span>
+                  )}
+                </div>
+                <p className="all-card-object">{entry.primaryObject}</p>
+                {entry.typeCode === result.typeCode ? (
+                  <p className="all-card-current">Current Result</p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        </details>
       </section>
     </main>
   );
