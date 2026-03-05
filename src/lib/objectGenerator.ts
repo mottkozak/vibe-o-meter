@@ -3,6 +3,8 @@ import type { ObjectAxisPoolKey, ObjectsData, TypeFamilyKey } from "../types";
 export interface TypeObjects {
   primaryObject: string;
   backupObject: string;
+  primaryReason?: string;
+  backupReason?: string;
 }
 
 function toModuloIndex(index: number, length: number): number {
@@ -72,12 +74,14 @@ export function getObjectsForType(
   if (directPair) {
     return {
       primaryObject: directPair.primary,
-      backupObject: directPair.backup
+      backupObject: directPair.backup,
+      primaryReason: directPair.primaryReason,
+      backupReason: directPair.backupReason
     };
   }
 
   const familyKey = getFamilyKey(typeCode);
-  const primaryPool = objectsData.primaryObjectPools[familyKey];
+  const primaryPool = objectsData.primaryObjectPools?.[familyKey];
 
   if (!primaryPool || primaryPool.length === 0) {
     throw new Error(`Primary object pool for '${familyKey}' is empty.`);
@@ -94,7 +98,7 @@ export function getObjectsForType(
   ];
 
   const combinedBackupPool = axisPoolKeys.flatMap(
-    (poolKey) => objectsData.backupObjectPools[poolKey] ?? []
+    (poolKey) => objectsData.backupObjectPools?.[poolKey] ?? []
   );
 
   if (combinedBackupPool.length === 0) {

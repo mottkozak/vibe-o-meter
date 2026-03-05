@@ -206,7 +206,10 @@ export function generateResult(data: LoadedAppData, scores: AxisScores): Generat
       householdArchetype = {
         primaryObject: objects.primaryObject,
         backupObject: objects.backupObject,
-        why: `Primary Object: ${objects.primaryObject} — ${primaryWhy}. Backup Object: ${objects.backupObject} — ${backupWhy}.`
+        why:
+          objects.primaryReason && objects.backupReason
+            ? `Primary Object: ${objects.primaryObject} — ${objects.primaryReason} Backup Object: ${objects.backupObject} — ${objects.backupReason}`
+            : `Primary Object: ${objects.primaryObject} — ${primaryWhy}. Backup Object: ${objects.backupObject} — ${backupWhy}.`
       };
       householdArchetypeMessage = null;
     } catch {
@@ -233,8 +236,12 @@ export function generateResult(data: LoadedAppData, scores: AxisScores): Generat
     householdArchetypeMessage = null;
   }
 
+  const archetypeTitle = householdArchetype
+    ? `${householdArchetype.primaryObject} / ${householdArchetype.backupObject}`
+    : typeWriteup?.title ?? typeTitle.title;
+
   return {
-    archetypeTitle: typeWriteup?.title ?? typeTitle.title,
+    archetypeTitle,
     typeCode,
     titleIndex: typeTitle.index,
     typeFamilyKey: typeTitle.familyKey,

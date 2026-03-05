@@ -1,425 +1,454 @@
 {
-    "objectsByTypeCode": {
-      "VHKRSM": {
-        "primary": "Water Bottle",
-        "backup": "Mug"
-      },
-      "VHPRSM": {
-        "primary": "Flashlight",
-        "backup": "Timer"
-      },
-      "VHKJSM": {
-        "primary": "Umbrella",
-        "backup": "Kazoo"
-      },
-      "VHPJSM": {
-        "primary": "Backpack",
-        "backup": "Pillow"
-      },
-      "VHKRCM": {
-        "primary": "Bandage",
-        "backup": "Soap"
-      },
-      "VHPRCM": {
-        "primary": "Towel",
-        "backup": "Stapler"
-      },
-      "VHKJCM": {
-        "primary": "Blanket",
-        "backup": "Spork"
-      },
-      "VHPJCM": {
-        "primary": "Mug",
-        "backup": "Teapot"
-      },
-      "VHKRSA": {
-        "primary": "Key",
-        "backup": "Dice"
-      },
-      "VHPRSA": {
-        "primary": "Socks",
-        "backup": "Timer"
-      },
-      "VHKJSA": {
-        "primary": "Soap",
-        "backup": "Kazoo"
-      },
-      "VHPJSA": {
-        "primary": "Batteries",
-        "backup": "Bottle Cap"
-      },
-      "VHKRCA": {
-        "primary": "Notebook",
-        "backup": "Paperclip"
-      },
-      "VHPRCA": {
-        "primary": "Tape",
-        "backup": "Stapler"
-      },
-      "VHKJCA": {
-        "primary": "Scissors",
-        "backup": "Spork"
-      },
-      "VHPJCA": {
-        "primary": "Hat",
-        "backup": "Coin"
-      },
-      "WHKRSM": {
-        "primary": "Notebook",
-        "backup": "Stapler"
-      },
-      "WHPRSM": {
-        "primary": "Pencil",
-        "backup": "Eraser"
-      },
-      "WHKJSM": {
-        "primary": "Pen",
-        "backup": "Ruler"
-      },
-      "WHPJSM": {
-        "primary": "Eraser",
-        "backup": "Backpack"
-      },
-      "WHKRCM": {
-        "primary": "Ruler",
-        "backup": "Paperclip"
-      },
-      "WHPRCM": {
-        "primary": "Calculator",
-        "backup": "Coin"
-      },
-      "WHKJCM": {
-        "primary": "Glasses",
-        "backup": "Towel"
-      },
-      "WHPJCM": {
-        "primary": "Bookmark",
-        "backup": "Hat"
-      },
-      "WHKRSA": {
-        "primary": "Paperclip",
-        "backup": "Stapler"
-      },
-      "WHPRSA": {
-        "primary": "Binder Clip",
-        "backup": "Eraser"
-      },
-      "WHKJSA": {
-        "primary": "Stapler",
-        "backup": "Ruler"
-      },
-      "WHPJSA": {
-        "primary": "Timer",
-        "backup": "Backpack"
-      },
-      "WHKRCA": {
-        "primary": "Marker",
-        "backup": "Paperclip"
-      },
-      "WHPRCA": {
-        "primary": "Book",
-        "backup": "Coin"
-      },
-      "WHKJCA": {
-        "primary": "Envelope",
-        "backup": "Towel"
-      },
-      "WHPJCA": {
-        "primary": "Index Card",
-        "backup": "Hat"
-      },
-      "VGKRSM": {
-        "primary": "Duct Tape",
-        "backup": "Pencil"
-      },
-      "VGPRSM": {
-        "primary": "Spork",
-        "backup": "Duct Tape"
-      },
-      "VGKJSM": {
-        "primary": "Spoon",
-        "backup": "Clipboard"
-      },
-      "VGPJSM": {
-        "primary": "Fork",
-        "backup": "Notebook"
-      },
-      "VGKRCM": {
-        "primary": "Yo-yo",
-        "backup": "Key"
-      },
-      "VGPRCM": {
-        "primary": "Slinky",
-        "backup": "Bottle Cap"
-      },
-      "VGKJCM": {
-        "primary": "Rubber Band",
-        "backup": "Folder"
-      },
-      "VGPJCM": {
-        "primary": "Paperclip",
-        "backup": "Hat"
-      },
-      "VGKRSA": {
-        "primary": "Dice",
-        "backup": "Pencil"
-      },
-      "VGPRSA": {
-        "primary": "Coin",
-        "backup": "Duct Tape"
-      },
-      "VGKJSA": {
-        "primary": "Balloon",
-        "backup": "Clipboard"
-      },
-      "VGPJSA": {
-        "primary": "Kazoo",
-        "backup": "Notebook"
-      },
-      "VGKRCA": {
-        "primary": "Sticker",
-        "backup": "Key"
-      },
-      "VGPRCA": {
-        "primary": "Glitter",
-        "backup": "Bottle Cap"
-      },
-      "VGKJCA": {
-        "primary": "Bottle Cap",
-        "backup": "Folder"
-      },
-      "VGPJCA": {
-        "primary": "String",
-        "backup": "Hat"
-      },
-      "WGKRSM": {
-        "primary": "Stapler",
-        "backup": "Mug"
-      },
-      "WGPRSM": {
-        "primary": "Scissors",
-        "backup": "Timer"
-      },
-      "WGKJSM": {
-        "primary": "Tape",
-        "backup": "Kazoo"
-      },
-      "WGPJSM": {
-        "primary": "Glue Stick",
-        "backup": "Pillow"
-      },
-      "WGKRCM": {
-        "primary": "Screwdriver",
-        "backup": "Soap"
-      },
-      "WGPRCM": {
-        "primary": "Wrench",
-        "backup": "Stapler"
-      },
-      "WGKJCM": {
-        "primary": "Light Bulb",
-        "backup": "Spork"
-      },
-      "WGPJCM": {
-        "primary": "Remote",
-        "backup": "Teapot"
-      },
-      "WGKRSA": {
-        "primary": "Batteries",
-        "backup": "Dice"
-      },
-      "WGPRSA": {
-        "primary": "Paperclip",
-        "backup": "Timer"
-      },
-      "WGKJSA": {
-        "primary": "Rubber Band",
-        "backup": "Kazoo"
-      },
-      "WGPJSA": {
-        "primary": "Ruler",
-        "backup": "Bottle Cap"
-      },
-      "WGKRCA": {
-        "primary": "Calculator",
-        "backup": "Paperclip"
-      },
-      "WGPRCA": {
-        "primary": "Notebook",
-        "backup": "Stapler"
-      },
-      "WGKJCA": {
-        "primary": "Marker",
-        "backup": "Spork"
-      },
-      "WGPJCA": {
-        "primary": "Key",
-        "backup": "Coin"
-      }
+  "objectInventory": [
+    "Tongs",
+    "Butter Knife",
+    "Oven Mitt",
+    "Spoon",
+    "Fork",
+    "Spork",
+    "Mug",
+    "Toaster",
+    "Water Bottle",
+    "Teapot",
+    "Colander",
+    "Rolling Pin",
+    "Ice Cube Tray",
+    "Cheese Grater",
+    "Dish Sponge",
+    "Whisk",
+    "Tape",
+    "Pencil",
+    "Pen",
+    "Eraser",
+    "Rubber Band",
+    "Coin",
+    "Bottle Cap",
+    "Hammer",
+    "Screwdriver",
+    "Wrench",
+    "Measuring Tape",
+    "Paint Roller",
+    "Leaf Blower",
+    "Lawn Mower",
+    "Extension Cord",
+    "Plunger",
+    "Wheelbarrow",
+    "Doorknob",
+    "Light Switch",
+    "Doormat",
+    "Soap Bar",
+    "Yo Yo",
+    "Dice",
+    "Water Balloon",
+    "Sticky Note",
+    "Battery",
+    "Computer Mouse",
+    "Traffic Cone",
+    "Parking Meter",
+    "Fire Extinguisher",
+    "Garden Gnome",
+    "Mailbox",
+    "Corded Phone",
+    "Snow Globe",
+    "Ice Cream Scoop",
+    "Lunchbox",
+    "Pizza Cutter",
+    "Chip Clip",
+    "Fridge Magnet",
+    "5 Gallon Bucket",
+    "Toothbrush",
+    "Toothpaste Tube",
+    "Bouncy Ball",
+    "Glow Stick",
+    "Manhole Cover",
+    "Flower Pot",
+    "Garden Hose",
+    "Windchime"
+  ],
+  "objectsByTypeCode": {
+    "VHKRSM": {
+      "primaryObject": "Fire Extinguisher",
+      "backupObject": "Pen",
+      "primaryReason": "Fire Extinguisher fits your protective, hands-on hero vibe: structured, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Pen is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
     },
-    "primaryObjectPools": {
-      "VH": [
-        "Water Bottle",
-        "Flashlight",
-        "Umbrella",
-        "Backpack",
-        "Bandage",
-        "Towel",
-        "Blanket",
-        "Mug",
-        "Key",
-        "Socks",
-        "Soap",
-        "Batteries",
-        "Notebook",
-        "Tape",
-        "Scissors",
-        "Hat"
-      ],
-      "WH": [
-        "Notebook",
-        "Pencil",
-        "Pen",
-        "Eraser",
-        "Ruler",
-        "Calculator",
-        "Glasses",
-        "Bookmark",
-        "Paperclip",
-        "Binder Clip",
-        "Stapler",
-        "Timer",
-        "Marker",
-        "Book",
-        "Envelope",
-        "Index Card"
-      ],
-      "VG": [
-        "Duct Tape",
-        "Spork",
-        "Spoon",
-        "Fork",
-        "Yo-yo",
-        "Slinky",
-        "Rubber Band",
-        "Paperclip",
-        "Dice",
-        "Coin",
-        "Balloon",
-        "Kazoo",
-        "Sticker",
-        "Glitter",
-        "Bottle Cap",
-        "String"
-      ],
-      "WG": [
-        "Stapler",
-        "Scissors",
-        "Tape",
-        "Glue Stick",
-        "Screwdriver",
-        "Wrench",
-        "Light Bulb",
-        "Remote",
-        "Batteries",
-        "Paperclip",
-        "Rubber Band",
-        "Ruler",
-        "Calculator",
-        "Notebook",
-        "Marker",
-        "Key"
-      ]
+    "VHPRSM": {
+      "primaryObject": "Water Bottle",
+      "backupObject": "Eraser",
+      "primaryReason": "Water Bottle fits your protective, hands-on hero vibe: scrappy, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Eraser is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
     },
-    "backupObjectPools": {
-      "KP": [
-        "Stapler",
-        "Folder",
-        "Clipboard",
-        "Binder Clip",
-        "Paperclip",
-        "Notebook",
-        "Folder",
-        "Ruler"
-      ],
-      "PJ": [
-        "Key",
-        "Duct Tape",
-        "Coin",
-        "Backpack",
-        "Sunglasses",
-        "Bottle Cap",
-        "String",
-        "Hat"
-      ],
-      "RJ": [
-        "Clock",
-        "Timer",
-        "Clipboard",
-        "Notebook",
-        "Ruler",
-        "Stapler",
-        "Folder",
-        "Notebook"
-      ],
-      "JJ": [
-        "Yo-yo",
-        "Slinky",
-        "Kazoo",
-        "Balloon",
-        "Sticker",
-        "Glitter",
-        "Spork",
-        "Rubber Duck"
-      ],
-      "SC": [
-        "Pencil",
-        "Eraser",
-        "Ruler",
-        "Notebook",
-        "Timer",
-        "Tape",
-        "Scissors",
-        "Bandage"
-      ],
-      "CC": [
-        "Backpack",
-        "Water Bottle",
-        "Socks",
-        "Flashlight",
-        "Key",
-        "Coin",
-        "Towel",
-        "Hat"
-      ],
-      "MA": [
-        "Mug",
-        "Candle",
-        "Blanket",
-        "Pillow",
-        "Soap",
-        "Tissues",
-        "Lamp",
-        "Teapot"
-      ],
-      "AA": [
-        "Dice",
-        "Coin",
-        "Cards",
-        "Bottle Cap",
-        "Paperclip",
-        "Rubber Band",
-        "Eight Ball",
-        "Coin"
-      ]
+    "VHKJSM": {
+      "primaryObject": "Lunchbox",
+      "backupObject": "Sticky Note",
+      "primaryReason": "Lunchbox fits your protective, hands-on hero vibe: structured, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Sticky Note is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
     },
-    "selectionRules": {
-      "preferred": "Use objectsByTypeCode[typeCode] for a hand-picked-feeling Primary/Backup object pair.",
-      "fallback": "If you want algorithmic selection instead, choose primary from primaryObjectPools[familyKey] using (titleIndex % poolLength). Then choose backup by selecting one candidate from each of the four backup pools (KP/PJ, RJ/JJ, SC/CC, MA/AA) using (titleIndex % poolLength) and picking one of those four candidates using a deterministic hash of the typeCode."
+    "VHPJSM": {
+      "primaryObject": "Mug",
+      "backupObject": "Rubber Band",
+      "primaryReason": "Mug fits your protective, hands-on hero vibe: scrappy, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Rubber Band is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
     },
-    "notes": {
-      "designIntent": "Objects should be extremely common, recognizable, and memeable — the kind of thing that could star in its own tiny Pixar-style short film. Avoid niche gear, brand names, and overly specific items.",
-      "objectNameStyle": "Keep object names simple (usually 1–2 words). No fancy adjectives like ‘titanium’ or ‘artisan’."
+    "VHKRCM": {
+      "primaryObject": "Hammer",
+      "backupObject": "Tape",
+      "primaryReason": "Hammer fits your protective, hands-on hero vibe: structured, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Tape is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VHPRCM": {
+      "primaryObject": "Wrench",
+      "backupObject": "Computer Mouse",
+      "primaryReason": "Wrench fits your protective, hands-on hero vibe: scrappy, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Computer Mouse is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VHKJCM": {
+      "primaryObject": "Measuring Tape",
+      "backupObject": "Corded Phone",
+      "primaryReason": "Measuring Tape fits your protective, hands-on hero vibe: structured, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Corded Phone is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VHPJCM": {
+      "primaryObject": "Tongs",
+      "backupObject": "Fridge Magnet",
+      "primaryReason": "Tongs fits your protective, hands-on hero vibe: scrappy, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Fridge Magnet is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VHKRSA": {
+      "primaryObject": "Oven Mitt",
+      "backupObject": "Ice Cube Tray",
+      "primaryReason": "Oven Mitt fits your protective, hands-on hero vibe: structured, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Ice Cube Tray is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VHPRSA": {
+      "primaryObject": "Spoon",
+      "backupObject": "Teapot",
+      "primaryReason": "Spoon fits your protective, hands-on hero vibe: scrappy, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Teapot is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VHKJSA": {
+      "primaryObject": "Fork",
+      "backupObject": "Butter Knife",
+      "primaryReason": "Fork fits your protective, hands-on hero vibe: structured, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Butter Knife is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VHPJSA": {
+      "primaryObject": "Toaster",
+      "backupObject": "Toothbrush",
+      "primaryReason": "Toaster fits your protective, hands-on hero vibe: scrappy, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Toothbrush is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VHKRCA": {
+      "primaryObject": "Colander",
+      "backupObject": "Toothpaste Tube",
+      "primaryReason": "Colander fits your protective, hands-on hero vibe: structured, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Toothpaste Tube is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VHPRCA": {
+      "primaryObject": "Rolling Pin",
+      "backupObject": "Dish Sponge",
+      "primaryReason": "Rolling Pin fits your protective, hands-on hero vibe: scrappy, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Dish Sponge is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VHKJCA": {
+      "primaryObject": "Cheese Grater",
+      "backupObject": "Ice Cream Scoop",
+      "primaryReason": "Cheese Grater fits your protective, hands-on hero vibe: structured, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Ice Cream Scoop is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VHPJCA": {
+      "primaryObject": "Whisk",
+      "backupObject": "Screwdriver",
+      "primaryReason": "Whisk fits your protective, hands-on hero vibe: scrappy, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Screwdriver is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WHKRSM": {
+      "primaryObject": "Pencil",
+      "backupObject": "Paint Roller",
+      "primaryReason": "Pencil fits your thoughtful helper vibe: structured, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Paint Roller is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WHPRSM": {
+      "primaryObject": "Pen",
+      "backupObject": "Leaf Blower",
+      "primaryReason": "Pen fits your thoughtful helper vibe: scrappy, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Leaf Blower is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WHKJSM": {
+      "primaryObject": "Eraser",
+      "backupObject": "Lawn Mower",
+      "primaryReason": "Eraser fits your thoughtful helper vibe: structured, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Lawn Mower is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WHPJSM": {
+      "primaryObject": "Sticky Note",
+      "backupObject": "Extension Cord",
+      "primaryReason": "Sticky Note fits your thoughtful helper vibe: scrappy, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Extension Cord is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WHKRCM": {
+      "primaryObject": "Rubber Band",
+      "backupObject": "Plunger",
+      "primaryReason": "Rubber Band fits your thoughtful helper vibe: structured, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Plunger is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WHPRCM": {
+      "primaryObject": "Tape",
+      "backupObject": "Wheelbarrow",
+      "primaryReason": "Tape fits your thoughtful helper vibe: scrappy, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Wheelbarrow is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WHKJCM": {
+      "primaryObject": "Computer Mouse",
+      "backupObject": "5 Gallon Bucket",
+      "primaryReason": "Computer Mouse fits your thoughtful helper vibe: structured, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "5 Gallon Bucket is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WHPJCM": {
+      "primaryObject": "Corded Phone",
+      "backupObject": "Traffic Cone",
+      "primaryReason": "Corded Phone fits your thoughtful helper vibe: scrappy, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Traffic Cone is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WHKRSA": {
+      "primaryObject": "Fridge Magnet",
+      "backupObject": "Doorknob",
+      "primaryReason": "Fridge Magnet fits your thoughtful helper vibe: structured, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Doorknob is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WHPRSA": {
+      "primaryObject": "Ice Cube Tray",
+      "backupObject": "Light Switch",
+      "primaryReason": "Ice Cube Tray fits your thoughtful helper vibe: scrappy, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Light Switch is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WHKJSA": {
+      "primaryObject": "Teapot",
+      "backupObject": "Doormat",
+      "primaryReason": "Teapot fits your thoughtful helper vibe: structured, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Doormat is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WHPJSA": {
+      "primaryObject": "Butter Knife",
+      "backupObject": "Garden Hose",
+      "primaryReason": "Butter Knife fits your thoughtful helper vibe: scrappy, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Garden Hose is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WHKRCA": {
+      "primaryObject": "Toothbrush",
+      "backupObject": "Manhole Cover",
+      "primaryReason": "Toothbrush fits your thoughtful helper vibe: structured, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Manhole Cover is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WHPRCA": {
+      "primaryObject": "Toothpaste Tube",
+      "backupObject": "Mailbox",
+      "primaryReason": "Toothpaste Tube fits your thoughtful helper vibe: scrappy, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Mailbox is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WHKJCA": {
+      "primaryObject": "Dish Sponge",
+      "backupObject": "Pizza Cutter",
+      "primaryReason": "Dish Sponge fits your thoughtful helper vibe: structured, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Pizza Cutter is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WHPJCA": {
+      "primaryObject": "Ice Cream Scoop",
+      "backupObject": "Spork",
+      "primaryReason": "Ice Cream Scoop fits your thoughtful helper vibe: scrappy, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Spork is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VGKRSM": {
+      "primaryObject": "Screwdriver",
+      "backupObject": "Coin",
+      "primaryReason": "Screwdriver fits your bold chaos-charger vibe: structured, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Coin is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VGPRSM": {
+      "primaryObject": "Paint Roller",
+      "backupObject": "Bottle Cap",
+      "primaryReason": "Paint Roller fits your bold chaos-charger vibe: scrappy, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Bottle Cap is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VGKJSM": {
+      "primaryObject": "Leaf Blower",
+      "backupObject": "Yo Yo",
+      "primaryReason": "Leaf Blower fits your bold chaos-charger vibe: structured, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Yo Yo is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VGPJSM": {
+      "primaryObject": "Lawn Mower",
+      "backupObject": "Dice",
+      "primaryReason": "Lawn Mower fits your bold chaos-charger vibe: scrappy, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Dice is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VGKRCM": {
+      "primaryObject": "Extension Cord",
+      "backupObject": "Water Balloon",
+      "primaryReason": "Extension Cord fits your bold chaos-charger vibe: structured, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Water Balloon is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VGPRCM": {
+      "primaryObject": "Plunger",
+      "backupObject": "Battery",
+      "primaryReason": "Plunger fits your bold chaos-charger vibe: scrappy, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Battery is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "VGKJCM": {
+      "primaryObject": "Wheelbarrow",
+      "backupObject": "Garden Gnome",
+      "primaryReason": "Wheelbarrow fits your bold chaos-charger vibe: structured, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Garden Gnome is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VGPJCM": {
+      "primaryObject": "5 Gallon Bucket",
+      "backupObject": "Snow Globe",
+      "primaryReason": "5 Gallon Bucket fits your bold chaos-charger vibe: scrappy, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Snow Globe is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "VGKRSA": {
+      "primaryObject": "Traffic Cone",
+      "backupObject": "Chip Clip",
+      "primaryReason": "Traffic Cone fits your bold chaos-charger vibe: structured, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Chip Clip is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VGPRSA": {
+      "primaryObject": "Doorknob",
+      "backupObject": "Bouncy Ball",
+      "primaryReason": "Doorknob fits your bold chaos-charger vibe: scrappy, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Bouncy Ball is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VGKJSA": {
+      "primaryObject": "Light Switch",
+      "backupObject": "Glow Stick",
+      "primaryReason": "Light Switch fits your bold chaos-charger vibe: structured, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Glow Stick is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VGPJSA": {
+      "primaryObject": "Doormat",
+      "backupObject": "Flower Pot",
+      "primaryReason": "Doormat fits your bold chaos-charger vibe: scrappy, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Flower Pot is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VGKRCA": {
+      "primaryObject": "Garden Hose",
+      "backupObject": "Windchime",
+      "primaryReason": "Garden Hose fits your bold chaos-charger vibe: structured, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Windchime is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VGPRCA": {
+      "primaryObject": "Manhole Cover",
+      "backupObject": "Soap Bar",
+      "primaryReason": "Manhole Cover fits your bold chaos-charger vibe: scrappy, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Soap Bar is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "VGKJCA": {
+      "primaryObject": "Mailbox",
+      "backupObject": "Parking Meter",
+      "primaryReason": "Mailbox fits your bold chaos-charger vibe: structured, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Parking Meter is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "VGPJCA": {
+      "primaryObject": "Pizza Cutter",
+      "backupObject": "Fire Extinguisher",
+      "primaryReason": "Pizza Cutter fits your bold chaos-charger vibe: scrappy, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Fire Extinguisher is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WGKRSM": {
+      "primaryObject": "Spork",
+      "backupObject": "Water Bottle",
+      "primaryReason": "Spork fits your clever wildcard vibe: structured, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Water Bottle is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WGPRSM": {
+      "primaryObject": "Coin",
+      "backupObject": "Lunchbox",
+      "primaryReason": "Coin fits your clever wildcard vibe: scrappy, focused, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Lunchbox is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WGKJSM": {
+      "primaryObject": "Bottle Cap",
+      "backupObject": "Mug",
+      "primaryReason": "Bottle Cap fits your clever wildcard vibe: structured, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Mug is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WGPJSM": {
+      "primaryObject": "Yo Yo",
+      "backupObject": "Hammer",
+      "primaryReason": "Yo Yo fits your clever wildcard vibe: scrappy, playful, disciplined, and steady energy working together in one everyday mascot.",
+      "backupReason": "Hammer is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WGKRCM": {
+      "primaryObject": "Dice",
+      "backupObject": "Wrench",
+      "primaryReason": "Dice fits your clever wildcard vibe: structured, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Wrench is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WGPRCM": {
+      "primaryObject": "Water Balloon",
+      "backupObject": "Measuring Tape",
+      "primaryReason": "Water Balloon fits your clever wildcard vibe: scrappy, focused, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Measuring Tape is your sidekick pick, because it matches how your focused-steady instincts kick in when you need a fast pivot."
+    },
+    "WGKJCM": {
+      "primaryObject": "Battery",
+      "backupObject": "Tongs",
+      "primaryReason": "Battery fits your clever wildcard vibe: structured, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Tongs is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WGPJCM": {
+      "primaryObject": "Garden Gnome",
+      "backupObject": "Oven Mitt",
+      "primaryReason": "Garden Gnome fits your clever wildcard vibe: scrappy, playful, improvisational, and steady energy working together in one everyday mascot.",
+      "backupReason": "Oven Mitt is your sidekick pick, because it matches how your playful-steady instincts kick in when you need a fast pivot."
+    },
+    "WGKRSA": {
+      "primaryObject": "Snow Globe",
+      "backupObject": "Spoon",
+      "primaryReason": "Snow Globe fits your clever wildcard vibe: structured, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Spoon is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WGPRSA": {
+      "primaryObject": "Chip Clip",
+      "backupObject": "Fork",
+      "primaryReason": "Chip Clip fits your clever wildcard vibe: scrappy, focused, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Fork is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WGKJSA": {
+      "primaryObject": "Bouncy Ball",
+      "backupObject": "Toaster",
+      "primaryReason": "Bouncy Ball fits your clever wildcard vibe: structured, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Toaster is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WGPJSA": {
+      "primaryObject": "Glow Stick",
+      "backupObject": "Colander",
+      "primaryReason": "Glow Stick fits your clever wildcard vibe: scrappy, playful, disciplined, and risky energy working together in one everyday mascot.",
+      "backupReason": "Colander is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WGKRCA": {
+      "primaryObject": "Flower Pot",
+      "backupObject": "Rolling Pin",
+      "primaryReason": "Flower Pot fits your clever wildcard vibe: structured, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Rolling Pin is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WGPRCA": {
+      "primaryObject": "Windchime",
+      "backupObject": "Cheese Grater",
+      "primaryReason": "Windchime fits your clever wildcard vibe: scrappy, focused, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Cheese Grater is your sidekick pick, because it matches how your focused-risky instincts kick in when you need a fast pivot."
+    },
+    "WGKJCA": {
+      "primaryObject": "Soap Bar",
+      "backupObject": "Whisk",
+      "primaryReason": "Soap Bar fits your clever wildcard vibe: structured, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Whisk is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
+    },
+    "WGPJCA": {
+      "primaryObject": "Parking Meter",
+      "backupObject": "Pencil",
+      "primaryReason": "Parking Meter fits your clever wildcard vibe: scrappy, playful, improvisational, and risky energy working together in one everyday mascot.",
+      "backupReason": "Pencil is your sidekick pick, because it matches how your playful-risky instincts kick in when you need a fast pivot."
     }
+  }
 }
-  

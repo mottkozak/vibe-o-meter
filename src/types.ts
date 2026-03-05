@@ -118,15 +118,18 @@ export type TypeFamilyKey = "VH" | "WH" | "VG" | "WG";
 export type ObjectAxisPoolKey = "KP" | "PJ" | "RJ" | "JJ" | "SC" | "CC" | "MA" | "AA";
 
 export interface ObjectsData {
+  objectInventory: string[];
   objectsByTypeCode?: Record<
     string,
     {
       primary: string;
       backup: string;
+      primaryReason?: string;
+      backupReason?: string;
     }
   >;
-  primaryObjectPools: Record<TypeFamilyKey, string[]>;
-  backupObjectPools: Record<ObjectAxisPoolKey, string[]>;
+  primaryObjectPools?: Record<TypeFamilyKey, string[]>;
+  backupObjectPools?: Record<ObjectAxisPoolKey, string[]>;
 }
 
 export interface LoadedAppData {

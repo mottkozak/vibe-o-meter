@@ -375,29 +375,38 @@ function parseNonEmptyStringArray(value: unknown, label: string): string[] {
 
 function parseObjectsData(raw: unknown): ObjectsData {
   const root = ensureRecord(raw, "objects.json");
-  const primaryObjectPoolsRaw = ensureRecord(
-    root.primaryObjectPools,
-    "objects.json primaryObjectPools"
-  );
+  const objectInventory = parseNonEmptyStringArray(root.objectInventory, "objects.json objectInventory");
 
-  const backupObjectPoolsRaw = isRecord(root.backupObjectPools)
-    ? root.backupObjectPools
-    : ensureRecord(root.axisObjectPools, "objects.json axisObjectPools");
-
-  const primaryObjectPools = {} as ObjectsData["primaryObjectPools"];
-  for (const key of OBJECT_FAMILY_KEYS) {
-    primaryObjectPools[key] = parseNonEmptyStringArray(
-      primaryObjectPoolsRaw[key],
-      `objects.json primaryObjectPools.${key}`
-    );
+  const uniqueInventory = new Set(objectInventory.map((item) => item.trim().toLowerCase()));
+  if (objectInventory.length !== 64 || uniqueInventory.size !== 64) {
+    throw new DataLoadError("objects.json objectInventory must contain exactly 64 unique objects.");
   }
 
-  const backupObjectPools = {} as ObjectsData["backupObjectPools"];
-  for (const key of OBJECT_AXIS_POOL_KEYS) {
-    backupObjectPools[key] = parseNonEmptyStringArray(
-      backupObjectPoolsRaw[key],
-      `objects.json backupObjectPools.${key}`
-    );
+  let primaryObjectPools: ObjectsData["primaryObjectPools"] = undefined;
+  if (isRecord(root.primaryObjectPools)) {
+    primaryObjectPools = {} as NonNullable<ObjectsData["primaryObjectPools"]>;
+    for (const key of OBJECT_FAMILY_KEYS) {
+      primaryObjectPools[key] = parseNonEmptyStringArray(
+        root.primaryObjectPools[key],
+        `objects.json primaryObjectPools.${key}`
+      );
+    }
+  }
+
+  let backupObjectPools: ObjectsData["backupObjectPools"] = undefined;
+  const backupPoolsRaw = isRecord(root.backupObjectPools)
+    ? root.backupObjectPools
+    : isRecord(root.axisObjectPools)
+      ? root.axisObjectPools
+      : null;
+  if (backupPoolsRaw) {
+    backupObjectPools = {} as NonNullable<ObjectsData["backupObjectPools"]>;
+    for (const key of OBJECT_AXIS_POOL_KEYS) {
+      backupObjectPools[key] = parseNonEmptyStringArray(
+        backupPoolsRaw[key],
+        `objects.json backupObjectPools.${key}`
+      );
+    }
   }
 
   let objectsByTypeCode: ObjectsData["objectsByTypeCode"] = undefined;
@@ -406,14 +415,37 @@ function parseObjectsData(raw: unknown): ObjectsData {
     objectsByTypeCode = {};
     for (const [typeCode, pairRaw] of Object.entries(objectsByTypeCodeRaw)) {
       const pair = ensureRecord(pairRaw, `objectsByTypeCode.${typeCode}`);
+      const primaryValue =
+        typeof pair.primaryObject === "string" && pair.primaryObject.trim()
+          ? pair.primaryObject
+          : pair.primary;
+      const backupValue =
+        typeof pair.backupObject === "string" && pair.backupObject.trim()
+          ? pair.backupObject
+          : pair.backup;
       objectsByTypeCode[typeCode] = {
-        primary: ensureString(pair.primary, `objectsByTypeCode.${typeCode}.primary`),
-        backup: ensureString(pair.backup, `objectsByTypeCode.${typeCode}.backup`)
+        primary: ensureString(
+          primaryValue,
+          `objectsByTypeCode.${typeCode}.primaryObject (or primary)`
+        ),
+        backup: ensureString(
+          backupValue,
+          `objectsByTypeCode.${typeCode}.backupObject (or backup)`
+        ),
+        primaryReason:
+          typeof pair.primaryReason === "string" && pair.primaryReason.trim()
+            ? pair.primaryReason
+            : undefined,
+        backupReason:
+          typeof pair.backupReason === "string" && pair.backupReason.trim()
+            ? pair.backupReason
+            : undefined
       };
     }
   }
 
   return {
+    objectInventory,
     primaryObjectPools,
     backupObjectPools,
     objectsByTypeCode
