@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { generateResult } from "../lib/resultGenerator";
 import { useQuiz } from "../state/QuizContext";
-import type { GeneratedResult, LoadedAppData } from "../types";
+import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
 
 interface ResultsPageProps {
   data: LoadedAppData;
@@ -13,15 +13,11 @@ const COMPASS_GRID_INFO: Record<
   string,
   {
     descriptor: string;
-    axisLineX: string;
-    axisLineY: string;
     bullets: Array<{ label: string; text: string }>;
   }
 > = {
   power: {
     descriptor: "Physical vs Mental | Honorable vs Chaotic",
-    axisLineX: "Viking <-> Wizard",
-    axisLineY: "Hero <-> Goblin",
     bullets: [
       {
         label: "Viking (Physical Force)",
@@ -43,8 +39,6 @@ const COMPASS_GRID_INFO: Record<
   },
   order: {
     descriptor: "Order vs Freedom | Serious vs Playful",
-    axisLineX: "Knight <-> Pirate",
-    axisLineY: "General <-> Jester",
     bullets: [
       {
         label: "Knight (Order / Duty)",
@@ -66,8 +60,6 @@ const COMPASS_GRID_INFO: Record<
   },
   discipline: {
     descriptor: "Discipline vs Independence | Wisdom vs Mischief",
-    axisLineX: "Samurai <-> Cowboy",
-    axisLineY: "Sensei <-> Trickster",
     bullets: [
       {
         label: "Samurai (Discipline)",
@@ -89,8 +81,6 @@ const COMPASS_GRID_INFO: Record<
   },
   social: {
     descriptor: "Polished vs Rugged | Authority vs Mischief",
-    axisLineX: "Princess <-> Tomboy",
-    axisLineY: "Queen <-> Rogue",
     bullets: [
       {
         label: "Princess (Refined)",
@@ -112,8 +102,6 @@ const COMPASS_GRID_INFO: Record<
   },
   risk: {
     descriptor: "Action vs Reflection | Stability vs Impulse",
-    axisLineX: "Gladiator <-> Philosopher",
-    axisLineY: "Monk <-> Gambler",
     bullets: [
       {
         label: "Gladiator (Direct Action)",
@@ -241,18 +229,88 @@ function getObjectClassLabel(subtype: string): string {
   return "Balancer";
 }
 
-function getRarityTier(titleIndex: number): string {
-  const slot = ((titleIndex % 4) + 4) % 4;
-  if (slot === 0) {
-    return "Common";
-  }
-  if (slot === 1) {
-    return "Uncommon";
-  }
-  if (slot === 2) {
-    return "Rare";
-  }
-  return "Epic";
+type RarityTier = "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary";
+
+const RARITY_TYPE_CODES: Record<RarityTier, readonly string[]> = {
+  Common: [
+    "WHKJCM",
+    "WHKJSM",
+    "WHKRCM",
+    "WHKRSM",
+    "VHKJCM",
+    "VHKJSM",
+    "VHKRCM",
+    "VHKRSM",
+    "WHPCJM",
+    "WHPCSM",
+    "VHKPJM",
+    "VHKPSM"
+  ],
+  Uncommon: [
+    "WHKJCA",
+    "WHKJSA",
+    "WHKRCA",
+    "WHKRSA",
+    "VHKJCA",
+    "VHKJSA",
+    "VHKRCA",
+    "VHKRSA",
+    "WHPCJA",
+    "WHPCSA",
+    "VHKPJA",
+    "VHKPSA",
+    "WGKJCM",
+    "WGKJSM",
+    "WGKRCM",
+    "WGKRSM",
+    "VGKJCM",
+    "VGKJSM",
+    "VGKRCM",
+    "VGKRSM"
+  ],
+  Rare: [
+    "WGPCJM",
+    "WGPCSM",
+    "WGPCJA",
+    "WGPCSA",
+    "VGPCJM",
+    "VGPCSM",
+    "VGPCJA",
+    "VGPCSA",
+    "WGPRJM",
+    "WGPRSM",
+    "WGPRJA",
+    "WGPRSA",
+    "VGPRJM",
+    "VGPRSM",
+    "VGPRJA",
+    "VGPRSA"
+  ],
+  Epic: [
+    "WGPJCM",
+    "WGPJSM",
+    "WGPRCM",
+    "WGPRSM",
+    "VGPJCM",
+    "VGPJSM",
+    "VGPRCM",
+    "VGPRSM",
+    "WGPJCA",
+    "WGPJSA",
+    "WGPRCA",
+    "WGPRSA"
+  ],
+  Legendary: ["VGPJCA", "VGPJSA", "VGPRCA", "VGPRSA"]
+};
+
+const RARITY_BY_TYPE_CODE: Record<string, RarityTier> = Object.fromEntries(
+  (Object.entries(RARITY_TYPE_CODES) as Array<[RarityTier, readonly string[]]>).flatMap(
+    ([tier, codes]) => codes.map((code) => [code, tier] as const)
+  )
+) as Record<string, RarityTier>;
+
+function getRarityTier(typeCode: string): RarityTier {
+  return RARITY_BY_TYPE_CODE[typeCode.trim().toUpperCase()] ?? "Common";
 }
 
 function getCardStatLabel(compassId: string, fallbackName: string): string {
@@ -379,11 +437,25 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     "The friend who shows up before the group chat finishes typing.";
   const primaryFlavorLine = getFirstSentence(primaryReason) || "Builds order out of chaos.";
   const primaryAbility = getFirstSentence(primaryReason) || primaryReason;
+  const objectAbilitiesForPrimary = data.objectsData?.objectAbilities?.[primaryObject];
+  const cardAbilities: ObjectAbility[] =
+    objectAbilitiesForPrimary && objectAbilitiesForPrimary.length > 0
+      ? objectAbilitiesForPrimary.slice(0, 2)
+      : [
+          {
+            name: primaryObject,
+            description: primaryAbility
+          }
+        ];
   const cardThemeClass = getCardThemeClass(powerSubtype);
   const objectClass = getObjectClassLabel(powerSubtype);
-  const rarityTier = getRarityTier(result.titleIndex);
+  const rarityTier = getRarityTier(result.typeCode);
   const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
-  const cardSerial = `${result.typeCode}-${String(result.titleIndex).padStart(3, "0")}`;
+  const familyRankByKey: Record<string, number> = { VH: 0, WH: 1, VG: 2, WG: 3 };
+  const familyRank = familyRankByKey[result.typeFamilyKey] ?? 0;
+  const typeOrdinal = familyRank * 16 + result.titleIndex + 1;
+  const cardSerial = `${result.typeCode}-${String(typeOrdinal).padStart(3, "0")}`;
+  const comparisonsLine = cardCelebs.join(", ");
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -464,21 +536,23 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         >
           <div className="shareable-card-content">
             <header className="trading-card-top">
-              <div className="trading-identity-row">
-                <div>
-                  <h2>{result.archetypeTitle}</h2>
-                  <p className="trading-subtype-tag">{powerSubtype}</p>
-                </div>
-                <p className="code-pill">TYPE: {result.typeCode}</p>
+              <div className="card-head-grid">
+                <p className="card-object-name">{primaryObject}</p>
+                <p className="card-personality-class">{powerSubtype}</p>
+                <p className="card-type-line">
+                  Type: <strong>{result.typeCode}</strong>
+                </p>
+                <p className="card-object-class-line">
+                  Object Class: <strong>{objectClass}</strong>
+                </p>
               </div>
-              <p className="card-meta-line">
-                Object Class: <strong>{objectClass}</strong> | Rarity <span className="rarity-star">★</span>:{" "}
-                <strong>{rarityTier}</strong>
-              </p>
             </header>
 
             <section className="trading-card-section trading-art-panel">
               <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
+                <p className="card-rarity-badge">
+                  Rarity: <span className="rarity-star">★</span> {rarityTier}
+                </p>
                 <div className="art-vignette" aria-hidden="true" />
                 {!objectImageFailed ? (
                   <img
@@ -490,30 +564,28 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                   />
                 ) : null}
                 {objectImageFailed ? <div className="object-glyph">{getObjectGlyph(primaryObject)}</div> : null}
-                <p className="object-name">{primaryObject}</p>
-                <p className="muted object-caption">Primary Object</p>
               </div>
             </section>
 
-            <section className="trading-card-section">
+            <section className="trading-card-section trading-flavor-section">
               <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
             </section>
 
             <section className="trading-card-section">
               <div className="trading-traits-grid">
                 <article className="trait-card">
-                  <h3>Strengths</h3>
-                  <ul>
-                    {cardStrengths.map((strength) => (
-                      <li key={strength}>{strength}</li>
-                    ))}
-                  </ul>
-                </article>
-                <article className="trait-card">
                   <h3>Weaknesses</h3>
                   <ul>
                     {cardWeaknesses.map((watchout) => (
                       <li key={watchout}>{watchout}</li>
+                    ))}
+                  </ul>
+                </article>
+                <article className="trait-card">
+                  <h3>Strengths</h3>
+                  <ul>
+                    {cardStrengths.map((strength) => (
+                      <li key={strength}>{strength}</li>
                     ))}
                   </ul>
                 </article>
@@ -524,12 +596,14 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               <h3>Abilities</h3>
               {result.householdArchetype ? (
                 <div className="abilities-list">
-                  <article className="ability-entry">
-                    <p className="ability-name">
-                      <strong>Ability:</strong> {primaryObject}
-                    </p>
-                    <p className="ability-text">{primaryAbility}</p>
-                  </article>
+                  {cardAbilities.map((ability) => (
+                    <article className="ability-entry" key={`${primaryObject}-${ability.name}`}>
+                      <p className="ability-name">
+                        <strong>Ability:</strong> {ability.name}
+                      </p>
+                      <p className="ability-text">{ability.description}</p>
+                    </article>
+                  ))}
                 </div>
               ) : (
                 <p className="muted">
@@ -559,15 +633,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
             </section>
 
             <section className="trading-card-section trading-companion">
-              <h3>Famous Vibe Buddies</h3>
-              <ul className="famous-buddies-list">
-                {cardCelebs.map((celeb) => (
-                  <li key={celeb}>{celeb}</li>
-                ))}
-              </ul>
+              <h3>Comparisons</h3>
+              <p className="comparisons-line">{comparisonsLine}</p>
             </section>
 
-            <p className="card-id-line">Card ID: {cardSerial}</p>
+            <p className="card-id-line">{cardSerial}</p>
           </div>
         </section>
 

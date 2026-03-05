@@ -2,8 +2,6 @@ import type { AxisDefinition } from "../types";
 
 interface CompassInfoBlurb {
   descriptor: string;
-  axisLineX: string;
-  axisLineY: string;
   bullets: Array<{
     label: string;
     text: string;

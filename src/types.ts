@@ -117,8 +117,14 @@ export interface ResultsContentData {
 export type TypeFamilyKey = "VH" | "WH" | "VG" | "WG";
 export type ObjectAxisPoolKey = "KP" | "PJ" | "RJ" | "JJ" | "SC" | "CC" | "MA" | "AA";
 
+export interface ObjectAbility {
+  name: string;
+  description: string;
+}
+
 export interface ObjectsData {
   objectInventory: string[];
+  objectAbilities?: Record<string, ObjectAbility[]>;
   objectsByTypeCode?: Record<
     string,
     {

@@ -9,6 +9,7 @@ import {
   type LoadedAppData,
   type ObjectAxisPoolKey,
   type ObjectsData,
+  type ObjectAbility,
   type Question,
   type QuadrantWriteup,
   type QuadrantWriteupsData,
@@ -382,6 +383,36 @@ function parseObjectsData(raw: unknown): ObjectsData {
     throw new DataLoadError("objects.json objectInventory must contain exactly 64 unique objects.");
   }
 
+  let objectAbilities: ObjectsData["objectAbilities"] = undefined;
+  if (isRecord(root.objectAbilities)) {
+    objectAbilities = {};
+    for (const [objectName, abilitiesRaw] of Object.entries(root.objectAbilities)) {
+      const abilitiesArray = ensureArray(
+        abilitiesRaw,
+        `objects.json objectAbilities.${objectName}`
+      );
+      objectAbilities[objectName] = abilitiesArray.map((abilityRaw, index) => {
+        const abilityObj = ensureRecord(
+          abilityRaw,
+          `objects.json objectAbilities.${objectName}[${index}]`
+        );
+
+        const parsedAbility: ObjectAbility = {
+          name: ensureString(
+            abilityObj.name,
+            `objects.json objectAbilities.${objectName}[${index}].name`
+          ),
+          description: ensureString(
+            abilityObj.description,
+            `objects.json objectAbilities.${objectName}[${index}].description`
+          )
+        };
+
+        return parsedAbility;
+      });
+    }
+  }
+
   let primaryObjectPools: ObjectsData["primaryObjectPools"] = undefined;
   if (isRecord(root.primaryObjectPools)) {
     primaryObjectPools = {} as NonNullable<ObjectsData["primaryObjectPools"]>;
@@ -450,6 +481,7 @@ function parseObjectsData(raw: unknown): ObjectsData {
 
   return {
     objectInventory,
+    objectAbilities,
     primaryObjectPools,
     backupObjectPools,
     objectsByTypeCode

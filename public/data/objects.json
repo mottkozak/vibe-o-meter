@@ -65,6 +65,648 @@
     "Garden Hose",
     "Windchime"
   ],
+  "objectAbilities": {
+    "Tongs": [
+      {
+        "name": "Grab",
+        "description": "Snatch anything without committing to it emotionally."
+      },
+      {
+        "name": "Flip",
+        "description": "Turn the situation over fast and keep it moving."
+      }
+    ],
+    "Butter Knife": [
+      {
+        "name": "Spread",
+        "description": "Smooth things over: peanut butter, jam, and awkward tension."
+      },
+      {
+        "name": "Slice",
+        "description": "Cut through soft problems without making a scene."
+      }
+    ],
+    "Oven Mitt": [
+      {
+        "name": "Heat Shield",
+        "description": "Handle hot situations without taking damage."
+      },
+      {
+        "name": "Grip",
+        "description": "Hold steady when things get slippery."
+      }
+    ],
+    "Spoon": [
+      {
+        "name": "Scoop",
+        "description": "Collect the good stuff and bring it back to the team."
+      },
+      {
+        "name": "Stir",
+        "description": "Keep things mixed and prevent emotional clumps."
+      }
+    ],
+    "Fork": [
+      {
+        "name": "Pierce",
+        "description": "Get straight to the point."
+      },
+      {
+        "name": "Pick Up",
+        "description": "Lift the pieces and keep going."
+      }
+    ],
+    "Spork": [
+      {
+        "name": "Hybrid Mode",
+        "description": "Solve problems with whatever tool works right now."
+      },
+      {
+        "name": "Improvised Etiquette",
+        "description": "Function in any setting, no matter how weird."
+      }
+    ],
+    "Mug": [
+      {
+        "name": "Warm Up",
+        "description": "Boost morale and stabilize the vibe."
+      },
+      {
+        "name": "Hold",
+        "description": "Contain chaos (and liquids) without leaking."
+      }
+    ],
+    "Toaster": [
+      {
+        "name": "Pop Up",
+        "description": "Surprise reveal at the exact right moment."
+      },
+      {
+        "name": "Toast",
+        "description": "Upgrade something basic into something legendary."
+      }
+    ],
+    "Water Bottle": [
+      {
+        "name": "Refill",
+        "description": "Restore energy, focus, and functionality."
+      },
+      {
+        "name": "Hydrate",
+        "description": "Reduce drama damage over time."
+      }
+    ],
+    "Teapot": [
+      {
+        "name": "Pour",
+        "description": "Distribute comfort, wisdom, and hot gossip responsibly."
+      },
+      {
+        "name": "Steep",
+        "description": "Let things develop before making the call."
+      }
+    ],
+    "Colander": [
+      {
+        "name": "Drain",
+        "description": "Remove the nonsense and keep what matters."
+      },
+      {
+        "name": "Rinse",
+        "description": "Clean up the situation without rewriting history."
+      }
+    ],
+    "Rolling Pin": [
+      {
+        "name": "Flatten",
+        "description": "Smooth out complications with firm efficiency."
+      },
+      {
+        "name": "Roll Out",
+        "description": "Expand plans fast and make them workable."
+      }
+    ],
+    "Ice Cube Tray": [
+      {
+        "name": "Freeze",
+        "description": "Lock in a plan before it melts."
+      },
+      {
+        "name": "Pop Out",
+        "description": "Deliver quick solutions in neat little squares."
+      }
+    ],
+    "Cheese Grater": [
+      {
+        "name": "Shred",
+        "description": "Break big problems into manageable pieces."
+      },
+      {
+        "name": "Zest",
+        "description": "Add just enough extra to make it interesting."
+      }
+    ],
+    "Dish Sponge": [
+      {
+        "name": "Absorb",
+        "description": "Soak up messes so others don't have to."
+      },
+      {
+        "name": "Scrub",
+        "description": "Remove stuck-on nonsense with persistence."
+      }
+    ],
+    "Whisk": [
+      {
+        "name": "Whip",
+        "description": "Generate momentum instantly."
+      },
+      {
+        "name": "Blend",
+        "description": "Combine different ideas into one workable plan."
+      }
+    ],
+    "Tape": [
+      {
+        "name": "Stick",
+        "description": "Hold things together longer than they deserve."
+      },
+      {
+        "name": "Patch",
+        "description": "Quick fix now, permanent fix later (maybe)."
+      }
+    ],
+    "Pencil": [
+      {
+        "name": "Draft",
+        "description": "Create first versions without fear."
+      },
+      {
+        "name": "Rewrite",
+        "description": "Change direction instantly with minimal drama."
+      }
+    ],
+    "Pen": [
+      {
+        "name": "Commit",
+        "description": "Make it official. No take-backs."
+      },
+      {
+        "name": "Sign Off",
+        "description": "End the debate and ship the decision."
+      }
+    ],
+    "Eraser": [
+      {
+        "name": "Undo",
+        "description": "Remove mistakes with grace."
+      },
+      {
+        "name": "Reset",
+        "description": "Clear the slate and try again smarter."
+      }
+    ],
+    "Rubber Band": [
+      {
+        "name": "Stretch",
+        "description": "Adapt to changing demands without snapping."
+      },
+      {
+        "name": "Snap Back",
+        "description": "Return to center when chaos pushes too far."
+      }
+    ],
+    "Coin": [
+      {
+        "name": "Flip",
+        "description": "Decide fast when logic can't."
+      },
+      {
+        "name": "Toll",
+        "description": "Pay the price to move forward."
+      }
+    ],
+    "Bottle Cap": [
+      {
+        "name": "Seal",
+        "description": "Keep it contained. No leaks."
+      },
+      {
+        "name": "Pop",
+        "description": "Open the moment with a satisfying click."
+      }
+    ],
+    "Hammer": [
+      {
+        "name": "Smash",
+        "description": "Solve directly. Ask questions later."
+      },
+      {
+        "name": "Nail Down",
+        "description": "Lock the plan in place so it stops drifting."
+      }
+    ],
+    "Screwdriver": [
+      {
+        "name": "Turn",
+        "description": "Shift the situation one twist at a time."
+      },
+      {
+        "name": "Tighten",
+        "description": "Fix what's loose before it becomes a disaster."
+      }
+    ],
+    "Wrench": [
+      {
+        "name": "Torque",
+        "description": "Apply leverage where it counts."
+      },
+      {
+        "name": "Clamp",
+        "description": "Hold the line when things start slipping."
+      }
+    ],
+    "Measuring Tape": [
+      {
+        "name": "Measure",
+        "description": "Get the facts before the feelings."
+      },
+      {
+        "name": "Mark",
+        "description": "Set boundaries everyone can see."
+      }
+    ],
+    "Paint Roller": [
+      {
+        "name": "Coat",
+        "description": "Cover big areas fast with one consistent vibe."
+      },
+      {
+        "name": "Refresh",
+        "description": "Make something old look new again."
+      }
+    ],
+    "Leaf Blower": [
+      {
+        "name": "Clear",
+        "description": "Remove clutter instantly."
+      },
+      {
+        "name": "Blast",
+        "description": "Push chaos somewhere else (strategically)."
+      }
+    ],
+    "Lawn Mower": [
+      {
+        "name": "Trim",
+        "description": "Cut problems down to size."
+      },
+      {
+        "name": "Sweep",
+        "description": "Handle the whole area, not just one patch."
+      }
+    ],
+    "Extension Cord": [
+      {
+        "name": "Extend",
+        "description": "Reach what others can't."
+      },
+      {
+        "name": "Power Share",
+        "description": "Keep the whole squad online."
+      }
+    ],
+    "Plunger": [
+      {
+        "name": "Unclog",
+        "description": "Fix stuck situations through brute persistence."
+      },
+      {
+        "name": "Pressure",
+        "description": "Apply force until the blockage gives up."
+      }
+    ],
+    "Wheelbarrow": [
+      {
+        "name": "Carry",
+        "description": "Move heavy loads without complaining (too much)."
+      },
+      {
+        "name": "Haul",
+        "description": "Transport chaos from Point A to 'not my problem.'"
+      }
+    ],
+    "Doorknob": [
+      {
+        "name": "Access",
+        "description": "Open opportunities others miss."
+      },
+      {
+        "name": "Turn",
+        "description": "Change the outcome with one small move."
+      }
+    ],
+    "Light Switch": [
+      {
+        "name": "On/Off",
+        "description": "Flip between modes instantly."
+      },
+      {
+        "name": "Spotlight",
+        "description": "Reveal what's really going on."
+      }
+    ],
+    "Doormat": [
+      {
+        "name": "Welcome",
+        "description": "Create safe entry for friends and ideas."
+      },
+      {
+        "name": "Wipe",
+        "description": "Remove bad vibes at the door."
+      }
+    ],
+    "Soap Bar": [
+      {
+        "name": "Cleanse",
+        "description": "Reset the mood and scrub the nonsense."
+      },
+      {
+        "name": "Slip",
+        "description": "Escape awkward situations with surprising agility."
+      }
+    ],
+    "Yo Yo": [
+      {
+        "name": "Loop",
+        "description": "Return to the plan after wandering off."
+      },
+      {
+        "name": "Drop",
+        "description": "Create drama on purpose (for the trick)."
+      }
+    ],
+    "Dice": [
+      {
+        "name": "Roll",
+        "description": "Let chance choose the path."
+      },
+      {
+        "name": "Crit",
+        "description": "Occasionally pull off something ridiculous."
+      }
+    ],
+    "Water Balloon": [
+      {
+        "name": "Splash",
+        "description": "Disrupt the room with one perfect throw."
+      },
+      {
+        "name": "Burst",
+        "description": "Release tension instantly (mess included)."
+      }
+    ],
+    "Sticky Note": [
+      {
+        "name": "Reminder",
+        "description": "Keep key details from escaping."
+      },
+      {
+        "name": "Tag",
+        "description": "Mark priorities so they can't hide."
+      }
+    ],
+    "Battery": [
+      {
+        "name": "Charge",
+        "description": "Restore energy to yourself or others."
+      },
+      {
+        "name": "Boost",
+        "description": "Temporary power spike when it matters."
+      }
+    ],
+    "Computer Mouse": [
+      {
+        "name": "Click",
+        "description": "Make decisions fast and clean."
+      },
+      {
+        "name": "Drag",
+        "description": "Move the whole problem where you want it."
+      }
+    ],
+    "Traffic Cone": [
+      {
+        "name": "Redirect",
+        "description": "Guide chaos away from danger."
+      },
+      {
+        "name": "Block",
+        "description": "Create instant boundaries."
+      }
+    ],
+    "Parking Meter": [
+      {
+        "name": "Timebox",
+        "description": "Put limits on nonsense."
+      },
+      {
+        "name": "Enforce",
+        "description": "Demand payment for bad planning."
+      }
+    ],
+    "Fire Extinguisher": [
+      {
+        "name": "Suppress",
+        "description": "Shut down emergencies fast."
+      },
+      {
+        "name": "Contain",
+        "description": "Stop a small problem from becoming a legend."
+      }
+    ],
+    "Garden Gnome": [
+      {
+        "name": "Watch",
+        "description": "Observe silently and know everything."
+      },
+      {
+        "name": "Curse",
+        "description": "Apply mild chaos to anyone who disrespects the lawn."
+      }
+    ],
+    "Mailbox": [
+      {
+        "name": "Deliver",
+        "description": "Get the message to the right place."
+      },
+      {
+        "name": "Receive",
+        "description": "Hold incoming chaos until you're ready."
+      }
+    ],
+    "Corded Phone": [
+      {
+        "name": "Ring",
+        "description": "Interrupt everything with urgency."
+      },
+      {
+        "name": "Line Hold",
+        "description": "Stay connected even when the world wobbles."
+      }
+    ],
+    "Snow Globe": [
+      {
+        "name": "Shake",
+        "description": "Stir up the whole world for insight."
+      },
+      {
+        "name": "Settle",
+        "description": "Let the chaos fall into place."
+      }
+    ],
+    "Ice Cream Scoop": [
+      {
+        "name": "Scoop",
+        "description": "Extract maximum reward efficiently."
+      },
+      {
+        "name": "Serve",
+        "description": "Share the good stuff without hesitation."
+      }
+    ],
+    "Lunchbox": [
+      {
+        "name": "Pack",
+        "description": "Prepare for the day like a pro."
+      },
+      {
+        "name": "Save",
+        "description": "Keep essentials protected until needed."
+      }
+    ],
+    "Pizza Cutter": [
+      {
+        "name": "Slice",
+        "description": "Divide problems into clean pieces."
+      },
+      {
+        "name": "Round Up",
+        "description": "Keep things moving in a tight circle."
+      }
+    ],
+    "Chip Clip": [
+      {
+        "name": "Clamp",
+        "description": "Preserve what matters."
+      },
+      {
+        "name": "Seal",
+        "description": "Prevent freshness loss (and emotional leaks)."
+      }
+    ],
+    "Fridge Magnet": [
+      {
+        "name": "Stick",
+        "description": "Attach to the important stuff."
+      },
+      {
+        "name": "Attract",
+        "description": "Pull ideas together from across the room."
+      }
+    ],
+    "5 Gallon Bucket": [
+      {
+        "name": "Contain",
+        "description": "Hold a surprising amount of chaos."
+      },
+      {
+        "name": "Carry",
+        "description": "Move the mess without spilling it everywhere."
+      }
+    ],
+    "Toothbrush": [
+      {
+        "name": "Scrub",
+        "description": "Fix small issues with relentless consistency."
+      },
+      {
+        "name": "Detail",
+        "description": "Handle the fine work others ignore."
+      }
+    ],
+    "Toothpaste Tube": [
+      {
+        "name": "Squeeze",
+        "description": "Produce results under pressure."
+      },
+      {
+        "name": "Mint",
+        "description": "Refresh the vibe instantly."
+      }
+    ],
+    "Bouncy Ball": [
+      {
+        "name": "Bounce",
+        "description": "Recover from setbacks immediately."
+      },
+      {
+        "name": "Rebound",
+        "description": "Turn failure into momentum."
+      }
+    ],
+    "Glow Stick": [
+      {
+        "name": "Glow",
+        "description": "Bring light to the dark moment."
+      },
+      {
+        "name": "Snap",
+        "description": "Activate instantly when needed."
+      }
+    ],
+    "Manhole Cover": [
+      {
+        "name": "Seal",
+        "description": "Keep the underground chaos underground."
+      },
+      {
+        "name": "Lift",
+        "description": "Reveal hidden routes (carefully)."
+      }
+    ],
+    "Flower Pot": [
+      {
+        "name": "Root",
+        "description": "Support growth over time."
+      },
+      {
+        "name": "Repot",
+        "description": "Change environments to thrive."
+      }
+    ],
+    "Garden Hose": [
+      {
+        "name": "Spray",
+        "description": "Handle problems at range."
+      },
+      {
+        "name": "Soak",
+        "description": "Flood the situation until it calms down."
+      }
+    ],
+    "Windchime": [
+      {
+        "name": "Chime",
+        "description": "Signal change before it arrives."
+      },
+      {
+        "name": "Soothe",
+        "description": "Lower stress with ambient wisdom."
+      }
+    ]
+  },
   "objectsByTypeCode": {
     "VHKRSM": {
       "primaryObject": "Fire Extinguisher",
