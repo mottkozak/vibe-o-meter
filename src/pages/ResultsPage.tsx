@@ -193,6 +193,31 @@ function getCardThemeClass(subtype: string): string {
   return "card-theme-default";
 }
 
+const OBJECT_IMAGE_OVERRIDES: Record<string, string> = {
+  "5 gallon bucket": "5_gallon_bucket.png",
+  "bottle cap": "bottlecap.png",
+  "light switch": "lightswitch.png",
+  "measuring tape": "tape_measure.png",
+  "rubber band": "rubberband.png",
+  "soap bar": "soap.png",
+  tongs: "salad_tongs.png",
+  windchime: "windchimes.png",
+  "yo yo": "yo-yo.png",
+  "yo-yo": "yo-yo.png"
+};
+
+function getObjectImageSrc(objectName: string): string {
+  const normalized = objectName.trim().toLowerCase();
+  const override = OBJECT_IMAGE_OVERRIDES[normalized];
+  const fileName =
+    override ??
+    `${normalized
+      .replace(/[^a-z0-9]+/g, "_")
+      .replace(/^_+|_+$/g, "")}.png`;
+
+  return `${import.meta.env.BASE_URL}images/${fileName}`;
+}
+
 function getObjectClassLabel(subtype: string): string {
   const value = subtype.toLowerCase();
 
@@ -236,6 +261,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
   const { axisScores, isComplete, restartQuiz, questions, selectedQuizLength } = useQuiz();
   const [actionStatus, setActionStatus] = useState<string | null>(null);
+  const [objectImageFailed, setObjectImageFailed] = useState(false);
   const shareCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -270,6 +296,10 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
       };
     }
   }, [axisScores, data, isComplete, questions]);
+
+  useEffect(() => {
+    setObjectImageFailed(false);
+  }, [resultState.result?.householdArchetype?.primaryObject]);
 
   if (!selectedQuizLength) {
     return (
@@ -328,11 +358,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 3);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
-  const backupObject = result.householdArchetype?.backupObject ?? "Unknown";
   const primaryReason =
     result.householdArchetype?.primaryReason ?? "Reliable utility with surprising personality.";
-  const backupReason =
-    result.householdArchetype?.backupReason ?? "Adaptive sidekick energy for fast pivots.";
   const powerSubtype =
     result.compassBreakdown.find((item) => item.compass.id === "power")?.quadrant.label ??
     "Unknown subtype";
@@ -342,10 +369,10 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     "The friend who shows up before the group chat finishes typing.";
   const primaryFlavorLine = getFirstSentence(primaryReason) || "Builds order out of chaos.";
   const primaryAbility = getFirstSentence(primaryReason) || primaryReason;
-  const backupAbility = getFirstSentence(backupReason) || backupReason;
   const cardThemeClass = getCardThemeClass(powerSubtype);
   const objectClass = getObjectClassLabel(powerSubtype);
   const rarityTier = getRarityTier(result.titleIndex);
+  const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -424,10 +451,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           className={`shareable-card trading-card ${cardThemeClass}`}
           aria-label="Shareable results card"
         >
-          <header className="shareable-card-header window-titlebar">
-            <p className="shareable-titlebar-label">RESULTS_VIEWER.EXE</p>
-          </header>
-
           <div className="shareable-card-content">
             <header className="trading-card-top">
               <h2>{result.archetypeTitle}</h2>
@@ -440,7 +463,16 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
             <section className="trading-card-section trading-art-panel">
               <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
-                <div className="object-glyph">{getObjectGlyph(primaryObject)}</div>
+                {!objectImageFailed ? (
+                  <img
+                    className="object-asset"
+                    src={primaryObjectImageSrc}
+                    alt={`${primaryObject} illustration`}
+                    loading="eager"
+                    onError={() => setObjectImageFailed(true)}
+                  />
+                ) : null}
+                {objectImageFailed ? <div className="object-glyph">{getObjectGlyph(primaryObject)}</div> : null}
                 <p className="object-name">{primaryObject}</p>
                 <p className="muted object-caption">Primary Object</p>
               </div>
@@ -469,14 +501,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
             </section>
 
             <section className="trading-card-section">
-              <h3>Abilities</h3>
+              <h3>Ability</h3>
               {result.householdArchetype ? (
                 <div className="abilities-list">
                   <p>
                     <strong>{primaryObject}</strong> - {primaryAbility}
-                  </p>
-                  <p>
-                    <strong>{backupObject}</strong> - {backupAbility}
                   </p>
                 </div>
               ) : (
@@ -562,22 +591,15 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
               <h3>Field Dossier</h3>
               <p>
-                Type code <strong>{result.typeCode}</strong> resolves to the pair{" "}
-                <strong>{primaryObject}</strong>
-                {" / "}
-                <strong>{backupObject}</strong>, with subtype <strong>{powerSubtype}</strong>.
+                Type code <strong>{result.typeCode}</strong> resolves to <strong>{primaryObject}</strong>, with
+                subtype <strong>{powerSubtype}</strong>.
               </p>
 
               <h3>Object Lore</h3>
               {result.householdArchetype ? (
-                <>
-                  <p>
-                    <strong>{primaryObject}:</strong> {primaryReason}
-                  </p>
-                  <p>
-                    <strong>{backupObject}:</strong> {backupReason}
-                  </p>
-                </>
+                <p>
+                  <strong>{primaryObject}:</strong> {primaryReason}
+                </p>
               ) : (
                 <p className="muted">
                   {result.householdArchetypeMessage ??

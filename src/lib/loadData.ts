@@ -423,15 +423,19 @@ function parseObjectsData(raw: unknown): ObjectsData {
         typeof pair.backupObject === "string" && pair.backupObject.trim()
           ? pair.backupObject
           : pair.backup;
+      const parsedBackup =
+        typeof backupValue === "string" && backupValue.trim()
+          ? ensureString(
+              backupValue,
+              `objectsByTypeCode.${typeCode}.backupObject (or backup)`
+            )
+          : undefined;
       objectsByTypeCode[typeCode] = {
         primary: ensureString(
           primaryValue,
           `objectsByTypeCode.${typeCode}.primaryObject (or primary)`
         ),
-        backup: ensureString(
-          backupValue,
-          `objectsByTypeCode.${typeCode}.backupObject (or backup)`
-        ),
+        backup: parsedBackup,
         primaryReason:
           typeof pair.primaryReason === "string" && pair.primaryReason.trim()
             ? pair.primaryReason

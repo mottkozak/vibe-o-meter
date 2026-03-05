@@ -123,7 +123,7 @@ export interface ObjectsData {
     string,
     {
       primary: string;
-      backup: string;
+      backup?: string;
       primaryReason?: string;
       backupReason?: string;
     }
@@ -158,9 +158,7 @@ export interface TypeTitleResolution {
 
 export interface HouseholdArchetype {
   primaryObject: string;
-  backupObject: string;
   primaryReason: string;
-  backupReason: string;
   why: string;
 }
 

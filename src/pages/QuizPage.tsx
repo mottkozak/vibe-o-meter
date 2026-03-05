@@ -152,7 +152,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
   const shouldOfferSectionReview = isLastQuestionInSection && sectionComplete;
   const shouldShowSectionReview = reviewCompassId === activeCompass.id && sectionComplete;
 
-  const unansweredIndex = questions.findIndex((question) => !answers[question.id]);
   const sectionResult = useMemo(() => {
     if (!shouldShowSectionReview) {
       return null;
@@ -308,11 +307,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
           </section>
         ) : null}
 
-        {!isComplete && unansweredIndex >= 0 && currentQuestionIndex === totalQuestions - 1 ? (
-          <p className="muted">
-            Dude, answer every question to unlock results. First unfinished one: {unansweredIndex + 1}.
-          </p>
-        ) : null}
       </section>
     </main>
   );

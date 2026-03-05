@@ -164,7 +164,6 @@ export function generateResult(
   }
 
   const orderResult = breakdown.find((item) => item.compass.id === "order") ?? breakdown[1];
-  const riskResult = breakdown.find((item) => item.compass.id === "risk");
 
   const mergedStrengthsFromQuadrants = dedupeAndCap(
     breakdown.flatMap((item) => item.writeup.strengths),
@@ -216,22 +215,13 @@ export function generateResult(
         powerResult.writeup.strengths[0] ?? powerResult.writeup.headline,
         "you are steady and supportive"
       );
-      const backupWhy = toSentenceClause(
-        riskResult?.writeup.strengths[0] ??
-          orderResult?.writeup.strengths[0] ??
-          "you improvise solutions when things get messy",
-        "you improvise solutions when things get messy"
-      );
 
       householdArchetype = {
         primaryObject: objects.primaryObject,
-        backupObject: objects.backupObject,
         primaryReason: ensurePeriod(objects.primaryReason ?? primaryWhy),
-        backupReason: ensurePeriod(objects.backupReason ?? backupWhy),
-        why:
-          objects.primaryReason && objects.backupReason
-            ? `Primary Object: ${objects.primaryObject} — ${ensurePeriod(objects.primaryReason)} Backup Object: ${objects.backupObject} — ${ensurePeriod(objects.backupReason)}`
-            : `Primary Object: ${objects.primaryObject} — ${primaryWhy}. Backup Object: ${objects.backupObject} — ${backupWhy}.`
+        why: objects.primaryReason
+          ? `Primary Object: ${objects.primaryObject} — ${ensurePeriod(objects.primaryReason)}`
+          : `Primary Object: ${objects.primaryObject} — ${primaryWhy}.`
       };
       householdArchetypeMessage = null;
     } catch {
@@ -239,29 +229,21 @@ export function generateResult(
       householdArchetypeMessage =
         "Dude, the object mapper got totally confused by your type, so this section is taking a snack break.";
     }
-  } else if (typeWriteup?.primaryObject && typeWriteup?.backupObject) {
+  } else if (typeWriteup?.primaryObject) {
     const primaryWhy = toSentenceClause(
       powerResult.writeup.strengths[0] ?? powerResult.writeup.headline,
       "you are steady and supportive"
     );
-    const backupWhy = toSentenceClause(
-      riskResult?.writeup.strengths[0] ??
-        orderResult?.writeup.strengths[0] ??
-        "you improvise solutions when things get messy",
-      "you improvise solutions when things get messy"
-    );
     householdArchetype = {
       primaryObject: typeWriteup.primaryObject,
-      backupObject: typeWriteup.backupObject,
       primaryReason: ensurePeriod(primaryWhy),
-      backupReason: ensurePeriod(backupWhy),
-      why: `Primary Object: ${typeWriteup.primaryObject} — ${primaryWhy}. Backup Object: ${typeWriteup.backupObject} — ${backupWhy}.`
+      why: `Primary Object: ${typeWriteup.primaryObject} — ${primaryWhy}.`
     };
     householdArchetypeMessage = null;
   }
 
   const archetypeTitle = householdArchetype
-    ? `${householdArchetype.primaryObject} / ${householdArchetype.backupObject}`
+    ? householdArchetype.primaryObject
     : typeWriteup?.title ?? typeTitle.title;
 
   return {

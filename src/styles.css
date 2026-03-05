@@ -762,6 +762,14 @@ li {
   margin: 0 0 0.25rem;
 }
 
+.object-asset {
+  width: min(86%, 340px);
+  max-height: 240px;
+  object-fit: contain;
+  image-rendering: auto;
+  margin: 0 0 0.3rem;
+}
+
 .trading-art-frame .object-name {
   font-size: 1.08rem;
 }
@@ -1120,6 +1128,10 @@ li {
 
   .trading-art-frame .object-glyph {
     font-size: 5rem;
+  }
+
+  .object-asset {
+    max-height: 200px;
   }
 
   .shareable-top-grid {
