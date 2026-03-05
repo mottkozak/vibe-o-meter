@@ -69,7 +69,10 @@ export function App(): JSX.Element {
 
   return (
     <BrowserRouter basename={routerBase}>
-      <QuizProvider questions={orderedQuestions}>
+      <QuizProvider
+        allQuestions={orderedQuestions}
+        compasses={loadState.data.compasses.compasses}
+      >
         <Routes>
           <Route path="/" element={<LandingPage data={loadState.data} />} />
           <Route path="/quiz" element={<QuizPage data={loadState.data} />} />

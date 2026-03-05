@@ -9,20 +9,27 @@ interface LandingPageProps {
 const LANDING_BODY_PARAGRAPHS = [
   "What is up dude.",
   "You are about to embark on a most excellent journey of self-discovery.",
-  "Using advanced techniques developed by most knowledgeable philosopher dudes - and no peer-reviewed science - this quiz will reveal the hidden alignment of your soul.",
+  "Using advanced techniques developed by some most knowledgeable philosopher dudes - and no peer-reviewed science - this quiz will reveal the hidden alignment of your soul.",
   "I know what you're thinking.",
   "\"Woah.\"",
-  "And honestly... I agree dude.",
+  "And honestly dude... I agree.",
   "Through a series of most intellectual questions, it will map your personality across the great forces of human nature. As you answer, your choices will slowly align across the cosmic compasses of destiny, until your true self emerges from the swirling chaos of the universe.",
-  "Double woah. Heavy stuff. I don't even know what that means. Just answer honestly and trust your instincts.",
-  "Technically this isn't science. But it feels pretty scientific, and honestly that's close enough, dude."
+  "Truthfully, dude, I don't even know what that means. But woah. Just answer honestly and trust your instincts.",
+  "Technically this isn't science. But it feels pretty scientific, and honestly that's close enough."
 ] as const;
 
 export function LandingPage({ data }: LandingPageProps): JSX.Element {
   const navigate = useNavigate();
-  const { answeredCount, isComplete, restartQuiz, questions } = useQuiz();
+  const {
+    answeredCount,
+    isComplete,
+    restartQuiz,
+    questions,
+    selectedQuizLength,
+    setQuizLength
+  } = useQuiz();
   const compassCount = data.compasses.compasses.length;
-  const totalQuestions = questions.length;
+  const totalQuestions = selectedQuizLength ?? 0;
   const totalTypeOutcomes = Object.values(data.typeTitles.families).reduce((sum, family) => {
     return sum + family.titles16.length;
   }, 0);
@@ -32,7 +39,10 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
   return (
     <main className="screen-shell">
       <section className="card landing-card">
-        <p className="eyebrow">Totally Scientific Personality Alignment Tool</p>
+        <p className="eyebrow">
+          The Transdimensional Multiaxial Psycho-Archetypal Resonance Alignment Calibration
+          Apparatus
+        </p>
         <h1>{data.resultsContent.landingTitle}</h1>
         {LANDING_BODY_PARAGRAPHS.map((paragraph) => (
           <p key={paragraph} className="subtitle">
@@ -41,10 +51,42 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
         ))}
 
         <div className="button-row">
-          <button className="primary-button" type="button" onClick={() => navigate("/quiz")}> 
-            {hasInProgressAnswers ? "Continue Quiz" : "Let's do this"}
+          <button
+            className="primary-button"
+            type="button"
+            onClick={() => {
+              setQuizLength(30);
+              navigate("/quiz");
+            }}
+          >
+            Kinda Accurate (30 Questions)
           </button>
-          {answeredCount > 0 ? (
+          <button
+            className="primary-button"
+            type="button"
+            onClick={() => {
+              setQuizLength(40);
+              navigate("/quiz");
+            }}
+          >
+            Mostly Accurate (40 Questions)
+          </button>
+          <button
+            className="primary-button"
+            type="button"
+            onClick={() => {
+              setQuizLength(50);
+              navigate("/quiz");
+            }}
+          >
+            Extremely Accurate (50 Questions)
+          </button>
+        </div>
+        {hasInProgressAnswers && selectedQuizLength ? (
+          <div className="button-row">
+            <button className="secondary-button" type="button" onClick={() => navigate("/quiz")}>
+              Continue Current Quiz ({selectedQuizLength})
+            </button>
             <button
               className="secondary-button"
               type="button"
@@ -55,12 +97,14 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
             >
               {data.resultsContent.restartButtonLabel}
             </button>
-          ) : null}
-        </div>
+          </div>
+        ) : null}
 
         <p className="progress-note">
-          {compassCount} compasses · {totalQuestions} questions · {totalTypeOutcomes} type outcomes
-          {answeredCount > 0
+          {compassCount} compasses ·{" "}
+          {selectedQuizLength ? `${totalQuestions} selected questions` : "choose 30, 40, or 50 questions"}{" "}
+          · {totalTypeOutcomes} type outcomes
+          {selectedQuizLength && answeredCount > 0
             ? ` · Saved answers: ${answeredCount}/${totalQuestions}`
             : ""}
         </p>

@@ -159,6 +159,8 @@ export interface TypeTitleResolution {
 export interface HouseholdArchetype {
   primaryObject: string;
   backupObject: string;
+  primaryReason: string;
+  backupReason: string;
   why: string;
 }
 

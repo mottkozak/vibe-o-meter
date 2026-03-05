@@ -50,6 +50,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
   const [reviewCompassId, setReviewCompassId] = useState<string | null>(null);
   const {
     questions,
+    selectedQuizLength,
     answers,
     axisScores,
     answeredCount,
@@ -61,6 +62,20 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
   } = useQuiz();
 
   const totalQuestions = questions.length;
+
+  if (!selectedQuizLength) {
+    return (
+      <main className="screen-shell">
+        <section className="card">
+          <h1>No Accuracy Mode Selected</h1>
+          <p>Pick Kinda, Mostly, or Extremely Accurate on the home screen first.</p>
+          <button className="primary-button" type="button" onClick={() => navigate("/")}>
+            Back to Home Base
+          </button>
+        </section>
+      </main>
+    );
+  }
 
   useEffect(() => {
     if (totalQuestions > 0 && currentQuestionIndex >= totalQuestions) {
@@ -149,7 +164,7 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
 
         <p className="progress-note">
           Totally global progress: {currentQuestionIndex + 1} / {totalQuestions} · Answered: {answeredCount} / 
-          {totalQuestions}
+          {totalQuestions} · Mode: {selectedQuizLength}
         </p>
 
         <div className="answers-grid">

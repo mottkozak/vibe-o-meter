@@ -100,7 +100,7 @@ li {
 }
 
 .quiz-card::before {
-  content: "QUIZ_CONSOLE.EXE";
+  content: "The_Transdimensional_Multiaxial_Psycho-Archetypal_Resonance_Alignment_Calibration_Apparatus.EXE";
 }
 
 .results-card::before {
@@ -238,6 +238,212 @@ li {
   border: 1px solid var(--window-shadow);
   box-shadow: inset 1px 1px 0 #f4f4f4;
   background: #ebebeb;
+}
+
+.results-tier-title {
+  margin: 1rem 0 0.45rem;
+  font-size: 0.98rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #193f6b;
+}
+
+.shareable-card {
+  border: 2px solid;
+  border-color: var(--window-light) var(--window-deep) var(--window-deep) var(--window-light);
+  background: #efefef;
+  box-shadow: 1px 1px 0 #000;
+}
+
+.shareable-card-header {
+  margin: 0;
+}
+
+.window-titlebar {
+  height: 1.35rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.45rem;
+  border-bottom: 1px solid #173f6b;
+  background: linear-gradient(90deg, #0a246a, #3d6ea6);
+}
+
+.shareable-titlebar-label {
+  margin: 0;
+  color: #f2f6ff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.shareable-card-content {
+  padding: 0.58rem 0.62rem 0.7rem;
+}
+
+.shareable-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  margin-bottom: 0.55rem;
+}
+
+.shareable-card-meta h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.shareable-top-grid {
+  display: grid;
+  grid-template-columns: minmax(145px, 180px) 1fr;
+  gap: 0.7rem;
+}
+
+.shareable-object-image {
+  border: 1px solid #7f7f7f;
+  box-shadow: inset 1px 1px 0 #fff;
+  background: #e8e8e8;
+  min-height: 175px;
+  padding: 0.42rem 0.42rem 0.38rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.object-image-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  color: #2c4868;
+}
+
+.object-glyph {
+  font-size: 2.1rem;
+  line-height: 1;
+  margin: 0.1rem 0 0.3rem;
+}
+
+.object-name {
+  margin: 0;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.object-caption {
+  margin-top: 0.18rem;
+  font-size: 0.72rem;
+}
+
+.shareable-trait-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.62rem;
+}
+
+.shareable-trait-columns > div {
+  border: 1px solid #878787;
+  box-shadow: inset 1px 1px 0 #fff;
+  background: #ece9d8;
+  padding: 0.38rem 0.44rem;
+}
+
+.shareable-trait-columns h3 {
+  margin: 0 0 0.28rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #163a64;
+}
+
+.shareable-trait-columns ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.78rem;
+}
+
+.shareable-block {
+  margin-top: 0.55rem;
+  border: 1px solid #8a8a8a;
+  box-shadow: inset 1px 1px 0 #fff;
+  background: #f0f0f0;
+  padding: 0.42rem 0.48rem;
+}
+
+.shareable-block h3 {
+  margin: 0 0 0.28rem;
+  font-size: 0.79rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #173b65;
+}
+
+.shareable-block ul {
+  margin: 0;
+  padding-left: 1rem;
+  font-size: 0.79rem;
+}
+
+.shareable-block p {
+  margin: 0 0 0.35rem;
+  font-size: 0.79rem;
+}
+
+.shareable-block p:last-child {
+  margin-bottom: 0;
+}
+
+.hidden-talents-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.hidden-talents-grid > div {
+  border: 1px dashed #888;
+  background: #f7f7f7;
+  padding: 0.36rem 0.42rem;
+}
+
+.talent-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.67rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #204a79;
+}
+
+.results-actions {
+  margin-top: 0.85rem;
+}
+
+.action-status {
+  margin: 0.2rem 0 0;
+  font-size: 0.76rem;
+}
+
+.results-divider {
+  margin: 1rem 0 0.85rem;
+  border: 0;
+  border-top: 1px solid #7f7f7f;
+  border-bottom: 1px solid #fff;
+}
+
+.detailed-section {
+  border: 1px solid #8f8f8f;
+  box-shadow: inset 1px 1px 0 #fff;
+  background: #ebebeb;
+  padding: 0.6rem 0.68rem;
+}
+
+.detailed-section h2 {
+  margin-bottom: 0.52rem;
+}
+
+.detailed-section h3 {
+  margin: 0.85rem 0 0.32rem;
+  color: #173a62;
 }
 
 .household-section {
@@ -421,6 +627,27 @@ li {
     flex-direction: column;
   }
 
+  .shareable-card-meta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .shareable-top-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shareable-object-image {
+    min-height: 150px;
+  }
+
+  .shareable-trait-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .hidden-talents-grid {
+    grid-template-columns: 1fr;
+  }
+
   .button-row {
     flex-direction: column;
   }
@@ -432,6 +659,42 @@ li {
 
   .screen-shell {
     padding: 0.75rem 0.45rem 1.5rem;
+  }
+}
+
+@media print {
+  body.print-share-card {
+    background: #fff;
+  }
+
+  body.print-share-card .screen-shell {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  body.print-share-card .results-card {
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: #fff;
+  }
+
+  body.print-share-card .results-card::before,
+  body.print-share-card .results-head,
+  body.print-share-card .results-tier-title,
+  body.print-share-card .results-actions,
+  body.print-share-card .action-status,
+  body.print-share-card .results-divider,
+  body.print-share-card .detailed-section,
+  body.print-share-card .disclaimer {
+    display: none !important;
+  }
+
+  body.print-share-card .shareable-card {
+    margin: 0;
+    border: 2px solid #000;
+    box-shadow: none;
+    break-inside: avoid;
   }
 }
 

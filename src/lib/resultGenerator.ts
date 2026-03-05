@@ -75,6 +75,19 @@ function toSentenceClause(value: string, fallback: string): string {
   return `you ${lowerFirst}`;
 }
 
+function ensurePeriod(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed) {
+    return trimmed;
+  }
+
+  if (/[.!?]$/.test(trimmed)) {
+    return trimmed;
+  }
+
+  return `${trimmed}.`;
+}
+
 function stripMarkdownBold(text: string): string {
   return text.replace(/\*\*/g, "");
 }
@@ -89,9 +102,12 @@ function calculateAxisMaxForQuestion(question: Question, axis: AxisKey): number 
   }, 0);
 }
 
-function buildCompassMaxDistanceMap(data: LoadedAppData): Record<string, number> {
+function buildCompassMaxDistanceMap(
+  data: LoadedAppData,
+  activeQuestions: Question[]
+): Record<string, number> {
   const byCompassId = new Map<string, Question[]>();
-  for (const question of data.questions) {
+  for (const question of activeQuestions) {
     const bucket = byCompassId.get(question.compassId) ?? [];
     bucket.push(question);
     byCompassId.set(question.compassId, bucket);
@@ -113,9 +129,13 @@ function buildCompassMaxDistanceMap(data: LoadedAppData): Record<string, number>
   return result;
 }
 
-export function generateResult(data: LoadedAppData, scores: AxisScores): GeneratedResult {
+export function generateResult(
+  data: LoadedAppData,
+  scores: AxisScores,
+  activeQuestions: Question[]
+): GeneratedResult {
   const compassResults = calculateCompassResults(data.compasses.compasses, scores);
-  const maxDistanceByCompass = buildCompassMaxDistanceMap(data);
+  const maxDistanceByCompass = buildCompassMaxDistanceMap(data, activeQuestions);
 
   const typeCode = buildTypeCode(scores, data.compasses.typeCodeAxes);
   const typeTitle = resolveTypeTitle(typeCode, data.typeTitles);
@@ -206,9 +226,11 @@ export function generateResult(data: LoadedAppData, scores: AxisScores): Generat
       householdArchetype = {
         primaryObject: objects.primaryObject,
         backupObject: objects.backupObject,
+        primaryReason: ensurePeriod(objects.primaryReason ?? primaryWhy),
+        backupReason: ensurePeriod(objects.backupReason ?? backupWhy),
         why:
           objects.primaryReason && objects.backupReason
-            ? `Primary Object: ${objects.primaryObject} — ${objects.primaryReason} Backup Object: ${objects.backupObject} — ${objects.backupReason}`
+            ? `Primary Object: ${objects.primaryObject} — ${ensurePeriod(objects.primaryReason)} Backup Object: ${objects.backupObject} — ${ensurePeriod(objects.backupReason)}`
             : `Primary Object: ${objects.primaryObject} — ${primaryWhy}. Backup Object: ${objects.backupObject} — ${backupWhy}.`
       };
       householdArchetypeMessage = null;
@@ -231,6 +253,8 @@ export function generateResult(data: LoadedAppData, scores: AxisScores): Generat
     householdArchetype = {
       primaryObject: typeWriteup.primaryObject,
       backupObject: typeWriteup.backupObject,
+      primaryReason: ensurePeriod(primaryWhy),
+      backupReason: ensurePeriod(backupWhy),
       why: `Primary Object: ${typeWriteup.primaryObject} — ${primaryWhy}. Backup Object: ${typeWriteup.backupObject} — ${backupWhy}.`
     };
     householdArchetypeMessage = null;
