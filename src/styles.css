@@ -971,8 +971,8 @@ li {
 }
 
 .object-asset {
-  width: min(82%, 280px);
-  max-height: 162px;
+  width: min(88%, 300px);
+  max-height: 176px;
   object-fit: contain;
   image-rendering: auto;
   margin: 0 0 0.35rem;

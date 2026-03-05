@@ -262,6 +262,27 @@ function getAxisLeanStrength(score: number): "slightly" | "moderately" | "strong
   return "slightly";
 }
 
+function getAxisFlavor(label: string): string {
+  const byLabel: Record<string, string> = {
+    viking: "Strength, Impulse",
+    wizard: "Brain, Logic",
+    knight: "Order, Duty",
+    pirate: "Freedom, Rebellion",
+    samurai: "Discipline, Precision",
+    cowboy: "Independence, Grit",
+    princess: "Polish, Grace",
+    tomboy: "Practical, Rugged",
+    philosopher: "Reflection, Analysis",
+    gladiator: "Action, Courage"
+  };
+
+  return byLabel[label.trim().toLowerCase()] ?? "Core Trait";
+}
+
+function formatAxisLabel(label: string): string {
+  return `${label} (${getAxisFlavor(label)})`;
+}
+
 function getPersonalityShape(
   breakdown: GeneratedResult["compassBreakdown"]
 ): { name: string; traits: string[] } {
@@ -467,7 +488,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     return {
       id: item.compass.id,
       title: toMatrixLabel(item.compass.name),
-      axisPair: `${xAxis.negLabel} \u2194 ${xAxis.posLabel}`,
+      axisPair: `${formatAxisLabel(xAxis.negLabel)} \u2194 ${formatAxisLabel(xAxis.posLabel)}`,
       leanLine: `You lean ${leanStrength} ${leanLabel}`
     };
   });
@@ -557,7 +578,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </div>
         </section>
 
-        <p className="card-generated-label">GENERATED PERSONALITY CARD</p>
         <section
           ref={shareCardRef}
           className={`shareable-card trading-card ${cardThemeClass}`}
@@ -721,38 +741,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                   ))}
                 </ul>
               </div>
-
-              <h3>Strengths</h3>
-              <ul>
-                {result.strengths.map((strength) => (
-                  <li key={strength}>{strength}</li>
-                ))}
-              </ul>
-
-              <h3>Weaknesses</h3>
-              <ul>
-                {result.watchouts.map((watchout) => (
-                  <li key={watchout}>{watchout}</li>
-                ))}
-              </ul>
-
-              <h3>Field Dossier</h3>
-              <p>
-                Type code <strong>{result.typeCode}</strong> resolves to <strong>{primaryObject}</strong>, with
-                subtype <strong>{powerSubtype}</strong>.
-              </p>
-
-              <h3>Object Lore</h3>
-              {result.householdArchetype ? (
-                <p>
-                  <strong>{primaryObject}:</strong> {primaryReason}
-                </p>
-              ) : (
-                <p className="muted">
-                  {result.householdArchetypeMessage ??
-                    "Object lore is unavailable for this run because the object data could not be loaded."}
-                </p>
-              )}
 
               <details className="diagnostic-charts-toggle">
                 <summary>View Matrix Charts</summary>
