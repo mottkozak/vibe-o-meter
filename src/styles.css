@@ -1662,13 +1662,47 @@ li {
     flex-direction: column;
   }
 
+  .screen-shell {
+    padding: 0.65rem 0.45rem 1.35rem;
+  }
+
+  .card {
+    padding: 2.15rem 0.72rem 0.78rem;
+  }
+
+  .card::before {
+    font-size: 0.66rem;
+    padding: 0 0.38rem;
+    height: 1.45rem;
+  }
+
+  .card h1 {
+    font-size: 1.16rem;
+    line-height: 1.22;
+    margin-bottom: 0.5rem;
+  }
+
+  .card h2 {
+    font-size: 1.02rem;
+  }
+
+  .subtitle,
+  .muted,
+  .progress-note {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
   .trading-card-top {
     padding: 0.56rem 0.6rem;
   }
 
   .trading-card {
-    width: min(100%, 470px);
-    min-height: 610px;
+    width: 100%;
+    max-width: 430px;
+    min-height: 600px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .card-head-grid {
@@ -1707,6 +1741,32 @@ li {
     grid-template-columns: 118px 1fr;
   }
 
+  .card-stat-label {
+    font-size: 0.68rem;
+  }
+
+  .all-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.4rem;
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .all-card-title {
+    min-height: 1.8em;
+  }
+
+  .answer-button {
+    padding: 0.56rem 0.62rem;
+    font-size: 0.84rem;
+  }
+
+  .primary-button,
+  .secondary-button {
+    min-height: 40px;
+    padding: 0.5rem 0.72rem;
+    font-size: 0.86rem;
+  }
+
   .quiz-review-layout {
     grid-template-columns: 1fr;
   }
@@ -1718,15 +1778,109 @@ li {
 
   .button-row {
     flex-direction: column;
+    gap: 0.44rem;
   }
 
   .primary-button,
   .secondary-button {
     width: 100%;
   }
+}
 
+@media (max-width: 480px) {
   .screen-shell {
-    padding: 0.75rem 0.45rem 1.5rem;
+    padding: 0.5rem 0.32rem 1rem;
+  }
+
+  .card {
+    padding: 2rem 0.58rem 0.68rem;
+  }
+
+  .card::before {
+    font-size: 0.6rem;
+    letter-spacing: 0.01em;
+  }
+
+  .landing-copy {
+    gap: 0.44rem;
+  }
+
+  .landing-copy-block {
+    padding: 0.38rem 0.44rem;
+  }
+
+  .landing-line {
+    font-size: 0.82rem;
+  }
+
+  .trading-card {
+    max-width: 100%;
+    min-height: 580px;
+  }
+
+  .trading-card .shareable-card-content {
+    padding: 0.62rem;
+  }
+
+  .trading-card-top {
+    padding: 0.44rem 0.48rem;
+  }
+
+  .card-object-name {
+    font-size: 1.05rem;
+  }
+
+  .card-personality-class {
+    font-size: 0.74rem;
+  }
+
+  .card-type-line,
+  .card-object-class-line {
+    font-size: 0.72rem;
+  }
+
+  .trading-art-frame {
+    min-height: 204px;
+    height: 204px;
+  }
+
+  .object-asset {
+    max-height: 144px;
+    transform: scale(1.1);
+  }
+
+  .trading-flavor {
+    font-size: 0.76rem;
+  }
+
+  .trait-card ul,
+  .abilities-bullet-list {
+    font-size: 0.7rem;
+  }
+
+  .card-stat-row {
+    grid-template-columns: 102px 1fr;
+    gap: 0.35rem;
+  }
+
+  .card-stat-label {
+    font-size: 0.64rem;
+  }
+
+  .all-cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .all-card-code,
+  .all-card-rarity,
+  .all-card-title,
+  .all-card-object,
+  .all-card-current {
+    font-size: 0.62rem;
+  }
+
+  .axis-label {
+    font-size: 0.56rem;
   }
 }
 
