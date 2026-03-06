@@ -7,7 +7,12 @@ import {
   type QuadrantWriteup
 } from "../types";
 import { getObjectsForType } from "./objectGenerator";
-import { buildTypeCode, calculateCompassResults, resolveTypeTitle } from "./scoring";
+import {
+  buildTypeCode,
+  calculateCompassResults,
+  createInitialAxisScores,
+  resolveTypeTitle
+} from "./scoring";
 
 const MAX_STRENGTHS = 9;
 const MAX_WATCHOUTS = 8;
@@ -127,6 +132,39 @@ function buildCompassMaxDistanceMap(
   }
 
   return result;
+}
+
+function scoreForLetter(letter: string, positive: string, negative: string): number {
+  if (letter === positive) {
+    return 6;
+  }
+  if (letter === negative) {
+    return -6;
+  }
+  throw new Error(`Invalid type code letter '${letter}'.`);
+}
+
+function buildScoresFromTypeCode(typeCode: string): AxisScores {
+  const normalized = typeCode.trim().toUpperCase();
+  if (!/^[A-Z]{6}$/.test(normalized)) {
+    throw new Error("Type code preview must be 6 letters.");
+  }
+
+  const scores = createInitialAxisScores();
+  scores.VW = scoreForLetter(normalized[0], "V", "W");
+  scores.HG = scoreForLetter(normalized[1], "H", "G");
+  scores.KP = scoreForLetter(normalized[2], "K", "P");
+  scores.RJ = scoreForLetter(normalized[3], "R", "J");
+  scores.SC = scoreForLetter(normalized[4], "S", "C");
+  scores.MA = scoreForLetter(normalized[5], "M", "A");
+
+  // Deterministic inferred axes for preview mode so all matrix panels remain populated.
+  scores.ST = scores.SC >= 0 ? 4 : -4;
+  scores.PT = scores.HG >= 0 ? 4 : -4;
+  scores.QR = scores.KP >= 0 ? 4 : -4;
+  scores.GP = scores.VW >= 0 ? 4 : -4;
+
+  return scores;
 }
 
 export function generateResult(
@@ -271,4 +309,12 @@ export function mergeWriteupsPreview(writeups: QuadrantWriteup[]): {
       MAX_CELEBS
     )
   };
+}
+
+export function generateResultForTypeCode(
+  data: LoadedAppData,
+  typeCode: string
+): GeneratedResult {
+  const scores = buildScoresFromTypeCode(typeCode);
+  return generateResult(data, scores, data.questions);
 }

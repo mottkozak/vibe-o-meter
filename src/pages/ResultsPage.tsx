@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
 import { getCroppedObjectImageCandidates, getObjectImageCandidates } from "../lib/objectImages";
-import { generateResult } from "../lib/resultGenerator";
+import { generateResult, generateResultForTypeCode } from "../lib/resultGenerator";
 import { useQuiz } from "../state/QuizContext";
 import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
 
@@ -352,6 +352,7 @@ interface ScannerCandidate {
 
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const { axisScores, isComplete, questions, selectedQuizLength } = useQuiz();
   const [actionStatus, setActionStatus] = useState<string | null>(null);
   const [objectImageFailed, setObjectImageFailed] = useState(false);
@@ -363,6 +364,28 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const [scannerPreviewImageIndex, setScannerPreviewImageIndex] = useState(0);
   const [scannerPreviewFailed, setScannerPreviewFailed] = useState(false);
   const shareCardRef = useRef<HTMLDivElement>(null);
+  const previewTypeCode = useMemo(() => {
+    const raw = searchParams.get("previewType");
+    if (!raw) {
+      return null;
+    }
+
+    const normalized = raw.trim().toUpperCase();
+    if (!/^[A-Z]{6}$/.test(normalized)) {
+      return null;
+    }
+
+    if (data.objectsData?.objectsByTypeCode?.[normalized]) {
+      return normalized;
+    }
+
+    if (data.resultsContent.typeWriteups?.[normalized]) {
+      return normalized;
+    }
+
+    return null;
+  }, [searchParams, data.objectsData, data.resultsContent.typeWriteups]);
+  const isPreviewMode = previewTypeCode !== null;
 
   useEffect(() => {
     const clearPrintMode = (): void => {
@@ -377,14 +400,21 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   }, []);
 
   const resultState = useMemo<{ result: GeneratedResult | null; error: string | null }>(() => {
-    if (!isComplete) {
-      return {
-        result: null,
-        error: null
-      };
-    }
-
     try {
+      if (previewTypeCode) {
+        return {
+          result: generateResultForTypeCode(data, previewTypeCode),
+          error: null
+        };
+      }
+
+      if (!isComplete) {
+        return {
+          result: null,
+          error: null
+        };
+      }
+
       return {
         result: generateResult(data, axisScores, questions),
         error: null
@@ -395,9 +425,19 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         error: toErrorMessage(error)
       };
     }
-  }, [axisScores, data, isComplete, questions]);
+  }, [axisScores, data, isComplete, previewTypeCode, questions]);
 
   useEffect(() => {
+    if (isPreviewMode) {
+      setIsRevealing(false);
+      setRevealProgress(100);
+      setRevealStatus("Preview ready.");
+      setScannerIndex(0);
+      setScannerPreviewImageIndex(0);
+      setScannerPreviewFailed(false);
+      return;
+    }
+
     if (!isComplete || !resultState.result) {
       setIsRevealing(true);
       setRevealProgress(0);
@@ -439,9 +479,9 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     return () => {
       window.clearInterval(timer);
     };
-  }, [isComplete, resultState.result?.typeCode]);
+  }, [isComplete, isPreviewMode, resultState.result?.typeCode]);
 
-  if (!selectedQuizLength) {
+  if (!selectedQuizLength && !isPreviewMode) {
     return (
       <main className="screen-shell">
         <section className="card">
@@ -457,7 +497,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     );
   }
 
-  if (!isComplete) {
+  if (!isComplete && !isPreviewMode) {
     return (
       <main className="screen-shell">
         <section className="card">
@@ -641,6 +681,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     label: getRadarLabel(item.compass.id),
     value: item.confidence
   }));
+  const shareableResultUrl = useMemo(() => {
+    const baseUrl = new URL(import.meta.env.BASE_URL, window.location.origin).toString();
+    const normalizedBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
+    return `${normalizedBase}#/results?previewType=${encodeURIComponent(result.typeCode)}`;
+  }, [result.typeCode]);
 
   useEffect(() => {
     setObjectImageFailed(false);
@@ -683,7 +728,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
   const handleCopyLink = async (): Promise<void> => {
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(shareableResultUrl);
       setActionStatus("Result link copied.");
     } catch {
       setActionStatus("Could not copy the link automatically on this browser.");
@@ -696,7 +741,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         await navigator.share({
           title: result.archetypeTitle,
           text: `My vibe result: ${result.archetypeTitle} (${result.typeCode})`,
-          url: window.location.href
+          url: shareableResultUrl
         });
         setActionStatus("Shared successfully.");
         return;
@@ -711,15 +756,10 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
   return (
     <main className="screen-shell">
-      <section className="card results-card">
-        <section className="results-reveal">
-          <div className="results-head">
-            {isRevealing ? (
-              <div>
-                <h2 className="results-heading">Calculating Object Form</h2>
-                <p className="results-hook">Hold steady while the matrices complete your alignment...</p>
-              </div>
-            ) : (
+      <section className={`card results-card ${isRevealing ? "results-card-reveal-only" : ""}`}>
+        {!isRevealing ? (
+          <section className="results-reveal">
+            <div className="results-head">
               <div>
                 <h2 className="results-heading">Your Results</h2>
                 <div className="result-meta-row">
@@ -729,12 +769,12 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 </div>
                 <p className="results-hook">{revealHook || primaryFlavorLine}</p>
               </div>
-            )}
-          </div>
-        </section>
+            </div>
+          </section>
+        ) : null}
 
         {isRevealing ? (
-          <section className="alignment-scanner" aria-live="polite">
+          <section className="alignment-scanner alignment-scanner-focus" aria-live="polite">
             <p className="alignment-scanner-head">Scanning object alignment...</p>
             <p className="alignment-scanner-status">{revealStatus}</p>
             <div className="alignment-reel" aria-hidden="true">

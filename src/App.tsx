@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { ErrorScreen } from "./components/ErrorScreen";
 import { loadAppData } from "./lib/loadData";
 import { getOrderedQuestions } from "./lib/scoring";
@@ -68,7 +68,7 @@ export function App(): JSX.Element {
   );
 
   return (
-    <BrowserRouter basename={routerBase}>
+    <HashRouter basename={routerBase}>
       <QuizProvider
         allQuestions={orderedQuestions}
         compasses={loadState.data.compasses.compasses}
@@ -80,6 +80,6 @@ export function App(): JSX.Element {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </QuizProvider>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

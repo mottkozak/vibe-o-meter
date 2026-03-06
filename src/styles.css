@@ -342,6 +342,38 @@ li {
   border-radius: 10px;
   background: #fbfdf5;
   padding: 0.32rem;
+  content-visibility: auto;
+  contain-intrinsic-size: 112px 120px;
+}
+
+.intro-object-card-button {
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 90ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.intro-object-card-button:hover {
+  transform: translateY(-1px);
+  border-color: #3d4f7e;
+  box-shadow: 0 3px 0 rgba(36, 49, 76, 0.35);
+}
+
+.intro-object-card-button:focus-visible {
+  outline: 3px solid var(--gb-highlight);
+  outline-offset: 2px;
+}
+
+.roster-load-row {
+  margin-top: 0.5rem;
+}
+
+.roster-load-row .secondary-button {
+  width: 100%;
+  justify-content: center;
 }
 
 .intro-object-art {
@@ -618,6 +650,13 @@ summary:focus-visible {
   gap: 0.85rem;
 }
 
+.results-card-reveal-only {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0;
+}
+
 .results-reveal {
   padding: 0.72rem;
   border: 2px solid var(--gb-border);
@@ -657,6 +696,18 @@ summary:focus-visible {
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
+.alignment-scanner-focus {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.9rem;
+}
+
 .alignment-scanner-head {
   margin: 0;
   font-family: "VT323", "Trebuchet MS", sans-serif;
@@ -667,6 +718,19 @@ summary:focus-visible {
 .alignment-scanner-status {
   margin: 0.35rem 0 0.44rem;
   color: #2e384a;
+}
+
+.alignment-scanner-focus .alignment-scanner-head {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+}
+
+.alignment-scanner-focus .alignment-scanner-status {
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  font-weight: 700;
+}
+
+.alignment-scanner-focus .alignment-progress-meta {
+  font-size: clamp(0.95rem, 1.8vw, 1.08rem);
 }
 
 .alignment-reel {
@@ -1641,6 +1705,10 @@ summary:focus-visible {
 
   .pokedex-viewer {
     padding: 0.36rem 0.4rem 0.46rem;
+  }
+
+  .alignment-scanner-focus {
+    padding: 0.72rem;
   }
 
   .card-stat-row {
