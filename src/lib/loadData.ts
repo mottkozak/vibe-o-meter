@@ -64,6 +64,7 @@ const OBJECT_AXIS_POOL_KEYS: ObjectAxisPoolKey[] = [
 
 const EXPECTED_COMPASS_COUNT = 5;
 const EXPECTED_QUESTIONS_PER_COMPASS = 10;
+const EXPECTED_TYPE_OUTCOMES = 64;
 
 function isRecord(value: unknown): value is JsonRecord {
   return typeof value === "object" && value !== null && !Array.isArray(value);
@@ -578,6 +579,115 @@ function parseResultsContent(raw: unknown): ResultsContentData {
   };
 }
 
+function signForTypeAxis(value: number): "+" | "-" {
+  return value > 0 ? "+" : "-";
+}
+
+function buildQuestionsForLengthValidation(
+  allQuestions: Question[],
+  compasses: CompassesData["compasses"],
+  length: 30 | 40 | 50
+): Question[] {
+  const questionCountPerCompass = Math.floor(length / compasses.length);
+  const byCompass = new Map<string, Question[]>();
+
+  for (const question of allQuestions) {
+    const bucket = byCompass.get(question.compassId) ?? [];
+    bucket.push(question);
+    byCompass.set(question.compassId, bucket);
+  }
+
+  const selectedQuestions: Question[] = [];
+  for (const compass of compasses) {
+    const compassQuestions = byCompass.get(compass.id) ?? [];
+    selectedQuestions.push(...compassQuestions.slice(0, questionCountPerCompass));
+  }
+
+  return selectedQuestions;
+}
+
+function reachableSignPairs(questions: Question[], axisA: AxisKey, axisB: AxisKey): Set<string> {
+  let states = new Map<string, [number, number]>();
+  states.set("0,0", [0, 0]);
+
+  for (const question of questions) {
+    const nextStates = new Map<string, [number, number]>();
+
+    for (const [, [aScore, bScore]] of states) {
+      for (const answer of question.answers) {
+        const nextA = aScore + (answer.delta[axisA] ?? 0);
+        const nextB = bScore + (answer.delta[axisB] ?? 0);
+        nextStates.set(`${nextA},${nextB}`, [nextA, nextB]);
+      }
+    }
+
+    states = nextStates;
+  }
+
+  const signPairs = new Set<string>();
+  for (const [, [aScore, bScore]] of states) {
+    signPairs.add(`${signForTypeAxis(aScore)}${signForTypeAxis(bScore)}`);
+  }
+
+  return signPairs;
+}
+
+function reachableSignSet(questions: Question[], axis: AxisKey): Set<string> {
+  let scores = new Set<number>([0]);
+
+  for (const question of questions) {
+    const nextScores = new Set<number>();
+
+    for (const currentScore of scores) {
+      for (const answer of question.answers) {
+        nextScores.add(currentScore + (answer.delta[axis] ?? 0));
+      }
+    }
+
+    scores = nextScores;
+  }
+
+  const signs = new Set<string>();
+  for (const score of scores) {
+    signs.add(signForTypeAxis(score));
+  }
+
+  return signs;
+}
+
+function validateAllTypeOutcomesReachable(compasses: CompassesData, questions: Question[]): void {
+  const lengths: Array<30 | 40 | 50> = [30, 40, 50];
+
+  for (const length of lengths) {
+    const selectedQuestions = buildQuestionsForLengthValidation(
+      questions,
+      compasses.compasses,
+      length
+    );
+
+    const byCompass = new Map<string, Question[]>();
+    for (const question of selectedQuestions) {
+      const bucket = byCompass.get(question.compassId) ?? [];
+      bucket.push(question);
+      byCompass.set(question.compassId, bucket);
+    }
+
+    const powerSigns = reachableSignPairs(byCompass.get("power") ?? [], "VW", "HG");
+    const orderSigns = reachableSignPairs(byCompass.get("order") ?? [], "KP", "RJ");
+    const disciplineSigns = reachableSignSet(byCompass.get("discipline") ?? [], "SC");
+    const riskSigns = reachableSignSet(byCompass.get("risk") ?? [], "MA");
+
+    const reachableTypeOutcomes =
+      powerSigns.size * orderSigns.size * disciplineSigns.size * riskSigns.size;
+
+    if (reachableTypeOutcomes < EXPECTED_TYPE_OUTCOMES) {
+      throw new DataLoadError(
+        `Quiz length ${length} can only reach ${reachableTypeOutcomes}/${EXPECTED_TYPE_OUTCOMES} type outcomes.`
+      );
+    }
+  }
+}
+
 function validateDataRelationships(
   compasses: CompassesData,
   questions: Question[],
@@ -624,6 +734,8 @@ function validateDataRelationships(
       throw new DataLoadError(`Missing type title family '${family}'.`);
     }
   }
+
+  validateAllTypeOutcomesReachable(compasses, questions);
 }
 
 async function loadAndValidateData(): Promise<LoadedAppData> {

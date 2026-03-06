@@ -6,12 +6,18 @@ interface LandingPageProps {
   data: LoadedAppData;
 }
 
-const LANDING_BODY_PARAGRAPHS = [
+const LANDING_INTRO_LINES = [
   "What is up, dude.",
-  "Answer a few questions and the get assigned a random everyday object that perfectly matches your aura.",
+  "Answer a few questions and the get assigned a random everyday object that perfectly matches your aura."
+] as const;
+
+const LANDING_OBJECT_LINES = [
   "You might be a Spoon.",
   "You might be a Traffic Cone.",
-  "You might be a Rubber Band.",
+  "You might be a Rubber Band."
+] as const;
+
+const LANDING_OUTRO_LINES = [
   "No one knows.",
   "It’s not science.",
   "But it's close enough.",
@@ -28,12 +34,6 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
     selectedQuizLength,
     setQuizLength
   } = useQuiz();
-  const compassCount = data.compasses.compasses.length;
-  const totalQuestions = selectedQuizLength ?? 0;
-  const totalTypeOutcomes = Object.values(data.typeTitles.families).reduce((sum, family) => {
-    return sum + family.titles16.length;
-  }, 0);
-
   const hasInProgressAnswers = answeredCount > 0 && !isComplete;
 
   return (
@@ -44,12 +44,33 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
           Apparatus
         </p>
         <h1>{data.resultsContent.landingTitle}</h1>
-        {LANDING_BODY_PARAGRAPHS.map((paragraph) => (
-          <p key={paragraph} className="subtitle">
-            {paragraph}
-          </p>
-        ))}
-        <p className="subtitle">~ 30 questions • about 2 minutes</p>
+        <div className="landing-copy">
+          <div className="landing-copy-block">
+            {LANDING_INTRO_LINES.map((paragraph) => (
+              <p key={paragraph} className="subtitle landing-line">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <div className="landing-copy-block landing-object-list">
+            {LANDING_OBJECT_LINES.map((paragraph) => (
+              <p key={paragraph} className="subtitle landing-line">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <div className="landing-copy-block landing-outro">
+            {LANDING_OUTRO_LINES.map((paragraph) => (
+              <p key={paragraph} className="subtitle landing-line">
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
+          <p className="subtitle landing-meta">~ 30 questions • about 2 minutes</p>
+        </div>
 
         <div className="button-row">
           <button
@@ -101,14 +122,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
           </div>
         ) : null}
 
-        <p className="progress-note">
-          {compassCount} matrices ·{" "}
-          {selectedQuizLength ? `${totalQuestions} selected questions` : "choose 30, 40, or 50 questions"}{" "}
-          · {totalTypeOutcomes} type outcomes
-          {selectedQuizLength && answeredCount > 0
-            ? ` · Saved answers: ${answeredCount}/${totalQuestions}`
-            : ""}
-        </p>
+        <p className="progress-note">~ 30 questions • about 5 minutes</p>
       </section>
     </main>
   );

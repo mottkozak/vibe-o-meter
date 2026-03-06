@@ -216,6 +216,10 @@ function getRarityTier(typeCode: string): RarityTier {
   return RARITY_BY_TYPE_CODE[typeCode.trim().toUpperCase()] ?? "Common";
 }
 
+function getRarityClass(tier: RarityTier): string {
+  return `rarity-${tier.toLowerCase()}`;
+}
+
 function getLetterForBit(
   data: LoadedAppData["typeTitles"],
   axis: "KP" | "RJ" | "SC" | "MA",
@@ -358,7 +362,35 @@ function formatAxisLabel(label: string): string {
   return `${label} (${getAxisFlavor(label)})`;
 }
 
+const SHAPE_FAMILY_PREFIX: Record<string, string> = {
+  VH: "Iron",
+  WH: "Aegis",
+  VG: "Sage",
+  WG: "Rogue"
+};
+
+const SHAPE_SLOT_NAMES = [
+  "Vanguard",
+  "Catalyst",
+  "Trailblazer",
+  "Signal",
+  "Anchor",
+  "Maverick",
+  "Navigator",
+  "Voltage",
+  "Wildcard",
+  "Sentinel",
+  "Pulse",
+  "Operator",
+  "Waypoint",
+  "Drift",
+  "Cipher",
+  "Comet"
+] as const;
+
 function getPersonalityShape(
+  typeFamilyKey: string,
+  titleIndex: number,
   breakdown: GeneratedResult["compassBreakdown"]
 ): { name: string; traits: string[] } {
   const confidenceById: Record<string, number> = Object.fromEntries(
@@ -371,43 +403,46 @@ function getPersonalityShape(
   const social = confidenceById.social ?? 0;
   const risk = confidenceById.risk ?? 0;
 
+  const familyPrefix = SHAPE_FAMILY_PREFIX[typeFamilyKey] ?? "Nova";
+  const slotName = SHAPE_SLOT_NAMES[((titleIndex % 16) + 16) % 16];
+  const computedName = `${familyPrefix} ${slotName}`;
+
   if (power >= 65 && risk >= 45) {
     return {
-      name: "The Explorer",
+      name: computedName,
       traits: ["Strong action energy", "Learns by trying and adapting", "Comfortable with uncertainty"]
     };
   }
-
   if (order >= 65 && discipline >= 65) {
     return {
-      name: "The Architect",
+      name: computedName,
       traits: ["Builds structure quickly", "Reliable under pressure", "Prefers strategy over improvisation"]
     };
   }
 
   if (social >= 65 && order >= 55) {
     return {
-      name: "The Diplomat",
+      name: computedName,
       traits: ["Strong social calibration", "Balances systems and people", "Keeps groups moving together"]
     };
   }
 
   if (risk >= 65 && power >= 50) {
     return {
-      name: "The Maverick",
+      name: computedName,
       traits: ["Fast decisions in uncertain moments", "Thrives in momentum", "Turns friction into opportunity"]
     };
   }
 
   if (discipline >= 65 && risk <= 40) {
     return {
-      name: "The Sentinel",
+      name: computedName,
       traits: ["Steady execution", "High consistency", "Protects progress over spectacle"]
     };
   }
 
   return {
-    name: "The Pathfinder",
+    name: computedName,
     traits: ["Balanced across multiple styles", "Adaptable in mixed situations", "Finds practical routes forward"]
   };
 }
@@ -539,6 +574,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const cardThemeClass = getCardThemeClass(powerSubtype);
   const objectClass = getObjectClassLabel(powerSubtype);
   const rarityTier = getRarityTier(result.typeCode);
+  const rarityClass = getRarityClass(rarityTier);
   const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
   const familyRankByKey: Record<string, number> = { VH: 0, WH: 1, VG: 2, WG: 3 };
   const familyRank = familyRankByKey[result.typeFamilyKey] ?? 0;
@@ -582,7 +618,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
       : "Secondary tendencies are still calibrating.";
   const matrixIdentityClose =
     "This creates a profile that moves quickly, improvises when needed, and learns through momentum.";
-  const personalityShape = getPersonalityShape(result.compassBreakdown);
+  const personalityShape = getPersonalityShape(
+    result.typeFamilyKey,
+    result.titleIndex,
+    result.compassBreakdown
+  );
   const radarPoints = result.compassBreakdown.map((item) => ({
     id: item.compass.id,
     label: getMatrixSummaryLabel(item.compass.id).replace(" Style", ""),
@@ -656,7 +696,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
         <section
           ref={shareCardRef}
-          className={`shareable-card trading-card ${cardThemeClass}`}
+          className={`shareable-card trading-card ${cardThemeClass} ${rarityClass}`}
           aria-label="Shareable results card"
         >
           <div className="shareable-card-content">
@@ -788,9 +828,11 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               </div>
 
               <h3>Your Matrix Identity</h3>
-              <p>{matrixIdentityLead}</p>
-              <p>{matrixIdentitySecondary}</p>
-              <p>{matrixIdentityClose}</p>
+              <div className="matrix-identity-panel">
+                <p className="matrix-identity-lead">{matrixIdentityLead}</p>
+                <p className="matrix-identity-secondary">{matrixIdentitySecondary}</p>
+                <p className="matrix-identity-close">{matrixIdentityClose}</p>
+              </div>
 
               <h3>Personality Matrix Breakdown</h3>
               <div className="matrix-breakdown-list">

@@ -165,28 +165,15 @@ export function generateResult(
 
   const orderResult = breakdown.find((item) => item.compass.id === "order") ?? breakdown[1];
 
-  const mergedStrengthsFromQuadrants = dedupeAndCap(
-    breakdown.flatMap((item) => item.writeup.strengths),
-    MAX_STRENGTHS
-  );
-  const mergedWatchoutsFromQuadrants = dedupeAndCap(
-    breakdown.flatMap((item) => item.writeup.pitfalls),
-    MAX_WATCHOUTS
-  );
-  const mergedCelebsFromQuadrants = dedupeAndCap(
-    breakdown.flatMap((item) => item.writeup.celebs),
-    MAX_CELEBS
-  );
+  if (!typeWriteup) {
+    throw new Error(`Missing type-specific writeup for '${typeCode}'.`);
+  }
 
-  const strengths = typeWriteup
-    ? dedupeAndCap(typeWriteup.strengths, MAX_STRENGTHS)
-    : mergedStrengthsFromQuadrants;
-  const watchouts = typeWriteup
-    ? dedupeAndCap(typeWriteup.pitfalls, MAX_WATCHOUTS)
-    : mergedWatchoutsFromQuadrants;
-  const celebs = typeWriteup
-    ? dedupeAndCap(typeWriteup.celebs, MAX_CELEBS)
-    : mergedCelebsFromQuadrants;
+  const strengths = dedupeAndCap(typeWriteup.strengths, MAX_STRENGTHS);
+  const watchouts = dedupeAndCap(typeWriteup.pitfalls, MAX_WATCHOUTS).filter(
+    (watchout) => !strengths.some((strength) => strength.toLowerCase() === watchout.toLowerCase())
+  );
+  const celebs = dedupeAndCap(typeWriteup.celebs, MAX_CELEBS);
 
   const templateValues = {
     TITLE: typeWriteup?.title ?? typeTitle.title,
