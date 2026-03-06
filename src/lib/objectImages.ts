@@ -34,15 +34,21 @@ function dedupe(values: string[]): string[] {
   return output;
 }
 
+function withPathVariants(path: string): string[] {
+  const trimmed = path.replace(/^\/+/, "");
+  return dedupe([path, `/${trimmed}`, trimmed, `./${trimmed}`]);
+}
+
 export function getObjectImageCandidates(objectName: string): string[] {
   const stem = normalizeObjectStem(objectName);
   const base = import.meta.env.BASE_URL;
-
-  const raw = [
+  const basePaths = [
     `${base}images/${stem}.png`,
     `${base}images/${stem.replace(/_/g, "")}.png`,
     `${base}images/${stem.replace(/_/g, "-")}.png`
   ];
+
+  const raw = basePaths.flatMap((path) => withPathVariants(path));
   return dedupe(raw);
 }
 
@@ -50,7 +56,7 @@ export function getCroppedObjectImageCandidates(objectName: string): string[] {
   const stem = normalizeObjectStem(objectName);
   const base = import.meta.env.BASE_URL;
 
-  const raw = [
+  const basePaths = [
     `${base}images/cropped_mascots/${stem}_cropped_processed_by_imagy.png`,
     `${base}images/cropped_images/${stem}_cropped_processed_by_imagy.png`,
     `${base}images/cropped_images/${stem}.png`,
@@ -59,5 +65,6 @@ export function getCroppedObjectImageCandidates(objectName: string): string[] {
     `${base}images/cropped_images/${stem.replace(/_/g, "")}.png`
   ];
 
+  const raw = basePaths.flatMap((path) => withPathVariants(path));
   return dedupe(raw);
 }
