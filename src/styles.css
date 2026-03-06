@@ -1093,6 +1093,8 @@ li {
   object-fit: contain;
   image-rendering: auto;
   margin: 0 0 0.35rem;
+  transform: scale(1.14);
+  transform-origin: center;
   z-index: 1;
 }
 

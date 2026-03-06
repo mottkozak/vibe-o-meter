@@ -7,15 +7,15 @@ interface LandingPageProps {
 }
 
 const LANDING_BODY_PARAGRAPHS = [
-  "What is up dude.",
-  "You are about to embark on a most excellent journey of self-discovery.",
-  "Using advanced techniques developed by some most knowledgeable philosopher dudes - and no peer-reviewed science - this quiz will reveal the hidden alignment of your soul.",
-  "I know what you're thinking.",
-  "\"Woah.\"",
-  "And honestly dude... I agree.",
-  "Through a series of most intellectual questions, it will map your personality across the great forces of human nature. As you answer, your choices will slowly align across the cosmic matrices of destiny, until your true self emerges from the swirling chaos of the universe.",
-  "Truthfully, dude, I don't even know what that means. But woah. Just answer honestly and trust your instincts.",
-  "Technically this isn't science. But it feels pretty scientific, and honestly that's close enough."
+  "What is up, dude.",
+  "Answer a few questions and the get assigned a random everyday object that perfectly matches your aura.",
+  "You might be a Spoon.",
+  "You might be a Traffic Cone.",
+  "You might be a Rubber Band.",
+  "No one knows.",
+  "It’s not science.",
+  "But it's close enough.",
+  "Let’s find out what you are."
 ] as const;
 
 export function LandingPage({ data }: LandingPageProps): JSX.Element {
@@ -49,6 +49,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
             {paragraph}
           </p>
         ))}
+        <p className="subtitle">~ 30 questions • about 2 minutes</p>
 
         <div className="button-row">
           <button

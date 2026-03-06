@@ -207,7 +207,6 @@ const DEFAULT_BIT_LETTERS = {
 
 interface CardCatalogEntry {
   typeCode: string;
-  title: string;
   primaryObject: string;
   rarity: RarityTier;
   imageSrc: string | null;
@@ -247,14 +246,12 @@ function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
         .join("");
       const typeCode = `${familyKey}${suffix}`;
 
-      let title = typeCode;
       let resolvedIndex = index;
       try {
         const resolution = resolveTypeTitle(typeCode, data.typeTitles);
-        title = resolution.title;
         resolvedIndex = resolution.index;
       } catch {
-        // leave fallback title/index
+        // leave fallback index
       }
 
       let primaryObject = "Unknown Object";
@@ -268,7 +265,6 @@ function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
 
       entries.push({
         typeCode,
-        title,
         primaryObject,
         rarity: getRarityTier(typeCode),
         imageSrc: primaryObject === "Unknown Object" ? null : getObjectImageSrc(primaryObject)
@@ -514,7 +510,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
   const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 2);
   const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 2);
-  const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 3);
+  const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 6);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
   const primaryReason =
@@ -841,10 +837,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </section>
         </details>
 
-        {result.celebsNote ? <p className="muted diagnostics-note">{result.celebsNote}</p> : null}
-
-        <p className="disclaimer">{result.disclaimer}</p>
-
         <details className="all-cards-browser">
           <summary>View All 64 Cards</summary>
           <p className="muted all-cards-intro">
@@ -857,10 +849,9 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 className={`all-card-tile${entry.typeCode === result.typeCode ? " is-current" : ""}`}
               >
                 <div className="all-card-top">
-                  <p className="all-card-code">{entry.typeCode}</p>
-                  <p className="all-card-rarity">{entry.rarity}</p>
-                </div>
-                <p className="all-card-title">{entry.title}</p>
+                <p className="all-card-code">{entry.typeCode}</p>
+                <p className="all-card-rarity">{entry.rarity}</p>
+              </div>
                 <div className="all-card-art" aria-label={`${entry.primaryObject} preview`}>
                   {entry.imageSrc ? (
                     <img
