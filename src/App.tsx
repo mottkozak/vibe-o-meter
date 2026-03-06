@@ -23,7 +23,6 @@ function toErrorMessage(error: unknown): string {
 
 export function App(): JSX.Element {
   const [loadState, setLoadState] = useState<LoadState>({ status: "loading" });
-  const routerBase = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   const load = useCallback(async (forceReload = false) => {
     setLoadState({ status: "loading" });
@@ -68,7 +67,7 @@ export function App(): JSX.Element {
   );
 
   return (
-    <HashRouter basename={routerBase}>
+    <HashRouter>
       <QuizProvider
         allQuestions={orderedQuestions}
         compasses={loadState.data.compasses.compasses}
