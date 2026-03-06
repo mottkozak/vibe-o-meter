@@ -94,7 +94,7 @@ function buildSubtypeExplanation(writeup: QuadrantWriteup | null): string {
   }
 
   const normalizedStrengths = strengths.map((strength) => normalizeTraitPhrase(strength));
-  return `${lead} Core vibe: ${normalizedStrengths.join(" and ")}.`;
+  return `${lead} Aura: ${normalizedStrengths.join(" and ")}.`;
 }
 
 export function QuizPage({ data }: QuizPageProps): JSX.Element {

@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCroppedObjectImageCandidates, getObjectImageCandidates } from "../lib/objectImages";
+import { getObjectImageCandidates } from "../lib/objectImages";
 import { useQuiz } from "../state/QuizContext";
 import type { LoadedAppData } from "../types";
 
@@ -76,18 +76,15 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
                 <article className="intro-object-card" key={objectName}>
                   <div className="intro-object-art">
                     {/*
-                      Try cropped sources first, then original image variants,
-                      so cards still render when filenames differ.
+                      Use original full images on home screen and try
+                      several filename variants so cards still render.
                     */}
                     <img
-                      src={[...getCroppedObjectImageCandidates(objectName), ...getObjectImageCandidates(objectName)][0]}
+                      src={getObjectImageCandidates(objectName)[0]}
                       alt={`${objectName} card art`}
                       loading="lazy"
                       onError={(event) => {
-                        const candidates = [
-                          ...getCroppedObjectImageCandidates(objectName),
-                          ...getObjectImageCandidates(objectName)
-                        ];
+                        const candidates = getObjectImageCandidates(objectName);
                         const nextIndex = Number(event.currentTarget.dataset.fallbackIndex ?? "0") + 1;
                         if (nextIndex < candidates.length) {
                           event.currentTarget.dataset.fallbackIndex = String(nextIndex);

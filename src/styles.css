@@ -129,7 +129,7 @@ li {
 }
 
 .screen-shell::before {
-  content: "GAME BOY ADVANCE SP";
+  content: "";
   position: absolute;
   top: 0.42rem;
   left: 50%;

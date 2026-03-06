@@ -528,8 +528,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const primaryObjectImageCandidates = useMemo(
     () =>
       dedupeStrings([
-        ...getCroppedObjectImageCandidates(primaryObject),
-        ...getObjectImageCandidates(primaryObject)
+        ...getObjectImageCandidates(primaryObject),
+        ...getCroppedObjectImageCandidates(primaryObject)
       ]),
     [primaryObject]
   );
