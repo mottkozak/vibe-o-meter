@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { CompassMiniChart } from "../components/CompassMiniChart";
-import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
 import { getCroppedObjectImageCandidates, getObjectImageCandidates } from "../lib/objectImages";
 import { generateResult, generateResultForTypeCode } from "../lib/resultGenerator";
 import { useQuiz } from "../state/QuizContext";
@@ -725,8 +723,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const result =
     cardVariant === "secondary" && secondaryResultState ? secondaryResultState : primaryResult;
 
-  const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 3);
-  const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 3);
   const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 6);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
@@ -826,53 +822,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
       return scannerCandidates[listIndex];
     });
   }, [scannerCandidates, scannerIndex]);
-  const breakdownById = new Map(result.compassBreakdown.map((item) => [item.compass.id, item]));
-  const powerBreakdown = breakdownById.get("power") ?? result.compassBreakdown[0];
-  const orderBreakdown = breakdownById.get("order");
-  const disciplineBreakdown = breakdownById.get("discipline");
-  const socialBreakdown = breakdownById.get("social");
-  const riskBreakdown = breakdownById.get("risk");
-  const matrixSummaryRows = result.compassBreakdown.map((item) => ({
-    id: item.compass.id,
-    label: getMatrixSummaryLabel(item.compass.id),
-    value: item.quadrant.label
-  }));
-  const matrixBreakdownRows = result.compassBreakdown.map((item) => {
-    const xAxis = data.compasses.axes[item.compass.xAxis];
-    const leanLabel = item.x >= 0 ? xAxis.posLabel : xAxis.negLabel;
-    const leanStrength = getAxisLeanStrength(item.x);
-    return {
-      id: item.compass.id,
-      title: getMatrixSummaryLabel(item.compass.id),
-      axisPair: `${formatAxisLabel(xAxis.negLabel)} \u2194 ${formatAxisLabel(xAxis.posLabel)}`,
-      leanLine: `You lean ${leanStrength} ${leanLabel}`
-    };
-  });
-  const matrixIdentityLead = powerBreakdown
-    ? `You are a ${powerBreakdown.quadrant.label} in power scan mode \u2014 you lead with direct action and fast adaptation.`
-    : "Your power scan is still loading.";
-  const secondaryLabels = [
-    orderBreakdown?.quadrant.label,
-    disciplineBreakdown?.quadrant.label,
-    socialBreakdown?.quadrant.label,
-    riskBreakdown?.quadrant.label
-  ].filter((label): label is string => Boolean(label));
-  const matrixIdentitySecondary =
-    secondaryLabels.length > 0
-      ? `Your secondary tendencies blend ${secondaryLabels.join(", ")}.`
-      : "Secondary tendencies are still calibrating.";
-  const matrixIdentityClose =
-    "This creates a profile that moves quickly, improvises when needed, and learns through momentum.";
-  const personalityShape = getPersonalityShape(
-    result.typeFamilyKey,
-    result.titleIndex,
-    result.compassBreakdown
-  );
-  const radarPoints = result.compassBreakdown.map((item) => ({
-    id: item.compass.id,
-    label: getRadarLabel(item.compass.id),
-    value: item.confidence
-  }));
   const shareableResultUrl = useMemo(() => {
     const baseUrl = new URL(import.meta.env.BASE_URL, window.location.origin).toString();
     const normalizedBase = baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`;
@@ -1155,94 +1104,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </div>
         </section>
 
-        <section className="results-traits-outside" aria-label="Strengths and weaknesses">
-          <article className="trait-card">
-            <h3>Weaknesses</h3>
-            <ul>
-              {cardWeaknesses.map((watchout) => (
-                <li key={watchout}>{watchout}</li>
-              ))}
-            </ul>
-          </article>
-          <article className="trait-card">
-            <h3>Strengths</h3>
-            <ul>
-              {cardStrengths.map((strength) => (
-                <li key={strength}>{strength}</li>
-              ))}
-            </ul>
-          </article>
-        </section>
-
         {actionStatus ? <p className="muted action-status">{actionStatus}</p> : null}
-
-        <details className="diagnostics-details">
-          <summary>
-            <span>Object Database Entry</span>
-            <span className="diagnostics-summary-hint" aria-hidden="true" />
-          </summary>
-          <section className="diagnostics-section">
-            <div className="diagnostics-content">
-              <h3>Entry Summary</h3>
-              <div className="matrix-summary-panel">
-                {matrixSummaryRows.map((row) => (
-                  <p key={row.id}>
-                    <strong>{row.label}:</strong> {row.value}
-                  </p>
-                ))}
-              </div>
-
-              <h3>Matrix Identity</h3>
-              <div className="matrix-identity-panel">
-                <p className="matrix-identity-lead">{matrixIdentityLead}</p>
-                <p className="matrix-identity-secondary">{matrixIdentitySecondary}</p>
-                <p className="matrix-identity-close">{matrixIdentityClose}</p>
-              </div>
-
-              <h3>Behavioral Tendencies</h3>
-              <div className="matrix-breakdown-list">
-                {matrixBreakdownRows.map((row) => (
-                  <article className="matrix-breakdown-row" key={row.id}>
-                    <p className="matrix-breakdown-title">{row.title}</p>
-                    <p className="matrix-breakdown-axis">{row.axisPair}</p>
-                    <p className="matrix-breakdown-lean">{row.leanLine}</p>
-                  </article>
-                ))}
-              </div>
-
-              <h3>Matrix Readout</h3>
-              <div className="personality-shape-panel">
-                <p className="personality-shape-name">
-                  Your Personality Shape: <strong>{personalityShape.name}</strong>
-                </p>
-                <PersonalityRadarChart points={radarPoints} />
-                <ul className="personality-shape-traits">
-                  {personalityShape.traits.map((trait) => (
-                    <li key={trait}>{trait}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <details className="diagnostic-charts-toggle">
-                <summary>View Advanced Scan Data</summary>
-                <div className="chart-grid-layout diagnostics-chart-grid">
-                  {result.compassBreakdown.map((item) => (
-                    <CompassMiniChart
-                      key={item.compass.id}
-                      title={getMatrixSummaryLabel(item.compass.id)}
-                      quadrantLabel={item.quadrant.label}
-                      x={item.x}
-                      y={item.y}
-                      confidence={item.confidence}
-                      xAxis={data.compasses.axes[item.compass.xAxis]}
-                      yAxis={data.compasses.axes[item.compass.yAxis]}
-                    />
-                  ))}
-                </div>
-              </details>
-            </div>
-          </section>
-        </details>
           </>
         ) : null}
       </section>
