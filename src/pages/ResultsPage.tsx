@@ -2,9 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
-import { getObjectsForType } from "../lib/objectGenerator";
 import { generateResult } from "../lib/resultGenerator";
-import { resolveTypeTitle } from "../lib/scoring";
 import { useQuiz } from "../state/QuizContext";
 import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
 
@@ -201,85 +199,12 @@ const RARITY_BY_TYPE_CODE: Record<string, RarityTier> = Object.fromEntries(
   )
 ) as Record<string, RarityTier>;
 
-const DEFAULT_BIT_LETTERS = {
-  KP: { 0: "K", 1: "P" },
-  RJ: { 0: "R", 1: "J" },
-  SC: { 0: "S", 1: "C" },
-  MA: { 0: "M", 1: "A" }
-} as const;
-
-interface CardCatalogEntry {
-  typeCode: string;
-  primaryObject: string;
-  rarity: RarityTier;
-  imageSrc: string | null;
-}
-
 function getRarityTier(typeCode: string): RarityTier {
   return RARITY_BY_TYPE_CODE[typeCode.trim().toUpperCase()] ?? "Common";
 }
 
 function getRarityClass(tier: RarityTier): string {
   return `rarity-${tier.toLowerCase()}`;
-}
-
-function getLetterForBit(
-  data: LoadedAppData["typeTitles"],
-  axis: "KP" | "RJ" | "SC" | "MA",
-  bit: 0 | 1
-): string {
-  const key = String(bit) as "0" | "1";
-  const configured = data.bitMeaning[axis]?.[key];
-  if (typeof configured === "string" && configured.trim()) {
-    return configured.trim().charAt(0).toUpperCase();
-  }
-  return DEFAULT_BIT_LETTERS[axis][bit];
-}
-
-function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
-  const familyOrder = ["VH", "WH", "VG", "WG"].filter(
-    (familyKey) => Boolean(data.typeTitles.families[familyKey])
-  );
-  const bitAxes = data.typeTitles.bitOrder;
-  const entries: CardCatalogEntry[] = [];
-
-  for (const familyKey of familyOrder) {
-    for (let index = 0; index < 16; index += 1) {
-      const suffix = bitAxes
-        .map((axis, axisIndex) => {
-          const bit = ((index >> axisIndex) & 1) as 0 | 1;
-          return getLetterForBit(data.typeTitles, axis, bit);
-        })
-        .join("");
-      const typeCode = `${familyKey}${suffix}`;
-
-      let resolvedIndex = index;
-      try {
-        const resolution = resolveTypeTitle(typeCode, data.typeTitles);
-        resolvedIndex = resolution.index;
-      } catch {
-        // leave fallback index
-      }
-
-      let primaryObject = "Unknown Object";
-      if (data.objectsData) {
-        try {
-          primaryObject = getObjectsForType(typeCode, resolvedIndex, data.objectsData).primaryObject;
-        } catch {
-          // keep fallback
-        }
-      }
-
-      entries.push({
-        typeCode,
-        primaryObject,
-        rarity: getRarityTier(typeCode),
-        imageSrc: primaryObject === "Unknown Object" ? null : getCroppedObjectImageSrc(primaryObject)
-      });
-    }
-  }
-
-  return entries;
 }
 
 function getCardStatLabel(compassId: string, fallbackName: string): string {
@@ -437,7 +362,7 @@ function getPersonalityShape(
 
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
-  const { axisScores, isComplete, restartQuiz, questions, selectedQuizLength } = useQuiz();
+  const { axisScores, isComplete, questions, selectedQuizLength } = useQuiz();
   const [actionStatus, setActionStatus] = useState<string | null>(null);
   const [objectImageFailed, setObjectImageFailed] = useState(false);
   const [cardImageSrc, setCardImageSrc] = useState<string>("");
@@ -491,7 +416,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     setRevealProgress(0);
     setRevealStatus("Collecting personality data...");
 
-    const totalDurationMs = 1200 + Math.floor(Math.random() * 1800);
+    const totalDurationMs = 5000 + Math.floor(Math.random() * 2000);
     const startedAt = Date.now();
     const timer = window.setInterval(() => {
       const elapsed = Date.now() - startedAt;
@@ -632,7 +557,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   });
   const matrixIdentityLead = powerBreakdown
     ? `You are a ${powerBreakdown.quadrant.label} in power scan mode \u2014 you lead with direct action and fast adaptation.`
-    : "Your power style is still loading.";
+    : "Your power scan is still loading.";
   const secondaryLabels = [
     orderBreakdown?.quadrant.label,
     disciplineBreakdown?.quadrant.label,
@@ -655,14 +580,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     label: getRadarLabel(item.compass.id),
     value: item.confidence
   }));
-  const allCardEntries = useMemo(() => buildCatalogEntries(data), [data]);
-  const discoveryHeadline =
-    result.titleIndex % 2 === 0 ? "Object Alignment Complete." : "Alignment detected.";
-  const discoveryDetail =
-    result.titleIndex % 3 === 0
-      ? `A wild ${primaryObject} has appeared.`
-      : `Object identified: ${primaryObject}.`;
-
   useEffect(() => {
     setObjectImageFailed(false);
     setCardImageSrc(primaryObjectCroppedImageSrc);
@@ -715,26 +632,22 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
       <section className="card results-card">
         <section className="results-reveal">
           <div className="results-head">
-            <div>
-              <p className="eyebrow">POKEDEX MODE</p>
-              <h2 className="results-heading">Your Results</h2>
-              <div className="result-meta-row">
-                <span className="code-pill">{primaryObject}</span>
-                <span className="code-pill">{result.typeCode}</span>
-                <span className="subtype-pill">{powerSubtype}</span>
+            {isRevealing ? (
+              <div>
+                <h2 className="results-heading">Calculating Object Form</h2>
+                <p className="results-hook">Hold steady while the matrices complete your alignment...</p>
               </div>
-              <p className="results-hook">{revealHook || primaryFlavorLine}</p>
-            </div>
-            <button
-              className="secondary-button"
-              type="button"
-              onClick={() => {
-                restartQuiz();
-                navigate("/");
-              }}
-            >
-              {data.resultsContent.restartButtonLabel}
-            </button>
+            ) : (
+              <div>
+                <h2 className="results-heading">Your Results</h2>
+                <div className="result-meta-row">
+                  <span className="code-pill">{primaryObject}</span>
+                  <span className="code-pill">{result.typeCode}</span>
+                  <span className="subtype-pill">{powerSubtype}</span>
+                </div>
+                <p className="results-hook">{revealHook || primaryFlavorLine}</p>
+              </div>
+            )}
           </div>
         </section>
 
@@ -751,10 +664,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
         {!isRevealing ? (
           <>
-        <p className="alignment-detected">{discoveryHeadline}</p>
-        <p className="alignment-identified">{discoveryDetail}</p>
-        <p className="alignment-logged">Your object alignment has been logged.</p>
-
         <section className="pokedex-viewer" aria-label="Registered personality card viewer">
           <p className="eyebrow">Registered Personality Card</p>
           <section
@@ -948,48 +857,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               </details>
             </div>
           </section>
-        </details>
-
-        <details className="all-cards-browser">
-          <summary>Open Full Card Dex (64)</summary>
-          <p className="muted all-cards-intro">
-            Browse every possible registered entry. Your current result is highlighted.
-          </p>
-          <div className="all-cards-grid">
-            {allCardEntries.map((entry) => (
-              <article
-                key={entry.typeCode}
-                className={`all-card-tile${entry.typeCode === result.typeCode ? " is-current" : ""}`}
-              >
-                <div className="all-card-top">
-                <p className="all-card-code">{entry.typeCode}</p>
-                <p className="all-card-rarity">{entry.rarity}</p>
-              </div>
-                <div className="all-card-art" aria-label={`${entry.primaryObject} preview`}>
-                  {entry.imageSrc ? (
-                    <img
-                      src={entry.imageSrc}
-                      alt={`${entry.primaryObject} illustration`}
-                      loading="lazy"
-                      onError={(event) => {
-                        const fallbackSrc = getObjectImageSrc(entry.primaryObject);
-                        if (event.currentTarget.src.endsWith(fallbackSrc)) {
-                          return;
-                        }
-                        event.currentTarget.src = fallbackSrc;
-                      }}
-                    />
-                  ) : (
-                    <span>{getObjectGlyph(entry.primaryObject)}</span>
-                  )}
-                </div>
-                <p className="all-card-object">{entry.primaryObject}</p>
-                {entry.typeCode === result.typeCode ? (
-                  <p className="all-card-current">Current Result</p>
-                ) : null}
-              </article>
-            ))}
-          </div>
         </details>
           </>
         ) : null}

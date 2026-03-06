@@ -56,6 +56,14 @@ function ensureSentence(text: string): string {
   return `${trimmed}.`;
 }
 
+function normalizeTraitPhrase(text: string): string {
+  const trimmed = text.trim().replace(/[.!?]+$/g, "");
+  if (!trimmed) {
+    return "";
+  }
+  return trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
+}
+
 function toMatrixLabel(value: string): string {
   return value.replace(/compass/gi, "Matrix");
 }
@@ -85,7 +93,8 @@ function buildSubtypeExplanation(writeup: QuadrantWriteup | null): string {
     return lead;
   }
 
-  return `${lead} Core vibe: ${strengths.join(" and ")}.`;
+  const normalizedStrengths = strengths.map((strength) => normalizeTraitPhrase(strength));
+  return `${lead} Core vibe: ${normalizedStrengths.join(" and ")}.`;
 }
 
 export function QuizPage({ data }: QuizPageProps): JSX.Element {
@@ -99,7 +108,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     currentQuestionIndex,
     goToQuestion,
     isComplete,
-    restartQuiz,
     selectAnswer
   } = useQuiz();
 
@@ -193,36 +201,80 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     totalQuestions,
     currentQuestionIndex
   );
-  const questionInstruction =
-    currentQuestionIndex % 2 === 0
-      ? "Choose the response that feels most natural."
-      : "Select the option that best matches your instinct.";
-
   useEffect(() => {
     setReviewCompassId(null);
   }, [currentQuestionIndex]);
 
+  if (shouldShowSectionReview && sectionResult) {
+    return (
+      <main className="screen-shell">
+        <section className={`card quiz-card quiz-review-card quiz-theme-${activeCompass.id}`}>
+          <div className="quiz-head">
+            <div>
+              <p className="eyebrow">{activeMatrixName} Scan Complete</p>
+              <p className="subtitle quiz-matrix-label">Subtype Classification</p>
+              <h1>{sectionResult.quadrant.label}</h1>
+            </div>
+          </div>
+
+          <section className="household-section quiz-section-review">
+            <div className="quiz-review-layout">
+              <div className="quiz-section-chart-wrap">
+                <CompassMiniChart
+                  title={activeMatrixName}
+                  quadrantLabel={sectionResult.quadrant.label}
+                  x={sectionResult.x}
+                  y={sectionResult.y}
+                  confidence={Math.max(
+                    0,
+                    Math.min(
+                      100,
+                      Math.round(
+                        ((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / sectionMaxDistance) *
+                          100
+                      )
+                    )
+                  )}
+                  xAxis={data.compasses.axes[activeCompass.xAxis]}
+                  yAxis={data.compasses.axes[activeCompass.yAxis]}
+                />
+              </div>
+              <section className="quiz-subtype-card" aria-label="Subtype explanation">
+                <p className="quiz-subtype-kicker">Subtype Classification</p>
+                <h3>{sectionResult.quadrant.label}</h3>
+                <p>{sectionSubtypeExplanation}</p>
+              </section>
+            </div>
+            <div className="button-row">
+              {currentQuestionIndex < totalQuestions - 1 ? (
+                <button
+                  className="primary-button"
+                  type="button"
+                  onClick={() => goToQuestion(currentQuestionIndex + 1)}
+                >
+                  Continue
+                </button>
+              ) : (
+                <button className="primary-button" type="button" onClick={() => navigate("/results")}>
+                  Continue
+                </button>
+              )}
+            </div>
+          </section>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="screen-shell">
-      <section className="card quiz-card">
+      <section className={`card quiz-card quiz-theme-${activeCompass.id}`}>
         <div className="quiz-head">
           <div>
             <p className="eyebrow">{scanStatusLine}</p>
             <p className="subtitle quiz-matrix-label">{activeMatrixName}</p>
-            <p className="subtitle quiz-instruction">{questionInstruction}</p>
             <h1>{activeQuestion.prompt}</h1>
           </div>
-          <button
-            className="secondary-button"
-            type="button"
-            onClick={() => {
-              restartQuiz();
-              setReviewCompassId(null);
-              navigate("/");
-            }}
-          >
-            Restart
-          </button>
         </div>
 
         <div className="answers-grid">
@@ -283,53 +335,6 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
             </button>
           )}
         </div>
-
-        {shouldShowSectionReview && sectionResult ? (
-          <section className="household-section quiz-section-review">
-            <div className="quiz-review-layout">
-              <div className="quiz-section-chart-wrap">
-                <CompassMiniChart
-                  title={activeMatrixName}
-                  quadrantLabel={sectionResult.quadrant.label}
-                  x={sectionResult.x}
-                  y={sectionResult.y}
-                  confidence={Math.max(
-                    0,
-                    Math.min(
-                      100,
-                      Math.round(
-                        ((Math.abs(sectionResult.x) + Math.abs(sectionResult.y)) / sectionMaxDistance) *
-                          100
-                      )
-                    )
-                  )}
-                  xAxis={data.compasses.axes[activeCompass.xAxis]}
-                  yAxis={data.compasses.axes[activeCompass.yAxis]}
-                />
-              </div>
-              <section className="quiz-subtype-card" aria-label="Subtype explanation">
-                <p className="quiz-subtype-kicker">Subtype Classification</p>
-                <h3>{sectionResult.quadrant.label}</h3>
-                <p>{sectionSubtypeExplanation}</p>
-              </section>
-            </div>
-            <div className="button-row">
-              {currentQuestionIndex < totalQuestions - 1 ? (
-                <button
-                  className="primary-button"
-                  type="button"
-                  onClick={() => goToQuestion(currentQuestionIndex + 1)}
-                >
-                  Continue
-                </button>
-              ) : (
-                <button className="primary-button" type="button" onClick={() => navigate("/results")}>
-                  Continue
-                </button>
-              )}
-            </div>
-          </section>
-        ) : null}
 
       </section>
     </main>

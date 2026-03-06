@@ -43,12 +43,18 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
   } = useQuiz();
   const hasInProgressAnswers = answeredCount > 0 && !isComplete;
   const objectInventory = useMemo(() => data.objectsData?.objectInventory ?? [], [data.objectsData]);
+  const selectedLength = selectedQuizLength ?? 30;
+  const durationByLength: Record<30 | 40 | 50, string> = {
+    30: "5",
+    40: "7",
+    50: "10"
+  };
 
   return (
     <main className="screen-shell">
       <section className="card landing-card">
         <p className="eyebrow">START SCREEN</p>
-        <h1>{data.resultsContent.landingTitle}</h1>
+        <h1>Object Alignment System</h1>
         <div className="landing-copy">
           <div className="landing-copy-block">
             <p className="subtitle landing-line">Welcome to the Object Alignment System.</p>
@@ -57,7 +63,33 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
             </p>
           </div>
 
-          <p className="subtitle landing-meta">~ 30 questions • about 2 minutes</p>
+          <p className="subtitle landing-meta">
+            ~ {selectedLength} questions • about {durationByLength[selectedLength]} minutes
+          </p>
+        </div>
+
+        <div className="length-toggle-row" role="group" aria-label="Question length selector">
+          <button
+            className={`length-toggle-button ${selectedLength === 30 ? "active" : ""}`}
+            type="button"
+            onClick={() => setQuizLength(30)}
+          >
+            30 Q
+          </button>
+          <button
+            className={`length-toggle-button ${selectedLength === 40 ? "active" : ""}`}
+            type="button"
+            onClick={() => setQuizLength(40)}
+          >
+            40 Q
+          </button>
+          <button
+            className={`length-toggle-button ${selectedLength === 50 ? "active" : ""}`}
+            type="button"
+            onClick={() => setQuizLength(50)}
+          >
+            50 Q
+          </button>
         </div>
 
         <section className="object-carousel-shell" aria-label="Object card roster">
@@ -90,7 +122,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
             className="primary-button"
             type="button"
             onClick={() => {
-              setQuizLength(30);
+              setQuizLength(selectedLength);
               navigate("/quiz");
             }}
           >
