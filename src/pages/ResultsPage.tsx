@@ -757,22 +757,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   return (
     <main className="screen-shell">
       <section className={`card results-card ${isRevealing ? "results-card-reveal-only" : ""}`}>
-        {!isRevealing ? (
-          <section className="results-reveal">
-            <div className="results-head">
-              <div>
-                <h2 className="results-heading">Your Results</h2>
-                <div className="result-meta-row">
-                  <span className="code-pill">{primaryObject}</span>
-                  <span className="code-pill">{result.typeCode}</span>
-                  <span className="subtype-pill">{powerSubtype}</span>
-                </div>
-                <p className="results-hook">{revealHook || primaryFlavorLine}</p>
-              </div>
-            </div>
-          </section>
-        ) : null}
-
         {isRevealing ? (
           <section className="alignment-scanner alignment-scanner-focus" aria-live="polite">
             <p className="alignment-scanner-head">Scanning object alignment...</p>
@@ -846,7 +830,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         {!isRevealing ? (
           <>
         <section className="pokedex-viewer" aria-label="Registered personality card viewer">
-          <p className="eyebrow">Registered Personality Card</p>
           <section
             ref={shareCardRef}
             className={`shareable-card trading-card card-enter ${cardThemeClass} ${rarityClass}`}
@@ -893,27 +876,6 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
               <section className="trading-card-section trading-flavor-section">
                 <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
-              </section>
-
-              <section className="trading-card-section">
-                <div className="trading-traits-grid">
-                  <article className="trait-card">
-                    <h3>Weaknesses</h3>
-                    <ul>
-                      {cardWeaknesses.map((watchout) => (
-                        <li key={watchout}>{watchout}</li>
-                      ))}
-                    </ul>
-                  </article>
-                  <article className="trait-card">
-                    <h3>Strengths</h3>
-                    <ul>
-                      {cardStrengths.map((strength) => (
-                        <li key={strength}>{strength}</li>
-                      ))}
-                    </ul>
-                  </article>
-                </div>
               </section>
 
               <section className="trading-card-section">
@@ -968,6 +930,25 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               Share Entry
             </button>
           </div>
+        </section>
+
+        <section className="results-traits-outside" aria-label="Strengths and weaknesses">
+          <article className="trait-card">
+            <h3>Weaknesses</h3>
+            <ul>
+              {cardWeaknesses.map((watchout) => (
+                <li key={watchout}>{watchout}</li>
+              ))}
+            </ul>
+          </article>
+          <article className="trait-card">
+            <h3>Strengths</h3>
+            <ul>
+              {cardStrengths.map((strength) => (
+                <li key={strength}>{strength}</li>
+              ))}
+            </ul>
+          </article>
         </section>
 
         {actionStatus ? <p className="muted action-status">{actionStatus}</p> : null}

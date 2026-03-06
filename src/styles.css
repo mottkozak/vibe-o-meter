@@ -657,37 +657,6 @@ summary:focus-visible {
   gap: 0;
 }
 
-.results-reveal {
-  padding: 0.72rem;
-  border: 2px solid var(--gb-border);
-  border-radius: 13px;
-  background: linear-gradient(180deg, #f4f9e8, #e4edd8);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
-}
-
-.results-heading {
-  margin-bottom: 0.4rem;
-}
-
-.results-reveal .eyebrow {
-  background: linear-gradient(180deg, var(--gb-pokedex-a), var(--gb-pokedex-b));
-  border-color: var(--gb-pokedex-deep);
-  color: #fff7ed;
-}
-
-.results-hook {
-  margin: 0.56rem 0 0;
-  max-width: 720px;
-  font-style: italic;
-  color: #2a3c2b;
-}
-
-.result-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
 .alignment-scanner {
   border: 2px solid var(--gb-border);
   border-radius: 13px;
@@ -876,26 +845,17 @@ summary:focus-visible {
 }
 
 .pokedex-viewer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0.42rem 0.46rem 0.5rem;
-  border: 1px solid rgba(35, 49, 36, 0.28);
-  border-radius: 14px;
-  background: linear-gradient(180deg, rgba(245, 248, 236, 0.98), rgba(232, 239, 221, 0.98));
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
-}
-
-.pokedex-viewer > .eyebrow {
-  align-self: flex-start;
-  margin-bottom: 0.66rem;
-  background: linear-gradient(180deg, var(--gb-pokedex-a), var(--gb-pokedex-b));
-  border-color: var(--gb-pokedex-deep);
-  color: #fff7ed;
+  display: grid;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .shareable-card {
-  width: clamp(248px, 82vw, 304px);
+  width: clamp(320px, 92vw, 450px);
   margin: 0 auto;
 }
 
@@ -985,7 +945,7 @@ summary:focus-visible {
 
 .card-head-grid {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr) max-content;
   column-gap: 0.5rem;
   row-gap: 0.32rem;
   align-items: center;
@@ -1001,6 +961,7 @@ summary:focus-visible {
 .card-personality-class {
   margin: 0;
   justify-self: end;
+  align-self: start;
   padding: 0.18rem 0.38rem;
   border-radius: 999px;
   border: 1px solid #2a4475;
@@ -1016,10 +977,16 @@ summary:focus-visible {
   color: #21345a;
   font-size: 0.98rem;
   line-height: 1.08;
+  white-space: nowrap;
 }
 
 .card-object-class-line {
   justify-self: end;
+  text-align: right;
+}
+
+.card-personality-class {
+  white-space: nowrap;
 }
 
 .trading-card-section {
@@ -1121,6 +1088,12 @@ summary:focus-visible {
   gap: 0.38rem;
 }
 
+.results-traits-outside {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
 .trait-card {
   margin: 0;
   padding: 0.36rem;
@@ -1192,6 +1165,8 @@ summary:focus-visible {
   margin-top: 0.18rem;
   padding: 0.15rem 0.1rem 0.1rem;
   border-top: 1px solid rgba(40, 52, 86, 0.26);
+  display: grid;
+  gap: 0.14rem;
 }
 
 .comparisons-line,
@@ -1206,11 +1181,13 @@ summary:focus-visible {
   margin-top: 0.14rem;
   letter-spacing: 0.06em;
   font-size: 0.88rem;
+  justify-self: end;
+  text-align: right;
 }
 
 .results-actions {
   justify-content: center;
-  margin-top: 0.8rem;
+  margin-top: 0.62rem;
 }
 
 .results-actions .primary-button,
@@ -1219,7 +1196,7 @@ summary:focus-visible {
 }
 
 .results-actions {
-  width: min(100%, 340px);
+  width: min(100%, 460px);
 }
 
 .action-status {
@@ -1704,7 +1681,11 @@ summary:focus-visible {
   }
 
   .pokedex-viewer {
-    padding: 0.36rem 0.4rem 0.46rem;
+    padding: 0;
+  }
+
+  .results-traits-outside {
+    grid-template-columns: 1fr;
   }
 
   .alignment-scanner-focus {
@@ -1760,11 +1741,11 @@ summary:focus-visible {
   }
 
   .card-personality-class {
-    justify-self: start;
+    justify-self: end;
   }
 
   .card-head-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr) max-content;
   }
 
   .trading-art-frame {
@@ -1772,7 +1753,7 @@ summary:focus-visible {
   }
 
   .shareable-card {
-    width: min(92vw, 286px);
+    width: min(95vw, 360px);
   }
 
   .trading-card-top {
