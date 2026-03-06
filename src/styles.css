@@ -650,6 +650,23 @@ summary:focus-visible {
   gap: 0.85rem;
 }
 
+.card-toggle-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.45rem;
+}
+
+.card-toggle-row .secondary-button {
+  width: 100%;
+}
+
+.card-toggle-row .secondary-button.is-active {
+  border-color: #3f568f;
+  background: linear-gradient(180deg, #6d84c1, #4d67a6);
+  color: #f5f8ff;
+  box-shadow: 0 3px 0 #3d548e;
+}
+
 .results-card-reveal-only {
   display: flex;
   align-items: stretch;
@@ -1005,12 +1022,12 @@ summary:focus-visible {
 }
 
 .trading-art-panel {
-  padding: 0.22rem;
+  padding: 0.14rem;
 }
 
 .trading-art-frame {
   position: relative;
-  min-height: 134px;
+  min-height: 96px;
   border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 12px;
   background:
@@ -1054,7 +1071,7 @@ summary:focus-visible {
   position: relative;
   z-index: 2;
   width: auto;
-  height: 88%;
+  height: 80%;
   max-width: 95%;
   object-fit: cover;
   image-rendering: pixelated;
@@ -1120,6 +1137,33 @@ summary:focus-visible {
 .abilities-bullet-list {
   margin: 0;
   padding-left: 0.88rem;
+}
+
+.abilities-bullet-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.26rem;
+}
+
+.ability-hp {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.04rem 0.26rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  font-size: 0.72rem;
+  line-height: 1;
+}
+
+.ability-hp.positive {
+  color: #2d6e3b;
+  background: #e4f6e6;
+}
+
+.ability-hp.negative {
+  color: #8b3a36;
+  background: #f8e4e2;
 }
 
 .card-stats-list {
@@ -1688,6 +1732,10 @@ summary:focus-visible {
     grid-template-columns: 1fr;
   }
 
+  .card-toggle-row {
+    grid-template-columns: 1fr;
+  }
+
   .alignment-scanner-focus {
     padding: 0.72rem;
   }
@@ -1749,7 +1797,7 @@ summary:focus-visible {
   }
 
   .trading-art-frame {
-    min-height: 116px;
+    min-height: 76px;
   }
 
   .shareable-card {

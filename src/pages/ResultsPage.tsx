@@ -84,6 +84,182 @@ function dedupeStrings(values: string[]): string[] {
   return output;
 }
 
+function getSecondaryTypeCode(typeCode: string): string {
+  const normalized = typeCode.trim().toUpperCase();
+  if (!/^[A-Z]{6}$/.test(normalized)) {
+    return normalized;
+  }
+
+  const letters = normalized.split("");
+  if (letters[5] === "M") {
+    letters[5] = "A";
+  } else if (letters[5] === "A") {
+    letters[5] = "M";
+  } else {
+    // Fallback for unexpected data: still return a valid 6-letter-looking code.
+    letters[5] = "M";
+  }
+  return letters.join("");
+}
+
+function clampNumber(value: number, min: number, max: number): number {
+  return Math.min(max, Math.max(min, value));
+}
+
+function getAbilityHitPoints(ability: ObjectAbility): number {
+  const text = `${ability.name} ${ability.description}`.toLowerCase();
+
+  const positiveKeywords: Array<[string, number]> = [
+    ["protect", 3],
+    ["shield", 3],
+    ["stabil", 2],
+    ["restore", 2],
+    ["refill", 2],
+    ["clean", 2],
+    ["reset", 2],
+    ["support", 2],
+    ["prepare", 2],
+    ["focus", 2],
+    ["contain", 2],
+    ["deliver", 2],
+    ["boost", 2],
+    ["solve", 2],
+    ["master", 2],
+    ["discipline", 2],
+    ["wisdom", 2],
+    ["strategy", 2],
+    ["courage", 2]
+  ];
+
+  const riskyKeywords: Array<[string, number]> = [
+    ["chaos", 3],
+    ["mischief", 2],
+    ["curse", 3],
+    ["smash", 3],
+    ["burst", 2],
+    ["disrupt", 2],
+    ["reckless", 3],
+    ["impulse", 2],
+    ["rule-breaking", 2],
+    ["drama", 2],
+    ["gossip", 1]
+  ];
+
+  let score = 2;
+  for (const [word, points] of positiveKeywords) {
+    if (text.includes(word)) {
+      score += points;
+    }
+  }
+  for (const [word, points] of riskyKeywords) {
+    if (text.includes(word)) {
+      score -= points;
+    }
+  }
+
+  if (text.includes("adapt") || text.includes("improv")) {
+    score += 1;
+  }
+  if (text.includes("pressure") || text.includes("heat")) {
+    score += 1;
+  }
+
+  score = clampNumber(score, -8, 8);
+  if (score === 0) {
+    score = 1;
+  }
+  return score;
+}
+
+async function saveElementAsPng(element: HTMLElement, fileName: string): Promise<void> {
+  if ("fonts" in document) {
+    try {
+      await (document as Document & { fonts?: FontFaceSet }).fonts?.ready;
+    } catch {
+      // Ignore font readiness failures and continue export.
+    }
+  }
+
+  const rect = element.getBoundingClientRect();
+  const width = Math.max(1, Math.ceil(rect.width));
+  const height = Math.max(1, Math.ceil(rect.height));
+  const pixelRatio = Math.max(2, Math.floor(window.devicePixelRatio || 2));
+
+  const cssText = Array.from(document.styleSheets)
+    .map((sheet) => {
+      try {
+        return Array.from(sheet.cssRules)
+          .map((rule) => rule.cssText)
+          .join("\n");
+      } catch {
+        return "";
+      }
+    })
+    .join("\n");
+
+  const clone = element.cloneNode(true) as HTMLElement;
+  clone.setAttribute("xmlns", "http://www.w3.org/1999/xhtml");
+  clone.style.margin = "0";
+
+  const serializer = new XMLSerializer();
+  const serializedClone = serializer.serializeToString(clone);
+  const svgMarkup = `
+    <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+      <foreignObject x="0" y="0" width="100%" height="100%">
+        <style>${cssText}</style>
+        ${serializedClone}
+      </foreignObject>
+    </svg>
+  `;
+
+  const svgBlob = new Blob([svgMarkup], {
+    type: "image/svg+xml;charset=utf-8"
+  });
+  const svgUrl = URL.createObjectURL(svgBlob);
+
+  try {
+    await new Promise<void>((resolve, reject) => {
+      const image = new Image();
+      image.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = width * pixelRatio;
+        canvas.height = height * pixelRatio;
+        const context = canvas.getContext("2d");
+        if (!context) {
+          reject(new Error("Could not create canvas context."));
+          return;
+        }
+
+        context.scale(pixelRatio, pixelRatio);
+        context.drawImage(image, 0, 0, width, height);
+
+        canvas.toBlob(
+          (blob) => {
+            if (!blob) {
+              reject(new Error("Could not generate PNG blob."));
+              return;
+            }
+
+            const downloadUrl = URL.createObjectURL(blob);
+            const anchor = document.createElement("a");
+            anchor.href = downloadUrl;
+            anchor.download = fileName;
+            anchor.click();
+            URL.revokeObjectURL(downloadUrl);
+            resolve();
+          },
+          "image/png",
+          1
+        );
+      };
+      image.onerror = () => reject(new Error("Could not render card image."));
+      image.src = svgUrl;
+    });
+  } finally {
+    URL.revokeObjectURL(svgUrl);
+  }
+}
+
 function getObjectClassLabel(subtype: string): string {
   const value = subtype.toLowerCase();
 
@@ -363,6 +539,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const [scannerIndex, setScannerIndex] = useState(0);
   const [scannerPreviewImageIndex, setScannerPreviewImageIndex] = useState(0);
   const [scannerPreviewFailed, setScannerPreviewFailed] = useState(false);
+  const [cardVariant, setCardVariant] = useState<"primary" | "secondary">("primary");
   const shareCardRef = useRef<HTMLDivElement>(null);
   const previewTypeCode = useMemo(() => {
     const raw = searchParams.get("previewType");
@@ -531,10 +708,25 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     );
   }
 
-  const result = resultState.result;
+  const primaryResult = resultState.result;
+  const secondaryTypeCode = useMemo(
+    () => getSecondaryTypeCode(primaryResult.typeCode),
+    [primaryResult.typeCode]
+  );
+  const secondaryResultState = useMemo(() => {
+    try {
+      return generateResultForTypeCode(data, secondaryTypeCode);
+    } catch {
+      return null;
+    }
+  }, [data, secondaryTypeCode]);
+  const canToggleSecondary =
+    Boolean(secondaryResultState) && secondaryResultState?.typeCode !== primaryResult.typeCode;
+  const result =
+    cardVariant === "secondary" && secondaryResultState ? secondaryResultState : primaryResult;
 
-  const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 2);
-  const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 2);
+  const cardStrengths = (result.strengths.length > 0 ? result.strengths : ["Data loading..."]).slice(0, 3);
+  const cardWeaknesses = (result.watchouts.length > 0 ? result.watchouts : ["Data loading..."]).slice(0, 3);
   const cardCelebs = (result.celebs.length > 0 ? result.celebs : ["No famous vibe buddies listed."]).slice(0, 6);
 
   const primaryObject = result.householdArchetype?.primaryObject ?? "Unknown";
@@ -712,18 +904,22 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     setScannerPreviewFailed(false);
   }, [scannerIndex, isRevealing, scannerCandidates]);
 
-  const handleDownloadCard = (): void => {
+  useEffect(() => {
+    setCardVariant("primary");
+  }, [primaryResult.typeCode]);
+
+  const handleDownloadCard = async (): Promise<void> => {
     if (!shareCardRef.current) {
       setActionStatus("Card view is still loading. Try again in a moment.");
       return;
     }
 
-    document.body.classList.add("print-share-card");
-    setActionStatus("Opening print dialog. Choose 'Save as PDF' to download your card.");
-    window.print();
-    window.setTimeout(() => {
-      document.body.classList.remove("print-share-card");
-    }, 500);
+    try {
+      await saveElementAsPng(shareCardRef.current, `${result.typeCode}-card.png`);
+      setActionStatus("Card image saved as PNG.");
+    } catch {
+      setActionStatus("Could not save PNG on this browser.");
+    }
   };
 
   const handleCopyLink = async (): Promise<void> => {
@@ -829,6 +1025,25 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
 
         {!isRevealing ? (
           <>
+        <section className="card-toggle-row" aria-label="Primary and secondary card toggle">
+          <button
+            className={`secondary-button ${cardVariant === "primary" ? "is-active" : ""}`}
+            type="button"
+            onClick={() => setCardVariant("primary")}
+          >
+            Primary Card ({primaryResult.typeCode})
+          </button>
+          {canToggleSecondary && secondaryResultState ? (
+            <button
+              className={`secondary-button ${cardVariant === "secondary" ? "is-active" : ""}`}
+              type="button"
+              onClick={() => setCardVariant("secondary")}
+            >
+              Secondary Card ({secondaryResultState.typeCode})
+            </button>
+          ) : null}
+        </section>
+
         <section className="pokedex-viewer" aria-label="Registered personality card viewer">
           <section
             ref={shareCardRef}
@@ -882,11 +1097,19 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 <h3>Abilities</h3>
                 {result.householdArchetype ? (
                   <ul className="abilities-bullet-list">
-                    {cardAbilities.map((ability) => (
-                      <li key={`${primaryObject}-${ability.name}`}>
-                        <strong>{ability.name}</strong> — {ability.description}
-                      </li>
-                    ))}
+                    {cardAbilities.map((ability) => {
+                      const hp = getAbilityHitPoints(ability);
+                      return (
+                        <li key={`${primaryObject}-${ability.name}`}>
+                          <strong>{ability.name}</strong>
+                          <span className={`ability-hp ${hp >= 0 ? "positive" : "negative"}`}>
+                            HP {hp > 0 ? "+" : ""}
+                            {hp}
+                          </span>
+                          <span> — {ability.description}</span>
+                        </li>
+                      );
+                    })}
                   </ul>
                 ) : (
                   <p className="muted">
@@ -923,7 +1146,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </section>
 
           <div className="button-row results-actions">
-            <button className="primary-button" type="button" onClick={handleDownloadCard}>
+            <button className="primary-button" type="button" onClick={() => void handleDownloadCard()}>
               Save Card
             </button>
             <button className="secondary-button" type="button" onClick={() => void handleShare()}>
