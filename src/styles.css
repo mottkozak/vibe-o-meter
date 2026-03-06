@@ -1027,7 +1027,8 @@ summary:focus-visible {
 
 .trading-art-frame {
   position: relative;
-  min-height: 64px;
+  min-height: 42px;
+  max-height: 56px;
   border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 12px;
   background:
@@ -1060,7 +1061,7 @@ summary:focus-visible {
 
 .art-vignette {
   position: absolute;
-  width: 72%;
+  width: 58%;
   aspect-ratio: 1;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(255, 255, 255, 0.62) 0, rgba(255, 255, 255, 0.16) 40%, transparent 74%);
@@ -1071,11 +1072,11 @@ summary:focus-visible {
   position: relative;
   z-index: 2;
   width: auto;
-  height: 70%;
+  height: 54%;
   max-width: 95%;
   object-fit: cover;
   image-rendering: pixelated;
-  transform: scale(1.02);
+  transform: scale(0.92);
   filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.2));
 }
 
@@ -1799,7 +1800,8 @@ summary:focus-visible {
   }
 
   .trading-art-frame {
-    min-height: 54px;
+    min-height: 34px;
+    max-height: 46px;
   }
 
   .shareable-card {
