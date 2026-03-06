@@ -1027,8 +1027,7 @@ summary:focus-visible {
 
 .trading-art-frame {
   position: relative;
-  min-height: 146px;
-  max-height: 168px;
+  height: clamp(126px, 19dvh, 196px);
   border: 1px solid rgba(0, 0, 0, 0.18);
   border-radius: 12px;
   background:
@@ -1075,7 +1074,7 @@ summary:focus-visible {
   height: 100%;
   max-width: 100%;
   max-height: 100%;
-  padding: 10px;
+  padding: 6px;
   box-sizing: border-box;
   object-fit: contain;
   object-position: center;
@@ -1804,8 +1803,7 @@ summary:focus-visible {
   }
 
   .trading-art-frame {
-    min-height: 118px;
-    max-height: 136px;
+    height: clamp(112px, 17dvh, 156px);
   }
 
   .shareable-card {
