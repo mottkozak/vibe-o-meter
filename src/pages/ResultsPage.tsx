@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CompassMiniChart } from "../components/CompassMiniChart";
 import { PersonalityRadarChart } from "../components/PersonalityRadarChart";
+import { getCroppedObjectImageCandidates, getObjectImageCandidates } from "../lib/objectImages";
 import { generateResult } from "../lib/resultGenerator";
 import { useQuiz } from "../state/QuizContext";
 import type { GeneratedResult, LoadedAppData, ObjectAbility } from "../types";
@@ -68,36 +69,19 @@ function getCardThemeClass(subtype: string): string {
   return "card-theme-default";
 }
 
-const OBJECT_IMAGE_OVERRIDES: Record<string, string> = {
-  "5 gallon bucket": "5_gallon_bucket.png",
-  "bottle cap": "bottlecap.png",
-  "light switch": "lightswitch.png",
-  "measuring tape": "tape_measure.png",
-  "rubber band": "rubberband.png",
-  "soap bar": "soap.png",
-  tongs: "salad_tongs.png",
-  windchime: "windchimes.png",
-  "yo yo": "yo-yo.png",
-  "yo-yo": "yo-yo.png"
-};
+function dedupeStrings(values: string[]): string[] {
+  const seen = new Set<string>();
+  const output: string[] = [];
 
-function getObjectImageSrc(objectName: string): string {
-  const normalized = objectName.trim().toLowerCase();
-  const override = OBJECT_IMAGE_OVERRIDES[normalized];
-  const fileName =
-    override ??
-    `${normalized
-      .replace(/[^a-z0-9]+/g, "_")
-      .replace(/^_+|_+$/g, "")}.png`;
+  for (const value of values) {
+    if (!value || seen.has(value)) {
+      continue;
+    }
+    seen.add(value);
+    output.push(value);
+  }
 
-  return `${import.meta.env.BASE_URL}images/${fileName}`;
-}
-
-function getCroppedObjectImageSrc(objectName: string): string {
-  const baseSrc = getObjectImageSrc(objectName);
-  const fileName = baseSrc.split("/").pop() ?? "";
-  const stem = fileName.replace(/\.png$/i, "");
-  return `${import.meta.env.BASE_URL}images/cropped_mascots/${stem}_cropped_processed_by_imagy.png`;
+  return output;
 }
 
 function getObjectClassLabel(subtype: string): string {
@@ -360,15 +344,24 @@ function getPersonalityShape(
   };
 }
 
+interface ScannerCandidate {
+  typeCode: string;
+  objectName: string;
+  imageCandidates: string[];
+}
+
 export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const navigate = useNavigate();
   const { axisScores, isComplete, questions, selectedQuizLength } = useQuiz();
   const [actionStatus, setActionStatus] = useState<string | null>(null);
   const [objectImageFailed, setObjectImageFailed] = useState(false);
-  const [cardImageSrc, setCardImageSrc] = useState<string>("");
+  const [cardImageCandidateIndex, setCardImageCandidateIndex] = useState(0);
   const [isRevealing, setIsRevealing] = useState(true);
   const [revealProgress, setRevealProgress] = useState(0);
   const [revealStatus, setRevealStatus] = useState("Collecting personality data...");
+  const [scannerIndex, setScannerIndex] = useState(0);
+  const [scannerPreviewImageIndex, setScannerPreviewImageIndex] = useState(0);
+  const [scannerPreviewFailed, setScannerPreviewFailed] = useState(false);
   const shareCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -409,12 +402,18 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
       setIsRevealing(true);
       setRevealProgress(0);
       setRevealStatus("Collecting personality data...");
+      setScannerIndex(0);
+      setScannerPreviewImageIndex(0);
+      setScannerPreviewFailed(false);
       return;
     }
 
     setIsRevealing(true);
     setRevealProgress(0);
     setRevealStatus("Collecting personality data...");
+    setScannerIndex(0);
+    setScannerPreviewImageIndex(0);
+    setScannerPreviewFailed(false);
 
     const totalDurationMs = 5000 + Math.floor(Math.random() * 2000);
     const startedAt = Date.now();
@@ -526,13 +525,75 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const objectClass = getObjectClassLabel(powerSubtype);
   const rarityTier = getRarityTier(result.typeCode);
   const rarityClass = getRarityClass(rarityTier);
-  const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
-  const primaryObjectCroppedImageSrc = getCroppedObjectImageSrc(primaryObject);
+  const primaryObjectImageCandidates = useMemo(
+    () =>
+      dedupeStrings([
+        ...getCroppedObjectImageCandidates(primaryObject),
+        ...getObjectImageCandidates(primaryObject)
+      ]),
+    [primaryObject]
+  );
   const familyRankByKey: Record<string, number> = { VH: 0, WH: 1, VG: 2, WG: 3 };
   const familyRank = familyRankByKey[result.typeFamilyKey] ?? 0;
   const typeOrdinal = familyRank * 16 + result.titleIndex + 1;
   const cardSerial = `${result.typeCode}-${String(typeOrdinal).padStart(3, "0")}`;
   const comparisonsLine = cardCelebs.join(", ");
+  const scannerCandidates = useMemo<ScannerCandidate[]>(() => {
+    const byTypeCode = data.objectsData?.objectsByTypeCode;
+
+    if (byTypeCode) {
+      const fromTypeCodes = Object.entries(byTypeCode)
+        .map(([typeCode, assignment]) => {
+          const objectName = assignment.primary?.trim();
+          if (!objectName) {
+            return null;
+          }
+
+          return {
+            typeCode: typeCode.trim().toUpperCase(),
+            objectName,
+            imageCandidates: dedupeStrings([
+              ...getCroppedObjectImageCandidates(objectName),
+              ...getObjectImageCandidates(objectName)
+            ])
+          };
+        })
+        .filter((item): item is ScannerCandidate => Boolean(item));
+
+      if (fromTypeCodes.length > 0) {
+        return fromTypeCodes.sort((left, right) => left.typeCode.localeCompare(right.typeCode));
+      }
+    }
+
+    const fallbackObjects =
+      data.objectsData?.objectInventory.filter((item) => item.trim().length > 0) ?? [primaryObject];
+    return fallbackObjects.map((objectName, index) => ({
+      typeCode: `${result.typeCode}-${String(index + 1).padStart(2, "0")}`,
+      objectName,
+      imageCandidates: dedupeStrings([
+        ...getCroppedObjectImageCandidates(objectName),
+        ...getObjectImageCandidates(objectName)
+      ])
+    }));
+  }, [data.objectsData, primaryObject, result.typeCode]);
+  const activeScannerCandidate =
+    scannerCandidates.length > 0
+      ? scannerCandidates[((scannerIndex % scannerCandidates.length) + scannerCandidates.length) % scannerCandidates.length]
+      : null;
+  const scannerPreviewImageSrc =
+    activeScannerCandidate?.imageCandidates[scannerPreviewImageIndex] ?? "";
+  const revealCurve = Math.sin((Math.PI * Math.max(0, Math.min(100, revealProgress))) / 100);
+  const scannerDurationMs = Math.max(620, Math.round(1850 - revealCurve * 1200));
+  const scannerReelWindow = useMemo(() => {
+    if (scannerCandidates.length === 0) {
+      return [] as ScannerCandidate[];
+    }
+    const windowSize = Math.min(10, scannerCandidates.length);
+    return Array.from({ length: windowSize * 2 }, (_, index) => {
+      const listIndex = (scannerIndex + index) % scannerCandidates.length;
+      return scannerCandidates[listIndex];
+    });
+  }, [scannerCandidates, scannerIndex]);
   const breakdownById = new Map(result.compassBreakdown.map((item) => [item.compass.id, item]));
   const powerBreakdown = breakdownById.get("power") ?? result.compassBreakdown[0];
   const orderBreakdown = breakdownById.get("order");
@@ -580,10 +641,31 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     label: getRadarLabel(item.compass.id),
     value: item.confidence
   }));
+
   useEffect(() => {
     setObjectImageFailed(false);
-    setCardImageSrc(primaryObjectCroppedImageSrc);
-  }, [primaryObjectCroppedImageSrc, primaryObject]);
+    setCardImageCandidateIndex(0);
+  }, [primaryObject, primaryObjectImageCandidates]);
+
+  useEffect(() => {
+    if (!isRevealing || scannerCandidates.length <= 1) {
+      return;
+    }
+
+    const cadenceMs = Math.max(80, Math.round(320 - revealCurve * 240));
+    const timer = window.setTimeout(() => {
+      setScannerIndex((current) => (current + 1) % scannerCandidates.length);
+    }, cadenceMs);
+
+    return () => {
+      window.clearTimeout(timer);
+    };
+  }, [isRevealing, revealCurve, scannerCandidates.length, scannerIndex]);
+
+  useEffect(() => {
+    setScannerPreviewImageIndex(0);
+    setScannerPreviewFailed(false);
+  }, [scannerIndex, isRevealing, scannerCandidates]);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -655,6 +737,65 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           <section className="alignment-scanner" aria-live="polite">
             <p className="alignment-scanner-head">Scanning object alignment...</p>
             <p className="alignment-scanner-status">{revealStatus}</p>
+            <div className="alignment-reel" aria-hidden="true">
+              {(["back", "mid", "front"] as const).map((layer, layerIndex) => (
+                <div
+                  key={layer}
+                  className={`alignment-reel-track ${layer}`}
+                  style={{ animationDuration: `${scannerDurationMs + layerIndex * 220}ms` }}
+                >
+                  {scannerReelWindow.map((candidate, index) => (
+                    <figure
+                      className="alignment-reel-item"
+                      key={`${layer}-${candidate.typeCode}-${candidate.objectName}-${index}`}
+                    >
+                      <img
+                        src={candidate.imageCandidates[0]}
+                        alt={candidate.objectName}
+                        loading="lazy"
+                        onError={(event) => {
+                          const nextIndex =
+                            Number(event.currentTarget.dataset.fallbackIndex ?? "0") + 1;
+                          if (nextIndex < candidate.imageCandidates.length) {
+                            event.currentTarget.dataset.fallbackIndex = String(nextIndex);
+                            event.currentTarget.src = candidate.imageCandidates[nextIndex];
+                            return;
+                          }
+                          event.currentTarget.style.visibility = "hidden";
+                        }}
+                      />
+                    </figure>
+                  ))}
+                </div>
+              ))}
+            </div>
+            <div className="alignment-preview-row">
+              <div className="alignment-preview-art" aria-hidden="true">
+                {!scannerPreviewFailed && scannerPreviewImageSrc ? (
+                  <img
+                    src={scannerPreviewImageSrc}
+                    alt={activeScannerCandidate?.objectName ?? "Object candidate"}
+                    loading="eager"
+                    onError={() => {
+                      if (
+                        activeScannerCandidate &&
+                        scannerPreviewImageIndex + 1 < activeScannerCandidate.imageCandidates.length
+                      ) {
+                        setScannerPreviewImageIndex((current) => current + 1);
+                        return;
+                      }
+                      setScannerPreviewFailed(true);
+                    }}
+                  />
+                ) : (
+                  <span className="alignment-preview-glyph">{getObjectGlyph(primaryObject)}</span>
+                )}
+              </div>
+              <p className="alignment-preview-copy">
+                Testing: <strong>{activeScannerCandidate?.objectName ?? primaryObject}</strong>{" "}
+                <span>({activeScannerCandidate?.typeCode ?? result.typeCode})</span>
+              </p>
+            </div>
             <div className="alignment-progress-track" role="img" aria-label={`${revealProgress}% complete`}>
               <div className="alignment-progress-fill" style={{ width: `${revealProgress}%` }} />
             </div>
@@ -691,15 +832,15 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                     Rarity: <span className="rarity-star">★</span> {rarityTier}
                   </p>
                   <div className="art-vignette" aria-hidden="true" />
-                  {!objectImageFailed && cardImageSrc ? (
+                  {!objectImageFailed && primaryObjectImageCandidates[cardImageCandidateIndex] ? (
                     <img
                       className="object-asset"
-                      src={cardImageSrc}
+                      src={primaryObjectImageCandidates[cardImageCandidateIndex]}
                       alt={`${primaryObject} illustration`}
                       loading="eager"
                       onError={() => {
-                        if (cardImageSrc !== primaryObjectImageSrc) {
-                          setCardImageSrc(primaryObjectImageSrc);
+                        if (cardImageCandidateIndex + 1 < primaryObjectImageCandidates.length) {
+                          setCardImageCandidateIndex((current) => current + 1);
                           return;
                         }
                         setObjectImageFailed(true);

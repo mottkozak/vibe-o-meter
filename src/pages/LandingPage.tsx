@@ -1,35 +1,11 @@
 import { useMemo } from "react";
 import { useNavigate } from "react-router-dom";
+import { getCroppedObjectImageCandidates, getObjectImageCandidates } from "../lib/objectImages";
 import { useQuiz } from "../state/QuizContext";
 import type { LoadedAppData } from "../types";
 
 interface LandingPageProps {
   data: LoadedAppData;
-}
-
-const OBJECT_IMAGE_OVERRIDES: Record<string, string> = {
-  "5 gallon bucket": "5_gallon_bucket.png",
-  "bottle cap": "bottlecap.png",
-  "light switch": "lightswitch.png",
-  "measuring tape": "tape_measure.png",
-  "rubber band": "rubberband.png",
-  "soap bar": "soap.png",
-  tongs: "salad_tongs.png",
-  windchime: "windchimes.png",
-  "yo yo": "yo-yo.png",
-  "yo-yo": "yo-yo.png"
-};
-
-function getObjectImageSrc(objectName: string): string {
-  const normalized = objectName.trim().toLowerCase();
-  const override = OBJECT_IMAGE_OVERRIDES[normalized];
-  const fileName =
-    override ??
-    `${normalized
-      .replace(/[^a-z0-9]+/g, "_")
-      .replace(/^_+|_+$/g, "")}.png`;
-
-  return `${import.meta.env.BASE_URL}images/${fileName}`;
 }
 
 export function LandingPage({ data }: LandingPageProps): JSX.Element {
@@ -54,7 +30,7 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
     <main className="screen-shell">
       <section className="card landing-card">
         <p className="eyebrow">START SCREEN</p>
-        <h1>Object Alignment System</h1>
+        <h1>{data.resultsContent.landingTitle}</h1>
         <div className="landing-copy">
           <div className="landing-copy-block">
             <p className="subtitle landing-line">Welcome to the Object Alignment System.</p>
@@ -99,12 +75,26 @@ export function LandingPage({ data }: LandingPageProps): JSX.Element {
               {objectInventory.map((objectName) => (
                 <article className="intro-object-card" key={objectName}>
                   <div className="intro-object-art">
+                    {/*
+                      Try cropped sources first, then original image variants,
+                      so cards still render when filenames differ.
+                    */}
                     <img
-                      src={getObjectImageSrc(objectName)}
+                      src={[...getCroppedObjectImageCandidates(objectName), ...getObjectImageCandidates(objectName)][0]}
                       alt={`${objectName} card art`}
                       loading="lazy"
                       onError={(event) => {
-                        event.currentTarget.style.display = "none";
+                        const candidates = [
+                          ...getCroppedObjectImageCandidates(objectName),
+                          ...getObjectImageCandidates(objectName)
+                        ];
+                        const nextIndex = Number(event.currentTarget.dataset.fallbackIndex ?? "0") + 1;
+                        if (nextIndex < candidates.length) {
+                          event.currentTarget.dataset.fallbackIndex = String(nextIndex);
+                          event.currentTarget.src = candidates[nextIndex];
+                          return;
+                        }
+                        event.currentTarget.style.visibility = "hidden";
                       }}
                     />
                   </div>

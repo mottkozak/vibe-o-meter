@@ -46,9 +46,9 @@ body,
 body {
   margin: 0;
   color: var(--gb-text);
-  font-family: "Trebuchet MS", "Verdana", sans-serif;
-  font-size: 1rem;
-  line-height: 1.45;
+  font-family: "VT323", "Trebuchet MS", "Verdana", sans-serif;
+  font-size: 1.08rem;
+  line-height: 1.5;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -86,19 +86,19 @@ summary {
 
 h1 {
   margin-bottom: 0.6rem;
-  font-size: clamp(1.05rem, 1.55vw, 1.34rem);
+  font-size: clamp(1.16rem, 1.68vw, 1.42rem);
   line-height: 1.45;
 }
 
 h2 {
   margin-bottom: 0.6rem;
-  font-size: clamp(0.95rem, 1.35vw, 1.14rem);
+  font-size: clamp(1.02rem, 1.44vw, 1.22rem);
   line-height: 1.42;
 }
 
 h3 {
   margin-bottom: 0.5rem;
-  font-size: clamp(0.76rem, 1.1vw, 0.9rem);
+  font-size: clamp(0.83rem, 1.16vw, 0.96rem);
   line-height: 1.46;
 }
 
@@ -222,15 +222,33 @@ li {
   margin: 0.25rem 0 0.8rem;
 }
 
+.landing-card {
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(51, 69, 48, 0.045) 0,
+      rgba(51, 69, 48, 0.045) 1px,
+      rgba(240, 247, 228, 0.95) 1px,
+      rgba(240, 247, 228, 0.95) 4px
+    ),
+    linear-gradient(180deg, #eff6e4, #dde8d1);
+}
+
+.landing-card h1 {
+  margin-bottom: 0.52rem;
+  color: #24362b;
+  text-wrap: balance;
+}
+
 .landing-copy-block {
-  border: 3px solid var(--gb-border);
+  border: 2px solid #2d4030;
   border-radius: 12px;
   background:
-    linear-gradient(180deg, var(--gb-panel), var(--gb-panel-alt));
+    linear-gradient(180deg, #f4f9e9, #e4edd9);
   box-shadow:
     inset 0 0 0 2px rgba(255, 255, 255, 0.45),
-    0 3px 0 rgba(36, 48, 34, 0.45);
-  padding: 0.55rem 0.62rem;
+    0 2px 0 rgba(36, 48, 34, 0.35);
+  padding: 0.62rem 0.68rem;
 }
 
 .landing-line {
@@ -427,7 +445,7 @@ summary:focus-visible {
   border: 3px solid var(--gb-border);
   border-radius: 12px;
   background: var(--gb-panel);
-  padding: 0.68rem 0.72rem;
+  padding: 0.8rem 0.8rem;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
 }
 
@@ -489,6 +507,26 @@ summary:focus-visible {
   background: linear-gradient(180deg, #ffffff, var(--matrix-accent-soft));
 }
 
+.quiz-card h1 {
+  font-size: clamp(1.26rem, 2.6vw, 1.5rem);
+  line-height: 1.34;
+}
+
+.quiz-card .subtitle {
+  font-size: 1.08rem;
+}
+
+.quiz-card .primary-button {
+  background: linear-gradient(180deg, #676d79, #4d525d);
+  border-color: #313744;
+  color: #f6f8fb;
+  box-shadow: 0 3px 0 #323741;
+}
+
+.quiz-card .primary-button:hover:not(:disabled) {
+  background: linear-gradient(180deg, #747b87, #555b67);
+}
+
 .quiz-matrix-label {
   margin: 0.2rem 0 0;
 }
@@ -506,7 +544,7 @@ summary:focus-visible {
 
 .answer-button {
   width: 100%;
-  padding: 0.62rem 0.68rem;
+  padding: 0.68rem 0.72rem;
   text-align: left;
   background: var(--gb-panel);
   color: var(--gb-text);
@@ -515,6 +553,8 @@ summary:focus-visible {
   grid-template-columns: auto 1fr;
   gap: 0.6rem;
   align-items: center;
+  font-size: 1.08rem;
+  line-height: 1.28;
 }
 
 .answer-button:hover {
@@ -580,7 +620,7 @@ summary:focus-visible {
 
 .results-reveal {
   padding: 0.72rem;
-  border: 3px solid var(--gb-border);
+  border: 2px solid var(--gb-border);
   border-radius: 13px;
   background: linear-gradient(180deg, #f4f9e8, #e4edd8);
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.45);
@@ -610,11 +650,11 @@ summary:focus-visible {
 }
 
 .alignment-scanner {
-  border: 3px solid var(--gb-border);
+  border: 2px solid var(--gb-border);
   border-radius: 13px;
   background: linear-gradient(180deg, #f8fbef, #e7ecdf);
   padding: 0.72rem;
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
 }
 
 .alignment-scanner-head {
@@ -625,8 +665,105 @@ summary:focus-visible {
 }
 
 .alignment-scanner-status {
-  margin: 0.45rem 0 0.5rem;
+  margin: 0.35rem 0 0.44rem;
   color: #2e384a;
+}
+
+.alignment-reel {
+  position: relative;
+  margin: 0.2rem 0 0.48rem;
+  padding: 0.26rem 0;
+  border: 1px solid rgba(39, 48, 63, 0.35);
+  border-radius: 10px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #f1f5ea, #e0e8d7);
+}
+
+.alignment-reel-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 0.32rem;
+  padding: 0.1rem 0.22rem;
+  animation-name: reel-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.alignment-reel-track.back {
+  opacity: 0.38;
+  filter: blur(0.4px);
+}
+
+.alignment-reel-track.mid {
+  opacity: 0.64;
+}
+
+.alignment-reel-track.front {
+  opacity: 0.95;
+  animation-direction: reverse;
+}
+
+.alignment-reel-item {
+  margin: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(28, 35, 53, 0.28);
+  background: rgba(255, 255, 255, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.alignment-reel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.alignment-preview-row {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0.46rem;
+  align-items: center;
+  margin-bottom: 0.45rem;
+}
+
+.alignment-preview-art {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(24, 34, 56, 0.32);
+  border-radius: 10px;
+  background: radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.9), rgba(210, 220, 242, 0.65));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.alignment-preview-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  image-rendering: pixelated;
+}
+
+.alignment-preview-glyph {
+  font-size: 1.5rem;
+}
+
+.alignment-preview-copy {
+  margin: 0;
+  color: #334155;
+  font-size: 0.98rem;
+  line-height: 1.18;
+}
+
+.alignment-preview-copy span {
+  color: #4a536a;
 }
 
 .alignment-progress-track {
@@ -678,11 +815,11 @@ summary:focus-visible {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0.8rem;
-  border: 3px solid #5e4c36;
+  padding: 0.42rem 0.46rem 0.5rem;
+  border: 1px solid rgba(35, 49, 36, 0.28);
   border-radius: 14px;
-  background: linear-gradient(180deg, rgba(248, 240, 229, 0.98), rgba(236, 225, 210, 0.98));
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.5);
+  background: linear-gradient(180deg, rgba(245, 248, 236, 0.98), rgba(232, 239, 221, 0.98));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
 }
 
 .pokedex-viewer > .eyebrow {
@@ -694,20 +831,20 @@ summary:focus-visible {
 }
 
 .shareable-card {
-  width: clamp(260px, 86vw, 340px);
+  width: clamp(248px, 82vw, 304px);
   margin: 0 auto;
 }
 
 .shareable-card-content {
-  padding: 0.62rem;
+  padding: 0.38rem;
 }
 
 .trading-card {
   border-radius: 18px;
-  border: 6px solid var(--card-frame);
+  border: 3px solid var(--card-frame);
   box-shadow:
-    0 8px 0 rgba(27, 40, 74, 0.42),
-    0 14px 36px rgba(13, 16, 35, 0.33);
+    0 4px 0 rgba(27, 40, 74, 0.35),
+    0 10px 22px rgba(13, 16, 35, 0.25);
   background: linear-gradient(180deg, #e8ebf8, #cfd7ef);
   position: relative;
 }
@@ -719,9 +856,9 @@ summary:focus-visible {
 .trading-card::before {
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 5px;
   border-radius: 12px;
-  border: 2px solid var(--card-frame-inner);
+  border: 1px solid rgba(201, 201, 227, 0.8);
   pointer-events: none;
 }
 
@@ -775,10 +912,10 @@ summary:focus-visible {
 }
 
 .trading-card-top {
-  margin-bottom: 0.56rem;
-  padding: 0.54rem 0.58rem;
-  border: 2px solid rgba(0, 0, 0, 0.18);
-  border-radius: 12px;
+  margin-bottom: 0.36rem;
+  padding: 0.36rem 0.42rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
+  border-radius: 10px;
   background: rgba(241, 246, 255, 0.75);
 }
 
@@ -793,27 +930,28 @@ summary:focus-visible {
 .card-object-name {
   margin: 0;
   font-family: "VT323", "Trebuchet MS", sans-serif;
-  font-size: clamp(0.66rem, 0.95vw, 0.76rem);
-  line-height: 1.4;
+  font-size: clamp(1.18rem, 2.2vw, 1.36rem);
+  line-height: 1.1;
 }
 
 .card-personality-class {
   margin: 0;
   justify-self: end;
-  padding: 0.25rem 0.45rem;
+  padding: 0.18rem 0.38rem;
   border-radius: 999px;
-  border: 2px solid #2a4475;
+  border: 1px solid #2a4475;
   background: linear-gradient(180deg, #5e7fc2, #3e5e9b);
   color: #f3f7ff;
   font-family: "VT323", "Trebuchet MS", sans-serif;
-  font-size: clamp(0.48rem, 0.74vw, 0.56rem);
+  font-size: clamp(0.92rem, 1.6vw, 1.06rem);
 }
 
 .card-type-line,
 .card-object-class-line {
   margin: 0;
   color: #21345a;
-  font-size: 0.92rem;
+  font-size: 0.98rem;
+  line-height: 1.08;
 }
 
 .card-object-class-line {
@@ -821,27 +959,29 @@ summary:focus-visible {
 }
 
 .trading-card-section {
-  margin-bottom: 0.56rem;
-  padding: 0.56rem 0.58rem;
-  border: 2px solid rgba(0, 0, 0, 0.14);
-  border-radius: 12px;
+  margin-bottom: 0.34rem;
+  padding: 0.34rem 0.42rem;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 10px;
   background: rgba(246, 245, 254, 0.73);
 }
 
 .trading-card-section h3 {
-  margin-bottom: 0.48rem;
+  margin-bottom: 0.32rem;
   color: #1f3461;
+  font-size: 1.14rem;
+  line-height: 1.05;
 }
 
 .trading-art-panel {
-  padding: 0.42rem;
+  padding: 0.22rem;
 }
 
 .trading-art-frame {
   position: relative;
-  min-height: 205px;
-  border: 2px solid rgba(0, 0, 0, 0.18);
-  border-radius: 14px;
+  min-height: 134px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  border-radius: 12px;
   background:
     radial-gradient(circle at 50% 62%, rgba(255, 255, 255, 0.7), rgba(206, 217, 245, 0.35) 43%, rgba(137, 151, 209, 0.24) 100%),
     linear-gradient(160deg, rgba(132, 149, 219, 0.48), rgba(242, 228, 255, 0.46));
@@ -853,17 +993,17 @@ summary:focus-visible {
 
 .card-rarity-badge {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 6px;
+  right: 6px;
   z-index: 4;
   margin: 0;
-  padding: 0.2rem 0.44rem;
+  padding: 0.14rem 0.36rem;
   border-radius: 999px;
-  border: 2px solid #3b5491;
+  border: 1px solid #3b5491;
   background: linear-gradient(180deg, #6a87c0, #4d66a4);
   color: #f4f7ff;
   font-family: "VT323", "Trebuchet MS", sans-serif;
-  font-size: clamp(0.45rem, 0.69vw, 0.52rem);
+  font-size: clamp(0.82rem, 1.4vw, 0.96rem);
 }
 
 .rarity-star {
@@ -883,11 +1023,12 @@ summary:focus-visible {
   position: relative;
   z-index: 2;
   width: auto;
-  height: 80%;
-  max-width: 88%;
+  height: 88%;
+  max-width: 95%;
   object-fit: cover;
   image-rendering: pixelated;
-  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.22));
+  transform: scale(1.1);
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.2));
 }
 
 .object-glyph {
@@ -905,42 +1046,43 @@ summary:focus-visible {
   text-align: center;
   font-style: italic;
   font-weight: 700;
-  font-size: clamp(0.9rem, 1.2vw, 1.02rem);
+  font-size: clamp(1.03rem, 1.45vw, 1.15rem);
+  line-height: 1.12;
   color: #243a67;
 }
 
 .trading-traits-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
+  gap: 0.38rem;
 }
 
 .trait-card {
   margin: 0;
-  padding: 0.55rem;
-  border: 2px solid rgba(0, 0, 0, 0.16);
+  padding: 0.36rem;
+  border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 10px;
   background: #f6f1dc;
 }
 
 .trait-card h3 {
-  margin-bottom: 0.36rem;
+  margin-bottom: 0.2rem;
 }
 
 .trait-card ul {
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 0.88rem;
 }
 
 .trait-card li,
 .abilities-bullet-list li {
-  font-size: 0.86rem;
-  line-height: 1.35;
+  font-size: 0.72rem;
+  line-height: 1.2;
 }
 
 .abilities-bullet-list {
   margin: 0;
-  padding-left: 1rem;
+  padding-left: 0.88rem;
 }
 
 .card-stats-list {
@@ -948,20 +1090,21 @@ summary:focus-visible {
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 0.4rem;
+  gap: 0.22rem;
 }
 
 .card-stat-row {
   display: grid;
-  grid-template-columns: minmax(135px, 1fr) minmax(150px, 1fr);
-  gap: 0.48rem;
+  grid-template-columns: minmax(110px, 1fr) minmax(125px, 1fr);
+  gap: 0.34rem;
   align-items: center;
 }
 
 .card-stat-label {
   color: #36563a;
   font-weight: 700;
-  font-size: 0.85rem;
+  font-size: 0.68rem;
+  line-height: 1.1;
 }
 
 .card-stat-segments {
@@ -972,7 +1115,7 @@ summary:focus-visible {
 
 .card-stat-segments span {
   display: block;
-  height: 10px;
+  height: 8px;
   border-radius: 999px;
   background: rgba(73, 90, 132, 0.2);
 }
@@ -982,21 +1125,23 @@ summary:focus-visible {
 }
 
 .card-footer-meta {
-  margin-top: 0.34rem;
+  margin-top: 0.18rem;
   padding: 0.15rem 0.1rem 0.1rem;
-  border-top: 2px solid rgba(40, 52, 86, 0.26);
+  border-top: 1px solid rgba(40, 52, 86, 0.26);
 }
 
 .comparisons-line,
 .card-id-line {
   margin: 0;
   color: #2a3f6b;
+  font-size: 0.96rem;
+  line-height: 1.06;
 }
 
 .card-id-line {
-  margin-top: 0.2rem;
+  margin-top: 0.14rem;
   letter-spacing: 0.06em;
-  font-size: 1rem;
+  font-size: 0.88rem;
 }
 
 .results-actions {
@@ -1020,10 +1165,10 @@ summary:focus-visible {
 
 .diagnostics-details,
 .all-cards-browser {
-  border: 3px solid var(--gb-border);
+  border: 2px solid rgba(39, 48, 63, 0.55);
   border-radius: 13px;
   background: linear-gradient(180deg, #f2f8e4, #e3edd5);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.44);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.44);
 }
 
 .diagnostics-details > summary,
@@ -1070,7 +1215,7 @@ summary:focus-visible {
 .diagnostics-content h3 {
   margin: 0;
   padding: 0.43rem 0.52rem;
-  border: 2px solid var(--gb-border);
+  border: 1px solid rgba(39, 48, 63, 0.6);
   border-radius: 8px;
   background: #f7fbe9;
   color: #213024;
@@ -1079,7 +1224,7 @@ summary:focus-visible {
 .matrix-summary-panel,
 .matrix-identity-panel,
 .personality-shape-panel {
-  border: 2px solid var(--gb-border);
+  border: 1px solid rgba(39, 48, 63, 0.55);
   border-radius: 10px;
   background: var(--gb-panel);
   padding: 0.55rem 0.6rem;
@@ -1114,7 +1259,7 @@ summary:focus-visible {
 }
 
 .matrix-breakdown-row {
-  border: 2px solid var(--gb-border);
+  border: 1px solid rgba(39, 48, 63, 0.55);
   border-radius: 10px;
   background: #f8fcea;
   padding: 0.5rem 0.58rem;
@@ -1461,7 +1606,7 @@ summary:focus-visible {
 
 @media (max-width: 960px) {
   body {
-    font-size: 0.98rem;
+    font-size: 1.04rem;
   }
 
   .screen-shell {
@@ -1477,7 +1622,7 @@ summary:focus-visible {
   }
 
   .card {
-    padding: 0.76rem;
+    padding: 0.7rem;
   }
 
   .results-head,
@@ -1494,6 +1639,10 @@ summary:focus-visible {
     width: 100%;
   }
 
+  .pokedex-viewer {
+    padding: 0.36rem 0.4rem 0.46rem;
+  }
+
   .card-stat-row {
     grid-template-columns: 1fr;
     gap: 0.22rem;
@@ -1507,24 +1656,24 @@ summary:focus-visible {
 @media (max-width: 640px) {
   body {
     padding: 0;
-    font-size: 0.95rem;
+    font-size: 1.02rem;
   }
 
   h1 {
-    font-size: 0.8rem;
+    font-size: 1.16rem;
   }
 
   h2 {
-    font-size: 0.74rem;
+    font-size: 1.04rem;
   }
 
   h3 {
-    font-size: 0.62rem;
+    font-size: 0.92rem;
   }
 
   .eyebrow {
-    font-size: 0.45rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.2;
   }
 
   .button-row {
@@ -1539,7 +1688,7 @@ summary:focus-visible {
 
   .card-type-line,
   .card-object-class-line {
-    font-size: 0.84rem;
+    font-size: 0.88rem;
   }
 
   .card-personality-class {
@@ -1551,7 +1700,66 @@ summary:focus-visible {
   }
 
   .trading-art-frame {
-    min-height: 188px;
+    min-height: 116px;
+  }
+
+  .shareable-card {
+    width: min(92vw, 286px);
+  }
+
+  .trading-card-top {
+    padding: 0.32rem 0.36rem;
+  }
+
+  .trading-card-section {
+    padding: 0.3rem 0.34rem;
+  }
+
+  .trading-card-section h3 {
+    font-size: 1rem;
+  }
+
+  .card-object-name {
+    font-size: 1.12rem;
+  }
+
+  .card-personality-class {
+    font-size: 0.88rem;
+  }
+
+  .trading-flavor {
+    font-size: 0.94rem;
+  }
+
+  .trait-card li,
+  .abilities-bullet-list li {
+    font-size: 0.64rem;
+    line-height: 1.16;
+  }
+
+  .card-stat-label {
+    font-size: 0.6rem;
+  }
+
+  .card-stat-segments span {
+    height: 7px;
+  }
+
+  .card-id-line,
+  .comparisons-line {
+    font-size: 0.82rem;
+  }
+
+  .quiz-card h1 {
+    font-size: 1.24rem;
+  }
+
+  .answer-button {
+    font-size: 1.18rem;
+  }
+
+  .alignment-preview-copy {
+    font-size: 0.9rem;
   }
 
   .results-actions .primary-button,
@@ -1644,5 +1852,14 @@ summary:focus-visible {
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes reel-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
