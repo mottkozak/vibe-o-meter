@@ -1,2055 +1,1798 @@
 {
-    "disclaimer": "This is entertainment. Not science. Not therapy. Not a legally binding reason to email your boss “sorry, I’m a Goblin.”",
-    "celebsNote": "‘Famous vibe matches’ are playful comparisons, not claims about anyone’s real personality.",
-    "typeWriteups": {
-      "VHKRSM": {
-        "title": "The Sir Shieldington",
-        "headline": "Field dossier: **The Sir Shieldington** (VHKRSM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "Dalai Lama",
-          "Atticus Finch (fiction)",
-          "Wonder Woman (fiction)",
-          "Margaret Thatcher",
-          "Simone Biles"
-        ],
-        "primaryObject": "Water Bottle",
-        "backupObject": "Mug"
-      },
-      "VHPRSM": {
-        "title": "The Captain Ironbeard",
-        "headline": "Field dossier: **The Captain Ironbeard** (VHPRSM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You’re the friend who shows up before the group chat finishes typing.",
-        "celebs": [
-          "Tony Stark (fiction)",
-          "Commander Shepard (fiction)",
-          "Bruce Lee",
-          "Octavia Butler",
-          "Moana’s Grandma Tala (fiction vibe)"
-        ],
-        "primaryObject": "Flashlight",
-        "backupObject": "Timer"
-      },
-      "VHKJSM": {
-        "title": "The Sir Jokesalot",
-        "headline": "Field dossier: **The Sir Jokesalot** (VHKJSM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "A brave heart, a fast stride, and a suspiciously sturdy backpack.",
-        "celebs": [
-          "Tina Fey",
-          "Bugs Bunny (fiction)",
-          "Marie Curie",
-          "Serena Williams",
-          "Harriet Tubman"
-        ],
-        "primaryObject": "Umbrella",
-        "backupObject": "Kazoo"
-      },
-      "VHPJSM": {
-        "title": "The Captain Chucklehelm",
-        "headline": "Field dossier: **The Captain Chucklehelm** (VHPJSM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "Serena Williams",
-          "Atticus Finch (fiction)",
-          "Captain America (fiction)",
-          "Princess Diana",
-          "Miyamoto Musashi"
-        ],
-        "primaryObject": "Backpack",
-        "backupObject": "Pillow"
-      },
-      "VHKRCM": {
-        "title": "The Marshal Bootstomp",
-        "headline": "Field dossier: **The Marshal Bootstomp** (VHKRCM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You’re the friend who shows up before the group chat finishes typing.",
-        "celebs": [
-          "Commander Shepard (fiction)",
-          "Wonder Woman (fiction)",
-          "Dwayne Johnson",
-          "Thor (fiction)",
-          "Bruce Lee"
-        ],
-        "primaryObject": "Bandage",
-        "backupObject": "Soap"
-      },
-      "VHPRCM": {
-        "title": "The Captain Trailmix",
-        "headline": "Field dossier: **The Captain Trailmix** (VHPRCM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "A brave heart, a fast stride, and a suspiciously sturdy backpack.",
-        "celebs": [
-          "Dwayne Johnson",
-          "Yoda (fiction)",
-          "Captain America (fiction)",
-          "Aang (fiction)",
-          "Bear Grylls"
-        ],
-        "primaryObject": "Towel",
-        "backupObject": "Stapler"
-      },
-      "VHKJCM": {
-        "title": "The Marshal Snickersteel",
-        "headline": "Field dossier: **The Marshal Snickersteel** (VHKJCM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "Robin Williams",
-          "Jason Momoa",
-          "Harrison Ford",
-          "Samwise Gamgee (fiction)",
-          "Yoda (fiction)"
-        ],
-        "primaryObject": "Blanket",
-        "backupObject": "Spork"
-      },
-      "VHPJCM": {
-        "title": "The Captain Banterbeard",
-        "headline": "Field dossier: **The Captain Banterbeard** (VHPJCM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You’re the friend who shows up before the group chat finishes typing.",
-        "celebs": [
-          "Conan (fiction vibe)",
-          "Jim Carrey",
-          "Moana’s Grandma Tala (fiction vibe)",
-          "Samwise Gamgee (fiction)",
-          "Bruce Lee"
-        ],
-        "primaryObject": "Mug",
-        "backupObject": "Teapot"
-      },
-      "VHKRSA": {
-        "title": "The Sir Luckybuckler",
-        "headline": "Field dossier: **The Sir Luckybuckler** (VHKRSA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "A brave heart, a fast stride, and a suspiciously sturdy backpack.",
-        "celebs": [
-          "Angela Merkel",
-          "Dwight Eisenhower",
-          "Cleopatra",
-          "Atticus Finch (fiction)",
-          "James Bond (fiction)"
-        ],
-        "primaryObject": "Key",
-        "backupObject": "Dice"
-      },
-      "VHPRSA": {
-        "title": "The Captain Coincloak",
-        "headline": "Field dossier: **The Captain Coincloak** (VHPRSA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "Conor McGregor",
-          "Jocko Willink",
-          "Richard Branson",
-          "Athena (myth)",
-          "Marie Curie"
-        ],
-        "primaryObject": "Socks",
-        "backupObject": "Timer"
-      },
-      "VHKJSA": {
-        "title": "The Sir Dicepaladin",
-        "headline": "Field dossier: **The Sir Dicepaladin** (VHKJSA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You’re the friend who shows up before the group chat finishes typing.",
-        "celebs": [
-          "Kobe Bryant",
-          "David Goggins",
-          "Wonder Woman (fiction)",
-          "George Washington",
-          "Nelson Mandela"
-        ],
-        "primaryObject": "Soap",
-        "backupObject": "Kazoo"
-      },
-      "VHPJSA": {
-        "title": "The Captain Hazardheart",
-        "headline": "Field dossier: **The Captain Hazardheart** (VHPJSA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "A brave heart, a fast stride, and a suspiciously sturdy backpack.",
-        "celebs": [
-          "Jack Black",
-          "Jackie Chan",
-          "Joan of Arc",
-          "Conor McGregor",
-          "Simone Biles"
-        ],
-        "primaryObject": "Batteries",
-        "backupObject": "Bottle Cap"
-      },
-      "VHKRCA": {
-        "title": "The Marshal Jackpotboots",
-        "headline": "Field dossier: **The Marshal Jackpotboots** (VHKRCA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "T’Challa (fiction)",
-          "Bruce Lee",
-          "Shakira",
-          "Bear Grylls",
-          "Captain America (fiction)"
-        ],
-        "primaryObject": "Notebook",
-        "backupObject": "Paperclip"
-      },
-      "VHPRCA": {
-        "title": "The Captain Wagerwall",
-        "headline": "Field dossier: **The Captain Wagerwall** (VHPRCA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You’re the friend who shows up before the group chat finishes typing.",
-        "celebs": [
-          "David Bowie",
-          "Bear Grylls",
-          "Joan of Arc",
-          "Lara Croft (fiction)",
-          "Bruce Lee"
-        ],
-        "primaryObject": "Tape",
-        "backupObject": "Stapler"
-      },
-      "VHKJCA": {
-        "title": "The Marshal WhoopsieKnight",
-        "headline": "Field dossier: **The Marshal WhoopsieKnight** (VHKJCA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "A brave heart, a fast stride, and a suspiciously sturdy backpack.",
-        "celebs": [
-          "Bugs Bunny (fiction)",
-          "Doc Brown (fiction)",
-          "Samwise Gamgee (fiction)",
-          "Serena Williams",
-          "Prince"
-        ],
-        "primaryObject": "Scissors",
-        "backupObject": "Spork"
-      },
-      "VHPJCA": {
-        "title": "The Captain Cannonheart",
-        "headline": "Field dossier: **The Captain Cannonheart** (VHPJCA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "If something needs doing *and* someone needs help, you’re already moving.",
-        "celebs": [
-          "Anthony Bourdain",
-          "Steve Irwin",
-          "Rihanna",
-          "Han Solo (fiction)",
-          "Lara Croft (fiction)"
-        ],
-        "primaryObject": "Hat",
-        "backupObject": "Coin"
-      },
-      "WHKRSM": {
-        "title": "The Professor Lanternvale",
-        "headline": "Field dossier: **The Professor Lanternvale** (WHKRSM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "Kobe Bryant",
-          "Yoda (fiction)",
-          "Leslie Knope (fiction)",
-          "Serena Williams",
-          "Hermione Granger (fiction)"
-        ],
-        "primaryObject": "Notebook",
-        "backupObject": "Stapler"
-      },
-      "WHPRSM": {
-        "title": "The Doctor Scrollshield",
-        "headline": "Field dossier: **The Doctor Scrollshield** (WHPRSM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You fight chaos with calm logic and a heroic sense of responsibility.",
-        "celebs": [
-          "Octavia Butler",
-          "Tony Stark (fiction)",
-          "Captain America (fiction)",
-          "Mr. Rogers",
-          "Aang (fiction)"
-        ],
-        "primaryObject": "Pencil",
-        "backupObject": "Eraser"
-      },
-      "WHKJSM": {
-        "title": "The Professor Punstaff",
-        "headline": "Field dossier: **The Professor Punstaff** (WHKJSM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "A protector powered by plans, not panic.",
-        "celebs": [
-          "Weird Al Yankovic",
-          "The Genie (fiction)",
-          "Dalai Lama",
-          "Albert Einstein",
-          "Ada Lovelace"
-        ],
-        "primaryObject": "Pen",
-        "backupObject": "Ruler"
-      },
-      "WHPJSM": {
-        "title": "The Doctor Chucklechart",
-        "headline": "Field dossier: **The Doctor Chucklechart** (WHPJSM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "Neil deGrasse Tyson",
-          "Marcus Aurelius",
-          "Aang (fiction)",
-          "Joan of Arc",
-          "Indiana Jones (fiction)"
-        ],
-        "primaryObject": "Eraser",
-        "backupObject": "Backpack"
-      },
-      "WHKRCM": {
-        "title": "The Professor Wayfinder",
-        "headline": "Field dossier: **The Professor Wayfinder** (WHKRCM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You fight chaos with calm logic and a heroic sense of responsibility.",
-        "celebs": [
-          "Aang (fiction)",
-          "T’Challa (fiction)",
-          "Moana’s Grandma Tala (fiction vibe)",
-          "Anthony Bourdain",
-          "Steve Irwin"
-        ],
-        "primaryObject": "Ruler",
-        "backupObject": "Paperclip"
-      },
-      "WHPRCM": {
-        "title": "The Doctor Compassmind",
-        "headline": "Field dossier: **The Doctor Compassmind** (WHPRCM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "A protector powered by plans, not panic.",
-        "celebs": [
-          "T’Challa (fiction)",
-          "Cleopatra",
-          "Spock (fiction)",
-          "Shakira",
-          "Marcus Aurelius"
-        ],
-        "primaryObject": "Calculator",
-        "backupObject": "Coin"
-      },
-      "WHKJCM": {
-        "title": "The Professor QuipQuill",
-        "headline": "Field dossier: **The Professor QuipQuill** (WHKJCM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "Steve Irwin",
-          "Anthony Bourdain",
-          "Jim Carrey",
-          "Princess Diana",
-          "Jean‑Luc Picard (fiction)"
-        ],
-        "primaryObject": "Glasses",
-        "backupObject": "Towel"
-      },
-      "WHPJCM": {
-        "title": "The Doctor JesterScholar",
-        "headline": "Field dossier: **The Doctor JesterScholar** (WHPJCM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You fight chaos with calm logic and a heroic sense of responsibility.",
-        "celebs": [
-          "Lara Croft (fiction)",
-          "Ernest Hemingway",
-          "Malcolm X",
-          "Captain America (fiction)",
-          "Neil deGrasse Tyson"
-        ],
-        "primaryObject": "Bookmark",
-        "backupObject": "Hat"
-      },
-      "WHKRSA": {
-        "title": "The Professor LuckyTheory",
-        "headline": "Field dossier: **The Professor LuckyTheory** (WHKRSA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "A protector powered by plans, not panic.",
-        "celebs": [
-          "Commander Shepard (fiction)",
-          "Octavia Butler",
-          "Dwight Eisenhower",
-          "Albert Einstein",
-          "James Bond (fiction)"
-        ],
-        "primaryObject": "Paperclip",
-        "backupObject": "Stapler"
-      },
-      "WHPRSA": {
-        "title": "The Doctor PlotTwist",
-        "headline": "Field dossier: **The Doctor PlotTwist** (WHPRSA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "T’Challa (fiction)",
-          "Octavia Butler",
-          "Hermione Granger (fiction)",
-          "David Bowie",
-          "Samwise Gamgee (fiction)"
-        ],
-        "primaryObject": "Binder Clip",
-        "backupObject": "Eraser"
-      },
-      "WHKJSA": {
-        "title": "The Professor DiceSage",
-        "headline": "Field dossier: **The Professor DiceSage** (WHKJSA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You fight chaos with calm logic and a heroic sense of responsibility.",
-        "celebs": [
-          "Jean‑Luc Picard (fiction)",
-          "The Genie (fiction)",
-          "Jocko Willink",
-          "Mr. Miyagi (fiction)",
-          "Sherlock Holmes (fiction)"
-        ],
-        "primaryObject": "Stapler",
-        "backupObject": "Ruler"
-      },
-      "WHPJSA": {
-        "title": "The Doctor RiskyReason",
-        "headline": "Field dossier: **The Doctor RiskyReason** (WHPJSA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "A protector powered by plans, not panic.",
-        "celebs": [
-          "Miyamoto Musashi",
-          "Jocko Willink",
-          "Han Solo (fiction)",
-          "Weird Al Yankovic",
-          "Mr. Rogers"
-        ],
-        "primaryObject": "Timer",
-        "backupObject": "Backpack"
-      },
-      "WHKRCA": {
-        "title": "The Professor TrailLogic",
-        "headline": "Field dossier: **The Professor TrailLogic** (WHKRCA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Feels responsible for the group’s wellbeing",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "Can become the unofficial therapist / fixer",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "Queen Elizabeth II",
-          "David Bowie",
-          "Evel Knievel",
-          "Commander Shepard (fiction)",
-          "Octavia Butler"
-        ],
-        "primaryObject": "Marker",
-        "backupObject": "Paperclip"
-      },
-      "WHPRCA": {
-        "title": "The Doctor RebelArchive",
-        "headline": "Field dossier: **The Doctor RebelArchive** (WHPRCA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Shows up when it counts",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Takes failures personally",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You fight chaos with calm logic and a heroic sense of responsibility.",
-        "celebs": [
-          "Keanu Reeves",
-          "David Bowie",
-          "T’Challa (fiction)",
-          "Michelle Obama",
-          "Richard Branson"
-        ],
-        "primaryObject": "Book",
-        "backupObject": "Coin"
-      },
-      "WHKJCA": {
-        "title": "The Professor OddOracle",
-        "headline": "Field dossier: **The Professor OddOracle** (WHKJCA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Acts with a strong moral backbone",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "May struggle to ask for help",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "A protector powered by plans, not panic.",
-        "celebs": [
-          "Spock (fiction)",
-          "Dwight Eisenhower",
-          "Samwise Gamgee (fiction)",
-          "Bugs Bunny (fiction)",
-          "Neil deGrasse Tyson"
-        ],
-        "primaryObject": "Envelope",
-        "backupObject": "Towel"
-      },
-      "WHPJCA": {
-        "title": "The Doctor QuestEquation",
-        "headline": "Field dossier: **The Doctor QuestEquation** (WHPJCA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Protective and dependable",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Over-carries responsibility",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You don’t just save the day — you diagram it first.",
-        "celebs": [
-          "David Bowie",
-          "Albert Einstein",
-          "Conor McGregor",
-          "Geralt of Rivia (fiction)",
-          "Prince"
-        ],
-        "primaryObject": "Index Card",
-        "backupObject": "Hat"
-      },
-      "VGKRSM": {
-        "title": "The Brawler Ruckusbeard",
-        "headline": "Field dossier: **The Brawler Ruckusbeard** (VGKRSM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Jocko Willink",
-          "Yoda (fiction)",
-          "Mr. Rogers",
-          "Jack Sparrow (fiction)",
-          "Gandalf (fiction)"
-        ],
-        "primaryObject": "Duct Tape",
-        "backupObject": "Pencil"
-      },
-      "VGPRSM": {
-        "title": "The Captain Bonkbeard",
-        "headline": "Field dossier: **The Captain Bonkbeard** (VGPRSM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "If chaos is happening, you’re either stopping it or starting it. Unclear.",
-        "celebs": [
-          "Ernest Hemingway",
-          "Loki (fiction)",
-          "Octavia Butler",
-          "Mark Twain",
-          "Simone Biles"
-        ],
-        "primaryObject": "Spork",
-        "backupObject": "Duct Tape"
-      },
-      "VGKJSM": {
-        "title": "The Gremlin BattleGiggles",
-        "headline": "Field dossier: **The Gremlin BattleGiggles** (VGKJSM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You kick down doors and call it ‘research.’",
-        "celebs": [
-          "Loki (fiction)",
-          "Marcus Aurelius",
-          "Bugs Bunny (fiction)",
-          "Mark Twain",
-          "Wonder Woman (fiction)"
-        ],
-        "primaryObject": "Spoon",
-        "backupObject": "Clipboard"
-      },
-      "VGPJSM": {
-        "title": "The Buccaneer Whoopsbeard",
-        "headline": "Field dossier: **The Buccaneer Whoopsbeard** (VGPJSM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Jack Black",
-          "Dalai Lama",
-          "Loki (fiction)",
-          "Cristiano Ronaldo",
-          "Kobe Bryant"
-        ],
-        "primaryObject": "Fork",
-        "backupObject": "Notebook"
-      },
-      "VGKRCM": {
-        "title": "The Rowdy Walloper",
-        "headline": "Field dossier: **The Rowdy Walloper** (VGKRCM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "If chaos is happening, you’re either stopping it or starting it. Unclear.",
-        "celebs": [
-          "Bear Grylls",
-          "Wonder Woman (fiction)",
-          "Keanu Reeves",
-          "Cleopatra",
-          "Gandalf (fiction)"
-        ],
-        "primaryObject": "Yo-yo",
-        "backupObject": "Key"
-      },
-      "VGPRCM": {
-        "title": "The Bandit Trailbonk",
-        "headline": "Field dossier: **The Bandit Trailbonk** (VGPRCM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You kick down doors and call it ‘research.’",
-        "celebs": [
-          "Socrates",
-          "Oscar Wilde",
-          "Geralt of Rivia (fiction)",
-          "Teddy Roosevelt",
-          "Commander Shepard (fiction)"
-        ],
-        "primaryObject": "Slinky",
-        "backupObject": "Bottle Cap"
-      },
-      "VGKJCM": {
-        "title": "The Outlaw Snickerpunch",
-        "headline": "Field dossier: **The Outlaw Snickerpunch** (VGKJCM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Willy Wonka (fiction)",
-          "Sacha Baron Cohen",
-          "Jack Sparrow (fiction)",
-          "Lara Croft (fiction)",
-          "Moana’s Grandma Tala (fiction vibe)"
-        ],
-        "primaryObject": "Rubber Band",
-        "backupObject": "Folder"
-      },
-      "VGPJCM": {
-        "title": "The Captain Chaosboots",
-        "headline": "Field dossier: **The Captain Chaosboots** (VGPJCM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "If chaos is happening, you’re either stopping it or starting it. Unclear.",
-        "celebs": [
-          "Wonder Woman (fiction)",
-          "The Genie (fiction)",
-          "Bear Grylls",
-          "Richard Branson",
-          "Moana’s Grandma Tala (fiction vibe)"
-        ],
-        "primaryObject": "Paperclip",
-        "backupObject": "Hat"
-      },
-      "VGKRSA": {
-        "title": "The Bruiser LuckyBonk",
-        "headline": "Field dossier: **The Bruiser LuckyBonk** (VGKRSA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You kick down doors and call it ‘research.’",
-        "celebs": [
-          "David Bowie",
-          "Deadpool (fiction)",
-          "Evel Knievel",
-          "Cristiano Ronaldo",
-          "Marie Curie"
-        ],
-        "primaryObject": "Dice",
-        "backupObject": "Pencil"
-      },
-      "VGPRSA": {
-        "title": "The Raider CoinCrusher",
-        "headline": "Field dossier: **The Raider CoinCrusher** (VGPRSA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Thor (fiction)",
-          "Cleopatra",
-          "Indiana Jones (fiction)",
-          "Commander Shepard (fiction)",
-          "Serena Williams"
-        ],
-        "primaryObject": "Coin",
-        "backupObject": "Duct Tape"
-      },
-      "VGKJSA": {
-        "title": "The Gremlin DiceFists",
-        "headline": "Field dossier: **The Gremlin DiceFists** (VGKJSA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "If chaos is happening, you’re either stopping it or starting it. Unclear.",
-        "celebs": [
-          "Mark Twain",
-          "David Bowie",
-          "Sacha Baron Cohen",
-          "Bugs Bunny (fiction)",
-          "George Washington"
-        ],
-        "primaryObject": "Balloon",
-        "backupObject": "Clipboard"
-      },
-      "VGPJSA": {
-        "title": "The Daredevil OopsMcGee",
-        "headline": "Field dossier: **The Daredevil OopsMcGee** (VGPJSA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You kick down doors and call it ‘research.’",
-        "celebs": [
-          "Doc Brown (fiction)",
-          "Malcolm X",
-          "Jackie Chan",
-          "Bruce Lee",
-          "Marie Curie"
-        ],
-        "primaryObject": "Kazoo",
-        "backupObject": "Notebook"
-      },
-      "VGKRCA": {
-        "title": "The Bandit JackpotBrawl",
-        "headline": "Field dossier: **The Bandit JackpotBrawl** (VGKRCA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Moves fast when action is required",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can act before thinking",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Deadpool (fiction)",
-          "Loki (fiction)",
-          "Jason Momoa",
-          "Dwayne Johnson",
-          "Harrison Ford"
-        ],
-        "primaryObject": "Sticker",
-        "backupObject": "Key"
-      },
-      "VGPRCA": {
-        "title": "The Raider WagerWrecker",
-        "headline": "Field dossier: **The Raider WagerWrecker** (VGPRCA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Leads with courage and momentum",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May confuse motion with progress",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "If chaos is happening, you’re either stopping it or starting it. Unclear.",
-        "celebs": [
-          "Conor McGregor",
-          "Amelia Earhart",
-          "Ernest Hemingway",
-          "Bugs Bunny (fiction)",
-          "Simone Biles"
-        ],
-        "primaryObject": "Glitter",
-        "backupObject": "Bottle Cap"
-      },
-      "VGKJCA": {
-        "title": "The Gremlin WhoopeeWallop",
-        "headline": "Field dossier: **The Gremlin WhoopeeWallop** (VGKJCA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Learns best by doing (often immediately)",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Impatient with slow decisions",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You kick down doors and call it ‘research.’",
-        "celebs": [
-          "Robin Williams",
-          "Deadpool (fiction)",
-          "James Bond (fiction)",
-          "Mark Twain",
-          "Serena Williams"
-        ],
-        "primaryObject": "Bottle Cap",
-        "backupObject": "Folder"
-      },
-      "VGPJCA": {
-        "title": "The Captain RiotRagnar",
-        "headline": "Field dossier: **The Captain RiotRagnar** (VGPJCA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Brings decisive ‘let’s go’ energy",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Can steamroll quieter voices without meaning to",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You’re a force of nature with a sense of humor and no inside voice.",
-        "celebs": [
-          "Mark Twain",
-          "Jack Black",
-          "Indiana Jones (fiction)",
-          "Anthony Bourdain",
-          "Robin Williams"
-        ],
-        "primaryObject": "String",
-        "backupObject": "Hat"
-      },
-      "WGKRSM": {
-        "title": "The Doctor Loophole",
-        "headline": "Field dossier: **The Doctor Loophole** (WGKRSM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Aang (fiction)",
-          "Moana’s Grandma Tala (fiction vibe)",
-          "Mark Twain",
-          "Marcus Aurelius",
-          "Octavia Butler"
-        ],
-        "primaryObject": "Stapler",
-        "backupObject": "Mug"
-      },
-      "WGPRSM": {
-        "title": "The Professor SneakSpell",
-        "headline": "Field dossier: **The Professor SneakSpell** (WGPRSM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You solve problems sideways, with style and a tiny bit of mischief.",
-        "celebs": [
-          "Teddy Roosevelt",
-          "Marie Curie",
-          "Commander Shepard (fiction)",
-          "Yoda (fiction)",
-          "Dalai Lama"
-        ],
-        "primaryObject": "Scissors",
-        "backupObject": "Timer"
-      },
-      "WGKJSM": {
-        "title": "The Doctor PunMechanic",
-        "headline": "Field dossier: **The Doctor PunMechanic** (WGKJSM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You’re a strategist… with gremlin upgrades.",
-        "celebs": [
-          "Marie Curie",
-          "Robin Williams",
-          "Aang (fiction)",
-          "Bugs Bunny (fiction)",
-          "Spock (fiction)"
-        ],
-        "primaryObject": "Tape",
-        "backupObject": "Kazoo"
-      },
-      "WGPJSM": {
-        "title": "The Professor TrickDiagram",
-        "headline": "Field dossier: **The Professor TrickDiagram** (WGPJSM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Jack Sparrow (fiction)",
-          "Jack Black",
-          "David Goggins",
-          "The Genie (fiction)",
-          "Indiana Jones (fiction)"
-        ],
-        "primaryObject": "Glue Stick",
-        "backupObject": "Pillow"
-      },
-      "WGKRCM": {
-        "title": "The Doctor SideQuest",
-        "headline": "Field dossier: **The Doctor SideQuest** (WGKRCM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Steady, patient, and emotionally grounded",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May hesitate to take bold chances",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You solve problems sideways, with style and a tiny bit of mischief.",
-        "celebs": [
-          "Mr. Rogers",
-          "Hermione Granger (fiction)",
-          "Lara Croft (fiction)",
-          "Moana’s Grandma Tala (fiction vibe)",
-          "Albert Einstein"
-        ],
-        "primaryObject": "Screwdriver",
-        "backupObject": "Soap"
-      },
-      "WGPRCM": {
-        "title": "The Professor BackdoorPlan",
-        "headline": "Field dossier: **The Professor BackdoorPlan** (WGPRCM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Good at restraint and long-term thinking",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Can seem hard to read",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You’re a strategist… with gremlin upgrades.",
-        "celebs": [
-          "Moana’s Grandma Tala (fiction vibe)",
-          "Keanu Reeves",
-          "Ada Lovelace",
-          "Richard Branson",
-          "Hermione Granger (fiction)"
-        ],
-        "primaryObject": "Wrench",
-        "backupObject": "Stapler"
-      },
-      "WGKJCM": {
-        "title": "The Doctor QuirkTactician",
-        "headline": "Field dossier: **The Doctor QuirkTactician** (WGKJCM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Doesn’t panic easily",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes avoids conflict too long",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Jack Black",
-          "Sacha Baron Cohen",
-          "Neil deGrasse Tyson",
-          "Aang (fiction)",
-          "Angela Merkel"
-        ],
-        "primaryObject": "Light Bulb",
-        "backupObject": "Spork"
-      },
-      "WGPJCM": {
-        "title": "The Professor WinkWizard",
-        "headline": "Field dossier: **The Professor WinkWizard** (WGPJCM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Calm under pressure",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can suppress feelings too much",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You solve problems sideways, with style and a tiny bit of mischief.",
-        "celebs": [
-          "Harrison Ford",
-          "Socrates",
-          "Yoda (fiction)",
-          "Sherlock Holmes (fiction)",
-          "Neil deGrasse Tyson"
-        ],
-        "primaryObject": "Remote",
-        "backupObject": "Teapot"
-      },
-      "WGKRSA": {
-        "title": "The Doctor LuckyScheme",
-        "headline": "Field dossier: **The Doctor LuckyScheme** (WGKRSA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Disciplined and consistent",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Perfectionism can slow you down",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "You’re a strategist… with gremlin upgrades.",
-        "celebs": [
-          "T’Challa (fiction)",
-          "Bugs Bunny (fiction)",
-          "Loki (fiction)",
-          "Willy Wonka (fiction)",
-          "Teddy Roosevelt"
-        ],
-        "primaryObject": "Batteries",
-        "backupObject": "Dice"
-      },
-      "WGPRSA": {
-        "title": "The Professor CoinCaper",
-        "headline": "Field dossier: **The Professor CoinCaper** (WGPRSA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Builds mastery through practice",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "Can be hard on yourself",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Athena (myth)",
-          "Indiana Jones (fiction)",
-          "Kobe Bryant",
-          "Marie Curie",
-          "Commander Shepard (fiction)"
-        ],
-        "primaryObject": "Paperclip",
-        "backupObject": "Timer"
-      },
-      "WGKJSA": {
-        "title": "The Doctor DiceTheorem",
-        "headline": "Field dossier: **The Doctor DiceTheorem** (WGKJSA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "High standards and strong focus",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "May over-value ‘the right way’",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You solve problems sideways, with style and a tiny bit of mischief.",
-        "celebs": [
-          "Gandalf (fiction)",
-          "Leslie Knope (fiction)",
-          "Ada Lovelace",
-          "Neil deGrasse Tyson",
-          "Sherlock Holmes (fiction)"
-        ],
-        "primaryObject": "Rubber Band",
-        "backupObject": "Kazoo"
-      },
-      "WGPJSA": {
-        "title": "The Professor ChaosProof",
-        "headline": "Field dossier: **The Professor ChaosProof** (WGPJSA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Reliable follow-through",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist improvisation",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "You’re a strategist… with gremlin upgrades.",
-        "celebs": [
-          "Kobe Bryant",
-          "Tony Stark (fiction)",
-          "Weird Al Yankovic",
-          "Ada Lovelace",
-          "Willy Wonka (fiction)"
-        ],
-        "primaryObject": "Ruler",
-        "backupObject": "Bottle Cap"
-      },
-      "WGKRCA": {
-        "title": "The Doctor HackMagician",
-        "headline": "Field dossier: **The Doctor HackMagician** (WGKRCA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Sees patterns and thinks a few moves ahead",
-          "Adapts quickly when the plan collapses",
-          "Good at creating clarity and standards",
-          "Owns decisions and consequences",
-          "Adaptable and practical",
-          "Learns through experimentation",
-          "Excellent at building structure that actually gets used"
-        ],
-        "pitfalls": [
-          "Can overthink or delay action",
-          "May rationalize impulsive choices",
-          "Can be judgmental about ‘messy’ people",
-          "Sometimes forgets to celebrate wins",
-          "Can skip fundamentals",
-          "May overlook consequences",
-          "Can become the ‘process police’ when stressed"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Jackie Chan",
-          "Bear Grylls",
-          "Lara Croft (fiction)",
-          "David Bowie",
-          "Willy Wonka (fiction)"
-        ],
-        "primaryObject": "Calculator",
-        "backupObject": "Paperclip"
-      },
-      "WGPRCA": {
-        "title": "The Professor RuleBender",
-        "headline": "Field dossier: **The Professor RuleBender** (WGPRCA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
-        "strengths": [
-          "Plans calmly under pressure",
-          "Finds shortcuts and hidden angles",
-          "Finds alternate routes quickly",
-          "Strategic, serious, and outcome-focused",
-          "Learns through real-world experience",
-          "Can seize opportunities quickly",
-          "Natural reformer: breaks bad systems and replaces them with better ones"
-        ],
-        "pitfalls": [
-          "May get stuck in ‘one more draft’ mode",
-          "Can be inconsistent with follow-through",
-          "Can treat constraints like personal attacks",
-          "Can be too intense or controlling",
-          "May get bored with repetition",
-          "Risk of burnout from constant intensity",
-          "Can bulldoze rules *and* feelings to get results"
-        ],
-        "oneLiner": "You solve problems sideways, with style and a tiny bit of mischief.",
-        "celebs": [
-          "Prince",
-          "Evel Knievel",
-          "Bugs Bunny (fiction)",
-          "Oscar Wilde",
-          "Athena (myth)"
-        ],
-        "primaryObject": "Notebook",
-        "backupObject": "Stapler"
-      },
-      "WGKJCA": {
-        "title": "The Doctor NoodleTheory",
-        "headline": "Field dossier: **The Doctor NoodleTheory** (WGKJCA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Turns messy problems into understandable systems",
-          "Keeps things interesting (intentionally or not)",
-          "Builds structure people can rely on",
-          "Playful creativity and quick wit",
-          "Comfortable winging it",
-          "Thrives in uncertainty",
-          "Makes structure feel human (and occasionally hilarious)"
-        ],
-        "pitfalls": [
-          "Can seem detached while processing",
-          "Sometimes ‘wins’ in a way that creates extra cleanup",
-          "Can get rigid about process",
-          "May struggle with sustained seriousness",
-          "Sometimes improvises when planning would help",
-          "Sometimes gambles when patience would win",
-          "May joke your way out of uncomfortable conversations"
-        ],
-        "oneLiner": "You’re a strategist… with gremlin upgrades.",
-        "celebs": [
-          "James Bond (fiction)",
-          "Jean‑Luc Picard (fiction)",
-          "Marie Curie",
-          "The Genie (fiction)",
-          "Geralt of Rivia (fiction)"
-        ],
-        "primaryObject": "Marker",
-        "backupObject": "Spork"
-      },
-      "WGPJCA": {
-        "title": "The Professor GoblinGenius",
-        "headline": "Field dossier: **The Professor GoblinGenius** (WGPJCA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
-        "strengths": [
-          "Learns fast through research and reflection",
-          "Resourceful and clever",
-          "Improvises well when plans change",
-          "Disrupts stale patterns (often for the better)",
-          "Handles uncertainty with grit",
-          "Bold and comfortable with risk",
-          "Creative rebel who turns chaos into momentum"
-        ],
-        "pitfalls": [
-          "Sometimes optimizes for ‘correct’ over ‘kind’",
-          "Can chase mischief when bored",
-          "May skip communication in the name of speed",
-          "Sometimes pushes buttons for sport",
-          "Can resist feedback that feels controlling",
-          "Can chase adrenaline or novelty",
-          "Can dodge responsibility if it gets boring"
-        ],
-        "oneLiner": "Your brain is a maze and somehow you always find the exit.",
-        "celebs": [
-          "Willy Wonka (fiction)",
-          "James Bond (fiction)",
-          "Evel Knievel",
-          "Sherlock Holmes (fiction)",
-          "Malcolm X"
-        ],
-        "primaryObject": "Key",
-        "backupObject": "Coin"
-      }
+  "disclaimer": "This is entertainment. Not science. Not therapy. Not a legally binding reason to email your boss “sorry, I’m a Goblin.”",
+  "celebsNote": "‘Famous vibe matches’ are playful comparisons, not claims about anyone’s real personality.",
+  "typeWriteups": {
+    "VHKRSM": {
+      "title": "The Sir Shieldington",
+      "headline": "Field dossier: **The Sir Shieldington** (VHKRSM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "At your best, Fire Extinguisher means your default setting is brave, practical, and deeply responsible to the crew.",
+        "Fire Extinguisher / Contain: Stop a small problem from becoming a legend.",
+        "Fire Extinguisher / Suppress: Shut down emergencies fast.",
+        "At your best, Fire Extinguisher means you stay steady under pressure and finish what you start.",
+        "With Fire Extinguisher, you bring mission clarity and operational discipline."
+      ],
+      "pitfalls": [
+        "Fire Extinguisher shadow mode: you can defend process even after context changes.",
+        "Fire Extinguisher shadow Suppress: this strength can get overused.",
+        "You may jump into fix-it mode before asking what support people actually want, which is the classic Fire Extinguisher overclock.",
+        "Fire Extinguisher shadow Contain: this strength can get overused.",
+        "You may treat consistency as a shield against necessary change, which is the classic Fire Extinguisher overclock."
+      ],
+      "oneLiner": "Fire Extinguisher walks into the room and sets the tone: action-first hero instincts. You trust systems that survive contact with reality. You close loops with calm discipline.",
+      "celebs": [
+        "Socrates",
+        "Plato",
+        "Taylor Swift",
+        "Sherlock Holmes",
+        "Hermione Granger"
+      ],
+      "primaryObject": "Water Bottle",
+      "backupObject": "Mug"
+    },
+    "VHPRSM": {
+      "title": "The Captain Ironbeard",
+      "headline": "Field dossier: **The Captain Ironbeard** (VHPRSM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "Water Bottle style: you are self-directed, focused, and hard to distract once committed.",
+        "Hydrate on Water Bottle: Reduce drama damage over time.",
+        "You are calm, reliable, and consistent in the endgame, and Water Bottle makes that visible.",
+        "Refill on Water Bottle: Restore energy, focus, and functionality.",
+        "You step forward first, then make sure no one gets left behind, and Water Bottle makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Water Bottle tends toward this: you can carry everyone else until your own tank is empty.",
+        "Under strain, Water Bottle can mean you may guard independence even when shared process would help.",
+        "Hydrate overdrive on Water Bottle: nuance can get flattened.",
+        "Refill overdrive on Water Bottle: nuance can get flattened.",
+        "When overloaded, Water Bottle tends toward this: pressure can make you clamp down and over-control the process."
+      ],
+      "oneLiner": "Water Bottle archetype unlocked: frontline protector behavior. You do not need much supervision to deliver. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Aristotle",
+        "Hypatia",
+        "Beyonce",
+        "Harry Potter",
+        "Ron Weasley"
+      ],
+      "primaryObject": "Flashlight",
+      "backupObject": "Timer"
+    },
+    "VHKJSM": {
+      "title": "The Sir Jokesalot",
+      "headline": "Field dossier: **The Sir Jokesalot** (VHKJSM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "At your best, Lunchbox means you organize well without becoming rigid, and keep morale alive.",
+        "Lunchbox uses Save to keep essentials protected until needed.",
+        "With Lunchbox, you step forward first, then make sure no one gets left behind.",
+        "Lunchbox uses Pack to prepare for the day like a pro.",
+        "With Lunchbox, you are calm, reliable, and consistent in the endgame."
+      ],
+      "pitfalls": [
+        "You may break your own rules after overcompensating for structure, which is the classic Lunchbox overclock.",
+        "Lunchbox shadow mode: you can carry everyone else until your own tank is empty.",
+        "When Lunchbox pushes Save too hard, timing slips.",
+        "When Lunchbox pushes Pack too hard, timing slips.",
+        "Lunchbox shadow mode: pressure can make you clamp down and over-control the process."
+      ],
+      "oneLiner": "Lunchbox energy: frontline protector behavior. You can organize the room and still keep it lively. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Confucius",
+        "Laozi",
+        "Rihanna",
+        "Katniss Everdeen",
+        "Peeta Mellark"
+      ],
+      "primaryObject": "Umbrella",
+      "backupObject": "Kazoo"
+    },
+    "VHPJSM": {
+      "title": "The Captain Chucklehelm",
+      "headline": "Field dossier: **The Captain Chucklehelm** (VHPJSM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "Mug style: your unconventional choices often turn out exactly right.",
+        "You bring direct action with a protective streak that people trust when pressure spikes, and Mug makes that visible.",
+        "You keep quality high even when timelines tighten, and Mug makes that visible.",
+        "Warm Up on Mug: Boost morale and stabilize the vibe.",
+        "Hold on Mug: Contain chaos (and liquids) without leaking."
+      ],
+      "pitfalls": [
+        "Under strain, Mug can mean follow-through can slip behind improvisation in sprint mode.",
+        "Hold overdrive on Mug: nuance can get flattened.",
+        "When overloaded, Mug tends toward this: you can become rigid when plans need a softer adjustment.",
+        "Warm Up overdrive on Mug: nuance can get flattened.",
+        "When overloaded, Mug tends toward this: urgency can make you push too hard and call it leadership."
+      ],
+      "oneLiner": "Mug archetype unlocked: courageous, hands-on responsibility. You improvise in motion and adapt fast. You finish strong and keep outcomes stable.",
+      "celebs": [
+        "Sun Tzu",
+        "Ashoka",
+        "Lady Gaga",
+        "Frodo Baggins",
+        "Samwise Gamgee"
+      ],
+      "primaryObject": "Backpack",
+      "backupObject": "Pillow"
+    },
+    "VHKRCM": {
+      "title": "The Marshal Bootstomp",
+      "headline": "Field dossier: **The Marshal Bootstomp** (VHKRCM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "You bring mission clarity and operational discipline, and Hammer makes that visible.",
+        "With Hammer, Nail Down means you lock the plan in place so it stops drifting.",
+        "Hammer style: you blend creativity with restraint so experiments stay practical.",
+        "Hammer style: your default setting is brave, practical, and deeply responsible to the crew.",
+        "With Hammer, Smash means you solve directly. Ask questions later."
+      ],
+      "pitfalls": [
+        "When overloaded, Hammer tends toward this: you can defend process even after context changes.",
+        "Under strain, Hammer can mean you may protect flexibility so much that final decisions drift.",
+        "Hammer at 110% (Smash): helpful in crisis, rough in daily pacing.",
+        "Under strain, Hammer can mean you may jump into fix-it mode before asking what support people actually want.",
+        "Hammer at 110% (Nail Down): helpful in crisis, rough in daily pacing."
+      ],
+      "oneLiner": "The Hammer profile in one line: action-first hero instincts. You trust systems that survive contact with reality. You balance creativity with practical restraint.",
+      "celebs": [
+        "Julius Caesar",
+        "Cleopatra",
+        "Adele",
+        "Aragorn",
+        "Gandalf"
+      ],
+      "primaryObject": "Bandage",
+      "backupObject": "Soap"
+    },
+    "VHPRCM": {
+      "title": "The Captain Trailmix",
+      "headline": "Field dossier: **The Captain Trailmix** (VHPRCM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "Wrench style: you can lead from the edge by staying independent and mission-sharp.",
+        "Torque on Wrench: Apply leverage where it counts.",
+        "You innovate without losing grip on risk and consequence, and Wrench makes that visible.",
+        "You bring direct action with a protective streak that people trust when pressure spikes, and Wrench makes that visible.",
+        "Clamp on Wrench: Hold the line when things start slipping."
+      ],
+      "pitfalls": [
+        "When overloaded, Wrench tends toward this: urgency can make you push too hard and call it leadership.",
+        "Clamp overdrive on Wrench: nuance can get flattened.",
+        "Torque overdrive on Wrench: nuance can get flattened.",
+        "When overloaded, Wrench tends toward this: you can keep refining options instead of committing to one path.",
+        "Under strain, Wrench can mean frustration can make you disengage instead of re-aligning expectations."
+      ],
+      "oneLiner": "Your card reads Wrench for a reason: courageous, hands-on responsibility. You value autonomy and execute with focus. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Hannibal Barca",
+        "Marcus Aurelius",
+        "Billie Eilish",
+        "Legolas",
+        "Leia Organa"
+      ],
+      "primaryObject": "Towel",
+      "backupObject": "Stapler"
+    },
+    "VHKJCM": {
+      "title": "The Marshal Snickersteel",
+      "headline": "Field dossier: **The Marshal Snickersteel** (VHKJCM). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "At your best, Measuring Tape means you can hold standards and still keep the room playful.",
+        "With Measuring Tape, you innovate without losing grip on risk and consequence.",
+        "Measuring Tape uses Measure to get the facts before the feelings.",
+        "With Measuring Tape, you bring direct action with a protective streak that people trust when pressure spikes.",
+        "Measuring Tape uses Mark to set boundaries everyone can see."
+      ],
+      "pitfalls": [
+        "Measuring Tape shadow mode: urgency can make you push too hard and call it leadership.",
+        "When Measuring Tape pushes Measure too hard, timing slips.",
+        "Measuring Tape shadow mode: you can keep refining options instead of committing to one path.",
+        "When Measuring Tape pushes Mark too hard, timing slips.",
+        "Jokes can arrive before clarity and muddy your point in conflict, which is the classic Measuring Tape overclock."
+      ],
+      "oneLiner": "Measuring Tape is your mascot because courageous, hands-on responsibility. You keep standards high without killing the fun. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Murasaki Shikibu",
+        "Ibn Sina",
+        "Dua Lipa",
+        "Luke Skywalker",
+        "Han Solo"
+      ],
+      "primaryObject": "Blanket",
+      "backupObject": "Spork"
+    },
+    "VHPJCM": {
+      "title": "The Captain Banterbeard",
+      "headline": "Field dossier: **The Captain Banterbeard** (VHPJCM). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "Your default setting is brave, practical, and deeply responsible to the crew, and Tongs makes that visible.",
+        "You blend creativity with restraint so experiments stay practical, and Tongs makes that visible.",
+        "Grab on Tongs: Snatch anything without committing to it emotionally.",
+        "Tongs style: you adapt under pressure and pivot without drama.",
+        "Flip on Tongs: Turn the situation over fast and keep it moving."
+      ],
+      "pitfalls": [
+        "Flip overdrive on Tongs: nuance can get flattened.",
+        "When overloaded, Tongs tends toward this: you may protect flexibility so much that final decisions drift.",
+        "Under strain, Tongs can mean you may chase side quests while core work waits.",
+        "When overloaded, Tongs tends toward this: you may jump into fix-it mode before asking what support people actually want.",
+        "Grab overdrive on Tongs: nuance can get flattened."
+      ],
+      "oneLiner": "Your card reads Tongs for a reason: action-first hero instincts. You stay sharp in messy, fluid environments. You balance creativity with practical restraint.",
+      "celebs": [
+        "Ibn Khaldun",
+        "Hildegard of Bingen",
+        "Ariana Grande",
+        "Anakin Skywalker",
+        "Obi-Wan Kenobi"
+      ],
+      "primaryObject": "Mug",
+      "backupObject": "Teapot"
+    },
+    "VHKRSA": {
+      "title": "The Sir Luckybuckler",
+      "headline": "Field dossier: **The Sir Luckybuckler** (VHKRSA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Oven Mitt style: you bring mission clarity and operational discipline.",
+        "You are disciplined and daring, dangerous in the best way, and Oven Mitt makes that visible.",
+        "Heat Shield on Oven Mitt: Handle hot situations without taking damage.",
+        "Grip on Oven Mitt: Hold steady when things get slippery.",
+        "Your default setting is brave, practical, and deeply responsible to the crew, and Oven Mitt makes that visible."
+      ],
+      "pitfalls": [
+        "Grip overdrive on Oven Mitt: nuance can get flattened.",
+        "When overloaded, Oven Mitt tends toward this: you may jump into fix-it mode before asking what support people actually want.",
+        "When overloaded, Oven Mitt tends toward this: you may double down so hard that recovery gets overlooked.",
+        "Heat Shield overdrive on Oven Mitt: nuance can get flattened.",
+        "Under strain, Oven Mitt can mean you can defend process even after context changes."
+      ],
+      "oneLiner": "Your card reads Oven Mitt for a reason: action-first hero instincts. You trust systems that survive contact with reality. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Genghis Khan",
+        "Rumi",
+        "Kendrick Lamar",
+        "Ahsoka Tano",
+        "Darth Vader"
+      ],
+      "primaryObject": "Key",
+      "backupObject": "Dice"
+    },
+    "VHPRSA": {
+      "title": "The Captain Coincloak",
+      "headline": "Field dossier: **The Captain Coincloak** (VHPRSA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "With Spoon, Stir means you keep things mixed and prevent emotional clumps.",
+        "Spoon style: your default setting is brave, practical, and deeply responsible to the crew.",
+        "You do your best work with autonomy, clear stakes, and room to execute, and Spoon makes that visible.",
+        "Spoon style: you are disciplined and daring, dangerous in the best way.",
+        "With Spoon, Scoop means you collect the good stuff and bring it back to the team."
+      ],
+      "pitfalls": [
+        "Under strain, Spoon can mean you may jump into fix-it mode before asking what support people actually want.",
+        "Spoon at 110% (Scoop): helpful in crisis, rough in daily pacing.",
+        "Spoon at 110% (Stir): helpful in crisis, rough in daily pacing.",
+        "Under strain, Spoon can mean you may double down so hard that recovery gets overlooked.",
+        "When overloaded, Spoon tends toward this: you can become so self-reliant that collaboration feels optional."
+      ],
+      "oneLiner": "The Spoon profile in one line: action-first hero instincts. You operate best with freedom and clear stakes. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Leonardo da Vinci",
+        "Michelangelo",
+        "Drake",
+        "Din Djarin",
+        "Grogu"
+      ],
+      "primaryObject": "Socks",
+      "backupObject": "Timer"
+    },
+    "VHKJSA": {
+      "title": "The Sir Dicepaladin",
+      "headline": "Field dossier: **The Sir Dicepaladin** (VHKJSA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Fork style: you combine structure with wit, which makes your leadership easy to follow.",
+        "Pick Up on Fork: Lift the pieces and keep going.",
+        "Pierce on Fork: Get straight to the point.",
+        "Your default setting is brave, practical, and deeply responsible to the crew, and Fork makes that visible.",
+        "You are disciplined and daring, dangerous in the best way, and Fork makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Fork tends toward this: you may jump into fix-it mode before asking what support people actually want.",
+        "Pick Up overdrive on Fork: nuance can get flattened.",
+        "Pierce overdrive on Fork: nuance can get flattened.",
+        "Under strain, Fork can mean you can swing between strict standards and playful detours too quickly.",
+        "When overloaded, Fork tends toward this: you may double down so hard that recovery gets overlooked."
+      ],
+      "oneLiner": "Your card reads Fork for a reason: action-first hero instincts. You like structure, but not at the cost of personality. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Nicolaus Copernicus",
+        "Galileo Galilei",
+        "The Weeknd",
+        "Tony Stark",
+        "Steve Rogers"
+      ],
+      "primaryObject": "Soap",
+      "backupObject": "Kazoo"
+    },
+    "VHPJSA": {
+      "title": "The Captain Hazardheart",
+      "headline": "Field dossier: **The Captain Hazardheart** (VHPJSA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Toaster means you pair self-control with boldness when stakes are real.",
+        "At your best, Toaster means you step forward first, then make sure no one gets left behind.",
+        "Toaster / Toast: Upgrade something basic into something legendary.",
+        "With Toaster, you improvise brilliantly and keep momentum in changing situations.",
+        "Toaster / Pop Up: Surprise reveal at the exact right moment."
+      ],
+      "pitfalls": [
+        "Calculated risk can become unnecessary strain in shadow mode, which is the classic Toaster overclock.",
+        "Toaster shadow Pop Up: this strength can get overused.",
+        "You can carry everyone else until your own tank is empty, which is the classic Toaster overclock.",
+        "Toaster shadow Toast: this strength can get overused.",
+        "Toaster shadow mode: you can confuse motion for progress when plans stay too open-ended."
+      ],
+      "oneLiner": "Toaster walks into the room and sets the tone: frontline protector behavior. You pivot quickly when reality changes the script. You can be both precise and fearlessly decisive.",
+      "celebs": [
+        "Johannes Kepler",
+        "Isaac Newton",
+        "Bad Bunny",
+        "Natasha Romanoff",
+        "Peter Parker"
+      ],
+      "primaryObject": "Batteries",
+      "backupObject": "Bottle Cap"
+    },
+    "VHKRCA": {
+      "title": "The Marshal Jackpotboots",
+      "headline": "Field dossier: **The Marshal Jackpotboots** (VHKRCA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "Colander style: you turn fuzzy goals into repeatable, accountable systems.",
+        "Drain on Colander: Remove the nonsense and keep what matters.",
+        "You thrive where creative risk is part of the assignment, and Colander makes that visible.",
+        "You step forward first, then make sure no one gets left behind, and Colander makes that visible.",
+        "Rinse on Colander: Clean up the situation without rewriting history."
+      ],
+      "pitfalls": [
+        "When overloaded, Colander tends toward this: you can carry everyone else until your own tank is empty.",
+        "When overloaded, Colander tends toward this: full-send mode can ignore collateral details.",
+        "Rinse overdrive on Colander: nuance can get flattened.",
+        "Under strain, Colander can mean you can get so mission-focused that softer cues are missed.",
+        "Drain overdrive on Colander: nuance can get flattened."
+      ],
+      "oneLiner": "Colander archetype unlocked: frontline protector behavior. You prefer plans with clear accountability. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Blaise Pascal",
+        "Voltaire",
+        "Shakira",
+        "Bruce Banner",
+        "Thor Odinson"
+      ],
+      "primaryObject": "Notebook",
+      "backupObject": "Paperclip"
+    },
+    "VHPRCA": {
+      "title": "The Captain Wagerwall",
+      "headline": "Field dossier: **The Captain Wagerwall** (VHPRCA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "With Rolling Pin, you step forward first, then make sure no one gets left behind.",
+        "Rolling Pin uses Flatten to smooth out complications with firm efficiency.",
+        "With Rolling Pin, you thrive where creative risk is part of the assignment.",
+        "Rolling Pin uses Roll Out to expand plans fast and make them workable.",
+        "At your best, Rolling Pin means you are self-directed, focused, and hard to distract once committed."
+      ],
+      "pitfalls": [
+        "When Rolling Pin pushes Roll Out too hard, timing slips.",
+        "You may guard independence even when shared process would help, which is the classic Rolling Pin overclock.",
+        "Rolling Pin shadow mode: full-send mode can ignore collateral details.",
+        "When Rolling Pin pushes Flatten too hard, timing slips.",
+        "Rolling Pin shadow mode: you can carry everyone else until your own tank is empty."
+      ],
+      "oneLiner": "Rolling Pin energy: frontline protector behavior. You do not need much supervision to deliver. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Mary Wollstonecraft",
+        "Ada Lovelace",
+        "Jennifer Lopez",
+        "Wanda Maximoff",
+        "Vision"
+      ],
+      "primaryObject": "Tape",
+      "backupObject": "Stapler"
+    },
+    "VHKJCA": {
+      "title": "The Marshal WhoopsieKnight",
+      "headline": "Field dossier: **The Marshal WhoopsieKnight** (VHKJCA). Classification: **Viking Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "Shred on Cheese Grater: Break big problems into manageable pieces.",
+        "Zest on Cheese Grater: Add just enough extra to make it interesting.",
+        "You turn raw momentum into surprising wins when timing is tight, and Cheese Grater makes that visible.",
+        "Cheese Grater style: you can hold standards and still keep the room playful.",
+        "You bring direct action with a protective streak that people trust when pressure spikes, and Cheese Grater makes that visible."
+      ],
+      "pitfalls": [
+        "Shred overdrive on Cheese Grater: nuance can get flattened.",
+        "When overloaded, Cheese Grater tends toward this: you can gamble on upside before the floor is secure.",
+        "Under strain, Cheese Grater can mean jokes can arrive before clarity and muddy your point in conflict.",
+        "Zest overdrive on Cheese Grater: nuance can get flattened.",
+        "When overloaded, Cheese Grater tends toward this: urgency can make you push too hard and call it leadership."
+      ],
+      "oneLiner": "Cheese Grater archetype unlocked: courageous, hands-on responsibility. You keep standards high without killing the fun. You thrive where invention and risk overlap.",
+      "celebs": [
+        "Florence Nightingale",
+        "Harriet Tubman",
+        "Harry Styles",
+        "T'Challa",
+        "Shuri"
+      ],
+      "primaryObject": "Scissors",
+      "backupObject": "Spork"
+    },
+    "VHPJCA": {
+      "title": "The Captain Cannonheart",
+      "headline": "Field dossier: **The Captain Cannonheart** (VHPJCA). Classification: **Viking Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Whisk means your default setting is brave, practical, and deeply responsible to the crew.",
+        "Whisk / Blend: Combine different ideas into one workable plan.",
+        "At your best, Whisk means you are imaginative, bold, and willing to bet on unconventional angles.",
+        "Whisk / Whip: Generate momentum instantly.",
+        "With Whisk, you adapt under pressure and pivot without drama."
+      ],
+      "pitfalls": [
+        "Whisk shadow mode: you may chase side quests while core work waits.",
+        "You may escalate stakes faster than the team can absorb, which is the classic Whisk overclock.",
+        "Whisk shadow Blend: this strength can get overused.",
+        "You may jump into fix-it mode before asking what support people actually want, which is the classic Whisk overclock.",
+        "Whisk shadow Whip: this strength can get overused."
+      ],
+      "oneLiner": "Whisk walks into the room and sets the tone: action-first hero instincts. You stay sharp in messy, fluid environments. You are creative, daring, and hard to predict.",
+      "celebs": [
+        "Frederick Douglass",
+        "Abraham Lincoln",
+        "Olivia Rodrigo",
+        "Logan (Wolverine)",
+        "Charles Xavier"
+      ],
+      "primaryObject": "Hat",
+      "backupObject": "Coin"
+    },
+    "WHKRSM": {
+      "title": "The Professor Lanternvale",
+      "headline": "Field dossier: **The Professor Lanternvale** (WHKRSM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "Pencil style: you are calm, reliable, and consistent in the endgame.",
+        "You turn fuzzy goals into repeatable, accountable systems, and Pencil makes that visible.",
+        "Pencil style: you mix strategy with care, so your plans protect more than just outcomes.",
+        "With Pencil, Draft means you create first versions without fear.",
+        "With Pencil, Rewrite means you change direction instantly with minimal drama."
+      ],
+      "pitfalls": [
+        "Under strain, Pencil can mean analysis can crowd out speed and stall obvious action.",
+        "Pencil at 110% (Draft): helpful in crisis, rough in daily pacing.",
+        "Pencil at 110% (Rewrite): helpful in crisis, rough in daily pacing.",
+        "When overloaded, Pencil tends toward this: you can get so mission-focused that softer cues are missed.",
+        "Under strain, Pencil can mean pressure can make you clamp down and over-control the process."
+      ],
+      "oneLiner": "The Pencil profile in one line: strategic guardian behavior. You prefer plans with clear accountability. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Susan B. Anthony",
+        "Sojourner Truth",
+        "Sabrina Carpenter",
+        "Diana Prince",
+        "Clark Kent"
+      ],
+      "primaryObject": "Notebook",
+      "backupObject": "Stapler"
+    },
+    "WHPRSM": {
+      "title": "The Doctor Scrollshield",
+      "headline": "Field dossier: **The Doctor Scrollshield** (WHPRSM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "Pen uses Sign Off to end the debate and ship the decision.",
+        "Pen uses Commit to make it official. No take-backs.",
+        "With Pen, you read patterns quickly, then use that clarity to keep people steady.",
+        "With Pen, you keep quality high even when timelines tighten.",
+        "At your best, Pen means you can lead from the edge by staying independent and mission-sharp."
+      ],
+      "pitfalls": [
+        "Frustration can make you disengage instead of re-aligning expectations, which is the classic Pen overclock.",
+        "When Pen pushes Commit too hard, timing slips.",
+        "Pen shadow mode: you can become rigid when plans need a softer adjustment.",
+        "Pen shadow mode: you may protect outcomes so hard that spontaneity disappears.",
+        "When Pen pushes Sign Off too hard, timing slips."
+      ],
+      "oneLiner": "Pen is your mascot because clear thinking with protector intent. You value autonomy and execute with focus. You finish strong and keep outcomes stable.",
+      "celebs": [
+        "Nikola Tesla",
+        "Marie Curie",
+        "Doja Cat",
+        "Bruce Wayne",
+        "Selina Kyle"
+      ],
+      "primaryObject": "Pencil",
+      "backupObject": "Eraser"
+    },
+    "WHKJSM": {
+      "title": "The Professor Punstaff",
+      "headline": "Field dossier: **The Professor Punstaff** (WHKJSM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "With Eraser, you combine structure with wit, which makes your leadership easy to follow.",
+        "At your best, Eraser means you stay steady under pressure and finish what you start.",
+        "Eraser / Undo: Remove mistakes with grace.",
+        "At your best, Eraser means you solve with your head first and your heart still fully online.",
+        "Eraser / Reset: Clear the slate and try again smarter."
+      ],
+      "pitfalls": [
+        "You can default to the smartest plan even when the room needs warmth first, which is the classic Eraser overclock.",
+        "Eraser shadow Undo: this strength can get overused.",
+        "You may treat consistency as a shield against necessary change, which is the classic Eraser overclock.",
+        "Eraser shadow mode: you can swing between strict standards and playful detours too quickly.",
+        "Eraser shadow Reset: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Eraser: brain-forward support energy. You like structure, but not at the cost of personality. You close loops with calm discipline.",
+      "celebs": [
+        "Albert Einstein",
+        "Niels Bohr",
+        "Bruno Mars",
+        "Barry Allen",
+        "Arthur Curry"
+      ],
+      "primaryObject": "Pen",
+      "backupObject": "Ruler"
+    },
+    "WHPJSM": {
+      "title": "The Doctor Chucklechart",
+      "headline": "Field dossier: **The Doctor Chucklechart** (WHPJSM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "Sticky Note / Tag: Mark priorities so they can't hide.",
+        "At your best, Sticky Note means you solve with your head first and your heart still fully online.",
+        "At your best, Sticky Note means you stay steady under pressure and finish what you start.",
+        "Sticky Note / Reminder: Keep key details from escaping.",
+        "With Sticky Note, you adapt under pressure and pivot without drama."
+      ],
+      "pitfalls": [
+        "Sticky Note shadow Reminder: this strength can get overused.",
+        "Sticky Note shadow mode: you may chase side quests while core work waits.",
+        "You may treat consistency as a shield against necessary change, which is the classic Sticky Note overclock.",
+        "Sticky Note shadow Tag: this strength can get overused.",
+        "You can default to the smartest plan even when the room needs warmth first, which is the classic Sticky Note overclock."
+      ],
+      "oneLiner": "Sticky Note walks into the room and sets the tone: brain-forward support energy. You stay sharp in messy, fluid environments. You close loops with calm discipline.",
+      "celebs": [
+        "Alan Turing",
+        "Katherine Johnson",
+        "Ed Sheeran",
+        "Lois Lane",
+        "Harley Quinn"
+      ],
+      "primaryObject": "Eraser",
+      "backupObject": "Backpack"
+    },
+    "WHKRCM": {
+      "title": "The Professor Wayfinder",
+      "headline": "Field dossier: **The Professor Wayfinder** (WHKRCM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "Rubber Band style: you keep promises by building structure before pressure hits.",
+        "You innovate without losing grip on risk and consequence, and Rubber Band makes that visible.",
+        "Stretch on Rubber Band: Adapt to changing demands without snapping.",
+        "Snap Back on Rubber Band: Return to center when chaos pushes too far.",
+        "You read patterns quickly, then use that clarity to keep people steady, and Rubber Band makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Rubber Band tends toward this: you may protect outcomes so hard that spontaneity disappears.",
+        "When overloaded, Rubber Band tends toward this: you can keep refining options instead of committing to one path.",
+        "Snap Back overdrive on Rubber Band: nuance can get flattened.",
+        "Under strain, Rubber Band can mean you may treat ambiguity like a bug instead of a useful signal.",
+        "Stretch overdrive on Rubber Band: nuance can get flattened."
+      ],
+      "oneLiner": "Your card reads Rubber Band for a reason: clear thinking with protector intent. You run best with structure and a mission. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Rosalind Franklin",
+        "Charles Darwin",
+        "Pedro Pascal",
+        "Wednesday Addams",
+        "Daenerys Targaryen"
+      ],
+      "primaryObject": "Ruler",
+      "backupObject": "Paperclip"
+    },
+    "WHPRCM": {
+      "title": "The Doctor Compassmind",
+      "headline": "Field dossier: **The Doctor Compassmind** (WHPRCM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "With Tape, Stick means you hold things together longer than they deserve.",
+        "With Tape, Patch means you quick fix now, permanent fix later (maybe).",
+        "Tape style: you mix strategy with care, so your plans protect more than just outcomes.",
+        "Tape style: you are inventive and surprisingly stable once committed.",
+        "You are self-directed, focused, and hard to distract once committed, and Tape makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Tape tends toward this: you may guard independence even when shared process would help.",
+        "Under strain, Tape can mean uncertainty can make you hedge too long and dilute momentum.",
+        "Tape at 110% (Stick): helpful in crisis, rough in daily pacing.",
+        "Under strain, Tape can mean analysis can crowd out speed and stall obvious action.",
+        "Tape at 110% (Patch): helpful in crisis, rough in daily pacing."
+      ],
+      "oneLiner": "If this archetype were an everyday object, it would be Tape: strategic guardian behavior. You do not need much supervision to deliver. You innovate without losing your footing.",
+      "celebs": [
+        "Gregor Mendel",
+        "Louis Pasteur",
+        "Zendaya",
+        "Jon Snow",
+        "Tyrion Lannister"
+      ],
+      "primaryObject": "Calculator",
+      "backupObject": "Coin"
+    },
+    "WHKJCM": {
+      "title": "The Professor QuipQuill",
+      "headline": "Field dossier: **The Professor QuipQuill** (WHKJCM). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "At your best, Computer Mouse means you organize well without becoming rigid, and keep morale alive.",
+        "Computer Mouse uses Click to make decisions fast and clean.",
+        "Computer Mouse uses Drag to move the whole problem where you want it.",
+        "With Computer Mouse, you are inventive and surprisingly stable once committed.",
+        "With Computer Mouse, you mix strategy with care, so your plans protect more than just outcomes."
+      ],
+      "pitfalls": [
+        "When Computer Mouse pushes Drag too hard, timing slips.",
+        "When Computer Mouse pushes Click too hard, timing slips.",
+        "Computer Mouse shadow mode: analysis can crowd out speed and stall obvious action.",
+        "You may break your own rules after overcompensating for structure, which is the classic Computer Mouse overclock.",
+        "Computer Mouse shadow mode: uncertainty can make you hedge too long and dilute momentum."
+      ],
+      "oneLiner": "Computer Mouse is your mascot because strategic guardian behavior. You can organize the room and still keep it lively. You innovate without losing your footing.",
+      "celebs": [
+        "Dmitri Mendeleev",
+        "Srinivasa Ramanujan",
+        "Timothee Chalamet",
+        "Arya Stark",
+        "Sansa Stark"
+      ],
+      "primaryObject": "Glasses",
+      "backupObject": "Towel"
+    },
+    "WHPJCM": {
+      "title": "The Doctor JesterScholar",
+      "headline": "Field dossier: **The Doctor JesterScholar** (WHPJCM). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "At your best, Corded Phone means you blend creativity with restraint so experiments stay practical.",
+        "Corded Phone / Line Hold: Stay connected even when the world wobbles.",
+        "Corded Phone / Ring: Interrupt everything with urgency.",
+        "At your best, Corded Phone means you solve with your head first and your heart still fully online.",
+        "With Corded Phone, you adapt under pressure and pivot without drama."
+      ],
+      "pitfalls": [
+        "Corded Phone shadow Line Hold: this strength can get overused.",
+        "You can default to the smartest plan even when the room needs warmth first, which is the classic Corded Phone overclock.",
+        "You may protect flexibility so much that final decisions drift, which is the classic Corded Phone overclock.",
+        "Corded Phone shadow Ring: this strength can get overused.",
+        "Corded Phone shadow mode: you may chase side quests while core work waits."
+      ],
+      "oneLiner": "You move like a Corded Phone: brain-forward support energy. You stay sharp in messy, fluid environments. You balance creativity with practical restraint.",
+      "celebs": [
+        "Emmy Noether",
+        "Chien-Shiung Wu",
+        "Florence Pugh",
+        "Geralt of Rivia",
+        "Yennefer of Vengerberg"
+      ],
+      "primaryObject": "Bookmark",
+      "backupObject": "Hat"
+    },
+    "WHKRSA": {
+      "title": "The Professor LuckyTheory",
+      "headline": "Field dossier: **The Professor LuckyTheory** (WHKRSA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Fridge Magnet style: you bring mission clarity and operational discipline.",
+        "You solve with your head first and your heart still fully online, and Fridge Magnet makes that visible.",
+        "You are disciplined and daring, dangerous in the best way, and Fridge Magnet makes that visible.",
+        "Attract on Fridge Magnet: Pull ideas together from across the room.",
+        "Stick on Fridge Magnet: Attach to the important stuff."
+      ],
+      "pitfalls": [
+        "When overloaded, Fridge Magnet tends toward this: you can default to the smartest plan even when the room needs warmth first.",
+        "When overloaded, Fridge Magnet tends toward this: you may double down so hard that recovery gets overlooked.",
+        "Under strain, Fridge Magnet can mean you can defend process even after context changes.",
+        "Stick overdrive on Fridge Magnet: nuance can get flattened.",
+        "Attract overdrive on Fridge Magnet: nuance can get flattened."
+      ],
+      "oneLiner": "Your card reads Fridge Magnet for a reason: brain-forward support energy. You trust systems that survive contact with reality. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Rachel Carson",
+        "Jane Addams",
+        "Emma Stone",
+        "Ciri",
+        "Kratos"
+      ],
+      "primaryObject": "Paperclip",
+      "backupObject": "Stapler"
+    },
+    "WHPRSA": {
+      "title": "The Doctor PlotTwist",
+      "headline": "Field dossier: **The Doctor PlotTwist** (WHPRSA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Ice Cube Tray style: you solve with your head first and your heart still fully online.",
+        "Ice Cube Tray style: you are disciplined and daring, dangerous in the best way.",
+        "With Ice Cube Tray, Pop Out means you deliver quick solutions in neat little squares.",
+        "You do your best work with autonomy, clear stakes, and room to execute, and Ice Cube Tray makes that visible.",
+        "With Ice Cube Tray, Freeze means you lock in a plan before it melts."
+      ],
+      "pitfalls": [
+        "Under strain, Ice Cube Tray can mean you can default to the smartest plan even when the room needs warmth first.",
+        "Ice Cube Tray at 110% (Freeze): helpful in crisis, rough in daily pacing.",
+        "When overloaded, Ice Cube Tray tends toward this: you can become so self-reliant that collaboration feels optional.",
+        "Under strain, Ice Cube Tray can mean you may double down so hard that recovery gets overlooked.",
+        "Ice Cube Tray at 110% (Pop Out): helpful in crisis, rough in daily pacing."
+      ],
+      "oneLiner": "The Ice Cube Tray profile in one line: brain-forward support energy. You operate best with freedom and clear stakes. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Eleanor Roosevelt",
+        "Winston Churchill",
+        "Ryan Gosling",
+        "Atreus",
+        "Master Chief"
+      ],
+      "primaryObject": "Binder Clip",
+      "backupObject": "Eraser"
+    },
+    "WHKJSA": {
+      "title": "The Professor DiceSage",
+      "headline": "Field dossier: **The Professor DiceSage** (WHKJSA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "With Teapot, Steep means you let things develop before making the call.",
+        "With Teapot, Pour means you distribute comfort, wisdom, and hot gossip responsibly.",
+        "Teapot style: you are disciplined and daring, dangerous in the best way.",
+        "You combine structure with wit, which makes your leadership easy to follow, and Teapot makes that visible.",
+        "Teapot style: you solve with your head first and your heart still fully online."
+      ],
+      "pitfalls": [
+        "Teapot at 110% (Pour): helpful in crisis, rough in daily pacing.",
+        "Under strain, Teapot can mean you may double down so hard that recovery gets overlooked.",
+        "When overloaded, Teapot tends toward this: you can swing between strict standards and playful detours too quickly.",
+        "Teapot at 110% (Steep): helpful in crisis, rough in daily pacing.",
+        "Under strain, Teapot can mean you can default to the smartest plan even when the room needs warmth first."
+      ],
+      "oneLiner": "The Teapot profile in one line: brain-forward support energy. You like structure, but not at the cost of personality. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Franklin D. Roosevelt",
+        "Theodore Roosevelt",
+        "Keanu Reeves",
+        "Cortana",
+        "Lara Croft"
+      ],
+      "primaryObject": "Stapler",
+      "backupObject": "Ruler"
+    },
+    "WHPJSA": {
+      "title": "The Doctor RiskyReason",
+      "headline": "Field dossier: **The Doctor RiskyReason** (WHPJSA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Butter Knife means you adapt under pressure and pivot without drama.",
+        "Butter Knife uses Spread to smooth things over: peanut butter, jam, and awkward tension.",
+        "With Butter Knife, you solve with your head first and your heart still fully online.",
+        "With Butter Knife, you are disciplined and daring, dangerous in the best way.",
+        "Butter Knife uses Slice to cut through soft problems without making a scene."
+      ],
+      "pitfalls": [
+        "Butter Knife shadow mode: you may double down so hard that recovery gets overlooked.",
+        "You may chase side quests while core work waits, which is the classic Butter Knife overclock.",
+        "When Butter Knife pushes Spread too hard, timing slips.",
+        "When Butter Knife pushes Slice too hard, timing slips.",
+        "Butter Knife shadow mode: you can default to the smartest plan even when the room needs warmth first."
+      ],
+      "oneLiner": "Butter Knife is your mascot because brain-forward support energy. You stay sharp in messy, fluid environments. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Mahatma Gandhi",
+        "Jawaharlal Nehru",
+        "Tom Hanks",
+        "Nathan Drake",
+        "Mario"
+      ],
+      "primaryObject": "Timer",
+      "backupObject": "Backpack"
+    },
+    "WHKRCA": {
+      "title": "The Professor TrailLogic",
+      "headline": "Field dossier: **The Professor TrailLogic** (WHKRCA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "Toothbrush uses Scrub to fix small issues with relentless consistency.",
+        "With Toothbrush, you mix strategy with care, so your plans protect more than just outcomes.",
+        "With Toothbrush, you thrive where creative risk is part of the assignment.",
+        "At your best, Toothbrush means you turn fuzzy goals into repeatable, accountable systems.",
+        "Toothbrush uses Detail to handle the fine work others ignore."
+      ],
+      "pitfalls": [
+        "When Toothbrush pushes Detail too hard, timing slips.",
+        "You can get so mission-focused that softer cues are missed, which is the classic Toothbrush overclock.",
+        "When Toothbrush pushes Scrub too hard, timing slips.",
+        "Toothbrush shadow mode: analysis can crowd out speed and stall obvious action.",
+        "Toothbrush shadow mode: full-send mode can ignore collateral details."
+      ],
+      "oneLiner": "Toothbrush energy: strategic guardian behavior. You prefer plans with clear accountability. You turn unconventional bets into momentum.",
+      "celebs": [
+        "B. R. Ambedkar",
+        "Nelson Mandela",
+        "Denzel Washington",
+        "Luigi",
+        "Princess Peach"
+      ],
+      "primaryObject": "Marker",
+      "backupObject": "Paperclip"
+    },
+    "WHPRCA": {
+      "title": "The Doctor RebelArchive",
+      "headline": "Field dossier: **The Doctor RebelArchive** (WHPRCA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "Toothpaste Tube / Mint: Refresh the vibe instantly.",
+        "Toothpaste Tube / Squeeze: Produce results under pressure.",
+        "With Toothpaste Tube, you do your best work with autonomy, clear stakes, and room to execute.",
+        "At your best, Toothpaste Tube means you solve with your head first and your heart still fully online.",
+        "At your best, Toothpaste Tube means you are imaginative, bold, and willing to bet on unconventional angles."
+      ],
+      "pitfalls": [
+        "Toothpaste Tube shadow mode: you can become so self-reliant that collaboration feels optional.",
+        "You can default to the smartest plan even when the room needs warmth first, which is the classic Toothpaste Tube overclock.",
+        "Toothpaste Tube shadow Mint: this strength can get overused.",
+        "You may escalate stakes faster than the team can absorb, which is the classic Toothpaste Tube overclock.",
+        "Toothpaste Tube shadow Squeeze: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Toothpaste Tube: brain-forward support energy. You operate best with freedom and clear stakes. You are creative, daring, and hard to predict.",
+      "celebs": [
+        "Desmond Tutu",
+        "Kwame Nkrumah",
+        "Viola Davis",
+        "Link",
+        "Zelda"
+      ],
+      "primaryObject": "Book",
+      "backupObject": "Coin"
+    },
+    "WHKJCA": {
+      "title": "The Professor OddOracle",
+      "headline": "Field dossier: **The Professor OddOracle** (WHKJCA). Classification: **Wizard Hero**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "With Dish Sponge, you organize well without becoming rigid, and keep morale alive.",
+        "At your best, Dish Sponge means you thrive where creative risk is part of the assignment.",
+        "Dish Sponge / Absorb: Soak up messes so others don't have to.",
+        "Dish Sponge / Scrub: Remove stuck-on nonsense with persistence.",
+        "At your best, Dish Sponge means you mix strategy with care, so your plans protect more than just outcomes."
+      ],
+      "pitfalls": [
+        "Full-send mode can ignore collateral details, which is the classic Dish Sponge overclock.",
+        "Dish Sponge shadow mode: you may break your own rules after overcompensating for structure.",
+        "Analysis can crowd out speed and stall obvious action, which is the classic Dish Sponge overclock.",
+        "Dish Sponge shadow Absorb: this strength can get overused.",
+        "Dish Sponge shadow Scrub: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Dish Sponge: strategic guardian behavior. You can organize the room and still keep it lively. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Patrice Lumumba",
+        "Simon Bolivar",
+        "Lupita Nyong'o",
+        "Samus Aran",
+        "Pikachu"
+      ],
+      "primaryObject": "Envelope",
+      "backupObject": "Towel"
+    },
+    "WHPJCA": {
+      "title": "The Doctor QuestEquation",
+      "headline": "Field dossier: **The Doctor QuestEquation** (WHPJCA). Classification: **Wizard Hero**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Ice Cream Scoop means you read patterns quickly, then use that clarity to keep people steady.",
+        "At your best, Ice Cream Scoop means you turn raw momentum into surprising wins when timing is tight.",
+        "Ice Cream Scoop / Serve: Share the good stuff without hesitation.",
+        "With Ice Cream Scoop, your unconventional choices often turn out exactly right.",
+        "Ice Cream Scoop / Scoop: Extract maximum reward efficiently."
+      ],
+      "pitfalls": [
+        "Ice Cream Scoop shadow Scoop: this strength can get overused.",
+        "You may protect outcomes so hard that spontaneity disappears, which is the classic Ice Cream Scoop overclock.",
+        "You can gamble on upside before the floor is secure, which is the classic Ice Cream Scoop overclock.",
+        "Ice Cream Scoop shadow mode: follow-through can slip behind improvisation in sprint mode.",
+        "Ice Cream Scoop shadow Serve: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Ice Cream Scoop: clear thinking with protector intent. You improvise in motion and adapt fast. You thrive where invention and risk overlap.",
+      "celebs": [
+        "Jose de San Martin",
+        "Toussaint Louverture",
+        "Margot Robbie",
+        "Ash Ketchum",
+        "Misty"
+      ],
+      "primaryObject": "Index Card",
+      "backupObject": "Hat"
+    },
+    "VGKRSM": {
+      "title": "The Brawler Ruckusbeard",
+      "headline": "Field dossier: **The Brawler Ruckusbeard** (VGKRSM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "With Screwdriver, you bring mission clarity and operational discipline.",
+        "At your best, Screwdriver means you stay steady under pressure and finish what you start.",
+        "Screwdriver / Turn: Shift the situation one twist at a time.",
+        "At your best, Screwdriver means you are the wildcard who still gets things done when everyone else freezes.",
+        "Screwdriver / Tighten: Fix what's loose before it becomes a disaster."
+      ],
+      "pitfalls": [
+        "You may trust instinct so much that details get skipped at bad moments, which is the classic Screwdriver overclock.",
+        "Screwdriver shadow mode: you can defend process even after context changes.",
+        "Screwdriver shadow Tighten: this strength can get overused.",
+        "You may treat consistency as a shield against necessary change, which is the classic Screwdriver overclock.",
+        "Screwdriver shadow Turn: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Screwdriver: high-voltage wildcard instincts. You trust systems that survive contact with reality. You close loops with calm discipline.",
+      "celebs": [
+        "Jean-Jacques Dessalines",
+        "Mustafa Kemal Ataturk",
+        "Chris Hemsworth",
+        "Brock",
+        "Goku"
+      ],
+      "primaryObject": "Duct Tape",
+      "backupObject": "Pencil"
+    },
+    "VGPRSM": {
+      "title": "The Captain Bonkbeard",
+      "headline": "Field dossier: **The Captain Bonkbeard** (VGPRSM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "With Paint Roller, Coat means you cover big areas fast with one consistent vibe.",
+        "With Paint Roller, Refresh means you make something old look new again.",
+        "You are self-directed, focused, and hard to distract once committed, and Paint Roller makes that visible.",
+        "Paint Roller style: you move fast, improvise faster, and turn chaos into momentum on command.",
+        "Paint Roller style: you are calm, reliable, and consistent in the endgame."
+      ],
+      "pitfalls": [
+        "Paint Roller at 110% (Coat): helpful in crisis, rough in daily pacing.",
+        "Paint Roller at 110% (Refresh): helpful in crisis, rough in daily pacing.",
+        "When overloaded, Paint Roller tends toward this: you may guard independence even when shared process would help.",
+        "Under strain, Paint Roller can mean you can stir the pot just to get energy back in the room.",
+        "Under strain, Paint Roller can mean pressure can make you clamp down and over-control the process."
+      ],
+      "oneLiner": "The Paint Roller profile in one line: bold chaos-captain behavior. You do not need much supervision to deliver. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Ibn Battuta",
+        "Zheng He",
+        "Robert Downey Jr.",
+        "Vegeta",
+        "Naruto Uzumaki"
+      ],
+      "primaryObject": "Spork",
+      "backupObject": "Duct Tape"
+    },
+    "VGKJSM": {
+      "title": "The Gremlin BattleGiggles",
+      "headline": "Field dossier: **The Gremlin BattleGiggles** (VGKJSM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "With Leaf Blower, Blast means you push chaos somewhere else (strategically).",
+        "Leaf Blower style: you move fast, improvise faster, and turn chaos into momentum on command.",
+        "Leaf Blower style: you are calm, reliable, and consistent in the endgame.",
+        "With Leaf Blower, Clear means you remove clutter instantly.",
+        "You organize well without becoming rigid, and keep morale alive, and Leaf Blower makes that visible."
+      ],
+      "pitfalls": [
+        "Under strain, Leaf Blower can mean you can stir the pot just to get energy back in the room.",
+        "When overloaded, Leaf Blower tends toward this: you may break your own rules after overcompensating for structure.",
+        "Leaf Blower at 110% (Clear): helpful in crisis, rough in daily pacing.",
+        "Under strain, Leaf Blower can mean pressure can make you clamp down and over-control the process.",
+        "Leaf Blower at 110% (Blast): helpful in crisis, rough in daily pacing."
+      ],
+      "oneLiner": "The Leaf Blower profile in one line: bold chaos-captain behavior. You can organize the room and still keep it lively. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Vasco da Gama",
+        "Ferdinand Magellan",
+        "Scarlett Johansson",
+        "Sasuke Uchiha",
+        "Sailor Moon"
+      ],
+      "primaryObject": "Spoon",
+      "backupObject": "Clipboard"
+    },
+    "VGPJSM": {
+      "title": "The Buccaneer Whoopsbeard",
+      "headline": "Field dossier: **The Buccaneer Whoopsbeard** (VGPJSM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "You adapt under pressure and pivot without drama, and Lawn Mower makes that visible.",
+        "Lawn Mower style: you stay steady under pressure and finish what you start.",
+        "With Lawn Mower, Trim means you cut problems down to size.",
+        "With Lawn Mower, Sweep means you handle the whole area, not just one patch.",
+        "Lawn Mower style: you are the wildcard who still gets things done when everyone else freezes."
+      ],
+      "pitfalls": [
+        "Lawn Mower at 110% (Sweep): helpful in crisis, rough in daily pacing.",
+        "When overloaded, Lawn Mower tends toward this: you may chase side quests while core work waits.",
+        "Under strain, Lawn Mower can mean you may treat consistency as a shield against necessary change.",
+        "Under strain, Lawn Mower can mean you may trust instinct so much that details get skipped at bad moments.",
+        "Lawn Mower at 110% (Trim): helpful in crisis, rough in daily pacing."
+      ],
+      "oneLiner": "The Lawn Mower profile in one line: high-voltage wildcard instincts. You stay sharp in messy, fluid environments. You close loops with calm discipline.",
+      "celebs": [
+        "Roald Amundsen",
+        "Ernest Shackleton",
+        "Hugh Jackman",
+        "Spike Spiegel",
+        "Shinji Ikari"
+      ],
+      "primaryObject": "Fork",
+      "backupObject": "Notebook"
+    },
+    "VGKRCM": {
+      "title": "The Rowdy Walloper",
+      "headline": "Field dossier: **The Rowdy Walloper** (VGKRCM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "You move fast, improvise faster, and turn chaos into momentum on command, and Extension Cord makes that visible.",
+        "You are inventive and surprisingly stable once committed, and Extension Cord makes that visible.",
+        "Extension Cord style: you turn fuzzy goals into repeatable, accountable systems.",
+        "Power Share on Extension Cord: Keep the whole squad online.",
+        "Extend on Extension Cord: Reach what others can't."
+      ],
+      "pitfalls": [
+        "When overloaded, Extension Cord tends toward this: uncertainty can make you hedge too long and dilute momentum.",
+        "Under strain, Extension Cord can mean you can get so mission-focused that softer cues are missed.",
+        "Power Share overdrive on Extension Cord: nuance can get flattened.",
+        "When overloaded, Extension Cord tends toward this: you can stir the pot just to get energy back in the room.",
+        "Extend overdrive on Extension Cord: nuance can get flattened."
+      ],
+      "oneLiner": "Extension Cord archetype unlocked: bold chaos-captain behavior. You prefer plans with clear accountability. You innovate without losing your footing.",
+      "celebs": [
+        "Yuri Gagarin",
+        "Neil Armstrong",
+        "Will Smith",
+        "Totoro",
+        "Chihiro Ogino"
+      ],
+      "primaryObject": "Yo-yo",
+      "backupObject": "Key"
+    },
+    "VGPRCM": {
+      "title": "The Bandit Trailbonk",
+      "headline": "Field dossier: **The Bandit Trailbonk** (VGPRCM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "At your best, Plunger means you do your best work with autonomy, clear stakes, and room to execute.",
+        "With Plunger, you are the wildcard who still gets things done when everyone else freezes.",
+        "Plunger uses Unclog to fix stuck situations through brute persistence.",
+        "With Plunger, you blend creativity with restraint so experiments stay practical.",
+        "Plunger uses Pressure to apply force until the blockage gives up."
+      ],
+      "pitfalls": [
+        "When Plunger pushes Pressure too hard, timing slips.",
+        "Plunger shadow mode: you may trust instinct so much that details get skipped at bad moments.",
+        "Plunger shadow mode: you may protect flexibility so much that final decisions drift.",
+        "You can become so self-reliant that collaboration feels optional, which is the classic Plunger overclock.",
+        "When Plunger pushes Unclog too hard, timing slips."
+      ],
+      "oneLiner": "Plunger energy: high-voltage wildcard instincts. You operate best with freedom and clear stakes. You balance creativity with practical restraint.",
+      "celebs": [
+        "Valentina Tereshkova",
+        "Sally Ride",
+        "Anya Taylor-Joy",
+        "Howl Pendragon",
+        "Po (Kung Fu Panda)"
+      ],
+      "primaryObject": "Slinky",
+      "backupObject": "Bottle Cap"
+    },
+    "VGKJCM": {
+      "title": "The Outlaw Snickerpunch",
+      "headline": "Field dossier: **The Outlaw Snickerpunch** (VGKJCM). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "Wheelbarrow uses Haul to transport chaos from Point A to 'not my problem.'.",
+        "Wheelbarrow uses Carry to move heavy loads without complaining (too much).",
+        "With Wheelbarrow, you move fast, improvise faster, and turn chaos into momentum on command.",
+        "With Wheelbarrow, you are inventive and surprisingly stable once committed.",
+        "At your best, Wheelbarrow means you organize well without becoming rigid, and keep morale alive."
+      ],
+      "pitfalls": [
+        "Wheelbarrow shadow mode: uncertainty can make you hedge too long and dilute momentum.",
+        "When Wheelbarrow pushes Carry too hard, timing slips.",
+        "When Wheelbarrow pushes Haul too hard, timing slips.",
+        "Wheelbarrow shadow mode: you can stir the pot just to get energy back in the room.",
+        "You may break your own rules after overcompensating for structure, which is the classic Wheelbarrow overclock."
+      ],
+      "oneLiner": "Wheelbarrow energy: bold chaos-captain behavior. You can organize the room and still keep it lively. You innovate without losing your footing.",
+      "celebs": [
+        "Amelia Earhart",
+        "Frida Kahlo",
+        "Jenna Ortega",
+        "Shrek",
+        "Fiona"
+      ],
+      "primaryObject": "Rubber Band",
+      "backupObject": "Folder"
+    },
+    "VGPJCM": {
+      "title": "The Captain Chaosboots",
+      "headline": "Field dossier: **The Captain Chaosboots** (VGPJCM). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "Carry on 5 Gallon Bucket: Move the mess without spilling it everywhere.",
+        "5 Gallon Bucket style: you adapt under pressure and pivot without drama.",
+        "You are the wildcard who still gets things done when everyone else freezes, and 5 Gallon Bucket makes that visible.",
+        "You blend creativity with restraint so experiments stay practical, and 5 Gallon Bucket makes that visible.",
+        "Contain on 5 Gallon Bucket: Hold a surprising amount of chaos."
+      ],
+      "pitfalls": [
+        "Contain overdrive on 5 Gallon Bucket: nuance can get flattened.",
+        "Under strain, 5 Gallon Bucket can mean you may chase side quests while core work waits.",
+        "Carry overdrive on 5 Gallon Bucket: nuance can get flattened.",
+        "When overloaded, 5 Gallon Bucket tends toward this: you may trust instinct so much that details get skipped at bad moments.",
+        "When overloaded, 5 Gallon Bucket tends toward this: you may protect flexibility so much that final decisions drift."
+      ],
+      "oneLiner": "5 Gallon Bucket archetype unlocked: high-voltage wildcard instincts. You stay sharp in messy, fluid environments. You balance creativity with practical restraint.",
+      "celebs": [
+        "Diego Rivera",
+        "Pablo Picasso",
+        "Sydney Sweeney",
+        "Donkey",
+        "Hiccup Haddock"
+      ],
+      "primaryObject": "Paperclip",
+      "backupObject": "Hat"
+    },
+    "VGKRSA": {
+      "title": "The Bruiser LuckyBonk",
+      "headline": "Field dossier: **The Bruiser LuckyBonk** (VGKRSA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Traffic Cone means you are disciplined and daring, dangerous in the best way.",
+        "Traffic Cone / Block: Create instant boundaries.",
+        "Traffic Cone / Redirect: Guide chaos away from danger.",
+        "With Traffic Cone, you bring mission clarity and operational discipline.",
+        "At your best, Traffic Cone means you are the wildcard who still gets things done when everyone else freezes."
+      ],
+      "pitfalls": [
+        "Traffic Cone shadow mode: you can defend process even after context changes.",
+        "You may double down so hard that recovery gets overlooked, which is the classic Traffic Cone overclock.",
+        "You may trust instinct so much that details get skipped at bad moments, which is the classic Traffic Cone overclock.",
+        "Traffic Cone shadow Block: this strength can get overused.",
+        "Traffic Cone shadow Redirect: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Traffic Cone: high-voltage wildcard instincts. You trust systems that survive contact with reality. You pair discipline with bold risk tolerance.",
+      "celebs": [
+        "Vincent van Gogh",
+        "Claude Monet",
+        "Cillian Murphy",
+        "Toothless",
+        "Elsa"
+      ],
+      "primaryObject": "Dice",
+      "backupObject": "Pencil"
+    },
+    "VGPRSA": {
+      "title": "The Raider CoinCrusher",
+      "headline": "Field dossier: **The Raider CoinCrusher** (VGPRSA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Doorknob style: you keep standards high while still making brave calls.",
+        "With Doorknob, Access means you open opportunities others miss.",
+        "You can lead from the edge by staying independent and mission-sharp, and Doorknob makes that visible.",
+        "Doorknob style: you pair bold action with creative mischief, which makes you hard to corner.",
+        "With Doorknob, Turn means you change the outcome with one small move."
+      ],
+      "pitfalls": [
+        "Under strain, Doorknob can mean your confidence can outrun your coordination when things get loud.",
+        "When overloaded, Doorknob tends toward this: frustration can make you disengage instead of re-aligning expectations.",
+        "Doorknob at 110% (Access): helpful in crisis, rough in daily pacing.",
+        "Doorknob at 110% (Turn): helpful in crisis, rough in daily pacing.",
+        "Under strain, Doorknob can mean you can push disciplined intensity past what the moment can support."
+      ],
+      "oneLiner": "If this archetype were an everyday object, it would be Doorknob: fast action with mischievous edge. You value autonomy and execute with focus. You keep control while still making big bets.",
+      "celebs": [
+        "Georgia O'Keeffe",
+        "Rabindranath Tagore",
+        "Daniel Kaluuya",
+        "Anna",
+        "Moana"
+      ],
+      "primaryObject": "Coin",
+      "backupObject": "Duct Tape"
+    },
+    "VGKJSA": {
+      "title": "The Gremlin DiceFists",
+      "headline": "Field dossier: **The Gremlin DiceFists** (VGKJSA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "With Light Switch, you organize well without becoming rigid, and keep morale alive.",
+        "At your best, Light Switch means you move fast, improvise faster, and turn chaos into momentum on command.",
+        "Light Switch / On/Off: Flip between modes instantly.",
+        "Light Switch / Spotlight: Reveal what's really going on.",
+        "At your best, Light Switch means you pair self-control with boldness when stakes are real."
+      ],
+      "pitfalls": [
+        "Calculated risk can become unnecessary strain in shadow mode, which is the classic Light Switch overclock.",
+        "Light Switch shadow On/Off: this strength can get overused.",
+        "Light Switch shadow Spotlight: this strength can get overused.",
+        "Light Switch shadow mode: you may break your own rules after overcompensating for structure.",
+        "You can stir the pot just to get energy back in the room, which is the classic Light Switch overclock."
+      ],
+      "oneLiner": "You move like a Light Switch: bold chaos-captain behavior. You can organize the room and still keep it lively. You can be both precise and fearlessly decisive.",
+      "celebs": [
+        "Chinua Achebe",
+        "Toni Morrison",
+        "Michael B. Jordan",
+        "Mulan",
+        "Rapunzel"
+      ],
+      "primaryObject": "Balloon",
+      "backupObject": "Clipboard"
+    },
+    "VGPJSA": {
+      "title": "The Daredevil OopsMcGee",
+      "headline": "Field dossier: **The Daredevil OopsMcGee** (VGPJSA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Doormat style: your unconventional choices often turn out exactly right.",
+        "Wipe on Doormat: Remove bad vibes at the door.",
+        "You keep standards high while still making brave calls, and Doormat makes that visible.",
+        "You pair bold action with creative mischief, which makes you hard to corner, and Doormat makes that visible.",
+        "Welcome on Doormat: Create safe entry for friends and ideas."
+      ],
+      "pitfalls": [
+        "Wipe overdrive on Doormat: nuance can get flattened.",
+        "Under strain, Doormat can mean follow-through can slip behind improvisation in sprint mode.",
+        "Welcome overdrive on Doormat: nuance can get flattened.",
+        "When overloaded, Doormat tends toward this: your confidence can outrun your coordination when things get loud.",
+        "When overloaded, Doormat tends toward this: you can push disciplined intensity past what the moment can support."
+      ],
+      "oneLiner": "Doormat archetype unlocked: fast action with mischievous edge. You improvise in motion and adapt fast. You keep control while still making big bets.",
+      "celebs": [
+        "Maya Angelou",
+        "James Baldwin",
+        "Austin Butler",
+        "Tiana",
+        "Woody"
+      ],
+      "primaryObject": "Kazoo",
+      "backupObject": "Notebook"
+    },
+    "VGKRCA": {
+      "title": "The Bandit JackpotBrawl",
+      "headline": "Field dossier: **The Bandit JackpotBrawl** (VGKRCA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Garden Hose means you are imaginative, bold, and willing to bet on unconventional angles.",
+        "At your best, Garden Hose means you are the wildcard who still gets things done when everyone else freezes.",
+        "With Garden Hose, you bring mission clarity and operational discipline.",
+        "Garden Hose / Spray: Handle problems at range.",
+        "Garden Hose / Soak: Flood the situation until it calms down."
+      ],
+      "pitfalls": [
+        "Garden Hose shadow mode: you can defend process even after context changes.",
+        "You may escalate stakes faster than the team can absorb, which is the classic Garden Hose overclock.",
+        "Garden Hose shadow Spray: this strength can get overused.",
+        "You may trust instinct so much that details get skipped at bad moments, which is the classic Garden Hose overclock.",
+        "Garden Hose shadow Soak: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Garden Hose: high-voltage wildcard instincts. You trust systems that survive contact with reality. You are creative, daring, and hard to predict.",
+      "celebs": [
+        "Langston Hughes",
+        "Ludwig van Beethoven",
+        "LeBron James",
+        "Buzz Lightyear",
+        "Lightning McQueen"
+      ],
+      "primaryObject": "Sticker",
+      "backupObject": "Key"
+    },
+    "VGPRCA": {
+      "title": "The Raider WagerWrecker",
+      "headline": "Field dossier: **The Raider WagerWrecker** (VGPRCA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Manhole Cover means you thrive where creative risk is part of the assignment.",
+        "Manhole Cover / Lift: Reveal hidden routes (carefully).",
+        "At your best, Manhole Cover means you move fast, improvise faster, and turn chaos into momentum on command.",
+        "With Manhole Cover, you are self-directed, focused, and hard to distract once committed.",
+        "Manhole Cover / Seal: Keep the underground chaos underground."
+      ],
+      "pitfalls": [
+        "Manhole Cover shadow mode: you may guard independence even when shared process would help.",
+        "Full-send mode can ignore collateral details, which is the classic Manhole Cover overclock.",
+        "Manhole Cover shadow Seal: this strength can get overused.",
+        "You can stir the pot just to get energy back in the room, which is the classic Manhole Cover overclock.",
+        "Manhole Cover shadow Lift: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Manhole Cover: bold chaos-captain behavior. You do not need much supervision to deliver. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Wolfgang Amadeus Mozart",
+        "Johann Sebastian Bach",
+        "Stephen Curry",
+        "Remy (Ratatouille)",
+        "Miguel Rivera"
+      ],
+      "primaryObject": "Glitter",
+      "backupObject": "Bottle Cap"
+    },
+    "VGKJCA": {
+      "title": "The Gremlin WhoopeeWallop",
+      "headline": "Field dossier: **The Gremlin WhoopeeWallop** (VGKJCA). Classification: **Viking Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Mailbox means you combine structure with wit, which makes your leadership easy to follow.",
+        "With Mailbox, you are imaginative, bold, and willing to bet on unconventional angles.",
+        "Mailbox uses Receive to hold incoming chaos until you're ready.",
+        "Mailbox uses Deliver to get the message to the right place.",
+        "With Mailbox, you are the wildcard who still gets things done when everyone else freezes."
+      ],
+      "pitfalls": [
+        "Mailbox shadow mode: you may trust instinct so much that details get skipped at bad moments.",
+        "When Mailbox pushes Deliver too hard, timing slips.",
+        "Mailbox shadow mode: you may escalate stakes faster than the team can absorb.",
+        "When Mailbox pushes Receive too hard, timing slips.",
+        "You can swing between strict standards and playful detours too quickly, which is the classic Mailbox overclock."
+      ],
+      "oneLiner": "Mailbox energy: high-voltage wildcard instincts. You like structure, but not at the cost of personality. You are creative, daring, and hard to predict.",
+      "celebs": [
+        "Pyotr Tchaikovsky",
+        "Duke Ellington",
+        "Kevin Durant",
+        "Marlin",
+        "Dory"
+      ],
+      "primaryObject": "Bottle Cap",
+      "backupObject": "Folder"
+    },
+    "VGPJCA": {
+      "title": "The Captain RiotRagnar",
+      "headline": "Field dossier: **The Captain RiotRagnar** (VGPJCA). Classification: **Viking Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "With Pizza Cutter, you improvise brilliantly and keep momentum in changing situations.",
+        "At your best, Pizza Cutter means you move fast, improvise faster, and turn chaos into momentum on command.",
+        "Pizza Cutter / Slice: Divide problems into clean pieces.",
+        "At your best, Pizza Cutter means you thrive where creative risk is part of the assignment.",
+        "Pizza Cutter / Round Up: Keep things moving in a tight circle."
+      ],
+      "pitfalls": [
+        "Pizza Cutter shadow Slice: this strength can get overused.",
+        "Pizza Cutter shadow mode: you can confuse motion for progress when plans stay too open-ended.",
+        "Full-send mode can ignore collateral details, which is the classic Pizza Cutter overclock.",
+        "You can stir the pot just to get energy back in the room, which is the classic Pizza Cutter overclock.",
+        "Pizza Cutter shadow Round Up: this strength can get overused."
+      ],
+      "oneLiner": "Pizza Cutter walks into the room and sets the tone: bold chaos-captain behavior. You pivot quickly when reality changes the script. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Louis Armstrong",
+        "Ella Fitzgerald",
+        "Kobe Bryant",
+        "Wall-E",
+        "EVE"
+      ],
+      "primaryObject": "String",
+      "backupObject": "Hat"
+    },
+    "WGKRSM": {
+      "title": "The Doctor Loophole",
+      "headline": "Field dossier: **The Doctor Loophole** (WGKRSM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "Spork / Improvised Etiquette: Function in any setting, no matter how weird.",
+        "At your best, Spork means you run on clever improvisation, especially when rules stop making sense.",
+        "With Spork, you turn fuzzy goals into repeatable, accountable systems.",
+        "At your best, Spork means you are calm, reliable, and consistent in the endgame.",
+        "Spork / Hybrid Mode: Solve problems with whatever tool works right now."
+      ],
+      "pitfalls": [
+        "Spork shadow Improvised Etiquette: this strength can get overused.",
+        "Spork shadow Hybrid Mode: this strength can get overused.",
+        "Spork shadow mode: you can get so mission-focused that softer cues are missed.",
+        "Pressure can make you clamp down and over-control the process, which is the classic Spork overclock.",
+        "You can optimize for clever over clear, which is the classic Spork overclock."
+      ],
+      "oneLiner": "Spork walks into the room and sets the tone: clever wildcard behavior. You prefer plans with clear accountability. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Charlie Parker",
+        "Bessie Smith",
+        "Lionel Messi",
+        "SpongeBob SquarePants",
+        "Patrick Star"
+      ],
+      "primaryObject": "Stapler",
+      "backupObject": "Mug"
+    },
+    "WGPRSM": {
+      "title": "The Professor SneakSpell",
+      "headline": "Field dossier: **The Professor SneakSpell** (WGPRSM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, calm-core*.",
+      "strengths": [
+        "Coin style: you are self-directed, focused, and hard to distract once committed.",
+        "You run on clever improvisation, especially when rules stop making sense, and Coin makes that visible.",
+        "Flip on Coin: Decide fast when logic can't.",
+        "Toll on Coin: Pay the price to move forward.",
+        "You are calm, reliable, and consistent in the endgame, and Coin makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Coin tends toward this: you can optimize for clever over clear.",
+        "Under strain, Coin can mean you may guard independence even when shared process would help.",
+        "Flip overdrive on Coin: nuance can get flattened.",
+        "Toll overdrive on Coin: nuance can get flattened.",
+        "When overloaded, Coin tends toward this: pressure can make you clamp down and over-control the process."
+      ],
+      "oneLiner": "Coin archetype unlocked: clever wildcard behavior. You do not need much supervision to deliver. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Hedy Lamarr",
+        "Grace Hopper",
+        "Cristiano Ronaldo",
+        "Aang",
+        "Zuko"
+      ],
+      "primaryObject": "Scissors",
+      "backupObject": "Timer"
+    },
+    "WGKJSM": {
+      "title": "The Doctor PunMechanic",
+      "headline": "Field dossier: **The Doctor PunMechanic** (WGKJSM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "You are calm, reliable, and consistent in the endgame, and Bottle Cap makes that visible.",
+        "Seal on Bottle Cap: Keep it contained. No leaks.",
+        "You run on clever improvisation, especially when rules stop making sense, and Bottle Cap makes that visible.",
+        "Bottle Cap style: you organize well without becoming rigid, and keep morale alive.",
+        "Pop on Bottle Cap: Open the moment with a satisfying click."
+      ],
+      "pitfalls": [
+        "When overloaded, Bottle Cap tends toward this: pressure can make you clamp down and over-control the process.",
+        "Under strain, Bottle Cap can mean you may break your own rules after overcompensating for structure.",
+        "When overloaded, Bottle Cap tends toward this: you can optimize for clever over clear.",
+        "Pop overdrive on Bottle Cap: nuance can get flattened.",
+        "Seal overdrive on Bottle Cap: nuance can get flattened."
+      ],
+      "oneLiner": "Bottle Cap archetype unlocked: clever wildcard behavior. You can organize the room and still keep it lively. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "John von Neumann",
+        "Claude Shannon",
+        "Kylian Mbappe",
+        "Toph Beifong",
+        "Korra"
+      ],
+      "primaryObject": "Tape",
+      "backupObject": "Kazoo"
+    },
+    "WGPJSM": {
+      "title": "The Professor TrickDiagram",
+      "headline": "Field dossier: **The Professor TrickDiagram** (WGPJSM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, calm-core*.",
+      "strengths": [
+        "Yo Yo / Drop: Create drama on purpose (for the trick).",
+        "At your best, Yo Yo means you are calm, reliable, and consistent in the endgame.",
+        "At your best, Yo Yo means you run on clever improvisation, especially when rules stop making sense.",
+        "Yo Yo / Loop: Return to the plan after wandering off.",
+        "With Yo Yo, you improvise brilliantly and keep momentum in changing situations."
+      ],
+      "pitfalls": [
+        "Pressure can make you clamp down and over-control the process, which is the classic Yo Yo overclock.",
+        "Yo Yo shadow Loop: this strength can get overused.",
+        "You can optimize for clever over clear, which is the classic Yo Yo overclock.",
+        "Yo Yo shadow mode: you can confuse motion for progress when plans stay too open-ended.",
+        "Yo Yo shadow Drop: this strength can get overused."
+      ],
+      "oneLiner": "You move like a Yo Yo: clever wildcard behavior. You pivot quickly when reality changes the script. You stay composed and reliable through the endgame.",
+      "celebs": [
+        "Vannevar Bush",
+        "Carl Sagan",
+        "Megan Rapinoe",
+        "Sokka",
+        "Ben Tennyson"
+      ],
+      "primaryObject": "Glue Stick",
+      "backupObject": "Pillow"
+    },
+    "WGKRCM": {
+      "title": "The Doctor SideQuest",
+      "headline": "Field dossier: **The Doctor SideQuest** (WGKRCM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "With Dice, you keep promises by building structure before pressure hits.",
+        "At your best, Dice means you innovate without losing grip on risk and consequence.",
+        "At your best, Dice means you think sideways and spot escape routes others do not even notice.",
+        "Dice / Roll: Let chance choose the path.",
+        "Dice / Crit: Occasionally pull off something ridiculous."
+      ],
+      "pitfalls": [
+        "You can treat boundaries as optional suggestions when novelty takes over, which is the classic Dice overclock.",
+        "Dice shadow mode: you may treat ambiguity like a bug instead of a useful signal.",
+        "Dice shadow Crit: this strength can get overused.",
+        "Dice shadow Roll: this strength can get overused.",
+        "You can keep refining options instead of committing to one path, which is the classic Dice overclock."
+      ],
+      "oneLiner": "Dice walks into the room and sets the tone: sideways thinking under pressure. You run best with structure and a mission. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Stephen Hawking",
+        "Richard Feynman",
+        "Simone Biles",
+        "Kim Possible",
+        "Danny Phantom"
+      ],
+      "primaryObject": "Screwdriver",
+      "backupObject": "Soap"
+    },
+    "WGPRCM": {
+      "title": "The Professor BackdoorPlan",
+      "headline": "Field dossier: **The Professor BackdoorPlan** (WGPRCM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, calm-core*.",
+      "strengths": [
+        "Water Balloon / Splash: Disrupt the room with one perfect throw.",
+        "Water Balloon / Burst: Release tension instantly (mess included).",
+        "At your best, Water Balloon means you think sideways and spot escape routes others do not even notice.",
+        "With Water Balloon, you can lead from the edge by staying independent and mission-sharp.",
+        "At your best, Water Balloon means you innovate without losing grip on risk and consequence."
+      ],
+      "pitfalls": [
+        "Water Balloon shadow mode: frustration can make you disengage instead of re-aligning expectations.",
+        "You can treat boundaries as optional suggestions when novelty takes over, which is the classic Water Balloon overclock.",
+        "Water Balloon shadow Burst: this strength can get overused.",
+        "You can keep refining options instead of committing to one path, which is the classic Water Balloon overclock.",
+        "Water Balloon shadow Splash: this strength can get overused."
+      ],
+      "oneLiner": "Water Balloon walks into the room and sets the tone: sideways thinking under pressure. You value autonomy and execute with focus. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Jonas Salk",
+        "Norman Borlaug",
+        "Naomi Osaka",
+        "Scooby-Doo",
+        "Velma Dinkley"
+      ],
+      "primaryObject": "Wrench",
+      "backupObject": "Stapler"
+    },
+    "WGKJCM": {
+      "title": "The Doctor QuirkTactician",
+      "headline": "Field dossier: **The Doctor QuirkTactician** (WGKJCM). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "With Battery, you think sideways and spot escape routes others do not even notice.",
+        "Battery uses Boost to temporary power spike when it matters.",
+        "Battery uses Charge to restore energy to yourself or others.",
+        "With Battery, you innovate without losing grip on risk and consequence.",
+        "At your best, Battery means you can hold standards and still keep the room playful."
+      ],
+      "pitfalls": [
+        "Jokes can arrive before clarity and muddy your point in conflict, which is the classic Battery overclock.",
+        "Battery shadow mode: you can keep refining options instead of committing to one path.",
+        "Battery shadow mode: you can treat boundaries as optional suggestions when novelty takes over.",
+        "When Battery pushes Charge too hard, timing slips.",
+        "When Battery pushes Boost too hard, timing slips."
+      ],
+      "oneLiner": "Battery is your mascot because sideways thinking under pressure. You keep standards high without killing the fun. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Wangari Maathai",
+        "Mother Teresa",
+        "Shohei Ohtani",
+        "Bugs Bunny",
+        "Daffy Duck"
+      ],
+      "primaryObject": "Light Bulb",
+      "backupObject": "Spork"
+    },
+    "WGPJCM": {
+      "title": "The Professor WinkWizard",
+      "headline": "Field dossier: **The Professor WinkWizard** (WGPJCM). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, calm-core*.",
+      "strengths": [
+        "Garden Gnome style: your unconventional choices often turn out exactly right.",
+        "You innovate without losing grip on risk and consequence, and Garden Gnome makes that visible.",
+        "You think sideways and spot escape routes others do not even notice, and Garden Gnome makes that visible.",
+        "Curse on Garden Gnome: Apply mild chaos to anyone who disrespects the lawn.",
+        "Watch on Garden Gnome: Observe silently and know everything."
+      ],
+      "pitfalls": [
+        "Curse overdrive on Garden Gnome: nuance can get flattened.",
+        "When overloaded, Garden Gnome tends toward this: you can treat boundaries as optional suggestions when novelty takes over.",
+        "Under strain, Garden Gnome can mean follow-through can slip behind improvisation in sprint mode.",
+        "Watch overdrive on Garden Gnome: nuance can get flattened.",
+        "When overloaded, Garden Gnome tends toward this: you can keep refining options instead of committing to one path."
+      ],
+      "oneLiner": "Your card reads Garden Gnome for a reason: sideways thinking under pressure. You improvise in motion and adapt fast. You experiment, then stabilize before things wobble.",
+      "celebs": [
+        "Oscar Romero",
+        "Lech Walesa",
+        "Travis Kelce",
+        "Rick Sanchez",
+        "Morty Smith"
+      ],
+      "primaryObject": "Remote",
+      "backupObject": "Teapot"
+    },
+    "WGKRSA": {
+      "title": "The Doctor LuckyScheme",
+      "headline": "Field dossier: **The Doctor LuckyScheme** (WGKRSA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "You keep promises by building structure before pressure hits, and Snow Globe makes that visible.",
+        "Snow Globe style: you think sideways and spot escape routes others do not even notice.",
+        "Snow Globe style: you keep standards high while still making brave calls.",
+        "With Snow Globe, Settle means you let the chaos fall into place.",
+        "With Snow Globe, Shake means you stir up the whole world for insight."
+      ],
+      "pitfalls": [
+        "When overloaded, Snow Globe tends toward this: you may treat ambiguity like a bug instead of a useful signal.",
+        "Snow Globe at 110% (Shake): helpful in crisis, rough in daily pacing.",
+        "Snow Globe at 110% (Settle): helpful in crisis, rough in daily pacing.",
+        "Under strain, Snow Globe can mean you can treat boundaries as optional suggestions when novelty takes over.",
+        "Under strain, Snow Globe can mean you can push disciplined intensity past what the moment can support."
+      ],
+      "oneLiner": "If this archetype were an everyday object, it would be Snow Globe: sideways thinking under pressure. You run best with structure and a mission. You keep control while still making big bets.",
+      "celebs": [
+        "Vaclav Havel",
+        "Mikhail Gorbachev",
+        "Patrick Mahomes",
+        "Doc Brown",
+        "Marty McFly"
+      ],
+      "primaryObject": "Batteries",
+      "backupObject": "Dice"
+    },
+    "WGPRSA": {
+      "title": "The Professor CoinCaper",
+      "headline": "Field dossier: **The Professor CoinCaper** (WGPRSA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, dojo-minded, dice-curious*.",
+      "strengths": [
+        "At your best, Chip Clip means you run on clever improvisation, especially when rules stop making sense.",
+        "Chip Clip / Clamp: Preserve what matters.",
+        "Chip Clip / Seal: Prevent freshness loss (and emotional leaks).",
+        "At your best, Chip Clip means you pair self-control with boldness when stakes are real.",
+        "With Chip Clip, you are self-directed, focused, and hard to distract once committed."
+      ],
+      "pitfalls": [
+        "You can optimize for clever over clear, which is the classic Chip Clip overclock.",
+        "Chip Clip shadow Clamp: this strength can get overused.",
+        "Chip Clip shadow mode: you may guard independence even when shared process would help.",
+        "Chip Clip shadow Seal: this strength can get overused.",
+        "Calculated risk can become unnecessary strain in shadow mode, which is the classic Chip Clip overclock."
+      ],
+      "oneLiner": "Chip Clip walks into the room and sets the tone: clever wildcard behavior. You do not need much supervision to deliver. You can be both precise and fearlessly decisive.",
+      "celebs": [
+        "Golda Meir",
+        "Indira Gandhi",
+        "Lewis Hamilton",
+        "Indiana Jones",
+        "Ellen Ripley"
+      ],
+      "primaryObject": "Paperclip",
+      "backupObject": "Timer"
+    },
+    "WGKJSA": {
+      "title": "The Doctor DiceTheorem",
+      "headline": "Field dossier: **The Doctor DiceTheorem** (WGKJSA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Bouncy Ball uses Rebound to turn failure into momentum.",
+        "With Bouncy Ball, you think sideways and spot escape routes others do not even notice.",
+        "At your best, Bouncy Ball means you can hold standards and still keep the room playful.",
+        "With Bouncy Ball, you keep standards high while still making brave calls.",
+        "Bouncy Ball uses Bounce to recover from setbacks immediately."
+      ],
+      "pitfalls": [
+        "Bouncy Ball shadow mode: you can treat boundaries as optional suggestions when novelty takes over.",
+        "When Bouncy Ball pushes Rebound too hard, timing slips.",
+        "Bouncy Ball shadow mode: you can push disciplined intensity past what the moment can support.",
+        "Jokes can arrive before clarity and muddy your point in conflict, which is the classic Bouncy Ball overclock.",
+        "When Bouncy Ball pushes Bounce too hard, timing slips."
+      ],
+      "oneLiner": "Bouncy Ball energy: sideways thinking under pressure. You keep standards high without killing the fun. You keep control while still making big bets.",
+      "celebs": [
+        "Benazir Bhutto",
+        "Corazon Aquino",
+        "Max Verstappen",
+        "Sarah Connor",
+        "Neo"
+      ],
+      "primaryObject": "Rubber Band",
+      "backupObject": "Kazoo"
+    },
+    "WGPJSA": {
+      "title": "The Professor ChaosProof",
+      "headline": "Field dossier: **The Professor ChaosProof** (WGPJSA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, dojo-minded, dice-curious*.",
+      "strengths": [
+        "Glow on Glow Stick: Bring light to the dark moment.",
+        "You run on clever improvisation, especially when rules stop making sense, and Glow Stick makes that visible.",
+        "Glow Stick style: you improvise brilliantly and keep momentum in changing situations.",
+        "You pair self-control with boldness when stakes are real, and Glow Stick makes that visible.",
+        "Snap on Glow Stick: Activate instantly when needed."
+      ],
+      "pitfalls": [
+        "Glow overdrive on Glow Stick: nuance can get flattened.",
+        "Snap overdrive on Glow Stick: nuance can get flattened.",
+        "When overloaded, Glow Stick tends toward this: you can optimize for clever over clear.",
+        "When overloaded, Glow Stick tends toward this: calculated risk can become unnecessary strain in shadow mode.",
+        "Under strain, Glow Stick can mean you can confuse motion for progress when plans stay too open-ended."
+      ],
+      "oneLiner": "Glow Stick archetype unlocked: clever wildcard behavior. You pivot quickly when reality changes the script. You can be both precise and fearlessly decisive.",
+      "celebs": [
+        "Margaret Thatcher",
+        "Deng Xiaoping",
+        "Roger Federer",
+        "Trinity",
+        "Morpheus"
+      ],
+      "primaryObject": "Ruler",
+      "backupObject": "Bottle Cap"
+    },
+    "WGKRCA": {
+      "title": "The Doctor HackMagician",
+      "headline": "Field dossier: **The Doctor HackMagician** (WGKRCA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "Root on Flower Pot: Support growth over time.",
+        "You turn raw momentum into surprising wins when timing is tight, and Flower Pot makes that visible.",
+        "Repot on Flower Pot: Change environments to thrive.",
+        "You think sideways and spot escape routes others do not even notice, and Flower Pot makes that visible.",
+        "Flower Pot style: you keep promises by building structure before pressure hits."
+      ],
+      "pitfalls": [
+        "Repot overdrive on Flower Pot: nuance can get flattened.",
+        "When overloaded, Flower Pot tends toward this: you can treat boundaries as optional suggestions when novelty takes over.",
+        "Under strain, Flower Pot can mean you may treat ambiguity like a bug instead of a useful signal.",
+        "Root overdrive on Flower Pot: nuance can get flattened.",
+        "When overloaded, Flower Pot tends toward this: you can gamble on upside before the floor is secure."
+      ],
+      "oneLiner": "Flower Pot archetype unlocked: sideways thinking under pressure. You run best with structure and a mission. You thrive where invention and risk overlap.",
+      "celebs": [
+        "Ho Chi Minh",
+        "Gamal Abdel Nasser",
+        "Rafael Nadal",
+        "The Bride (Kill Bill)",
+        "V (V for Vendetta)"
+      ],
+      "primaryObject": "Calculator",
+      "backupObject": "Paperclip"
+    },
+    "WGPRCA": {
+      "title": "The Professor RuleBender",
+      "headline": "Field dossier: **The Professor RuleBender** (WGPRCA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, mission-first, trail-minded, dice-curious*.",
+      "strengths": [
+        "With Windchime, you thrive where creative risk is part of the assignment.",
+        "Windchime uses Soothe to lower stress with ambient wisdom.",
+        "Windchime uses Chime to signal change before it arrives.",
+        "At your best, Windchime means you are self-directed, focused, and hard to distract once committed.",
+        "With Windchime, you run on clever improvisation, especially when rules stop making sense."
+      ],
+      "pitfalls": [
+        "When Windchime pushes Chime too hard, timing slips.",
+        "Windchime shadow mode: full-send mode can ignore collateral details.",
+        "You may guard independence even when shared process would help, which is the classic Windchime overclock.",
+        "When Windchime pushes Soothe too hard, timing slips.",
+        "Windchime shadow mode: you can optimize for clever over clear."
+      ],
+      "oneLiner": "Windchime is your mascot because clever wildcard behavior. You do not need much supervision to deliver. You turn unconventional bets into momentum.",
+      "celebs": [
+        "Anwar Sadat",
+        "Yitzhak Rabin",
+        "Novak Djokovic",
+        "Max Rockatansky",
+        "Eleven"
+      ],
+      "primaryObject": "Notebook",
+      "backupObject": "Stapler"
+    },
+    "WGKJCA": {
+      "title": "The Doctor NoodleTheory",
+      "headline": "Field dossier: **The Doctor NoodleTheory** (WGKJCA). Classification: **Wizard Goblin**. Operating mode: *clipboard-friendly, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "With Soap Bar, Cleanse means you reset the mood and scrub the nonsense.",
+        "Soap Bar style: you turn raw momentum into surprising wins when timing is tight.",
+        "With Soap Bar, Slip means you escape awkward situations with surprising agility.",
+        "Soap Bar style: you think sideways and spot escape routes others do not even notice.",
+        "You can hold standards and still keep the room playful, and Soap Bar makes that visible."
+      ],
+      "pitfalls": [
+        "When overloaded, Soap Bar tends toward this: jokes can arrive before clarity and muddy your point in conflict.",
+        "Soap Bar at 110% (Slip): helpful in crisis, rough in daily pacing.",
+        "Under strain, Soap Bar can mean you can gamble on upside before the floor is secure.",
+        "Soap Bar at 110% (Cleanse): helpful in crisis, rough in daily pacing.",
+        "Under strain, Soap Bar can mean you can treat boundaries as optional suggestions when novelty takes over."
+      ],
+      "oneLiner": "The Soap Bar profile in one line: sideways thinking under pressure. You keep standards high without killing the fun. You thrive where invention and risk overlap.",
+      "celebs": [
+        "Menachem Begin",
+        "Shimon Peres",
+        "Neymar Jr.",
+        "Dustin Henderson",
+        "Max Mayfield"
+      ],
+      "primaryObject": "Marker",
+      "backupObject": "Spork"
+    },
+    "WGPJCA": {
+      "title": "The Professor GoblinGenius",
+      "headline": "Field dossier: **The Professor GoblinGenius** (WGPJCA). Classification: **Wizard Goblin**. Operating mode: *escape-hatch ready, meme-aware, trail-minded, dice-curious*.",
+      "strengths": [
+        "Parking Meter style: you think sideways and spot escape routes others do not even notice.",
+        "With Parking Meter, Timebox means you put limits on nonsense.",
+        "Parking Meter style: you turn raw momentum into surprising wins when timing is tight.",
+        "With Parking Meter, Enforce means you demand payment for bad planning.",
+        "Your unconventional choices often turn out exactly right, and Parking Meter makes that visible."
+      ],
+      "pitfalls": [
+        "Parking Meter at 110% (Timebox): helpful in crisis, rough in daily pacing.",
+        "Under strain, Parking Meter can mean you can treat boundaries as optional suggestions when novelty takes over.",
+        "Under strain, Parking Meter can mean you can gamble on upside before the floor is secure.",
+        "Parking Meter at 110% (Enforce): helpful in crisis, rough in daily pacing.",
+        "When overloaded, Parking Meter tends toward this: follow-through can slip behind improvisation in sprint mode."
+      ],
+      "oneLiner": "The Parking Meter profile in one line: sideways thinking under pressure. You improvise in motion and adapt fast. You thrive where invention and risk overlap.",
+      "celebs": [
+        "George Washington",
+        "Benjamin Franklin",
+        "David Beckham",
+        "Princess Mononoke",
+        "Edward Elric"
+      ],
+      "primaryObject": "Key",
+      "backupObject": "Coin"
     }
   }
-  
+}

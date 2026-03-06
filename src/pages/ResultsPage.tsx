@@ -51,10 +51,6 @@ function getFirstSentence(text: string): string {
   return (match?.[0] ?? trimmed).trim();
 }
 
-function toMatrixLabel(value: string): string {
-  return value.replace(/compass/gi, "Matrix");
-}
-
 function getCardThemeClass(subtype: string): string {
   const value = subtype.toLowerCase();
 
@@ -97,6 +93,13 @@ function getObjectImageSrc(objectName: string): string {
       .replace(/^_+|_+$/g, "")}.png`;
 
   return `${import.meta.env.BASE_URL}images/${fileName}`;
+}
+
+function getCroppedObjectImageSrc(objectName: string): string {
+  const baseSrc = getObjectImageSrc(objectName);
+  const fileName = baseSrc.split("/").pop() ?? "";
+  const stem = fileName.replace(/\.png$/i, "");
+  return `${import.meta.env.BASE_URL}images/cropped_mascots/${stem}_cropped_processed_by_imagy.png`;
 }
 
 function getObjectClassLabel(subtype: string): string {
@@ -271,7 +274,7 @@ function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
         typeCode,
         primaryObject,
         rarity: getRarityTier(typeCode),
-        imageSrc: primaryObject === "Unknown Object" ? null : getObjectImageSrc(primaryObject)
+        imageSrc: primaryObject === "Unknown Object" ? null : getCroppedObjectImageSrc(primaryObject)
       });
     }
   }
@@ -281,11 +284,11 @@ function buildCatalogEntries(data: LoadedAppData): CardCatalogEntry[] {
 
 function getCardStatLabel(compassId: string, fallbackName: string): string {
   const byId: Record<string, string> = {
-    power: "Power Compass",
-    order: "Order Compass",
-    discipline: "Discipline Compass",
-    social: "Social Style Compass",
-    risk: "Risk Compass"
+    power: "Power Scan",
+    order: "Order Alignment",
+    discipline: "Discipline Scan",
+    social: "Social Signal",
+    risk: "Risk Calibration"
   };
 
   return byId[compassId] ?? fallbackName;
@@ -320,14 +323,26 @@ function getObjectAbilitiesForCard(
 
 function getMatrixSummaryLabel(compassId: string): string {
   const labelById: Record<string, string> = {
-    power: "Power Style",
-    order: "Order Style",
-    discipline: "Discipline Style",
-    social: "Social Style",
-    risk: "Risk Style"
+    power: "Power Scan",
+    order: "Order Alignment",
+    discipline: "Discipline Scan",
+    social: "Social Signal",
+    risk: "Risk Calibration"
   };
 
   return labelById[compassId] ?? "Style";
+}
+
+function getRadarLabel(compassId: string): string {
+  const labelById: Record<string, string> = {
+    power: "Power",
+    order: "Order",
+    discipline: "Discipline",
+    social: "Social",
+    risk: "Risk"
+  };
+
+  return labelById[compassId] ?? "Scan";
 }
 
 function getAxisLeanStrength(score: number): "slightly" | "moderately" | "strongly" {
@@ -393,57 +408,30 @@ function getPersonalityShape(
   titleIndex: number,
   breakdown: GeneratedResult["compassBreakdown"]
 ): { name: string; traits: string[] } {
-  const confidenceById: Record<string, number> = Object.fromEntries(
-    breakdown.map((item) => [item.compass.id, item.confidence])
-  );
-
-  const power = confidenceById.power ?? 0;
-  const order = confidenceById.order ?? 0;
-  const discipline = confidenceById.discipline ?? 0;
-  const social = confidenceById.social ?? 0;
-  const risk = confidenceById.risk ?? 0;
-
   const familyPrefix = SHAPE_FAMILY_PREFIX[typeFamilyKey] ?? "Nova";
   const slotName = SHAPE_SLOT_NAMES[((titleIndex % 16) + 16) % 16];
   const computedName = `${familyPrefix} ${slotName}`;
 
-  if (power >= 65 && risk >= 45) {
-    return {
-      name: computedName,
-      traits: ["Strong action energy", "Learns by trying and adapting", "Comfortable with uncertainty"]
-    };
-  }
-  if (order >= 65 && discipline >= 65) {
-    return {
-      name: computedName,
-      traits: ["Builds structure quickly", "Reliable under pressure", "Prefers strategy over improvisation"]
-    };
-  }
+  const sortedByConfidence = [...breakdown].sort((left, right) => right.confidence - left.confidence);
+  const strongest = sortedByConfidence[0];
+  const support = sortedByConfidence[1] ?? strongest;
+  const flexible = sortedByConfidence[sortedByConfidence.length - 1] ?? strongest;
 
-  if (social >= 65 && order >= 55) {
-    return {
-      name: computedName,
-      traits: ["Strong social calibration", "Balances systems and people", "Keeps groups moving together"]
-    };
-  }
+  const strongestMatrix = strongest ? getMatrixSummaryLabel(strongest.compass.id) : "Primary Scan";
+  const supportMatrix = support ? getMatrixSummaryLabel(support.compass.id) : "Support Scan";
+  const flexibleMatrix = flexible ? getMatrixSummaryLabel(flexible.compass.id) : "Adaptive Scan";
 
-  if (risk >= 65 && power >= 50) {
-    return {
-      name: computedName,
-      traits: ["Fast decisions in uncertain moments", "Thrives in momentum", "Turns friction into opportunity"]
-    };
-  }
-
-  if (discipline >= 65 && risk <= 40) {
-    return {
-      name: computedName,
-      traits: ["Steady execution", "High consistency", "Protects progress over spectacle"]
-    };
-  }
+  const strongestLabel = strongest?.quadrant.label ?? "Adaptive";
+  const supportLabel = support?.quadrant.label ?? "Balanced";
+  const flexibleLabel = flexible?.quadrant.label ?? "Flexible";
 
   return {
     name: computedName,
-    traits: ["Balanced across multiple styles", "Adaptable in mixed situations", "Finds practical routes forward"]
+    traits: [
+      `Dominant ${strongestMatrix}: ${strongestLabel}.`,
+      `Support signal from ${supportMatrix}: ${supportLabel}.`,
+      `Most adaptable zone is ${flexibleMatrix} with ${flexibleLabel} tendencies.`
+    ]
   };
 }
 
@@ -452,6 +440,10 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const { axisScores, isComplete, restartQuiz, questions, selectedQuizLength } = useQuiz();
   const [actionStatus, setActionStatus] = useState<string | null>(null);
   const [objectImageFailed, setObjectImageFailed] = useState(false);
+  const [cardImageSrc, setCardImageSrc] = useState<string>("");
+  const [isRevealing, setIsRevealing] = useState(true);
+  const [revealProgress, setRevealProgress] = useState(0);
+  const [revealStatus, setRevealStatus] = useState("Collecting personality data...");
   const shareCardRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -488,15 +480,49 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   }, [axisScores, data, isComplete, questions]);
 
   useEffect(() => {
-    setObjectImageFailed(false);
-  }, [resultState.result?.householdArchetype?.primaryObject]);
+    if (!isComplete || !resultState.result) {
+      setIsRevealing(true);
+      setRevealProgress(0);
+      setRevealStatus("Collecting personality data...");
+      return;
+    }
+
+    setIsRevealing(true);
+    setRevealProgress(0);
+    setRevealStatus("Collecting personality data...");
+
+    const totalDurationMs = 1200 + Math.floor(Math.random() * 1800);
+    const startedAt = Date.now();
+    const timer = window.setInterval(() => {
+      const elapsed = Date.now() - startedAt;
+      const progress = Math.min(100, Math.round((elapsed / totalDurationMs) * 100));
+      setRevealProgress(progress);
+
+      if (progress < 34) {
+        setRevealStatus("Collecting personality data...");
+      } else if (progress < 72) {
+        setRevealStatus("Behavior analysis in progress...");
+      } else {
+        setRevealStatus("Finalizing object alignment...");
+      }
+
+      if (progress >= 100) {
+        window.clearInterval(timer);
+        setIsRevealing(false);
+      }
+    }, 55);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [isComplete, resultState.result?.typeCode]);
 
   if (!selectedQuizLength) {
     return (
       <main className="screen-shell">
         <section className="card">
-          <h1>Pick Your Accuracy Mode First</h1>
-          <p>Choose Kinda, Mostly, or Extremely Accurate from the opening screen.</p>
+          <h1>Game Session Not Started</h1>
+          <p>Go back to the intro screen and press Begin first.</p>
           <div className="button-row">
             <button className="primary-button" type="button" onClick={() => navigate("/")}>
               Back to Home Base
@@ -576,6 +602,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   const rarityTier = getRarityTier(result.typeCode);
   const rarityClass = getRarityClass(rarityTier);
   const primaryObjectImageSrc = getObjectImageSrc(primaryObject);
+  const primaryObjectCroppedImageSrc = getCroppedObjectImageSrc(primaryObject);
   const familyRankByKey: Record<string, number> = { VH: 0, WH: 1, VG: 2, WG: 3 };
   const familyRank = familyRankByKey[result.typeFamilyKey] ?? 0;
   const typeOrdinal = familyRank * 16 + result.titleIndex + 1;
@@ -598,13 +625,13 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
     const leanStrength = getAxisLeanStrength(item.x);
     return {
       id: item.compass.id,
-      title: toMatrixLabel(item.compass.name),
+      title: getMatrixSummaryLabel(item.compass.id),
       axisPair: `${formatAxisLabel(xAxis.negLabel)} \u2194 ${formatAxisLabel(xAxis.posLabel)}`,
       leanLine: `You lean ${leanStrength} ${leanLabel}`
     };
   });
   const matrixIdentityLead = powerBreakdown
-    ? `You are a ${powerBreakdown.quadrant.label} in power style \u2014 you lead with direct action and fast adaptation.`
+    ? `You are a ${powerBreakdown.quadrant.label} in power scan mode \u2014 you lead with direct action and fast adaptation.`
     : "Your power style is still loading.";
   const secondaryLabels = [
     orderBreakdown?.quadrant.label,
@@ -625,10 +652,21 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
   );
   const radarPoints = result.compassBreakdown.map((item) => ({
     id: item.compass.id,
-    label: getMatrixSummaryLabel(item.compass.id).replace(" Style", ""),
+    label: getRadarLabel(item.compass.id),
     value: item.confidence
   }));
   const allCardEntries = useMemo(() => buildCatalogEntries(data), [data]);
+  const discoveryHeadline =
+    result.titleIndex % 2 === 0 ? "Object Alignment Complete." : "Alignment detected.";
+  const discoveryDetail =
+    result.titleIndex % 3 === 0
+      ? `A wild ${primaryObject} has appeared.`
+      : `Object identified: ${primaryObject}.`;
+
+  useEffect(() => {
+    setObjectImageFailed(false);
+    setCardImageSrc(primaryObjectCroppedImageSrc);
+  }, [primaryObjectCroppedImageSrc, primaryObject]);
 
   const handleDownloadCard = (): void => {
     if (!shareCardRef.current) {
@@ -678,8 +716,14 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         <section className="results-reveal">
           <div className="results-head">
             <div>
-              <p className="eyebrow">RESULTS_VIEWER.EXE</p>
+              <p className="eyebrow">POKEDEX MODE</p>
               <h2 className="results-heading">Your Results</h2>
+              <div className="result-meta-row">
+                <span className="code-pill">{primaryObject}</span>
+                <span className="code-pill">{result.typeCode}</span>
+                <span className="subtype-pill">{powerSubtype}</span>
+              </div>
+              <p className="results-hook">{revealHook || primaryFlavorLine}</p>
             </div>
             <button
               className="secondary-button"
@@ -694,131 +738,158 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
           </div>
         </section>
 
-        <section
-          ref={shareCardRef}
-          className={`shareable-card trading-card ${cardThemeClass} ${rarityClass}`}
-          aria-label="Shareable results card"
-        >
-          <div className="shareable-card-content">
-            <header className="trading-card-top">
-              <div className="card-head-grid">
-                <p className="card-object-name">{primaryObject}</p>
-                <p className="card-personality-class">{powerSubtype}</p>
-                <p className="card-type-line">
-                  Type: <strong>{result.typeCode}</strong>
-                </p>
-                <p className="card-object-class-line">
-                  Object Class: <strong>{objectClass}</strong>
-                </p>
-              </div>
-            </header>
+        {isRevealing ? (
+          <section className="alignment-scanner" aria-live="polite">
+            <p className="alignment-scanner-head">Scanning object alignment...</p>
+            <p className="alignment-scanner-status">{revealStatus}</p>
+            <div className="alignment-progress-track" role="img" aria-label={`${revealProgress}% complete`}>
+              <div className="alignment-progress-fill" style={{ width: `${revealProgress}%` }} />
+            </div>
+            <p className="alignment-progress-meta">{revealProgress}%</p>
+          </section>
+        ) : null}
 
-            <section className="trading-card-section trading-art-panel">
-              <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
-                <p className="card-rarity-badge">
-                  Rarity: <span className="rarity-star">★</span> {rarityTier}
-                </p>
-                <div className="art-vignette" aria-hidden="true" />
-                {!objectImageFailed ? (
-                  <img
-                    className="object-asset"
-                    src={primaryObjectImageSrc}
-                    alt={`${primaryObject} illustration`}
-                    loading="eager"
-                    onError={() => setObjectImageFailed(true)}
-                  />
-                ) : null}
-                {objectImageFailed ? <div className="object-glyph">{getObjectGlyph(primaryObject)}</div> : null}
-              </div>
-            </section>
+        {!isRevealing ? (
+          <>
+        <p className="alignment-detected">{discoveryHeadline}</p>
+        <p className="alignment-identified">{discoveryDetail}</p>
+        <p className="alignment-logged">Your object alignment has been logged.</p>
 
-            <section className="trading-card-section trading-flavor-section">
-              <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
-            </section>
+        <section className="pokedex-viewer" aria-label="Registered personality card viewer">
+          <p className="eyebrow">Registered Personality Card</p>
+          <section
+            ref={shareCardRef}
+            className={`shareable-card trading-card card-enter ${cardThemeClass} ${rarityClass}`}
+            aria-label="Shareable results card"
+          >
+            <div className="shareable-card-content">
+              <header className="trading-card-top">
+                <div className="card-head-grid">
+                  <p className="card-object-name">{primaryObject}</p>
+                  <p className="card-personality-class">{powerSubtype}</p>
+                  <p className="card-type-line">
+                    Type: <strong>{result.typeCode}</strong>
+                  </p>
+                  <p className="card-object-class-line">
+                    Object Class: <strong>{objectClass}</strong>
+                  </p>
+                </div>
+              </header>
 
-            <section className="trading-card-section">
-              <div className="trading-traits-grid">
-                <article className="trait-card">
-                  <h3>Weaknesses</h3>
-                  <ul>
-                    {cardWeaknesses.map((watchout) => (
-                      <li key={watchout}>{watchout}</li>
+              <section className="trading-card-section trading-art-panel">
+                <div className="trading-art-frame" aria-label={`Primary object ${primaryObject}`}>
+                  <p className="card-rarity-badge">
+                    Rarity: <span className="rarity-star">★</span> {rarityTier}
+                  </p>
+                  <div className="art-vignette" aria-hidden="true" />
+                  {!objectImageFailed && cardImageSrc ? (
+                    <img
+                      className="object-asset"
+                      src={cardImageSrc}
+                      alt={`${primaryObject} illustration`}
+                      loading="eager"
+                      onError={() => {
+                        if (cardImageSrc !== primaryObjectImageSrc) {
+                          setCardImageSrc(primaryObjectImageSrc);
+                          return;
+                        }
+                        setObjectImageFailed(true);
+                      }}
+                    />
+                  ) : null}
+                  {objectImageFailed ? <div className="object-glyph">{getObjectGlyph(primaryObject)}</div> : null}
+                </div>
+              </section>
+
+              <section className="trading-card-section trading-flavor-section">
+                <p className="trading-flavor">"{revealHook || primaryFlavorLine}"</p>
+              </section>
+
+              <section className="trading-card-section">
+                <div className="trading-traits-grid">
+                  <article className="trait-card">
+                    <h3>Weaknesses</h3>
+                    <ul>
+                      {cardWeaknesses.map((watchout) => (
+                        <li key={watchout}>{watchout}</li>
+                      ))}
+                    </ul>
+                  </article>
+                  <article className="trait-card">
+                    <h3>Strengths</h3>
+                    <ul>
+                      {cardStrengths.map((strength) => (
+                        <li key={strength}>{strength}</li>
+                      ))}
+                    </ul>
+                  </article>
+                </div>
+              </section>
+
+              <section className="trading-card-section">
+                <h3>Abilities</h3>
+                {result.householdArchetype ? (
+                  <ul className="abilities-bullet-list">
+                    {cardAbilities.map((ability) => (
+                      <li key={`${primaryObject}-${ability.name}`}>
+                        <strong>{ability.name}</strong> — {ability.description}
+                      </li>
                     ))}
                   </ul>
-                </article>
-                <article className="trait-card">
-                  <h3>Strengths</h3>
-                  <ul>
-                    {cardStrengths.map((strength) => (
-                      <li key={strength}>{strength}</li>
-                    ))}
-                  </ul>
-                </article>
-              </div>
-            </section>
+                ) : (
+                  <p className="muted">
+                    {result.householdArchetypeMessage ??
+                      "Object power data is unavailable for this run, but the main diagnostics still work."}
+                  </p>
+                )}
+              </section>
 
-            <section className="trading-card-section">
-              <h3>Abilities</h3>
-              {result.householdArchetype ? (
-                <ul className="abilities-bullet-list">
-                  {cardAbilities.map((ability) => (
-                    <li key={`${primaryObject}-${ability.name}`}>
-                      <strong>{ability.name}</strong> — {ability.description}
+              <section className="trading-card-section">
+                <h3>Stats</h3>
+                <ul className="card-stats-list">
+                  {result.compassBreakdown.map((item) => (
+                    <li key={item.compass.id} className="card-stat-row">
+                      <span className="card-stat-label">{getCardStatLabel(item.compass.id, item.compass.name)}</span>
+                      <span className="card-stat-segments" role="img" aria-label={`${item.confidence}%`}>
+                        {Array.from({ length: 10 }, (_, index) => (
+                          <span
+                            key={`${item.compass.id}-seg-${index}`}
+                            className={index < Math.round(item.confidence / 10) ? "filled" : ""}
+                          />
+                        ))}
+                      </span>
                     </li>
                   ))}
                 </ul>
-              ) : (
-                <p className="muted">
-                  {result.householdArchetypeMessage ??
-                    "Object power data is unavailable for this run, but the main diagnostics still work."}
-                </p>
-              )}
-            </section>
+              </section>
 
-            <section className="trading-card-section">
-              <h3>Stats</h3>
-              <ul className="card-stats-list">
-                {result.compassBreakdown.map((item) => (
-                  <li key={item.compass.id} className="card-stat-row">
-                    <span className="card-stat-label">{getCardStatLabel(item.compass.id, item.compass.name)}</span>
-                    <span className="card-stat-segments" role="img" aria-label={`${item.confidence}%`}>
-                      {Array.from({ length: 10 }, (_, index) => (
-                        <span
-                          key={`${item.compass.id}-seg-${index}`}
-                          className={index < Math.round(item.confidence / 10) ? "filled" : ""}
-                        />
-                      ))}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </section>
+              <footer className="card-footer-meta">
+                <p className="comparisons-line">{comparisonsLine}</p>
+                <p className="card-id-line">{cardSerial}</p>
+              </footer>
+            </div>
+          </section>
 
-            <footer className="card-footer-meta">
-              <p className="comparisons-line">{comparisonsLine}</p>
-              <p className="card-id-line">{cardSerial}</p>
-            </footer>
+          <div className="button-row results-actions">
+            <button className="primary-button" type="button" onClick={handleDownloadCard}>
+              Save Card
+            </button>
+            <button className="secondary-button" type="button" onClick={() => void handleShare()}>
+              Share Entry
+            </button>
           </div>
         </section>
 
-        <div className="button-row results-actions">
-          <button className="primary-button" type="button" onClick={handleDownloadCard}>
-            Download Card
-          </button>
-          <button className="secondary-button" type="button" onClick={() => void handleShare()}>
-            Share With Friends
-          </button>
-        </div>
         {actionStatus ? <p className="muted action-status">{actionStatus}</p> : null}
 
         <details className="diagnostics-details">
           <summary>
-            <span>Full Personality Diagnostics</span>
+            <span>Object Database Entry</span>
             <span className="diagnostics-summary-hint" aria-hidden="true" />
           </summary>
           <section className="diagnostics-section">
             <div className="diagnostics-content">
-              <h3>Personality Matrix Summary</h3>
+              <h3>Entry Summary</h3>
               <div className="matrix-summary-panel">
                 {matrixSummaryRows.map((row) => (
                   <p key={row.id}>
@@ -827,14 +898,14 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 ))}
               </div>
 
-              <h3>Your Matrix Identity</h3>
+              <h3>Matrix Identity</h3>
               <div className="matrix-identity-panel">
                 <p className="matrix-identity-lead">{matrixIdentityLead}</p>
                 <p className="matrix-identity-secondary">{matrixIdentitySecondary}</p>
                 <p className="matrix-identity-close">{matrixIdentityClose}</p>
               </div>
 
-              <h3>Personality Matrix Breakdown</h3>
+              <h3>Behavioral Tendencies</h3>
               <div className="matrix-breakdown-list">
                 {matrixBreakdownRows.map((row) => (
                   <article className="matrix-breakdown-row" key={row.id}>
@@ -845,7 +916,7 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                 ))}
               </div>
 
-              <h3>Personality Shape</h3>
+              <h3>Matrix Readout</h3>
               <div className="personality-shape-panel">
                 <p className="personality-shape-name">
                   Your Personality Shape: <strong>{personalityShape.name}</strong>
@@ -859,12 +930,12 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
               </div>
 
               <details className="diagnostic-charts-toggle">
-                <summary>View Matrix Charts</summary>
+                <summary>View Advanced Scan Data</summary>
                 <div className="chart-grid-layout diagnostics-chart-grid">
                   {result.compassBreakdown.map((item) => (
                     <CompassMiniChart
                       key={item.compass.id}
-                      title={toMatrixLabel(item.compass.name)}
+                      title={getMatrixSummaryLabel(item.compass.id)}
                       quadrantLabel={item.quadrant.label}
                       x={item.x}
                       y={item.y}
@@ -880,9 +951,9 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
         </details>
 
         <details className="all-cards-browser">
-          <summary>View All 64 Cards</summary>
+          <summary>Open Full Card Dex (64)</summary>
           <p className="muted all-cards-intro">
-            Browse every possible result card. Your current one is highlighted.
+            Browse every possible registered entry. Your current result is highlighted.
           </p>
           <div className="all-cards-grid">
             {allCardEntries.map((entry) => (
@@ -900,6 +971,13 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
                       src={entry.imageSrc}
                       alt={`${entry.primaryObject} illustration`}
                       loading="lazy"
+                      onError={(event) => {
+                        const fallbackSrc = getObjectImageSrc(entry.primaryObject);
+                        if (event.currentTarget.src.endsWith(fallbackSrc)) {
+                          return;
+                        }
+                        event.currentTarget.src = fallbackSrc;
+                      }}
                     />
                   ) : (
                     <span>{getObjectGlyph(entry.primaryObject)}</span>
@@ -913,6 +991,8 @@ export function ResultsPage({ data }: ResultsPageProps): JSX.Element {
             ))}
           </div>
         </details>
+          </>
+        ) : null}
       </section>
     </main>
   );

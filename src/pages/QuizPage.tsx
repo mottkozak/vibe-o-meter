@@ -60,6 +60,16 @@ function toMatrixLabel(value: string): string {
   return value.replace(/compass/gi, "Matrix");
 }
 
+function getScanStatusLine(current: number, total: number, seed: number): string {
+  const options = [
+    `Scanning personality matrix... (${current} / ${total})`,
+    `Behavior analysis in progress... (${current} / ${total})`,
+    `Collecting personality data... (${current} / ${total})`,
+    `Matrix calibration: Question ${current} of ${total}`
+  ] as const;
+  return options[seed % options.length];
+}
+
 function buildSubtypeExplanation(writeup: QuadrantWriteup | null): string {
   if (!writeup) {
     return "This subtype shows where your answers are clustering on this matrix right now.";
@@ -99,8 +109,8 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     return (
       <main className="screen-shell">
         <section className="card">
-          <h1>No Accuracy Mode Selected</h1>
-          <p>Pick Kinda, Mostly, or Extremely Accurate on the home screen first.</p>
+          <h1>Game Session Not Started</h1>
+          <p>Go back to the intro screen and press Begin first.</p>
           <button className="primary-button" type="button" onClick={() => navigate("/")}>
             Back to Home Base
           </button>
@@ -178,6 +188,15 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
     [sectionWriteup]
   );
   const activeMatrixName = toMatrixLabel(activeCompass.name);
+  const scanStatusLine = getScanStatusLine(
+    currentQuestionIndex + 1,
+    totalQuestions,
+    currentQuestionIndex
+  );
+  const questionInstruction =
+    currentQuestionIndex % 2 === 0
+      ? "Choose the response that feels most natural."
+      : "Select the option that best matches your instinct.";
 
   useEffect(() => {
     setReviewCompassId(null);
@@ -188,9 +207,9 @@ export function QuizPage({ data }: QuizPageProps): JSX.Element {
       <section className="card quiz-card">
         <div className="quiz-head">
           <div>
-            <p className="eyebrow">
-              {activeMatrixName} — {sectionQuestionIndex + 1} of {sectionQuestions.length}
-            </p>
+            <p className="eyebrow">{scanStatusLine}</p>
+            <p className="subtitle quiz-matrix-label">{activeMatrixName}</p>
+            <p className="subtitle quiz-instruction">{questionInstruction}</p>
             <h1>{activeQuestion.prompt}</h1>
           </div>
           <button
